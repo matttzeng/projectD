@@ -1,2 +1,2 @@
 # projectD
-a little game for fun
+a little game for fun!
