@@ -6,7 +6,7 @@ public class PlayerStats : MonoBehaviour
 {
     public static int Money;
     public static int Exp;
-    public static int PlayHP=5;
+    public static int PlayHP=100;
     public int startMoney = 400;
     public static int Score =0;
     public static int FinalScore;
