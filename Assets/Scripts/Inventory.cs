@@ -1,3 +1,5 @@
+using ProjectD;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -48,6 +50,12 @@ public class Inventory : MonoBehaviour
        
 
     }
+    /*
+    internal void Remove(Item item)
+    {
+        throw new NotImplementedException();
+    }
+    */
     public void Remove(Item item)
     {
         items.Remove(item);

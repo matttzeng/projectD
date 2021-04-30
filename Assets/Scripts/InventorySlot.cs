@@ -1,4 +1,5 @@
 
+using ProjectD;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,6 +30,7 @@ public class InventorySlot : MonoBehaviour
     {
         Debug.Log("remove?");
         Inventory.instance.Remove(item);
+      
         
        
     }
