@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 5326556855928064698}
   - component: {fileID: 7235196135475726164}
   - component: {fileID: 6741857621777871002}
+  - component: {fileID: 3147810494580387486}
+  - component: {fileID: 5673147841175939805}
   m_Layer: 0
   m_Name: enemy01
   m_TagString: enemy
@@ -182,6 +184,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Events:
   - Entries:
-    - Weight: 10
+    - Weight: 100
       Item: {fileID: 11400000, guid: 8385fe4f7d1fc0f4e957cc2e74e4c719, type: 2}
   SpawnedClip: {fileID: 0}
+--- !u!114 &3147810494580387486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5987165987702600572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c45ba4cd943b6c745bb32ca76b631cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterName: 
+  Stats:
+    baseStats:
+      health: 2
+      strength: 0
+      defense: 0
+      agility: 0
+      elementalProtection: 00000000000000000000000000000000
+      elementalBoosts: 00000000000000000000000000000000
+  StartingWeapon: {fileID: 0}
+  HitClip: []
+--- !u!114 &5673147841175939805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5987165987702600572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6004fb6b8f18af479c34afddb857e0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedChild: {fileID: 0}
+  BreakingAudioClip: {fileID: 0}
