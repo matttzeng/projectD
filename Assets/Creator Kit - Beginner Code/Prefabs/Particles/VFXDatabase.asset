@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef4f1c762df01d4498f0ccb4b0521be, type: 3}
+  m_Name: VFXDatabase
+  m_EditorClassIdentifier: 
+  Entries:
+  - Name: Hit
+    Prefab: {fileID: 5035945247045292663, guid: 066850a0f599f4a4b9c3b3725aff2b81, type: 3}
+    PoolSize: 32
+  - Name: FireEffect
+    Prefab: {fileID: 6530873684951725854, guid: 4bae35886e50cdb4ea86c6732f729e10, type: 3}
+    PoolSize: 6
+  - Name: StepPuff
+    Prefab: {fileID: 5473230745075671558, guid: b88ed6cb119004249aec3c1fec061dd4, type: 3}
+    PoolSize: 32
+  - Name: Healing
+    Prefab: {fileID: 2630727110794422432, guid: 2d3274be2c23aae4caa26cd176e92bd5, type: 3}
+    PoolSize: 6
+  - Name: Negative
+    Prefab: {fileID: 5818628162665171348, guid: b82fd326cca8bc843a1bb96a1c93eb1c, type: 3}
+    PoolSize: 6
+  - Name: Stronger
+    Prefab: {fileID: 2630727110794422432, guid: 041fdbc1284912645ad5acf40458ec61, type: 3}
+    PoolSize: 6
