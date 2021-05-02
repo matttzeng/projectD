@@ -13,6 +13,18 @@ namespace ProjectD
     /// </summary>
     public class CharacterData : HighlightableObject
     {
+         [Header("Attributes")]
+
+    public float shootRange = 15f;
+    public float shootingRate = 1f;
+    public float shootCountdown = 0f;
+
+    public GameObject bulletPrefab;
+    public Transform shootPoint;
+
+    private Transform target;
+
+
         public string CharacterName;
 
         public StatSystem Stats;
@@ -68,7 +80,17 @@ namespace ProjectD
 
             if (m_AttackCoolDown > 0.0f)
                 m_AttackCoolDown -= Time.deltaTime;
+
+
+          
+
         }
+
+
+     
+
+        
+
 
         /// <summary>
         /// Will check if that CharacterData can reach the given target with its currently equipped weapon. Will rarely
@@ -78,6 +100,7 @@ namespace ProjectD
         /// <returns>True if you can reach the target, False otherwise</returns>
         public bool CanAttackReach(CharacterData target)
         {
+
             return Equipment.Weapon.CanHit(this, target);
         }
 
@@ -155,5 +178,41 @@ namespace ProjectD
             
             OnDamage?.Invoke();
         }
+
+      
+
+        void updateTarget()
+        {
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
+            float shortestDistance = Mathf.Infinity;
+            GameObject nearestEnemy = null;
+
+            foreach (GameObject enemy in enemies)
+            {
+                float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+                if (distanceToEnemy <= shortestDistance)
+                {
+                    shortestDistance = distanceToEnemy;
+                    nearestEnemy = enemy;
+                }
+
+                if (nearestEnemy != null && shortestDistance <= shootRange)
+                {
+                    target = nearestEnemy.transform;
+                }
+                else
+                {
+                    target = null;
+                }
+
+
+            }
+
+
+
+        }
     }
+
+
+
 }

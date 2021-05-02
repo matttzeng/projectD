@@ -17,6 +17,7 @@ namespace ProjectD
     /// </summary>
     public class Weapon : EquipmentItem
     {
+        public GameObject bulletPrefab;
         /// <summary>
         /// This class will store damage done to a target CharacterData by a source CharacterData. The function to add
         /// damage will take care of applied all the strength/boost of the source and remove defense/resistance of the
@@ -173,6 +174,17 @@ namespace ProjectD
 
             return false;
         }
+
+        public void shoot(CharacterData target,CharacterData attacker)
+        {
+
+            GameObject bulletGo = (GameObject)Instantiate(bulletPrefab,attacker.transform.position , attacker.transform.rotation);
+            bullet bullet = bulletGo.GetComponent<bullet>();
+
+            if (bullet != null)
+                bullet.Seek(target.transform);
+        }
+        
 
         public override string GetDescription()
         {
