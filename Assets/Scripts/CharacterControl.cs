@@ -208,6 +208,7 @@ namespace ProjectDInternal
                 }
             }
 
+            MoveCheck(screenRay);
 
             if (!EventSystem.current.IsPointerOverGameObject() && m_CurrentState != State.ATTACKING)
             {
@@ -232,7 +233,7 @@ namespace ProjectDInternal
                             }
                             else
                             {
-                                MoveCheck(screenRay);
+                               // MoveCheck();
                             }
                         }
                     }
@@ -312,15 +313,23 @@ namespace ProjectDInternal
             m_Highlighted = obj;
             if (m_Highlighted != null) m_Highlighted.Highlight();
         }
-
+        
         void MoveCheck(Ray screenRay)
         {
+             float xDirection = Input.GetAxis("Horizontal");
+            float zDirection = Input.GetAxis("Vertical");
+
+            Vector3 moverDirection = new Vector3(xDirection, 0.0f, zDirection);
+
+            // transform.rotation = Quaternion.LookRotation(agent.velocity, Vector3.up);
+
+            transform.position += moverDirection * Speed;
             if (m_CalculatedPath.status == NavMeshPathStatus.PathComplete)
             {
                 m_Agent.SetPath(m_CalculatedPath);
                 m_CalculatedPath.ClearCorners();
             }
-
+            /*
             if (Physics.RaycastNonAlloc(screenRay, m_RaycastHitCache, 1000.0f, m_LevelLayer) > 0)
             {
                 Vector3 point = m_RaycastHitCache[0].point;
@@ -337,7 +346,22 @@ namespace ProjectDInternal
                     }
                 }
             }
+            */
         }
+        
+        /*
+        void MoveCheck()
+        {
+            float xDirection = Input.GetAxis("Horizontal");
+            float zDirection = Input.GetAxis("Vertical");
+
+            Vector3 moverDirection = new Vector3(xDirection, 0.0f, zDirection);
+
+            // transform.rotation = Quaternion.LookRotation(agent.velocity, Vector3.up);
+
+            transform.position += moverDirection * Speed;
+        }
+        */
 
         void CheckInteractableRange()
         {
