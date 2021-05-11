@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimationStatControl : MonoBehaviour
-{
+{/*
     Animator animator;
 
 
@@ -18,12 +18,12 @@ public class AnimationStatControl : MonoBehaviour
     {
         if ((Input.GetAxis("Horizontal")!=0 & Input.GetAxis("Vertical")!=0))
         {
-            animator.SetBool("isWalking", true);
+            animator.SetBool("Run", true);
         }else
         {
-            animator.SetBool("isWalking", false);
+            animator.SetBool("Run", false);
         }
 
 
-    }
+    }*/
 }

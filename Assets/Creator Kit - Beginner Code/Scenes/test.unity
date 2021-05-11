@@ -1592,7 +1592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7924b1830ada6bd42a113bd95c9cac13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 10
+  Speed: 3
   WeaponLocator: {fileID: 921761350}
   SpurSoundClips: []
 --- !u!114 &1276781333
@@ -5055,8 +5055,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5667712714323555562, guid: fafd305c9f496b04d9a856ab300bb3ed, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555573, guid: fafd305c9f496b04d9a856ab300bb3ed, type: 3}
+      propertyPath: StartingWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: b28b76c7411faa14285372310acbbafa, type: 2}
     - target: {fileID: 5667712714323555575, guid: fafd305c9f496b04d9a856ab300bb3ed, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -5075,7 +5079,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5667712714323555575, guid: fafd305c9f496b04d9a856ab300bb3ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.59000015
+      value: -0.94
       objectReference: {fileID: 0}
     - target: {fileID: 5667712714323555575, guid: fafd305c9f496b04d9a856ab300bb3ed, type: 3}
       propertyPath: m_LocalPosition.z

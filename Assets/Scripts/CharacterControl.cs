@@ -215,8 +215,8 @@ namespace ProjectDInternal
                 //Raycast to find object currently under the mouse cursor
                 ObjectsRaycasts(screenRay);
 
-                if (Input.GetMouseButton(0))
-                {
+               if (Input.GetMouseButton(0))
+               {
                     if (m_TargetInteractable == null && m_CurrentTargetCharacterData == null)
                     {
                         InteractableObject obj = m_Highlighted as InteractableObject;
@@ -233,7 +233,7 @@ namespace ProjectDInternal
                             }
                             else
                             {
-                               // MoveCheck();
+                                //MoveCheck(screenRay);
                             }
                         }
                     }
@@ -316,20 +316,32 @@ namespace ProjectDInternal
         
         void MoveCheck(Ray screenRay)
         {
-             float xDirection = Input.GetAxis("Horizontal");
+            
+            float xDirection = Input.GetAxis("Horizontal");
             float zDirection = Input.GetAxis("Vertical");
 
             Vector3 moverDirection = new Vector3(xDirection, 0.0f, zDirection);
 
-            // transform.rotation = Quaternion.LookRotation(agent.velocity, Vector3.up);
+            
 
-            transform.position += moverDirection * Speed;
+            transform.position += moverDirection * Speed/20;
+
+            if ((Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0))
+            {
+                transform.rotation = Quaternion.LookRotation(moverDirection, Vector3.up);
+                m_Animator.SetBool("Run", true);
+            }
+            else
+            {
+                m_Animator.SetBool("Run", false);
+            }
+            /*
             if (m_CalculatedPath.status == NavMeshPathStatus.PathComplete)
             {
                 m_Agent.SetPath(m_CalculatedPath);
                 m_CalculatedPath.ClearCorners();
             }
-            /*
+            
             if (Physics.RaycastNonAlloc(screenRay, m_RaycastHitCache, 1000.0f, m_LevelLayer) > 0)
             {
                 Vector3 point = m_RaycastHitCache[0].point;
@@ -349,19 +361,6 @@ namespace ProjectDInternal
             */
         }
         
-        /*
-        void MoveCheck()
-        {
-            float xDirection = Input.GetAxis("Horizontal");
-            float zDirection = Input.GetAxis("Vertical");
-
-            Vector3 moverDirection = new Vector3(xDirection, 0.0f, zDirection);
-
-            // transform.rotation = Quaternion.LookRotation(agent.velocity, Vector3.up);
-
-            transform.position += moverDirection * Speed;
-        }
-        */
 
         void CheckInteractableRange()
         {
@@ -464,7 +463,7 @@ namespace ProjectDInternal
                 m_Agent.SetDestination(obj.transform.position);
             }
         }
-
+        
         public void FootstepFrame()
         {
             Vector3 pos = transform.position;
