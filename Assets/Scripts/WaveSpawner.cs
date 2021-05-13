@@ -5,23 +5,28 @@ public class WaveSpawner : MonoBehaviour
 {
     public Transform enemyPrefab;
     public  Transform spawnPoint;
-
+    public GameObject[] enemies;
     public float timeBetweenWaves = 5f;
     private float countdown = 2f;
 
-    private int waveNumber = 1;
+    public static int waveNumber = 1;
 
     private void Update()
     {
-        
-        if (countdown <= 0f)
+
+        enemies = GameObject.FindGameObjectsWithTag("enemy");
+
+
+        if (enemies.Length == 0)
         {
-            SpawnWave();
-            countdown = timeBetweenWaves;
+            if (countdown <= 0f)
+            {
+                SpawnWave();
+                countdown = timeBetweenWaves;
+            }
+
+            countdown -= Time.deltaTime;
         }
-
-        countdown -= Time.deltaTime;
-
     }
     void SpawnWave()
     {

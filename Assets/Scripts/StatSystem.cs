@@ -18,6 +18,12 @@ namespace ProjectD
     [System.Serializable]
     public class StatSystem
     {
+        /*
+        public class WaveSawners
+        {
+
+        }
+        */
         /// <summary>
         /// The type of damage that exist, each will have their own boost/protection in stats, only the main, Physical,
         /// is influence by strength and defense stats.

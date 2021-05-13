@@ -16,7 +16,7 @@ namespace ProjectDInternal
         public static CharacterControl Instance { get; protected set; }
 
         public float Speed = 10.0f;
-
+        private Transform target;
         public CharacterData Data => m_CharacterData;
         public CharacterData CurrentTarget => m_CurrentTargetCharacterData;
 
@@ -196,7 +196,7 @@ namespace ProjectDInternal
 
             if (Input.GetMouseButtonDown(0))
             { //if we click the mouse button, we clear any previously et targets
-
+                //m_Animator.SetTrigger(m_AttackParamID);
                 if (m_CurrentState != State.ATTACKING)
                 {
                     m_CurrentTargetCharacterData = null;
@@ -210,13 +210,102 @@ namespace ProjectDInternal
 
             MoveCheck(screenRay);
 
+            //void updateTarget()
+            //{
+
+            /*
+                GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
+                float shortestDistance = Mathf.Infinity;
+                GameObject nearestEnemy = null;
+
+                foreach (GameObject enemy in enemies)
+                {
+                    float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+                    if (distanceToEnemy <= shortestDistance)
+                    {
+                        shortestDistance = distanceToEnemy;
+                        nearestEnemy = enemy;
+                    }
+
+                    if (nearestEnemy != null && shortestDistance <= 15)
+                    {
+                        CharacterData data = m_Highlighted as CharacterData;
+                        m_CurrentTargetCharacterData = data;
+                    }
+                    else
+                    {
+                        m_CurrentTargetCharacterData = null;
+                    }
+
+
+                }
+            */
+                
+                if (!EventSystem.current.IsPointerOverGameObject() && m_CurrentState != State.ATTACKING)
+                {
+                    //Raycast to find object currently under the mouse cursor
+                   ObjectsRaycasts(screenRay);
+                    
+                   //if (Input.GetMouseButton(0))
+                   //{
+                        if (m_TargetInteractable == null)
+                        {
+                            InteractableObject obj = m_Highlighted as InteractableObject;
+                            if (obj)
+                            {
+                                InteractWith(obj);
+                            }
+                            else
+                            {
+                                CharacterData[] enemies = FindObjectsOfType<CharacterData>();
+                                float shortestDistance = Mathf.Infinity;
+                                CharacterData nearestEnemy = null;
+
+                                foreach (CharacterData enemy in enemies)
+                                {
+                                   
+                                    float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+                                    if (distanceToEnemy <= shortestDistance && distanceToEnemy >= 0.1)
+                                    {
+                                        shortestDistance = distanceToEnemy;
+                                        nearestEnemy = enemy;
+                                    }
+                                }    
+                                    if (nearestEnemy != null && shortestDistance <= 5f)
+                                    {
+                                        m_CurrentTargetCharacterData = nearestEnemy as CharacterData;
+                                    }
+                                    else
+                                    {
+                                        m_CurrentTargetCharacterData = null;
+                                    }
+                                    /*
+                                    CharacterData data = target as CharacterData;
+                                    if (data != null)
+                                    {
+                                        m_CurrentTargetCharacterData = data;
+                                    }
+                                    else
+                                    {
+                                        //MoveCheck(screenRay);
+                                    }
+                                    */
+                             
+
+                                
+
+                            }
+                        }
+                    //}
+                }
+            /*
             if (!EventSystem.current.IsPointerOverGameObject() && m_CurrentState != State.ATTACKING)
             {
                 //Raycast to find object currently under the mouse cursor
                 ObjectsRaycasts(screenRay);
 
-               if (Input.GetMouseButton(0))
-               {
+                if (Input.GetMouseButton(0))
+                {
                     if (m_TargetInteractable == null && m_CurrentTargetCharacterData == null)
                     {
                         InteractableObject obj = m_Highlighted as InteractableObject;
@@ -239,6 +328,7 @@ namespace ProjectDInternal
                     }
                 }
             }
+            */
 
             m_Animator.SetFloat(m_SpeedParamID, m_Agent.velocity.magnitude / m_Agent.speed);
 
@@ -394,8 +484,8 @@ namespace ProjectDInternal
                 StopAgent();
 
                 //if the mouse button isn't pressed, we do NOT attack
-                if (Input.GetMouseButton(0))
-                {
+                //if (Input.GetMouseButton(0))
+                //{
                     Vector3 forward = (m_CurrentTargetCharacterData.transform.position - transform.position);
                     forward.y = 0;
                     forward.Normalize();
@@ -409,12 +499,12 @@ namespace ProjectDInternal
                         m_CharacterData.AttackTriggered();
                         m_Animator.SetTrigger(m_AttackParamID);
                     }
-                }
+                //}
             }
-            else
+            /*else
             {
                 m_Agent.SetDestination(m_CurrentTargetCharacterData.transform.position);
-            }
+            }*/
         }
 
         public void AttackFrame()

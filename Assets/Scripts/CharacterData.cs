@@ -26,7 +26,7 @@ namespace ProjectD
 
 
         public string CharacterName;
-
+        private Transform m_target;
         public StatSystem Stats;
         /// <summary>
         /// The starting weapon equipped when the Character is created. Set through the Unity Editor.
@@ -56,6 +56,13 @@ namespace ProjectD
         public void Init()
         {
             Stats.Init(this);
+
+            /* Stats change by every wave*/
+            StatSystem.StatModifier modifier = new StatSystem.StatModifier();
+            modifier.ModifierMode = StatSystem.StatModifier.Mode.Absolute;
+            modifier.Stats.health += (WaveSpawner.waveNumber-1) * 10;
+            this.Stats.AddModifier(modifier);
+
             Inventory.Init(this);
             Equipment.Init(this);
 
@@ -140,7 +147,8 @@ namespace ProjectD
         /// </summary>
         /// <param name="target">The CharacterData you want to attack</param>
         public void Attack(CharacterData target)
-        {
+        { 
+
             Equipment.Weapon.Attack(this, target);
         }
 
@@ -180,7 +188,7 @@ namespace ProjectD
         }
 
       
-
+        /*
         void updateTarget()
         {
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
@@ -211,6 +219,25 @@ namespace ProjectD
 
 
         }
+        */
+        /*
+        void shoot()
+        {
+
+            GameObject bulletGo = (GameObject)Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
+            bullet bullet = bulletGo.GetComponent<bullet>();
+
+            if (bullet != null)
+                bullet.Seek(target);
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, shootRange);
+        }
+        */
+
     }
 
 

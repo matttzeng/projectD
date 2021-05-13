@@ -9,24 +9,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a96cf71494313b42b0e2459b8aa90d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 721bded4ab38d3c45ac4302c289230a8, type: 3}
   m_Name: Rake
   m_EditorClassIdentifier: 
   ItemName: Basic Rake
   ItemSprite: {fileID: 21300000, guid: dd5e99205f718764d9283ccc98e6467f, type: 3}
-  Description: Your trusty Rake
-  WorldObjectPrefab: {fileID: 7022561314472484388, guid: e445cf79239d58a4a9b58b1d2ed99d63,
-    type: 3}
+  Description: 
+  WorldObjectPrefab: {fileID: 7022561314472484388, guid: e445cf79239d58a4a9b58b1d2ed99d63, type: 3}
+  name: New Item
+  icon: {fileID: 0}
+  isDefaultItem: 0
   Slot: 666
   MinimumStrength: 0
   MinimumAgility: 0
   MinimumDefense: 0
   EquippedEffects: []
+  bulletPrefab: {fileID: 0}
   HitSounds: []
   SwingSounds: []
   Stats:
     Speed: 1
     MinimumDamage: 3
-    MaximumDamage: 5
-    MaxRange: 3
+    MaximumDamage: 20
+    MaxRange: 5
   AttackEffects: []

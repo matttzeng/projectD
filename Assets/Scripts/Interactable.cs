@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
-{
+{/*
     public float radius = 1.5f;
     public Transform  interactionTransform;
    // bool isFocus = false;
     public Transform playerObj;
-    bool hasInteracted = false;
+    bool hasInteracted = true;
 
 
 
@@ -48,7 +48,7 @@ public class Interactable : MonoBehaviour
         isFocus = false;
         player = null;
     }
-    */
+    
     private void OnDrawGizmosSelected()
     {
         if (interactionTransform == null)
@@ -57,4 +57,5 @@ public class Interactable : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(interactionTransform.position, radius);
     }
+    */
 }

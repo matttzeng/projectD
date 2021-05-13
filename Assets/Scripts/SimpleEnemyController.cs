@@ -64,6 +64,9 @@ namespace ProjectDInternal {
             m_LootSpawner = GetComponent<LootSpawner>();
         
             m_StartingAnchor = transform.position;
+
+
+
         }
 
         // Update is called once per frame
@@ -82,6 +85,7 @@ namespace ProjectDInternal {
                     m_LootSpawner.SpawnLoot();
             
                 Destroy(m_Agent);
+                Destroy(gameObject);
                 Destroy(GetComponent<Collider>());
                 Destroy(this);
                 return;

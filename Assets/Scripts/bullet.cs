@@ -64,7 +64,7 @@ public class bullet :MonoBehaviour
             Destroy(gameObject);
         }
         
-       
+           
         void Damage (Transform enemy)
         {
             EnemyAI e = enemy.GetComponent<EnemyAI>();
