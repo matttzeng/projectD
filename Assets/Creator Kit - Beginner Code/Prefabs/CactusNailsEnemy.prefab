@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa3d267ff6fabdc4e8b9a091ba04c8df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackFrameReceiver: {fileID: 5667712714323555574}
-  FootstepFrameReceiver: {fileID: 5667712714323555574}
+  AttackFrameReceiver: {fileID: 6612220371883893319}
+  FootstepFrameReceiver: {fileID: 6612220371883893319}
 --- !u!1 &5667712714323555562
 GameObject:
   m_ObjectHideFlags: 0
@@ -25,12 +25,12 @@ GameObject:
   - component: {fileID: 5667712714323555575}
   - component: {fileID: 5667712714323555560}
   - component: {fileID: 5667712714323555561}
-  - component: {fileID: 5667712714323555574}
+  - component: {fileID: 6612220371883893319}
   - component: {fileID: 5667712714323555573}
-  - component: {fileID: 1514832715870360197}
-  m_Layer: 11
+  - component: {fileID: 6382404329323532681}
+  m_Layer: 8
   m_Name: CactusNailsEnemy
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,7 +85,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.51, z: 0}
---- !u!114 &5667712714323555574
+--- !u!114 &6612220371883893319
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,14 +94,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5667712714323555562}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a6d32986edb697438a2746b08746dd7, type: 3}
+  m_Script: {fileID: 11500000, guid: 78424c3e025e7d54482eda4e38573275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 6
-  detectionRadius: 15
-  SpottedAudioClip:
-  - {fileID: 8300000, guid: e2e202507d818874caf180e900781122, type: 3}
-  - {fileID: 8300000, guid: 1acdcee1a67e6a74c92d232b77c1ec91, type: 3}
+  detectionRadius: 10
+  SpottedAudioClip: []
 --- !u!114 &5667712714323555573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +112,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c45ba4cd943b6c745bb32ca76b631cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootRange: 15
+  shootingRate: 1
+  shootCountdown: 0
+  bulletPrefab: {fileID: 0}
+  shootPoint: {fileID: 0}
   CharacterName: Cactus Nails
   Stats:
     baseStats:
@@ -128,7 +131,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 52bbf808b3d93fb4f861009f0d06498b, type: 3}
   - {fileID: 8300000, guid: a2b0c466fe3cda84da5a4a1f58ae2f07, type: 3}
   - {fileID: 8300000, guid: a8594e4675d2b1049a71204ba41705d8, type: 3}
---- !u!114 &1514832715870360197
+--- !u!114 &6382404329323532681
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,27 +140,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5667712714323555562}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ebaeb8c6b9527f47b54aecef149ed2a, type: 3}
+  m_Script: {fileID: 11500000, guid: d2855d39eb20ea2418963f79173cd524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FootstepClips:
-  - {fileID: 8300000, guid: eda34214310f8c547b7d9186ef017073, type: 3}
-  - {fileID: 8300000, guid: ab7b40ecbeb85364880fd45b6faabf58, type: 3}
-  VocalAttack:
-  - {fileID: 8300000, guid: 145d7148a25bd404a8cdac3ecea1bb2a, type: 3}
-  - {fileID: 8300000, guid: 9853e91ce0767cf4abb04ff4032ddebc, type: 3}
-  - {fileID: 8300000, guid: fafcbe2bb0ffece428b89c570693ca06, type: 3}
-  - {fileID: 8300000, guid: 27763ee8e113c9a4982cea55902a5264, type: 3}
-  VocalHit:
-  - {fileID: 8300000, guid: d17d2c9d14c5c8942910b5ac0e5cd83e, type: 3}
-  - {fileID: 8300000, guid: 1ed79c0675f65004bb270df6fd3ceec9, type: 3}
-  - {fileID: 8300000, guid: 04578b36fc75b994599cce92aa1f1451, type: 3}
-  - {fileID: 8300000, guid: b00b880b6155ee541af054cc0982eb69, type: 3}
-  - {fileID: 8300000, guid: 12afbbe73625e904a818ef07aca76cc9, type: 3}
-  DeathClips:
-  - {fileID: 8300000, guid: 960cafd8dbde8ca40b16cbc50e187822, type: 3}
-  - {fileID: 8300000, guid: 2672e27cd06d1404eb0f211f0d838a5f, type: 3}
-  - {fileID: 8300000, guid: 873d7f1ace050d347b3a7966bca26594, type: 3}
+  FootstepClips: []
+  VocalAttack: []
+  VocalHit: []
+  DeathClips: []
   UseType: 1
 --- !u!1001 &5667712713484102679
 PrefabInstance:
@@ -166,97 +155,187 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5667712714323555575}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: d3aea247b6976ac4298d5d2e8c0a681b,
-        type: 3}
-      propertyPath: m_Name
-      value: CactusNails
-      objectReference: {fileID: 0}
-    - target: {fileID: 6322602971804420348, guid: d3aea247b6976ac4298d5d2e8c0a681b,
-        type: 3}
-      propertyPath: m_Name
-      value: CactusNailsMesh
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d3aea247b6976ac4298d5d2e8c0a681b,
-        type: 3}
-      propertyPath: m_LocalPosition.x
+    - target: {fileID: -7833856907900376432, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d3aea247b6976ac4298d5d2e8c0a681b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.071
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d3aea247b6976ac4298d5d2e8c0a681b,
-        type: 3}
-      propertyPath: m_LocalPosition.z
+    - target: {fileID: -6449302239883089296, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d3aea247b6976ac4298d5d2e8c0a681b,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d3aea247b6976ac4298d5d2e8c0a681b,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d3aea247b6976ac4298d5d2e8c0a681b,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d3aea247b6976ac4298d5d2e8c0a681b,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d3aea247b6976ac4298d5d2e8c0a681b,
-        type: 3}
-      propertyPath: m_RootOrder
+    - target: {fileID: -6207445829945453584, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d3aea247b6976ac4298d5d2e8c0a681b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d3aea247b6976ac4298d5d2e8c0a681b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: d3aea247b6976ac4298d5d2e8c0a681b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: d3aea247b6976ac4298d5d2e8c0a681b,
-        type: 3}
+    - target: {fileID: -6057140222963153312, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: d7aabf5e33eb7434b807049163b2ea0b, type: 2}
-    - target: {fileID: 1651863904801215526, guid: d3aea247b6976ac4298d5d2e8c0a681b,
-        type: 3}
+    - target: {fileID: -5293603558876281242, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4863814803253247925, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.071
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3491872099148682982, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3463379478514374128, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2541028487722233621, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2069479368580600827, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Name
+      value: CactusNails
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -215296776443990283, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430199139101796220, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1121063750183690423, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651863904801215526, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
       propertyPath: m_Materials.Array.size
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1651863904801215526, guid: d3aea247b6976ac4298d5d2e8c0a681b,
-        type: 3}
+    - target: {fileID: 1651863904801215526, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 9ad4c3bb7eb7de94b8bf8199a2e3f133, type: 2}
+    - target: {fileID: 3028077808038670093, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3120506785064773645, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107563175076814000, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4868670155372456427, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927210677250180510, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173876255930047530, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672915212968559570, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5818059957671789695, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6322602971804420348, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Name
+      value: CactusNailsMesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 6322602971804420348, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7306293074299231742, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377236755324801058, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9006365394032064954, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9099060057272577458, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9211979323850483990, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
 --- !u!1 &4433283356119020830 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: d3aea247b6976ac4298d5d2e8c0a681b,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
   m_PrefabInstance: {fileID: 5667712713484102679}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &854969665967277837 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: d3aea247b6976ac4298d5d2e8c0a681b,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: d3aea247b6976ac4298d5d2e8c0a681b, type: 3}
   m_PrefabInstance: {fileID: 5667712713484102679}
   m_PrefabAsset: {fileID: 0}

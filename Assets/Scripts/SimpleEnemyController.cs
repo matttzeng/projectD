@@ -180,7 +180,7 @@ namespace ProjectDInternal {
         public void AttackFrame()
         {
             CharacterData playerData = CharacterControl.Instance.Data;
-            
+            //m_Animator.SetTrigger(m_AttackAnimHash);
             //if we can't reach the player anymore when it's time to damage, then that attack miss.
             if (!m_CharacterData.CanAttackReach(playerData))
                 return;

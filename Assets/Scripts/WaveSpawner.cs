@@ -4,6 +4,8 @@ using UnityEngine;
 public class WaveSpawner : MonoBehaviour
 {
     public Transform enemyPrefab;
+    public Transform miniBossPrefab;
+    public Transform bigBossPrefab;
     public  Transform spawnPoint;
     public GameObject[] enemies;
     public float timeBetweenWaves = 5f;
@@ -35,6 +37,16 @@ public class WaveSpawner : MonoBehaviour
             SpwanEnemy();
         }
 
+        if (waveNumber %5 == 0)
+        {
+            SpwanMiniBoss();
+        }
+
+        if (waveNumber %10 == 0)
+        {
+            SpwanBigBoss();
+        }
+
         waveNumber++;
 
     }
@@ -49,8 +61,26 @@ public class WaveSpawner : MonoBehaviour
 
     }
 
+    void SpwanMiniBoss()
+    {
+        spawnPoint.position = new Vector3(0, spawnPoint.position.y, 0);
+        spawnPoint.position = new Vector3(spawnPoint.position.x + Random.Range(-10f, 10f), spawnPoint.position.y, spawnPoint.position.z + Random.Range(-10f, 10f));
 
 
 
+        Instantiate(miniBossPrefab, spawnPoint.position, spawnPoint.rotation);
+
+    }
+
+    void SpwanBigBoss()
+    {
+        spawnPoint.position = new Vector3(0, spawnPoint.position.y, 0);
+        spawnPoint.position = new Vector3(spawnPoint.position.x + Random.Range(-10f, 10f), spawnPoint.position.y, spawnPoint.position.z + Random.Range(-10f, 10f));
+
+
+
+        Instantiate(bigBossPrefab, spawnPoint.position, spawnPoint.rotation);
+
+    }
 
 }

@@ -1827,7 +1827,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d002f177103714496cf02fc90902b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 7164724294648068515, guid: b69f87f52b8196a49994dcf8f4b053c5, type: 3}
+  enemyPrefab: {fileID: 5667712714323555575, guid: fafd305c9f496b04d9a856ab300bb3ed, type: 3}
+  miniBossPrefab: {fileID: 5667712714323555575, guid: 12069a4bbbe66284f8a9a22eda310e5e, type: 3}
+  bigBossPrefab: {fileID: 5667712714323555575, guid: 12069a4bbbe66284f8a9a22eda310e5e, type: 3}
   spawnPoint: {fileID: 450926277}
   enemies: []
   timeBetweenWaves: 5
@@ -1875,6 +1877,67 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IconeImage: {fileID: 812277444}
   ItemCount: {fileID: 0}
+--- !u!1001 &1601334320
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5667712714323555562, guid: fafd305c9f496b04d9a856ab300bb3ed, type: 3}
+      propertyPath: m_Name
+      value: CactusNailsEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555562, guid: fafd305c9f496b04d9a856ab300bb3ed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555575, guid: fafd305c9f496b04d9a856ab300bb3ed, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555575, guid: fafd305c9f496b04d9a856ab300bb3ed, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555575, guid: fafd305c9f496b04d9a856ab300bb3ed, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555575, guid: fafd305c9f496b04d9a856ab300bb3ed, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.48468
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555575, guid: fafd305c9f496b04d9a856ab300bb3ed, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555575, guid: fafd305c9f496b04d9a856ab300bb3ed, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555575, guid: fafd305c9f496b04d9a856ab300bb3ed, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555575, guid: fafd305c9f496b04d9a856ab300bb3ed, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555575, guid: fafd305c9f496b04d9a856ab300bb3ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555575, guid: fafd305c9f496b04d9a856ab300bb3ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555575, guid: fafd305c9f496b04d9a856ab300bb3ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fafd305c9f496b04d9a856ab300bb3ed, type: 3}
 --- !u!224 &1613811144 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2419493516455356962, guid: f55bfc5918e05104da99e367c851f7f2, type: 3}

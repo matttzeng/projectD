@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &4342069803439454212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175399779598055498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa3d267ff6fabdc4e8b9a091ba04c8df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackFrameReceiver: {fileID: 5667712714323555574, guid: fafd305c9f496b04d9a856ab300bb3ed, type: 3}
+  FootstepFrameReceiver: {fileID: 5667712714323555574, guid: fafd305c9f496b04d9a856ab300bb3ed, type: 3}
 --- !u!1 &7164724294648068542
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,7 +111,7 @@ MonoBehaviour:
       agility: 0
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
-  StartingWeapon: {fileID: 11400000, guid: b28b76c7411faa14285372310acbbafa, type: 2}
+  StartingWeapon: {fileID: 11400000, guid: fe2930c8cf06ca84c9350406348026e6, type: 2}
   HitClip:
   - {fileID: 8300000, guid: 52bbf808b3d93fb4f861009f0d06498b, type: 3}
   - {fileID: 8300000, guid: a2b0c466fe3cda84da5a4a1f58ae2f07, type: 3}
@@ -134,20 +148,6 @@ MonoBehaviour:
   Speed: 3
   detectionRadius: 10
   SpottedAudioClip: []
---- !u!114 &4342069803439454212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1175399779598055498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa3d267ff6fabdc4e8b9a091ba04c8df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AttackFrameReceiver: {fileID: 5667712714323555574, guid: fafd305c9f496b04d9a856ab300bb3ed, type: 3}
-  FootstepFrameReceiver: {fileID: 5667712714323555574, guid: fafd305c9f496b04d9a856ab300bb3ed, type: 3}
 --- !u!1001 &7164724295485940035
 PrefabInstance:
   m_ObjectHideFlags: 0
