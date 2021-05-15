@@ -8,6 +8,7 @@ public class HPUI : MonoBehaviour
     void Update()
     {
         HPText.text = PlayerStats.PlayHP.ToString();
+      
     }
 
 }

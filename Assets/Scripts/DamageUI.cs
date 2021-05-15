@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ProjectD 
+namespace ProjectDInternal 
 {
     /// <summary>
     /// Handle all the UI related to damage number appearing above object/character when they get damaged.
