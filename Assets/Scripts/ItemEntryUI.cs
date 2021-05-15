@@ -8,10 +8,8 @@ using UnityEngine.EventSystems;
 
 namespace ProjectDInternal 
 {
-   // public class ItemEntryUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, 
-   //     IBeginDragHandler, IDragHandler, IEndDragHandler
-    public class ItemEntryUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
-        IBeginDragHandler, IDragHandler, IEndDragHandler
+    public class ItemEntryUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler,
+         IBeginDragHandler, IDragHandler, IEndDragHandler
     {    
         public Image IconeImage;
         public Text ItemCount;
@@ -22,21 +20,21 @@ namespace ProjectDInternal
         public InventoryUI Owner { get; set; }
         public int Index { get; set; }
 
-        //public void OnPointerClick(PointerEventData eventData)
-        //{
-        //    if (eventData.clickCount % 2 == 0)
-        //    {
-        //        if (InventoryEntry != -1)
-        //        {
-        //            if(Owner.Character.Inventory.Entries[InventoryEntry] != null)
-        //                Owner.ObjectDoubleClicked(Owner.Character.Inventory.Entries[InventoryEntry]);
-        //        }
-        //        else
-        //        {
-        //            Owner.EquipmentDoubleClicked(EquipmentItem);
-        //        }
-        //    }
-        //}
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if (eventData.clickCount % 2 == 0)
+            {
+                if (InventoryEntry != -1)
+                {
+                    if (Owner.Character.Inventory.Entries[InventoryEntry] != null)
+                        Owner.ObjectDoubleClicked(Owner.Character.Inventory.Entries[InventoryEntry]);
+                }
+                else
+                {
+                    Owner.EquipmentDoubleClicked(EquipmentItem);
+                }
+            }
+        }
 
         public void OnPointerEnter(PointerEventData eventData)
         {

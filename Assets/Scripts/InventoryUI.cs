@@ -61,38 +61,38 @@ namespace ProjectDInternal
             EquipementUI.Init(this);
         }
 
-        //void OnEnable()
-        //{
-        //    m_HoveredItem = null;
-        //    Tooltip.gameObject.SetActive(false);
-        //}
+        void OnEnable()
+        {
+            m_HoveredItem = null;
+            Tooltip.gameObject.SetActive(false);
+        }
 
-        //public void Load(CharacterData data)
-        //{
-        //    m_Data = data;
-        //    EquipementUI.UpdateEquipment(m_Data.Equipment, m_Data.Stats);
+        public void Load(CharacterData data)
+        {
+            m_Data = data;
+            EquipementUI.UpdateEquipment(m_Data.Equipment, m_Data.Stats);
 
-        //    for (int i = 0; i < m_ItemEntries.Length; ++i)
-        //    {
-        //        m_ItemEntries[i].UpdateEntry();
-        //    }
-        //}
+            for (int i = 0; i < m_ItemEntries.Length; ++i)
+            {
+                m_ItemEntries[i].UpdateEntry();
+            }
+        }
         
-        //public void ObjectDoubleClicked(InventorySystem.InventoryEntry usedItem)
-        //{
-        //    if (m_Data.Inventory.UseItem(usedItem))
-        //        SFXManager.PlaySound(SFXManager.Use.Sound2D, new SFXManager.PlayData() { Clip = usedItem.Item is EquipmentItem ? SFXManager.ItemEquippedSound : SFXManager.ItemUsedSound });
+        public void ObjectDoubleClicked(InventorySystem.InventoryEntry usedItem)
+        {
+            if (m_Data.Inventory.UseItem(usedItem))
+                SFXManager.PlaySound(SFXManager.Use.Sound2D, new SFXManager.PlayData() { Clip = usedItem.Item is EquipmentItem ? SFXManager.ItemEquippedSound : SFXManager.ItemUsedSound });
 
-        //    ObjectHoverExited(m_HoveredItem);
-        //    Load(m_Data);
-        //}
+            ObjectHoverExited(m_HoveredItem);
+            Load(m_Data);
+        }
 
-        //public void EquipmentDoubleClicked(EquipmentItem equItem)
-        //{
-        //    m_Data.Equipment.Unequip(equItem.Slot);
-        //    ObjectHoverExited(m_HoveredItem);
-        //    Load(m_Data);
-        //}
+        public void EquipmentDoubleClicked(EquipmentItem equItem)
+        {
+            m_Data.Equipment.Unequip(equItem.Slot);
+            ObjectHoverExited(m_HoveredItem);
+            Load(m_Data);
+        }
 
         public void ObjectHoveredEnter(ItemEntryUI hovered)
         {
