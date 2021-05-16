@@ -98,7 +98,7 @@ namespace ProjectDInternal
         
                 
             var stats = data.Stats.stats;
-            StatsText.text = $"Str : {stats.strength} Def : {stats.defense} Agi : {stats.agility}";
+            StatsText.text = $"Atk : {stats.strength} \nDef : {stats.defense} \nAgi : {stats.agility} \nMoveSpeed :{stats.moveSpeed}";
         }
 
         void UpdateEnemyUI(CharacterData enemy)

@@ -14,7 +14,7 @@ public class ScoreScript : MonoBehaviour
     {
 
 
-        scoreText.text = PlayerStats.Score.ToString();
+        scoreText.text = PlayerStats11.Score.ToString();
        
         
     }

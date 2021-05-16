@@ -127,9 +127,9 @@ public class EnemyAI : MonoBehaviour
 
     public void die()
     {
-        PlayerStats.Score += 1;
-        PlayerStats.Exp += exp;
-        PlayerStats.Money += value;
+        PlayerStats11.Score += 1;
+        PlayerStats11.Exp += exp;
+        PlayerStats11.Money += value;
         Destroy(gameObject);
         //add money and exp
     }

@@ -15,7 +15,7 @@ namespace ProjectDInternal
     {
         public static CharacterControl Instance { get; protected set; }
 
-        public float Speed = 10.0f;
+        public int Speed = 10;
         private Transform target;
         public CharacterData Data => m_CharacterData;
         public CharacterData CurrentTarget => m_CurrentTargetCharacterData;
@@ -138,6 +138,14 @@ namespace ProjectDInternal
         // Update is called once per frame
         void Update()
         {
+            
+            CharacterData data = this.Data;
+            var stats = data.Stats.stats;
+            Speed =   stats.moveSpeed;
+
+
+            Debug.Log(m_CharacterData.Stats.CurrentMoveSpeed);
+
             Vector3 pos = transform.position;
 
             if (m_IsKO)
@@ -243,12 +251,14 @@ namespace ProjectDInternal
                 
                 if (!EventSystem.current.IsPointerOverGameObject() && m_CurrentState != State.ATTACKING)
                 {
-                    //Raycast to find object currently under the mouse cursor
-                   ObjectsRaycasts(screenRay);
-                    
-                   //if (Input.GetMouseButton(0))
-                   //{
-                        if (m_TargetInteractable == null)
+                
+
+                //Raycast to find object currently under the mouse cursor
+                ObjectsRaycasts(screenRay);
+
+                //if (Input.GetMouseButton(0))
+                //{
+                if (m_TargetInteractable == null)
                         {
                             InteractableObject obj = m_Highlighted as InteractableObject;
                             if (obj)
@@ -413,6 +423,8 @@ namespace ProjectDInternal
             Vector3 moverDirection = new Vector3(xDirection, 0.0f, zDirection);
 
             
+
+           
 
             transform.position += moverDirection * Speed/20;
 

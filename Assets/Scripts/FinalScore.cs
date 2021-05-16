@@ -10,9 +10,9 @@ public class FinalScore : MonoBehaviour
 
     void Update()
     {
-        if (PlayerStats.PlayHP == 0)
+        if (PlayerStats11.PlayHP == 0)
         {
-            finalS.text = "GAME OVER!\n"+"your score: "+PlayerStats.Score.ToString();
+            finalS.text = "GAME OVER!\n"+"your score: "+PlayerStats11.Score.ToString();
         }
         
     }

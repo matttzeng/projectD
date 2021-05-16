@@ -35,18 +35,20 @@ namespace ProjectD
         /// <param name="item">The item to add to the inventory</param>
         public void AddItem(Item item)
         {
-
+            
             bool found = false;
             int firstEmpty = -1;
             for (int i = 0; i < 32; ++i)
             {
                 if (Entries[i] == null)
                 {
+                    
                     if (firstEmpty == -1)
                         firstEmpty = i;
                 }
                 else if (Entries[i].Item == item)
                 {
+                    
                     Entries[i].Count += 1;
                     found = true;
                 }
@@ -54,13 +56,15 @@ namespace ProjectD
 
             if (!found && firstEmpty != -1)
             {
-                Debug.Log("裝進包包");
+                Debug.Log(firstEmpty);
+               
                 InventoryEntry entry = new InventoryEntry();
                 entry.Item = item;
                 entry.Count = 1;
-                Debug.Log( item.name);
-
+                
+                
                 Entries[firstEmpty] = entry;
+                Debug.Log(entry.Item.name);
             }
         }
 

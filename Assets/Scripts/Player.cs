@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "ball")
         {
-            PlayerStats.PlayHP -= 1;
+            PlayerStats11.PlayHP -= 1;
             
             Destroy(collision.gameObject);
         }

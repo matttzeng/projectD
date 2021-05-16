@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1892275096797163706}
   - component: {fileID: 5601413061585539789}
   - component: {fileID: 3743708010937040914}
+  - component: {fileID: 3218911725720455917}
   m_Layer: 0
   m_Name: polySurface138
   m_TagString: Untagged
@@ -81,6 +82,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3218911725720455917
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826596351877818420}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 844459509196737436, guid: fcb1bcba0a6778445a08c6187dde486f, type: 3}
 --- !u!1 &4322058219642358946
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,7 +120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4322058219642358946}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -2.19, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1892275096797163706}

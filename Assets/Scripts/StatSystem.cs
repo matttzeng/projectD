@@ -49,6 +49,15 @@ namespace ProjectD
             public int strength;
             public int defense;
             public int agility;
+            public int attack;
+            public int skill;
+            public int moveSpeed ;
+            public int attackSpeed;
+            public int attackRange;
+            public int crit;
+            public int skillSpeed;
+            public int skillRange;
+
 
             //use an array indexed by the DamageType enum for easy extensibility
             public int[] elementalProtection = new int[Enum.GetValues(typeof(DamageType)).Length];   
@@ -60,7 +69,16 @@ namespace ProjectD
                 strength = other.strength;
                 defense = other.defense;
                 agility = other.agility;
-            
+                attack = other.attack;
+                skill = other.skill;
+                moveSpeed = other.moveSpeed;
+                attackSpeed = other.attackSpeed;
+                attackRange = other.attackRange;
+                crit = other.crit;
+                skillRange = other.skillRange;
+                skillSpeed = other.skillRange;
+
+                         
                 Array.Copy(other.elementalProtection, elementalProtection, other.elementalProtection.Length);
                 Array.Copy(other.elementalBoosts, elementalBoosts, other.elementalBoosts.Length);
             }
@@ -78,8 +96,23 @@ namespace ProjectD
                     strength += Mathf.FloorToInt(strength * (modifier.Stats.strength / 100.0f));
                     defense += Mathf.FloorToInt(defense * (modifier.Stats.defense / 100.0f));
                     agility += Mathf.FloorToInt(agility * (modifier.Stats.agility / 100.0f));
-                
-                    for(int i = 0; i < elementalProtection.Length; ++i)
+                    attack += Mathf.FloorToInt(attack * (modifier.Stats.attack / 100.0f));
+                    skill += Mathf.FloorToInt(skill * (modifier.Stats.skill / 100.0f));
+                    moveSpeed += Mathf.FloorToInt(moveSpeed * (modifier.Stats.moveSpeed / 100.0f));
+                    attackSpeed += Mathf.FloorToInt(attackSpeed * (modifier.Stats.attackSpeed / 100.0f));
+                    attackRange += Mathf.FloorToInt(attackRange * (modifier.Stats.attackRange / 100.0f));
+                    crit += Mathf.FloorToInt(crit * (modifier.Stats.crit / 100.0f));
+                    skillRange += Mathf.FloorToInt(skillRange * (modifier.Stats.skillRange / 100.0f));
+                    skillSpeed += Mathf.FloorToInt(skillSpeed * (modifier.Stats.skillSpeed / 100.0f));
+
+
+
+
+
+
+
+
+                    for (int i = 0; i < elementalProtection.Length; ++i)
                         elementalProtection[i] += Mathf.FloorToInt(elementalProtection[i] * (modifier.Stats.elementalProtection[i] / 100.0f));
                 
                     for(int i = 0; i < elementalBoosts.Length; ++i)
@@ -91,8 +124,16 @@ namespace ProjectD
                     strength += modifier.Stats.strength;
                     defense += modifier.Stats.defense;
                     agility += modifier.Stats.agility;
-                
-                    for(int i = 0; i < elementalProtection.Length; ++i)
+                    attack += modifier.Stats.attack;
+                    skill += modifier.Stats.skill;
+                    moveSpeed += modifier.Stats.moveSpeed;
+                    attackSpeed += modifier.Stats.attackSpeed;
+                    attackRange += modifier.Stats.attackRange;
+                    crit += modifier.Stats.crit;
+                    skillRange += modifier.Stats.skillRange;
+                    skillSpeed += modifier.Stats.skillSpeed;
+
+                    for (int i = 0; i < elementalProtection.Length; ++i)
                         elementalProtection[i] += modifier.Stats.elementalProtection[i];
                 
                     for(int i = 0; i < elementalBoosts.Length; ++i)
@@ -149,7 +190,7 @@ namespace ProjectD
         public Stats baseStats;
         public Stats stats { get; set; } = new Stats();
     
-
+        public int CurrentMoveSpeed { get; private set; }
         public int CurrentHealth { get; private set; }
         public List<BaseElementalEffect> ElementalEffects => m_ElementalEffects;
         public List<TimedStatModifier> TimedModifierStack => m_TimedModifierStack;
@@ -164,6 +205,7 @@ namespace ProjectD
         {
             stats.Copy(baseStats);
             CurrentHealth = stats.health;
+            CurrentMoveSpeed = stats.moveSpeed;
             m_Owner = owner;
         }
     
@@ -304,6 +346,10 @@ namespace ProjectD
         {
             CurrentHealth = Mathf.Clamp(CurrentHealth + amount, 0, stats.health);
         }
+        public void ChangeMoveSpeed(int amount)
+        {
+            CurrentMoveSpeed = Mathf.Clamp(CurrentMoveSpeed + amount, 0, stats.moveSpeed);
+        }
 
         void UpdateFinalStats()
         {
@@ -391,6 +437,30 @@ public class StatsDrawer : PropertyDrawer
         
         currentRect.y += EditorGUIUtility.singleLineHeight;
         EditorGUI.PropertyField(currentRect, property.FindPropertyRelative(nameof(StatSystem.Stats.agility)));
+
+        currentRect.y += EditorGUIUtility.singleLineHeight;
+        EditorGUI.PropertyField(currentRect, property.FindPropertyRelative(nameof(StatSystem.Stats.attack)));
+
+        currentRect.y += EditorGUIUtility.singleLineHeight;
+        EditorGUI.PropertyField(currentRect, property.FindPropertyRelative(nameof(StatSystem.Stats.skill)));
+
+        currentRect.y += EditorGUIUtility.singleLineHeight;
+        EditorGUI.PropertyField(currentRect, property.FindPropertyRelative(nameof(StatSystem.Stats.moveSpeed)));
+
+        currentRect.y += EditorGUIUtility.singleLineHeight;
+        EditorGUI.PropertyField(currentRect, property.FindPropertyRelative(nameof(StatSystem.Stats.attackSpeed)));
+
+        currentRect.y += EditorGUIUtility.singleLineHeight;
+        EditorGUI.PropertyField(currentRect, property.FindPropertyRelative(nameof(StatSystem.Stats.attackRange)));
+
+        currentRect.y += EditorGUIUtility.singleLineHeight;
+        EditorGUI.PropertyField(currentRect, property.FindPropertyRelative(nameof(StatSystem.Stats.skillRange)));
+
+        currentRect.y += EditorGUIUtility.singleLineHeight;
+        EditorGUI.PropertyField(currentRect, property.FindPropertyRelative(nameof(StatSystem.Stats.crit)));
+
+        currentRect.y += EditorGUIUtility.singleLineHeight;
+        EditorGUI.PropertyField(currentRect, property.FindPropertyRelative(nameof(StatSystem.Stats.skillSpeed)));
 
         currentRect.y += EditorGUIUtility.singleLineHeight;
         EditorGUI.LabelField(currentRect, "Elemental Protection/Boost", style);

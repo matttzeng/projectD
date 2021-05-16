@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     {
         if (gameEnded)
             return;
-        if(PlayerStats.PlayHP<=0)
+        if(PlayerStats11.PlayHP<=0)
         {
             EndGame();
         }
