@@ -52,6 +52,7 @@ namespace ProjectDInternal
 
             for (int i = 0; i < m_ItemEntries.Length; ++i)
             {
+                Debug.Log("創造Entry");
                 m_ItemEntries[i] = Instantiate(ItemEntryPrefab, ItemSlots[i]);
                 m_ItemEntries[i].gameObject.SetActive(false);
                 m_ItemEntries[i].Owner = this;
@@ -71,7 +72,7 @@ namespace ProjectDInternal
         {
             m_Data = data;
             EquipementUI.UpdateEquipment(m_Data.Equipment, m_Data.Stats);
-
+            Debug.Log("Load裡面");
             for (int i = 0; i < m_ItemEntries.Length; ++i)
             {
                 m_ItemEntries[i].UpdateEntry();

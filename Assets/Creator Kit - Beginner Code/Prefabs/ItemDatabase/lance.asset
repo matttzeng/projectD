@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 721bded4ab38d3c45ac4302c289230a8, type: 3}
-  m_Name: weapon
+  m_Name: lance
   m_EditorClassIdentifier: 
-  ItemName: 
-  ItemSprite: {fileID: 21300000, guid: 3c9b1bd688b22324c9bc5eb12cc12aea, type: 3}
-  Description: 
-  WorldObjectPrefab: {fileID: -927199367670048503, guid: 6d7b80b6b4012934380aac95736c8b25, type: 3}
+  ItemName: lance
+  ItemSprite: {fileID: 21300000, guid: 5d0f6ae4987d02846b822915a7301dfa, type: 3}
+  Description: good
+  WorldObjectPrefab: {fileID: -927199367670048503, guid: 02af3baa7b9b95743b17093e5aef9dd1, type: 3}
   Slot: 666
   MinimumStrength: 0
   MinimumAgility: 0
@@ -25,8 +25,8 @@ MonoBehaviour:
   HitSounds: []
   SwingSounds: []
   Stats:
-    Speed: 1
-    MinimumDamage: 1
-    MaximumDamage: 1
-    MaxRange: 1
+    Speed: 0.5
+    MinimumDamage: 100
+    MaximumDamage: 200
+    MaxRange: 5
   AttackEffects: []

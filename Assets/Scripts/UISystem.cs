@@ -135,7 +135,8 @@ namespace ProjectDInternal
             {
                 ((Image)OpenInventoryButton.targetGraphic).sprite = m_OpenInventorySprite;
                 InventoryWindow.gameObject.SetActive(true);
-               // InventoryWindow.Load(PlayerCharacter.Data);
+                Debug.Log("進入Load");
+                InventoryWindow.Load(PlayerCharacter.Data);
                 SFXManager.PlaySound(SFXManager.Use.Sound2D, new SFXManager.PlayData(){ Clip = OpenInventoryClip});
             }
         }

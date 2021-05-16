@@ -72,7 +72,7 @@ namespace ProjectD
             target.Inventory.AddItem(Item);
             SFXManager.PlaySound(SFXManager.Use.Sound2D, new SFXManager.PlayData(){Clip = SFXManager.PickupSound});
         
-           // UISystem.Instance.InventoryWindow.Load(target);
+            UISystem.Instance.InventoryWindow.Load(target);
             Destroy(gameObject);
         }
 
