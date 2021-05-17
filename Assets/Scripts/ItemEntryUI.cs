@@ -55,7 +55,7 @@ namespace ProjectDInternal
         
             if (isEnabled)
             {
-                Debug.Log("顯示道具圖片");
+               // Debug.Log("顯示道具圖片");
                 IconeImage.sprite = entry.Item.ItemSprite;
 
                 if (entry.Count > 1)

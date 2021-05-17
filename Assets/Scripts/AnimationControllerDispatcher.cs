@@ -19,11 +19,19 @@ namespace ProjectDInternal
             void FootstepFrame();
         }
 
+        public interface ISkillFrameReceiver
+        {
+            void SkillFrame();
+        }
+
+
         public MonoBehaviour AttackFrameReceiver;
         public MonoBehaviour FootstepFrameReceiver;
+        public MonoBehaviour SkillFrameReceiver;
 
         IAttackFrameReceiver m_AttackReceiver;
         IFootstepFrameReceiver m_FootstepFrameReceiver;
+        ISkillFrameReceiver m_SkillFrameReceiver;
 
         void Awake()
         {
@@ -46,6 +54,15 @@ namespace ProjectDInternal
                     Debug.LogError("The Monobehaviour set as Footstep Frame Receiver don't implement the IFootstepFrameReceiver interface!", FootstepFrameReceiver);
                 }
             }
+            if (SkillFrameReceiver)
+            {
+                m_SkillFrameReceiver = SkillFrameReceiver as ISkillFrameReceiver;
+
+                if (m_SkillFrameReceiver == null)
+                {
+                    Debug.LogError("The Monobehaviour set as skill Frame Receiver don't implement the ISkillFrameReceiver interface!", SkillFrameReceiver);
+                }
+            }
         }
 
         void AttackEvent()
@@ -56,6 +73,11 @@ namespace ProjectDInternal
         void FootstepEvent()
         {
             m_FootstepFrameReceiver?.FootstepFrame();
+        }
+
+        void SkillkEvent()
+        {
+            m_SkillFrameReceiver?.SkillFrame();
         }
     }
 }

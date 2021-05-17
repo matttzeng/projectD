@@ -10,6 +10,7 @@ using UnityEditor;
 
 namespace ProjectD 
 {
+    
     /// <summary>
     /// Handles the stats of a CharacterData. It stores the health and strength/agility/defense stats.
     /// This class contains various functions for interacting with stats, by adding stat modifications, elemental
@@ -18,6 +19,7 @@ namespace ProjectD
     [System.Serializable]
     public class StatSystem
     {
+        
         /*
         public class WaveSawners
         {
@@ -127,7 +129,7 @@ namespace ProjectD
                     attack += modifier.Stats.attack;
                     skill += modifier.Stats.skill;
                     moveSpeed += modifier.Stats.moveSpeed;
-                    attackSpeed += modifier.Stats.attackSpeed;
+                    attackSpeed += modifier.Stats.attackSpeed ;
                     attackRange += modifier.Stats.attackRange;
                     crit += modifier.Stats.crit;
                     skillRange += modifier.Stats.skillRange;
@@ -407,7 +409,7 @@ public class StatsDrawer : PropertyDrawer
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
         int enumTypesCount = Enum.GetValues(typeof(StatSystem.DamageType)).Length;
-        int lineCount = enumTypesCount + 7;
+        int lineCount = enumTypesCount + 15;
         float extraHeight = 6f;
         float propertyHeight = lineCount * EditorGUIUtility.singleLineHeight + extraHeight;
 

@@ -13,16 +13,13 @@ namespace ProjectD
     /// </summary>
     public class CharacterData : HighlightableObject
     {
-         [Header("Attributes")]
+        [Header("Attributes")]
 
-    public float shootRange = 15f;
-    public float shootingRate = 1f;
-    public float shootCountdown = 0f;
 
-    public GameObject bulletPrefab;
-    public Transform shootPoint;
 
-    private Transform target;
+
+
+        
 
 
         public string CharacterName;
@@ -61,6 +58,7 @@ namespace ProjectD
             StatSystem.StatModifier modifier = new StatSystem.StatModifier();
             modifier.ModifierMode = StatSystem.StatModifier.Mode.Absolute;
             modifier.Stats.health += (WaveSpawner.waveNumber-1) * 10;
+            
             this.Stats.AddModifier(modifier);
 
             Inventory.Init(this);
@@ -78,6 +76,9 @@ namespace ProjectD
             Animator anim = GetComponentInChildren<Animator>();
             if(anim != null)
                 SceneLinkedSMB<CharacterData>.Initialise(anim, this);
+
+           
+
         }
 
         // Update is called once per frame
@@ -88,15 +89,21 @@ namespace ProjectD
             if (m_AttackCoolDown > 0.0f)
                 m_AttackCoolDown -= Time.deltaTime;
 
+            
+            Animator anim = GetComponentInChildren<Animator>();
+            if (anim != null)
+                //這邊還要加個條件 避免怪物的ANIMATOR沒有ATTACKSPEED 一值跳黃
+                anim.SetFloat("AttackSpeed",1+this.Stats.stats.attackSpeed*0.01f);
+      
 
-          
+
 
         }
 
 
-     
 
-        
+
+
 
 
         /// <summary>
@@ -160,7 +167,12 @@ namespace ProjectD
         public void AttackTriggered()
         {
             //Agility reduce by 0.5% the cooldown to attack (e.g. if agility = 50, 25% faster to attack)
-            m_AttackCoolDown = Equipment.Weapon.Stats.Speed - (Stats.stats.agility * 0.5f * 0.001f * Equipment.Weapon.Stats.Speed);
+            // m_AttackCoolDown = Equipment.Weapon.Stats.Speed - (Stats.stats.agility * 0.5f * 0.001f * Equipment.Weapon.Stats.Speed);
+            m_AttackCoolDown = Equipment.Weapon.Stats.Speed / (Stats.stats.attackSpeed *0.01f +1f);
+
+           
+
+            
         }
 
         /// <summary>

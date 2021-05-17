@@ -14,6 +14,7 @@ public class bullet :MonoBehaviour
 
     public void Seek(Transform _target)
     {
+       
         target = _target;
     }
 

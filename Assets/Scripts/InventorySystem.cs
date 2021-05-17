@@ -56,7 +56,7 @@ namespace ProjectD
 
             if (!found && firstEmpty != -1)
             {
-                Debug.Log(firstEmpty);
+                
                
                 InventoryEntry entry = new InventoryEntry();
                 entry.Item = item;
@@ -64,7 +64,7 @@ namespace ProjectD
                 
                 
                 Entries[firstEmpty] = entry;
-                Debug.Log(entry.Item.name);
+                
             }
         }
 

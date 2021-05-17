@@ -67,7 +67,7 @@ namespace ProjectD
 
         public override void InteractWith(CharacterData target)
         {
-            Debug.Log("INTERACT物品");
+
             
             target.Inventory.AddItem(Item);
             SFXManager.PlaySound(SFXManager.Use.Sound2D, new SFXManager.PlayData(){Clip = SFXManager.PickupSound});

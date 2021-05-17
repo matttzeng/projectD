@@ -26,9 +26,9 @@ MonoBehaviour:
   HitSounds: []
   SwingSounds: []
   Stats:
-    Speed: 0.5
+    Speed: 3
     MinimumDamage: 10
-    MaximumDamage: 15
+    MaximumDamage: 10
     MaxRange: 5
   AttackEffects: []
 --- !u!114 &8612021249231506279
@@ -51,10 +51,10 @@ MonoBehaviour:
       strength: 100
       defense: 0
       agility: 0
-      attack: 5
+      attack: 0
       skill: 0
       moveSpeed: 5
-      attackSpeed: 0
+      attackSpeed: 50
       attackRange: 0
       crit: 0
       skillSpeed: 0

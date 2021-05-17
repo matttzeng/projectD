@@ -109,9 +109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 633bd1d1ae9b49041aa9b360b207664e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 1
   damage: 1
-  attackRange: 0.5
+  attackRange: 10
   impactFX: {fileID: 263907923257804574, guid: 971cc2f067692414b9948ac0e4d9daf5, type: 3}
 --- !u!54 &6595180898619912449
 Rigidbody:

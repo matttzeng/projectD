@@ -98,7 +98,7 @@ namespace ProjectDInternal
         
                 
             var stats = data.Stats.stats;
-            StatsText.text = $"Atk : {stats.strength} \nDef : {stats.defense} \nAgi : {stats.agility} \nMoveSpeed :{stats.moveSpeed}";
+            StatsText.text = $"Atk : {stats.attack} \nDef : {stats.defense} \nAtkSpeed : {stats.attackSpeed} \nMoveSpeed :{stats.moveSpeed} ";
         }
 
         void UpdateEnemyUI(CharacterData enemy)
@@ -135,7 +135,7 @@ namespace ProjectDInternal
             {
                 ((Image)OpenInventoryButton.targetGraphic).sprite = m_OpenInventorySprite;
                 InventoryWindow.gameObject.SetActive(true);
-                Debug.Log("進入Load");
+               // Debug.Log("進入Load");
                 InventoryWindow.Load(PlayerCharacter.Data);
                 SFXManager.PlaySound(SFXManager.Use.Sound2D, new SFXManager.PlayData(){ Clip = OpenInventoryClip});
             }

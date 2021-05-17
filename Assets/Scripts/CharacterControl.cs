@@ -16,7 +16,8 @@ namespace ProjectDInternal
         public static CharacterControl Instance { get; protected set; }
 
         public int Speed = 10;
-        private Transform target;
+      
+     
         public CharacterData Data => m_CharacterData;
         public CharacterData CurrentTarget => m_CurrentTargetCharacterData;
 
@@ -143,8 +144,9 @@ namespace ProjectDInternal
             var stats = data.Stats.stats;
             Speed =   stats.moveSpeed;
 
+            
 
-            Debug.Log(m_CharacterData.Stats.CurrentMoveSpeed);
+            
 
             Vector3 pos = transform.position;
 
@@ -203,7 +205,7 @@ namespace ProjectDInternal
             }
 
             if (Input.GetMouseButtonDown(0))
-            { //if we click the mouse button, we clear any previously et targets
+           // { //if we click the mouse button, we clear any previously et targets
                 //m_Animator.SetTrigger(m_AttackParamID);
                 if (m_CurrentState != State.ATTACKING)
                 {
@@ -214,7 +216,7 @@ namespace ProjectDInternal
                 {
                     m_ClearPostAttack = true;
                 }
-            }
+           // }
 
             MoveCheck(screenRay);
 
@@ -510,7 +512,9 @@ namespace ProjectDInternal
 
                         m_CharacterData.AttackTriggered();
                         m_Animator.SetTrigger(m_AttackParamID);
-                    }
+
+
+                }
                 //}
             }
             /*else

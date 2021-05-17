@@ -20,16 +20,32 @@ MonoBehaviour:
       strength: 0
       defense: 0
       agility: 0
-      attack: 50
+      attack: 0
       skill: 0
-      moveSpeed: 50
-      attackSpeed: 0
+      moveSpeed: 10
+      attackSpeed: 200
       attackRange: 0
       crit: 0
       skillSpeed: 0
       skillRange: 0
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
+--- !u!114 &-3770104670826039834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b826785bd79bdb43a127d008f406406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Description: 
+  PercentageChance: 0
+  Damage: 0
+  Time: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,8 +72,8 @@ MonoBehaviour:
   HitSounds: []
   SwingSounds: []
   Stats:
-    Speed: 0.5
-    MinimumDamage: 100
-    MaximumDamage: 200
-    MaxRange: 5
+    Speed: 0.7
+    MinimumDamage: 10
+    MaximumDamage: 10
+    MaxRange: 10
   AttackEffects: []
