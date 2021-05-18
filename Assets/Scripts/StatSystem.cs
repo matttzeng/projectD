@@ -398,6 +398,14 @@ namespace ProjectD
             ChangeHealth(-totalDamage);
             DamageUI.Instance.NewDamage(totalDamage, m_Owner.transform.position);
         }
+
+        public void SkillDamage(Skill.AttackData attackData)
+        {
+            int totalDamage = attackData.GetFullDamage();
+
+            ChangeHealth(-totalDamage);
+            DamageUI.Instance.NewDamage(totalDamage, m_Owner.transform.position);
+        }
     }
 }
 

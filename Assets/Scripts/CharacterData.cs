@@ -29,6 +29,7 @@ namespace ProjectD
         /// The starting weapon equipped when the Character is created. Set through the Unity Editor.
         /// </summary>
         public Weapon StartingWeapon;
+        public Skill Skill;
         public InventorySystem Inventory = new InventorySystem();
         public EquipmentSystem Equipment = new EquipmentSystem();
 
@@ -49,6 +50,7 @@ namespace ProjectD
         }
 
         float m_AttackCoolDown;
+        float m_SkillAttackCoolDown;
 
         public void Init()
         {
@@ -89,14 +91,15 @@ namespace ProjectD
             if (m_AttackCoolDown > 0.0f)
                 m_AttackCoolDown -= Time.deltaTime;
 
-            
+            if (m_SkillAttackCoolDown > 0.0f)
+                m_SkillAttackCoolDown -= Time.deltaTime;
+
+
             Animator anim = GetComponentInChildren<Animator>();
             if (anim != null)
                 //這邊還要加個條件 避免怪物的ANIMATOR沒有ATTACKSPEED 一值跳黃
                 anim.SetFloat("AttackSpeed",1+this.Stats.stats.attackSpeed*0.01f);
       
-
-
 
         }
 
@@ -118,6 +121,11 @@ namespace ProjectD
             return Equipment.Weapon.CanHit(this, target);
         }
 
+        public bool CanSkillAttackReach(CharacterData target)
+        {
+
+            return Skill.CanHit(this, target);
+        }
         /// <summary>
         /// Will check if the target is attackable. This in effect check :
         /// - If the target is in range of the weapon
@@ -140,6 +148,19 @@ namespace ProjectD
             return true;
         }
 
+        public bool CanSkillAttackTarget(CharacterData target)
+        {
+            if (target.Stats.CurrentHealth == 0)
+                return false;
+
+            if (!CanSkillAttackReach(target))
+                return false;
+
+            if (m_SkillAttackCoolDown > 0.0f)
+                return false;
+
+            return true;
+        }
         /// <summary>
         /// Call when the character die (health reach 0).
         /// </summary>
@@ -155,10 +176,13 @@ namespace ProjectD
         /// <param name="target">The CharacterData you want to attack</param>
         public void Attack(CharacterData target)
         { 
-
             Equipment.Weapon.Attack(this, target);
         }
 
+        public void SkillAttack(CharacterData target)
+        {
+            Skill.Attack(this, target);
+        }
         /// <summary>
         /// This need to be called as soon as an attack is triggered, it will start the cooldown. This is separate from
         /// the actual Attack function as AttackTriggered will be called at the beginning of the animation while the
@@ -175,6 +199,10 @@ namespace ProjectD
             
         }
 
+        public void SkillAttackTriggered()
+        {
+            m_SkillAttackCoolDown = Skill.Stats.Speed;// - (Stats.stats.agility * 0.5f * 0.001f * Skill.Stats.Speed;
+        }
         /// <summary>
         /// Damage the Character by the AttackData given as parameter. See the documentation for that class for how to
         /// add damage to that attackData. (this will be done automatically by weapons, but you may need to fill it
@@ -199,7 +227,23 @@ namespace ProjectD
             OnDamage?.Invoke();
         }
 
-      
+        public void SkillDamage(Skill.AttackData attackData)
+        {
+            if (HitClip.Length != 0)
+            {
+                SFXManager.PlaySound(SFXManager.Use.Player, new SFXManager.PlayData()
+                {
+                    Clip = HitClip[Random.Range(0, HitClip.Length)],
+                    PitchMax = 1.1f,
+                    PitchMin = 0.8f,
+                    Position = transform.position
+                });
+            }
+
+            Stats.SkillDamage(attackData);
+
+            OnDamage?.Invoke();
+        }
         /*
         void updateTarget()
         {

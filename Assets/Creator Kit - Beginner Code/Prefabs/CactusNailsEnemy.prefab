@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackFrameReceiver: {fileID: 6612220371883893319}
   FootstepFrameReceiver: {fileID: 6612220371883893319}
+  SkillFrameReceiver: {fileID: 0}
 --- !u!1 &5667712714323555562
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,11 +113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c45ba4cd943b6c745bb32ca76b631cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootRange: 15
-  shootingRate: 1
-  shootCountdown: 0
-  bulletPrefab: {fileID: 0}
-  shootPoint: {fileID: 0}
   CharacterName: Cactus Nails
   Stats:
     baseStats:
@@ -124,9 +120,18 @@ MonoBehaviour:
       strength: 2
       defense: 1
       agility: 0
+      attack: 0
+      skill: 0
+      moveSpeed: 0
+      attackSpeed: 0
+      attackRange: 0
+      crit: 0
+      skillSpeed: 0
+      skillRange: 0
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
   StartingWeapon: {fileID: 11400000, guid: fe2930c8cf06ca84c9350406348026e6, type: 2}
+  Skill: {fileID: 0}
   HitClip:
   - {fileID: 8300000, guid: 52bbf808b3d93fb4f861009f0d06498b, type: 3}
   - {fileID: 8300000, guid: a2b0c466fe3cda84da5a4a1f58ae2f07, type: 3}

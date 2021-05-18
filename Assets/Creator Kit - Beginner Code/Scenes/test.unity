@@ -620,7 +620,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &528830204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -711,6 +711,7 @@ MonoBehaviour:
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
   StartingWeapon: {fileID: 11400000, guid: 7f1a957562a85434e80c93859ff367a3, type: 2}
+  Skill: {fileID: 0}
   HitClip: []
 --- !u!136 &574663074
 CapsuleCollider:
@@ -2142,6 +2143,7 @@ MonoBehaviour:
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
   StartingWeapon: {fileID: 11400000, guid: 2f5ad6aeb34e1ad438badf598e1a29ff, type: 2}
+  Skill: {fileID: 11400000, guid: 7beaf02ad0636c943938384e73288b5a, type: 2}
   HitClip: []
 --- !u!224 &1279824084 stripped
 RectTransform:

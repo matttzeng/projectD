@@ -58,9 +58,9 @@ namespace ProjectDInternal
             {
                 m_SkillFrameReceiver = SkillFrameReceiver as ISkillFrameReceiver;
 
-                if (m_SkillFrameReceiver == null)
+                if (m_AttackReceiver == null)
                 {
-                    Debug.LogError("The Monobehaviour set as skill Frame Receiver don't implement the ISkillFrameReceiver interface!", SkillFrameReceiver);
+                    Debug.LogError("The Monobehaviour set as Skill Frame Receiver don't implement the ISkillFrameReceiver interface!", SkillFrameReceiver);
                 }
             }
         }
@@ -75,7 +75,7 @@ namespace ProjectDInternal
             m_FootstepFrameReceiver?.FootstepFrame();
         }
 
-        void SkillkEvent()
+        void SkillEvent()
         {
             m_SkillFrameReceiver?.SkillFrame();
         }

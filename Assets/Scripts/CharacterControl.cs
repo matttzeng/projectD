@@ -11,7 +11,8 @@ using UnityEngine.Serialization;
 namespace ProjectDInternal
 {    public class CharacterControl : MonoBehaviour,
         AnimationControllerDispatcher.IAttackFrameReceiver,
-        AnimationControllerDispatcher.IFootstepFrameReceiver
+        AnimationControllerDispatcher.IFootstepFrameReceiver,
+        AnimationControllerDispatcher.ISkillFrameReceiver
     {
         public static CharacterControl Instance { get; protected set; }
 
@@ -40,6 +41,7 @@ namespace ProjectDInternal
         int m_HitParamID;
         int m_FaintParamID;
         int m_RespawnParamID;
+        int m_SkillAttackParamID;
 
         bool m_IsKO = false;
         float m_KOTimer = 0.0f;
@@ -98,6 +100,7 @@ namespace ProjectDInternal
             m_HitParamID = Animator.StringToHash("Hit");
             m_FaintParamID = Animator.StringToHash("Faint");
             m_RespawnParamID = Animator.StringToHash("Respawn");
+            m_SkillAttackParamID = Animator.StringToHash("Skill");
 
             m_CharacterData = GetComponent<CharacterData>();
 
@@ -493,6 +496,30 @@ namespace ProjectDInternal
             if (m_CurrentState == State.ATTACKING)
                 return;
 
+            if (m_CharacterData.CanSkillAttackTarget(m_CurrentTargetCharacterData))
+            {
+                StopAgent();
+
+                //if the mouse button isn't pressed, we do NOT attack
+                //if (Input.GetMouseButton(0))
+                //{
+                    Vector3 forward = (m_CurrentTargetCharacterData.transform.position - transform.position);
+                    forward.y = 0;
+                    forward.Normalize();
+
+
+                    transform.forward = forward;
+                    if (m_CharacterData.CanSkillAttackTarget(m_CurrentTargetCharacterData))
+                    {
+                        m_CurrentState = State.ATTACKING;
+
+                        m_CharacterData.SkillAttackTriggered();
+                        m_Animator.SetTrigger(m_SkillAttackParamID);
+
+                    }
+
+            }
+
             if (m_CharacterData.CanAttackReach(m_CurrentTargetCharacterData))
             {
                 StopAgent();
@@ -513,8 +540,7 @@ namespace ProjectDInternal
                         m_CharacterData.AttackTriggered();
                         m_Animator.SetTrigger(m_AttackParamID);
 
-
-                }
+                    }
                 //}
             }
             /*else
@@ -535,6 +561,34 @@ namespace ProjectDInternal
             if (m_CharacterData.CanAttackReach(m_CurrentTargetCharacterData))
             {
                 m_CharacterData.Attack(m_CurrentTargetCharacterData);
+
+                var attackPos = m_CurrentTargetCharacterData.transform.position + transform.up * 0.5f;
+                VFXManager.PlayVFX(VFXType.Hit, attackPos);
+                SFXManager.PlaySound(m_CharacterAudio.UseType, new SFXManager.PlayData() { Clip = m_CharacterData.Equipment.Weapon.GetHitSound(), PitchMin = 0.8f, PitchMax = 1.2f, Position = attackPos });
+            }
+
+            if (m_ClearPostAttack)
+            {
+                m_ClearPostAttack = false;
+                m_CurrentTargetCharacterData = null;
+                m_TargetInteractable = null;
+            }
+
+            m_CurrentState = State.DEFAULT;
+        }
+
+        public void SkillFrame()
+        {
+            if (m_CurrentTargetCharacterData == null)
+            {
+                m_ClearPostAttack = false;
+                return;
+            }
+
+            //if we can't reach the target anymore when it's time to damage, then that attack miss.
+            if (m_CharacterData.CanSkillAttackReach(m_CurrentTargetCharacterData))
+            {
+                m_CharacterData.SkillAttack(m_CurrentTargetCharacterData);
 
                 var attackPos = m_CurrentTargetCharacterData.transform.position + transform.up * 0.5f;
                 VFXManager.PlayVFX(VFXType.Hit, attackPos);
