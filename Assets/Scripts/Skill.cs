@@ -15,7 +15,7 @@ namespace ProjectD
     /// OnAttack function called during a hit, and their OnPostAttack function called after all OnAttack of all effects
     /// are called.
     /// </summary>
-    [CreateAssetMenu(fileName = "Skill", menuName = "Beginner Code/Skill", order = -999)]
+    
     public class Skill : EquipmentItem
     {
         public GameObject bulletPrefab;
@@ -243,7 +243,7 @@ public class SkillEditor : Editor
     SerializedProperty m_MinimumDefenseProperty;
     
     SerializedProperty m_SkillStatProperty;
-    /*
+    
     [MenuItem("Assets/Create/Beginner Code/Skill", priority = -999)]
     static public void CreateSkill()
     {
@@ -252,7 +252,7 @@ public class SkillEditor : Editor
         
         ProjectWindowUtil.CreateAsset(newSkill, "Skill.asset");
     }
-    */
+    
     void OnEnable()
     {
         m_Target = target as Skill;
