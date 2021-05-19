@@ -46,6 +46,8 @@ namespace ProjectD
         [System.Serializable]
         public class Stats
         {
+            public bool randomvalue;
+
             //Integer for simplicity, may switch to float later on. For now everything is integer
             public int health;
             public int strength;
@@ -91,6 +93,86 @@ namespace ProjectD
             /// <param name="modifier"></param>
             public void Modify(StatModifier modifier)
             {
+                if (modifier.Stats.randomvalue == true)
+                {
+                    modifier.Stats.health = UnityEngine.Random.Range(0, modifier.Stats.health);
+                    modifier.Stats.strength = UnityEngine.Random.Range(0, modifier.Stats.strength);
+                    modifier.Stats.defense = UnityEngine.Random.Range(0, modifier.Stats.defense);
+                    modifier.Stats.agility = UnityEngine.Random.Range(0, modifier.Stats.agility);
+                    modifier.Stats.attack = UnityEngine.Random.Range(0, modifier.Stats.attack);
+                    modifier.Stats.skill = UnityEngine.Random.Range(0, modifier.Stats.skill);
+                    modifier.Stats.moveSpeed = UnityEngine.Random.Range(0, modifier.Stats.moveSpeed);
+                    modifier.Stats.attackSpeed = UnityEngine.Random.Range(0, modifier.Stats.attackSpeed);
+                    modifier.Stats.attackRange = UnityEngine.Random.Range(0, modifier.Stats.attackRange);
+                    modifier.Stats.crit = UnityEngine.Random.Range(0, modifier.Stats.crit);
+                    modifier.Stats.skillRange = UnityEngine.Random.Range(0, modifier.Stats.skillRange);
+                    modifier.Stats.skillSpeed = UnityEngine.Random.Range(0, modifier.Stats.skillSpeed);
+
+
+
+                    Debug.Log("random"+modifier.Stats.attack);
+
+
+
+
+
+
+                    if (modifier.ModifierMode == StatModifier.Mode.Percentage)
+                    {
+                        health += Mathf.FloorToInt(health * (modifier.Stats.health / 100.0f));
+                        strength += Mathf.FloorToInt(strength * (modifier.Stats.strength / 100.0f));
+                        defense += Mathf.FloorToInt(defense * (modifier.Stats.defense / 100.0f));
+                        agility += Mathf.FloorToInt(agility * (modifier.Stats.agility / 100.0f));
+                        attack += Mathf.FloorToInt(attack * (modifier.Stats.attack / 100.0f));
+                        skill += Mathf.FloorToInt(skill * (modifier.Stats.skill / 100.0f));
+                        moveSpeed += Mathf.FloorToInt(moveSpeed * (modifier.Stats.moveSpeed / 100.0f));
+                        attackSpeed += Mathf.FloorToInt(attackSpeed * (modifier.Stats.attackSpeed / 100.0f));
+                        attackRange += Mathf.FloorToInt(attackRange * (modifier.Stats.attackRange / 100.0f));
+                        crit += Mathf.FloorToInt(crit * (modifier.Stats.crit / 100.0f));
+                        skillRange += Mathf.FloorToInt(skillRange * (modifier.Stats.skillRange / 100.0f));
+                        skillSpeed += Mathf.FloorToInt(skillSpeed * (modifier.Stats.skillSpeed / 100.0f));
+
+
+
+
+
+
+
+
+                        for (int i = 0; i < elementalProtection.Length; ++i)
+                            elementalProtection[i] += Mathf.FloorToInt(elementalProtection[i] * (modifier.Stats.elementalProtection[i] / 100.0f));
+
+                        for (int i = 0; i < elementalBoosts.Length; ++i)
+                            elementalBoosts[i] += Mathf.FloorToInt(elementalBoosts[i] * (modifier.Stats.elementalBoosts[i] / 100.0f));
+                    }
+
+                    else
+                    {
+                        health += modifier.Stats.health;
+                        strength += modifier.Stats.strength;
+                        defense += modifier.Stats.defense;
+                        agility += modifier.Stats.agility;
+                        attack += modifier.Stats.attack;
+                        skill += modifier.Stats.skill;
+                        moveSpeed += modifier.Stats.moveSpeed;
+                        attackSpeed += modifier.Stats.attackSpeed;
+                        attackRange += modifier.Stats.attackRange;
+                        crit += modifier.Stats.crit;
+                        skillRange += modifier.Stats.skillRange;
+                        skillSpeed += modifier.Stats.skillSpeed;
+
+                        for (int i = 0; i < elementalProtection.Length; ++i)
+                            elementalProtection[i] += modifier.Stats.elementalProtection[i];
+
+                        for (int i = 0; i < elementalBoosts.Length; ++i)
+                            elementalBoosts[i] += modifier.Stats.elementalBoosts[i];
+
+                        Debug.Log("加玩之後" + modifier.Stats.attack);
+                    }
+
+                };
+                
+
                 //bit convoluted, but allow to reuse the normal int stat system for percentage change
                 if (modifier.ModifierMode == StatModifier.Mode.Percentage)
                 {
@@ -120,6 +202,7 @@ namespace ProjectD
                     for(int i = 0; i < elementalBoosts.Length; ++i)
                         elementalBoosts[i] += Mathf.FloorToInt(elementalBoosts[i] * (modifier.Stats.elementalBoosts[i]/100.0f));
                 }
+             
                 else
                 {
                     health += modifier.Stats.health;
@@ -162,10 +245,13 @@ namespace ProjectD
             {
                 Percentage,
                 Absolute
+               
             }
 
             public Mode ModifierMode = Mode.Absolute;
             public Stats Stats = new Stats();
+
+            
         }
         
         /// <summary>
@@ -417,7 +503,7 @@ public class StatsDrawer : PropertyDrawer
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
         int enumTypesCount = Enum.GetValues(typeof(StatSystem.DamageType)).Length;
-        int lineCount = enumTypesCount + 15;
+        int lineCount = enumTypesCount + 17;
         float extraHeight = 6f;
         float propertyHeight = lineCount * EditorGUIUtility.singleLineHeight + extraHeight;
 
@@ -435,8 +521,11 @@ public class StatsDrawer : PropertyDrawer
         currentRect.height = EditorGUIUtility.singleLineHeight;
         
         EditorGUI.DropShadowLabel(currentRect, property.displayName);
-        
-        currentRect.y += EditorGUIUtility.singleLineHeight + 6f;
+
+        currentRect.y += EditorGUIUtility.singleLineHeight+17f;
+        EditorGUI.PropertyField(currentRect, property.FindPropertyRelative(nameof(StatSystem.stats.randomvalue)));
+
+        currentRect.y += EditorGUIUtility.singleLineHeight;
         EditorGUI.PropertyField(currentRect, property.FindPropertyRelative(nameof(StatSystem.Stats.health)));
         
         currentRect.y += EditorGUIUtility.singleLineHeight;

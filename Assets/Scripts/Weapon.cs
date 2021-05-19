@@ -17,6 +17,7 @@ namespace ProjectD
     /// </summary>
     public class Weapon : EquipmentItem
     {
+        
         public GameObject bulletPrefab;
         /// <summary>
         /// This class will store damage done to a target CharacterData by a source CharacterData. The function to add
