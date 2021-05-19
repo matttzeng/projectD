@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Entries:
   - Name: Hit
-    Prefab: {fileID: 263907923257804574, guid: 971cc2f067692414b9948ac0e4d9daf5, type: 3}
+    Prefab: {fileID: 5035945247045292663, guid: 066850a0f599f4a4b9c3b3725aff2b81, type: 3}
     PoolSize: 32
   - Name: FireEffect
     Prefab: {fileID: 6530873684951725854, guid: 4bae35886e50cdb4ea86c6732f729e10, type: 3}
@@ -31,3 +31,6 @@ MonoBehaviour:
   - Name: Stronger
     Prefab: {fileID: 2630727110794422432, guid: 041fdbc1284912645ad5acf40458ec61, type: 3}
     PoolSize: 6
+  - Name: Nova
+    Prefab: {fileID: 8779128011198322701, guid: f8a6f2d6d040286459bb850962622d20, type: 3}
+    PoolSize: 32

@@ -17,7 +17,12 @@ namespace ProjectD
     /// </summary>
     public class LootSpawner : MonoBehaviour
     {
+        
+
+
         [System.Serializable]
+
+        
         public class SpawnEvent
         {
             public LootEntry[] Entries;
@@ -38,7 +43,9 @@ namespace ProjectD
     
         public SpawnEvent[] Events;
         public AudioClip SpawnedClip;
-    
+        public bool dropRandomWeapon = false;
+
+
         /// <summary>
         /// Call this to trigger the spawning of the loot. Will spawn one item per event, picking the item randomly
         /// per event using the defined weight. Every call will pick randomly again (but most of the time, the caller
@@ -52,53 +59,98 @@ namespace ProjectD
                 Clip = SpawnedClip,
                 Position = position
             });
-        
+
             //we go over all the events.
-            for (int i = 0; i < Events.Length; ++i)
+            if (dropRandomWeapon == false)
             {
-                SpawnEvent Event = Events[i];
 
-                //first iterate over all object to make a total weight value.
-                int totalWeight = 0;
-                foreach (var entry in Event.Entries)
+
+                for (int i = 0; i < Events.Length; ++i)
                 {
-                    totalWeight += entry.Weight;
-                }
+                    SpawnEvent Event = Events[i];
 
-                //if we don't have any weight just exit
-                if (totalWeight == 0)
-                    continue;
-
-                //then go back again on all the object to build a lookup table based on percentage.
-                List<InternalPurcentageEntry> lookupTable = new List<InternalPurcentageEntry>();
-                float previousPercent = 0.0f;
-                foreach (var entry in Event.Entries)
-                {
-                    float percent = entry.Weight / (float)totalWeight;
-                    InternalPurcentageEntry percentageEntry = new InternalPurcentageEntry();
-                    percentageEntry.Entry = entry;
-                    percentageEntry.Percentage = previousPercent + percent;
-
-                    previousPercent = percentageEntry.Percentage;
-                
-                    lookupTable.Add(percentageEntry);
-                }
-            
-                float rng = Random.value;
-                for (int k = 0; k < lookupTable.Count; ++k)
-                {
-                    if (rng <= lookupTable[k].Percentage)
+                    //first iterate over all object to make a total weight value.
+                    int totalWeight = 0;
+                    foreach (var entry in Event.Entries)
                     {
-                        GameObject obj = new GameObject(lookupTable[k].Entry.Item.ItemName);
-                        //GameObject obj = Instantiate(lookupTable[k].Entry.Item.WorldObjectPrefab);
-                        var l = obj.AddComponent<Loot>();
-                        l.Item = lookupTable[k].Entry.Item;
-                    
-                        l.Spawn(position);
-                    
-                        break;
+                        totalWeight += entry.Weight;
+                    }
+
+                    //if we don't have any weight just exit
+                    if (totalWeight == 0)
+                        continue;
+
+                    //then go back again on all the object to build a lookup table based on percentage.
+                    List<InternalPurcentageEntry> lookupTable = new List<InternalPurcentageEntry>();
+                    float previousPercent = 0.0f;
+                    foreach (var entry in Event.Entries)
+                    {
+                        float percent = entry.Weight / (float)totalWeight;
+                        InternalPurcentageEntry percentageEntry = new InternalPurcentageEntry();
+                        percentageEntry.Entry = entry;
+                        percentageEntry.Percentage = previousPercent + percent;
+
+                        previousPercent = percentageEntry.Percentage;
+
+                        lookupTable.Add(percentageEntry);
+                    }
+
+                    float rng = Random.value;
+                    for (int k = 0; k < lookupTable.Count; ++k)
+                    {
+                        if (rng <= lookupTable[k].Percentage)
+                        {
+                           
+                           
+
+
+
+                                    
+                            GameObject obj = new GameObject(lookupTable[k].Entry.Item.ItemName +UnityEngine.Random.Range(0,100000));
+
+                            Debug.Log("生成物件:" + obj.name);
+                            var l = obj.AddComponent<Loot>();
+
+                            //生成一個新的weapon.asset
+                            //l.Item = WeaponEditor.CreateWeapon();
+                            l.Item = lookupTable[k].Entry.Item;
+                           
+                           
+
+                            l.Spawn(position);
+
+                                
+
+                            
+
+
+
+
+
+
+
+
+                                
+                            //GameObject obj = Instantiate(lookupTable[k].Entry.Item.WorldObjectPrefab);
+
+
+
+
+                                
+                            break;
+
+
+                            
+
+                            
+                        }
                     }
                 }
+            }
+            else
+            {
+                var weaponGenerator = GetComponent<RandomWeaponGenerator>();
+                
             }
         }
     }
@@ -110,7 +162,9 @@ public class LootSpawnerEditor : Editor
 {
     SerializedProperty m_SpawnSoundProp;
     SerializedProperty m_SpawnEventProp;
+    SerializedProperty m_dropRandomWeapon;
     
+
     bool[] m_FoldoutInfos;
 
     int toDelete = -1;
@@ -119,9 +173,9 @@ public class LootSpawnerEditor : Editor
     {
         m_SpawnSoundProp = serializedObject.FindProperty("SpawnedClip");
         m_SpawnEventProp = serializedObject.FindProperty("Events");
-        
+        m_dropRandomWeapon = serializedObject.FindProperty("dropRandomWeapon");
         m_FoldoutInfos = new bool[m_SpawnEventProp.arraySize];
-
+     
         Undo.undoRedoPerformed += RecomputeFoldout;
     }
 
@@ -141,10 +195,12 @@ public class LootSpawnerEditor : Editor
 
     public override void OnInspectorGUI()
     {
+        
         serializedObject.Update();
-
+        EditorGUILayout.PropertyField(m_dropRandomWeapon);
         EditorGUILayout.PropertyField(m_SpawnSoundProp);
-
+        
+        
         for (int i = 0; i < m_SpawnEventProp.arraySize; ++i)
         {
             var i1 = i;

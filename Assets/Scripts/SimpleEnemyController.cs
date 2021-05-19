@@ -73,7 +73,8 @@ namespace ProjectDInternal {
         void Update()
         {
             //See the Update function of CharacterControl.cs for a comment on how we could replace
-            //this (polling health) to a callback method.
+            //this (polling
+            //) to a callback method.
             if (m_CharacterData.Stats.CurrentHealth == 0)
             {
                 m_Animator.SetTrigger(m_DeathAnimHash);

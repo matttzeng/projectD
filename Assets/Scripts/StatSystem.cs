@@ -115,6 +115,25 @@ namespace ProjectD
 
 
 
+                    this.health = modifier.Stats.health;
+                    this.strength = modifier.Stats.strength;
+                    this.defense = modifier.Stats.health;
+                    this.agility = modifier.Stats.health;
+                    this.attack = modifier.Stats.health;
+                    this.skill = modifier.Stats.health;
+                    this.moveSpeed = modifier.Stats.health;
+                    this.attackSpeed = modifier.Stats.health;
+                    this.attackRange = modifier.Stats.health;
+                    this.crit = modifier.Stats.health;
+                    this.skillRange = modifier.Stats.health;
+                    this.skillSpeed = modifier.Stats.health;
+
+                    modifier.Stats.randomvalue = false;
+
+
+
+
+
 
 
                     if (modifier.ModifierMode == StatModifier.Mode.Percentage)

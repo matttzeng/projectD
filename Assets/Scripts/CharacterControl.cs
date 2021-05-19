@@ -591,6 +591,8 @@ namespace ProjectDInternal
                 m_CharacterData.SkillAttack(m_CurrentTargetCharacterData);
 
                 var attackPos = m_CurrentTargetCharacterData.transform.position + transform.up * 0.5f;
+                Vector3 pos = transform.position;
+                VFXManager.PlayVFX(VFXType.Nova, pos);
                 VFXManager.PlayVFX(VFXType.Hit, attackPos);
                 SFXManager.PlaySound(m_CharacterAudio.UseType, new SFXManager.PlayData() { Clip = m_CharacterData.Equipment.Weapon.GetHitSound(), PitchMin = 0.8f, PitchMax = 1.2f, Position = attackPos });
             }

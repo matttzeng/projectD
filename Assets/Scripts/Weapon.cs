@@ -199,6 +199,7 @@ namespace ProjectD
             desc += $"DPS: {minimumDPS} - {maximumDPS}\n";
             desc += $"Attack Speed : {Stats.Speed}s\n";
             desc += $"Range : {Stats.MaxRange}m\n";
+           
 
             return desc;
         }
