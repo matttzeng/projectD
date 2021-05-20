@@ -170,11 +170,7 @@ MonoBehaviour:
   Events:
   - Entries:
     - Weight: 10
-      Item: {fileID: 11400000, guid: 2d9b2076a0b596b4586a557d257ebc5a, type: 2}
-    - Weight: 10
       Item: {fileID: 11400000, guid: 2a9baed910381ef43b4143dae0c8cb09, type: 2}
-    - Weight: 10
-      Item: {fileID: 11400000, guid: d7980a36d9e966948ba302e94b1de87d, type: 2}
     - Weight: 70
       Item: {fileID: 0}
   SpawnedClip: {fileID: 0}

@@ -246,12 +246,23 @@ public class WeaponEditor : Editor
     SerializedProperty m_WeaponStatProperty;
 
     [MenuItem("Assets/Create/Beginner Code/Weapon", priority = -999)]
-    static public void CreateWeapon()
+    static public void CreateWeapon(string weaponName)
     {
+        
         var newWeapon = CreateInstance<Weapon>();
         newWeapon.Slot = (EquipmentItem.EquipmentSlot)666;
+
+        if (Application.isPlaying)
+        {
+            AssetDatabase.CreateAsset(newWeapon, "Assets/ItemDataBase");
+        }
+        else
+        {
+            ProjectWindowUtil.CreateAsset(newWeapon, weaponName + ".asset");
+        }
+
         
-        ProjectWindowUtil.CreateAsset(newWeapon, "weapon.asset");
+        //ProjectWindowUtil.CreateAsset(newWeapon, "weapon.asset");
     }
     
     void OnEnable()

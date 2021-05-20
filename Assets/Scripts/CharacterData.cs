@@ -247,7 +247,8 @@ namespace ProjectD
         /*
         void updateTarget()
         {
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("
+        ");
             float shortestDistance = Mathf.Infinity;
             GameObject nearestEnemy = null;
 

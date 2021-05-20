@@ -17,7 +17,7 @@ namespace ProjectDInternal
         public static CharacterControl Instance { get; protected set; }
 
         public int Speed = 10;
-      
+        public Level level;
      
         public CharacterData Data => m_CharacterData;
         public CharacterData CurrentTarget => m_CurrentTargetCharacterData;
@@ -82,6 +82,8 @@ namespace ProjectDInternal
         // Start is called before the first frame update
         void Start()
         {
+            level = new Level(1, OnLevelUp);
+
             QualitySettings.vSyncCount = 0;
             Application.targetFrameRate = 60;
 
@@ -139,9 +141,16 @@ namespace ProjectDInternal
             };
         }
 
+        public void OnLevelUp()
+        {
+            Debug.Log("升級了");
+        }
+
         // Update is called once per frame
         void Update()
         {
+           
+
             
             CharacterData data = this.Data;
             var stats = data.Stats.stats;
@@ -227,7 +236,8 @@ namespace ProjectDInternal
             //{
 
             /*
-                GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
+                GameObject[] enemies = GameObject.FindGameObjectsWithTag("
+            ");
                 float shortestDistance = Mathf.Infinity;
                 GameObject nearestEnemy = null;
 

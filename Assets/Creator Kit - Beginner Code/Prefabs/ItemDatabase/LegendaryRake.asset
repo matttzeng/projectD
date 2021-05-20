@@ -68,7 +68,7 @@ MonoBehaviour:
   MinimumAgility: 0
   MinimumDefense: 0
   EquippedEffects:
-  - {fileID: -7646669771339083695}
+  - {fileID: 0}
   bulletPrefab: {fileID: 0}
   HitSounds: []
   SwingSounds: []

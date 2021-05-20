@@ -106,17 +106,43 @@ namespace ProjectD
 
 
                                     
-                            GameObject obj = new GameObject(lookupTable[k].Entry.Item.ItemName +UnityEngine.Random.Range(0,100000));
+                            GameObject obj = new GameObject(lookupTable[k].Entry.Item.ItemName);
 
                             Debug.Log("生成物件:" + obj.name);
                             var l = obj.AddComponent<Loot>();
 
                             //生成一個新的weapon.asset
                             //l.Item = WeaponEditor.CreateWeapon();
-                            l.Item = lookupTable[k].Entry.Item;
-                           
-                           
+                            //string weaponName = lookupTable[k].Entry.Item.name + UnityEngine.Random.Range(0, 10000);
 
+
+                            
+
+                            //WeaponEditor.CreateWeapon(weaponName);
+
+                            //l.Item的欄位放進這個weapon asset
+                            /*
+                            l.Item = lookupTable[k].Entry.Item;// AssetDatabase.LoadAssetAtPath("Assets/ItemDataBase/"+weaponName+".asset",WeaponEditor);
+                            Debug.Log("創造" + l.Item.name);
+
+                            //先隨機數值
+                            var s = ((StatChangeEquipEffect)((Weapon)l.Item).EquippedEffects[0]).Modifier.Stats;
+                            s.health =        UnityEngine.Random.Range(0, s.health);
+                            s.strength =      UnityEngine.Random.Range(0, s.strength);
+                            s.defense =       UnityEngine.Random.Range(0, s.defense);
+                            s.agility =       UnityEngine.Random.Range(0, s.agility);
+                            s.attack =        UnityEngine.Random.Range(0, s.attack);
+                            s.skill =         UnityEngine.Random.Range(0, s.skill);
+                            s.moveSpeed =     UnityEngine.Random.Range(0, s.moveSpeed);
+                            s.attackSpeed =   UnityEngine.Random.Range(0, s.attackSpeed);
+                            s.attackRange =   UnityEngine.Random.Range(0, s.attackRange);
+                            s.crit =          UnityEngine.Random.Range(0, s.crit);
+                            s.skillRange =    UnityEngine.Random.Range(0, s.skillRange);
+                            s.skillSpeed =    UnityEngine.Random.Range(0, s.skillSpeed);
+                            
+                            */
+                            l.Item = lookupTable[k].Entry.Item;
+                            //掉出這個weapon asset
                             l.Spawn(position);
 
                                 

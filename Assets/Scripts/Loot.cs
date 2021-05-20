@@ -80,7 +80,8 @@ namespace ProjectD
         /// This is called when the loot become available. It will setup to play the small spawn animation.
         /// This is rarely called manually, and mostly called by the LootSpawner class.
         /// </summary>
-        /// <param name="position"></param>
+        /// <param 
+        /// ="position"></param>
         public void Spawn(Vector3 position)
         {
             m_OriginalPosition = position;

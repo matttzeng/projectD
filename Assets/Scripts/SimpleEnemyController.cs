@@ -36,6 +36,7 @@ namespace ProjectDInternal {
         State m_State;
 
         LootSpawner m_LootSpawner;
+        CharacterControl g;
     
         // Start is called before the first frame update
         void Start()
@@ -65,7 +66,7 @@ namespace ProjectDInternal {
         
             m_StartingAnchor = transform.position;
 
-
+            //g = GameObject.Find("character").GetComponent<CharacterControl>();
 
         }
 
@@ -84,7 +85,26 @@ namespace ProjectDInternal {
             
                 if(m_LootSpawner != null)
                     m_LootSpawner.SpawnLoot();
-            
+
+                
+
+                
+                    if (m_CharacterData.name == "CactusBossyEnemy")
+                    {
+                    GameObject.Find("Character").GetComponent<CharacterControl>().level.AddExp(150);
+                     }
+                    else
+                    {
+                       // g.level.AddExp(10);
+
+                    GameObject.Find("Character").GetComponent<CharacterControl>().level.AddExp(30);
+
+
+                    }
+                
+
+
+
                 Destroy(m_Agent);
                 Destroy(gameObject);
                 Destroy(GetComponent<Collider>());

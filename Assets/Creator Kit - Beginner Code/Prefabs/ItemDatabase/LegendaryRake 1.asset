@@ -16,19 +16,19 @@ MonoBehaviour:
   Modifier:
     ModifierMode: 1
     Stats:
-      randomvalue: 1
-      health: 10
-      strength: 10
-      defense: 10
-      agility: 10
-      attack: 10
-      skill: 10
-      moveSpeed: 10
-      attackSpeed: 10
-      attackRange: 10
-      crit: 10
-      skillSpeed: 10
-      skillRange: 10
+      randomvalue: 0
+      health: 1
+      strength: 2
+      defense: 3
+      agility: 7
+      attack: 8
+      skill: 39
+      moveSpeed: 0
+      attackSpeed: 2
+      attackRange: 7
+      crit: 7
+      skillSpeed: 2
+      skillRange: 5
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
 --- !u!114 &-3770104670826039834

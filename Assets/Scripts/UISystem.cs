@@ -18,8 +18,11 @@ namespace ProjectDInternal
         public Slider PlayerHealthSlider;
         public Text MaxHealth;
         public Text CurrentHealth;
+        public Text currentLevel;
+        public Slider currentEXP;
         public EffectIconUI[] TimedModifierIcones;
         public Text StatsText;
+       
 
         [Header("Enemy")]
         public Slider EnemyHealthSlider;
@@ -71,7 +74,9 @@ namespace ProjectDInternal
             PlayerHealthSlider.value = PlayerCharacter.Data.Stats.CurrentHealth / (float) PlayerCharacter.Data.Stats.stats.health;
             MaxHealth.text = PlayerCharacter.Data.Stats.stats.health.ToString();
             CurrentHealth.text = PlayerCharacter.Data.Stats.CurrentHealth.ToString();
-        
+            currentLevel.text = "Lv:"+PlayerCharacter.level.currentLevel.ToString();
+            
+
             if (PlayerCharacter.CurrentTarget != null)
             {
                 UpdateEnemyUI(PlayerCharacter.CurrentTarget);
