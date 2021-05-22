@@ -100,16 +100,17 @@ namespace ProjectD
                     {
                         if (rng <= lookupTable[k].Percentage)
                         {
-                           
-                           
+                            string s = lookupTable[k].Entry.Item.name + UnityEngine.Random.Range(0, 10000);
+                            AssetDatabase.CopyAsset(AssetDatabase.GetAssetPath(lookupTable[k].Entry.Item), "Assets/InGameItem/" + s + ".asset");
+                            Item o = AssetDatabase.LoadAssetAtPath("Assets/InGameItem/" + s + ".asset", (typeof(Item))) as Item;
 
-
-
-                                    
-                            GameObject obj = new GameObject(lookupTable[k].Entry.Item.ItemName);
-
-                            Debug.Log("生成物件:" + obj.name);
+                            GameObject obj = new GameObject(s);
                             var l = obj.AddComponent<Loot>();
+                            l.Item = o;
+                            l.Spawn(position);
+
+                            //GameObject obj = new GameObject(lookupTable[k].Entry.Item.ItemName);
+
 
                             //生成一個新的weapon.asset
                             //l.Item = WeaponEditor.CreateWeapon();
@@ -141,35 +142,15 @@ namespace ProjectD
                             s.skillSpeed =    UnityEngine.Random.Range(0, s.skillSpeed);
                             
                             */
-                            l.Item = lookupTable[k].Entry.Item;
+                            //l.Item = lookupTable[k].Entry.Item;
                             //掉出這個weapon asset
-                            l.Spawn(position);
-
-                                
-
-                            
-
-
-
-
-
-
-
-
-                                
+                            //l.Spawn(position);
+                      
                             //GameObject obj = Instantiate(lookupTable[k].Entry.Item.WorldObjectPrefab);
-
-
-
-
-                                
+                             
                             break;
 
-
-                            
-
-                            
-                        }
+                       }
                     }
                 }
             }

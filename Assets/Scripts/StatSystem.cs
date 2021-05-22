@@ -95,6 +95,7 @@ namespace ProjectD
             {
                 if (modifier.Stats.randomvalue == true)
                 {
+                    Debug.Log("加之前" + this.health);
                     modifier.Stats.health = UnityEngine.Random.Range(0, modifier.Stats.health);
                     modifier.Stats.strength = UnityEngine.Random.Range(0, modifier.Stats.strength);
                     modifier.Stats.defense = UnityEngine.Random.Range(0, modifier.Stats.defense);
@@ -110,11 +111,11 @@ namespace ProjectD
 
 
 
-                    Debug.Log("random"+modifier.Stats.attack);
+                    //Debug.Log("random"+modifier.Stats.health);
 
 
 
-
+                    /*
                     this.health = modifier.Stats.health;
                     this.strength = modifier.Stats.strength;
                     this.defense = modifier.Stats.health;
@@ -127,7 +128,7 @@ namespace ProjectD
                     this.crit = modifier.Stats.health;
                     this.skillRange = modifier.Stats.health;
                     this.skillSpeed = modifier.Stats.health;
-
+                    */
                     modifier.Stats.randomvalue = false;
 
 
@@ -186,7 +187,7 @@ namespace ProjectD
                         for (int i = 0; i < elementalBoosts.Length; ++i)
                             elementalBoosts[i] += modifier.Stats.elementalBoosts[i];
 
-                        Debug.Log("加玩之後" + modifier.Stats.attack);
+                        //Debug.Log("加玩之後" + this.health);
                     }
 
                 };
