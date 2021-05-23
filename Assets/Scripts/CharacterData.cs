@@ -13,6 +13,7 @@ namespace ProjectD
     /// </summary>
     public class CharacterData : HighlightableObject
     {
+
         [Header("Attributes")]
 
 
@@ -99,7 +100,10 @@ namespace ProjectD
             if (anim != null)
                 //這邊還要加個條件 避免怪物的ANIMATOR沒有ATTACKSPEED 一值跳黃
                 anim.SetFloat("AttackSpeed",1+this.Stats.stats.attackSpeed*0.01f);
+
+            
       
+               
 
         }
 
@@ -201,7 +205,7 @@ namespace ProjectD
 
         public void SkillAttackTriggered()
         {
-            m_SkillAttackCoolDown = Skill.Stats.Speed;// - (Stats.stats.agility * 0.5f * 0.001f * Skill.Stats.Speed;
+            m_SkillAttackCoolDown = Skill.Stats.Speed/ (Stats.stats.skillSpeed*0.01f+1f);// - (Stats.stats.agility * 0.5f * 0.001f * Skill.Stats.Speed;
         }
         /// <summary>
         /// Damage the Character by the AttackData given as parameter. See the documentation for that class for how to

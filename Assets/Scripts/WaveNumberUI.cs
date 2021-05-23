@@ -16,7 +16,7 @@ public class WaveNumberUI : MonoBehaviour
             WaveNumText.text = "START!";
         }
         else
-        WaveNumText.text = currentWave.ToString();
+        WaveNumText.text = "Wave "+currentWave.ToString();
     }
 }
 

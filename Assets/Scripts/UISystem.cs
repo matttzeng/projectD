@@ -73,7 +73,7 @@ namespace ProjectDInternal
         
             PlayerHealthSlider.value = PlayerCharacter.Data.Stats.CurrentHealth / (float) PlayerCharacter.Data.Stats.stats.health;
             MaxHealth.text = PlayerCharacter.Data.Stats.stats.health.ToString();
-            CurrentHealth.text = PlayerCharacter.Data.Stats.CurrentHealth.ToString();
+            CurrentHealth.text = PlayerCharacter.Data.Stats.CurrentHealth.ToString() + " / " + PlayerCharacter.Data.Stats.stats.health.ToString();
             currentLevel.text = "Lv:"+PlayerCharacter.level.currentLevel.ToString();
             
 
@@ -103,7 +103,7 @@ namespace ProjectDInternal
         
                 
             var stats = data.Stats.stats;
-            StatsText.text = $"Atk : {stats.attack} \nDef : {stats.defense} \nAtkSpeed : {stats.attackSpeed} \nMoveSpeed :{stats.moveSpeed} ";
+            StatsText.text = $"剩餘點數 : {stats.statsPoint}\nAtk : {stats.attack} \nDef : {stats.defense} \nAtkSpeed : {stats.attackSpeed} \nMoveSpeed :{stats.moveSpeed} ";
         }
 
         void UpdateEnemyUI(CharacterData enemy)

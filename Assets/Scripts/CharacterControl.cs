@@ -14,6 +14,8 @@ namespace ProjectDInternal
         AnimationControllerDispatcher.IFootstepFrameReceiver,
         AnimationControllerDispatcher.ISkillFrameReceiver
     {
+
+        
         public static CharacterControl Instance { get; protected set; }
 
         public int Speed = 10;
@@ -143,20 +145,35 @@ namespace ProjectDInternal
 
         public void OnLevelUp()
         {
-            Debug.Log("升級了");
+            
+
+             StatSystem.StatModifier modifier = new StatSystem.StatModifier();
+            //m_CharacterData.Stats.ChangeHealth(m_CharacterData.Stats.CurrentHealth + 10);
+            m_CharacterData.Stats.ChangeHealth(10);
+           // Debug.Log("目前血量+10");
+
+            m_CharacterData.Stats.AddModifier(modifier);
+
+            modifier.Stats.health += 10;
+            //Debug.Log("最大血量+10 = " + m_CharacterData.Stats.stats.health);
+
+            //Debug.Log("升到了等級 "+level.currentLevel);
         }
 
         // Update is called once per frame
         void Update()
         {
            
-
+            
             
             CharacterData data = this.Data;
             var stats = data.Stats.stats;
             Speed =   stats.moveSpeed;
 
-            
+
+          
+
+           
 
             
 

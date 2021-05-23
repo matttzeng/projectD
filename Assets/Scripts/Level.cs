@@ -20,8 +20,10 @@ public class Level
         currentLevel = level;
         experience = GetXPForLevel(level);
         OnLevelUp = OnLevUp;
-
         
+
+
+
     }
     public int GetXPForLevel(int level)
     {
@@ -64,7 +66,7 @@ public class Level
 
     public bool AddExp(int amount)
     {
-        Debug.Log("ºW•[∏g≈Á");
+     
         if(amount + experience < 0 || experience > MAX_EXP)
         {
             if (experience > MAX_EXP)
