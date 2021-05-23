@@ -282,7 +282,8 @@ namespace ProjectDInternal
                 }
             */
             //Debug.Log("State:"+ m_CurrentState);
-                if (!EventSystem.current.IsPointerOverGameObject() && m_CurrentState != State.ATTACKING)
+                //if (!EventSystem.current.IsPointerOverGameObject() && m_CurrentState != State.ATTACKING)
+                if (m_CurrentState != State.ATTACKING)
                 {
                 
 

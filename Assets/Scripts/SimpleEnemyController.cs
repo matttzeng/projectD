@@ -217,7 +217,7 @@ namespace ProjectDInternal {
                 return;
             
 
-            //m_CharacterData.Attack(playerData);
+            m_CharacterData.Attack(playerData);
 
 
             shoot();
