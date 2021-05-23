@@ -409,7 +409,7 @@ namespace ProjectDInternal
         {
             bool somethingFound = false;
 
-            //first check for interactable Object
+            //first check for Target not interactable Object
             int count = Physics.SphereCastNonAlloc(screenRay, 5.0f, m_RaycastHitCache, 1000.0f, m_TargetLayer);
             
             if (count > 0)
@@ -430,7 +430,7 @@ namespace ProjectDInternal
             else
             {
                 count = Physics.SphereCastNonAlloc(screenRay, 10.0f, m_RaycastHitCache, 1000.0f, m_InteractableLayer);
-                //Debug.Log("找到物件" + count);
+                //Debug.Log("找到裝備" + count);
                 if (count > 0)
                 {
                     //CharacterData data = m_RaycastHitCache[0].collider.GetComponentInParent<CharacterData>();
