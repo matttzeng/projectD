@@ -37,7 +37,17 @@ namespace ProjectDInternal {
 
         LootSpawner m_LootSpawner;
         CharacterControl g;
-    
+
+
+
+        public float shootRange = 15f;
+        public float shootingRate = 1f;
+        public float shootCountdown = 0f;
+
+        public GameObject bulletPrefab;
+       
+
+
         // Start is called before the first frame update
         void Start()
         {
@@ -91,13 +101,13 @@ namespace ProjectDInternal {
                 
                     if (m_CharacterData.name == "CactusBossyEnemy")
                     {
-                    GameObject.Find("Character").GetComponent<CharacterControl>().level.AddExp(150);
+                    GameObject.Find("Character").GetComponent<CharacterControl>().level.AddExp(200);
                      }
                     else
                     {
                        // g.level.AddExp(10);
 
-                    GameObject.Find("Character").GetComponent<CharacterControl>().level.AddExp(30);
+                    GameObject.Find("Character").GetComponent<CharacterControl>().level.AddExp(50);
 
 
                     }
@@ -206,7 +216,17 @@ namespace ProjectDInternal {
             if (!m_CharacterData.CanAttackReach(playerData))
                 return;
             
-            m_CharacterData.Attack(playerData);
+
+            //m_CharacterData.Attack(playerData);
+
+
+            shoot();
+            /*
+            if (子彈打中玩家)
+            {
+                m_CharacterData.Attack(playerData);
+            }
+            */
         }
 
         void OnDrawGizmosSelected()
@@ -220,6 +240,19 @@ namespace ProjectDInternal {
         
             m_CharacterAudio.Step(pos);
             VFXManager.PlayVFX(VFXType.StepPuff, pos); 
+        }
+
+
+        void shoot()
+        {
+          
+            CharacterData playerData = CharacterControl.Instance.Data;
+
+            GameObject bulletGo = (GameObject)Instantiate(bulletPrefab, m_CharacterData.transform.position, m_CharacterData.transform.rotation);
+            bullet bullet = bulletGo.GetComponent<bullet>();
+
+            if (bullet != null)
+                bullet.Seek(playerData.transform);
         }
     }
 }

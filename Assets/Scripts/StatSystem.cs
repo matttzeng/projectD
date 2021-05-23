@@ -61,6 +61,7 @@ namespace ProjectD
             public int crit;
             public int skillSpeed;
             public int skillRange;
+            public int statsPoint;
 
 
             //use an array indexed by the DamageType enum for easy extensibility
@@ -81,8 +82,8 @@ namespace ProjectD
                 crit = other.crit;
                 skillRange = other.skillRange;
                 skillSpeed = other.skillRange;
+                statsPoint = other.statsPoint;
 
-                         
                 Array.Copy(other.elementalProtection, elementalProtection, other.elementalProtection.Length);
                 Array.Copy(other.elementalBoosts, elementalBoosts, other.elementalBoosts.Length);
             }

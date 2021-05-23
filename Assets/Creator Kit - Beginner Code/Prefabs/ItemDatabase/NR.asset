@@ -71,7 +71,7 @@ MonoBehaviour:
       agility: 0
       attack: 0
       skill: 0
-      moveSpeed: 5
+      moveSpeed: 2
       attackSpeed: 50
       attackRange: 0
       crit: 0
