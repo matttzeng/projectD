@@ -133,7 +133,7 @@ MonoBehaviour:
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
   StartingWeapon: {fileID: 11400000, guid: fe2930c8cf06ca84c9350406348026e6, type: 2}
-  Skill: {fileID: 0}
+  Skill: {fileID: 11400000, guid: 5bee6334369b9174dbf6c9ae5059da34, type: 2}
   HitClip:
   - {fileID: 8300000, guid: 52bbf808b3d93fb4f861009f0d06498b, type: 3}
   - {fileID: 8300000, guid: a2b0c466fe3cda84da5a4a1f58ae2f07, type: 3}
@@ -171,8 +171,6 @@ MonoBehaviour:
   - Entries:
     - Weight: 10
       Item: {fileID: 11400000, guid: 2a9baed910381ef43b4143dae0c8cb09, type: 2}
-    - Weight: 70
-      Item: {fileID: 0}
   SpawnedClip: {fileID: 0}
   dropRandomWeapon: 0
 --- !u!1001 &5667712713484102679

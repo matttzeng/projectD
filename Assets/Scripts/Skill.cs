@@ -160,12 +160,12 @@ namespace ProjectD
             foreach(var wae in AttackEffects)
                 wae.OnAttack(target, attacker, ref attackData);
 
-            //範圍攻擊, 距離小於30
+            //範圍攻擊, 距離小於5
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
             foreach (GameObject enemy in enemies)
             {
                 float distanceToEnemy = Vector3.Distance(target.transform.position, enemy.transform.position);
-                if (distanceToEnemy <= 30.0f)
+                if (distanceToEnemy <= 5.0f)
                 {
                     enemy.GetComponent<CharacterData>().SkillDamage(attackData);
                 }
