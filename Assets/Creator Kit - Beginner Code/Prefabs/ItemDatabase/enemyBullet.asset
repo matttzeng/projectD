@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 721bded4ab38d3c45ac4302c289230a8, type: 3}
   m_Name: enemyBullet
   m_EditorClassIdentifier: 
-  ItemName: 
+  ItemName: EnemyBullet
   ItemSprite: {fileID: 21300000, guid: d09d2e37f26f34242b8928413c159401, type: 3}
   Description: 
-  WorldObjectPrefab: {fileID: 0}
+  WorldObjectPrefab: {fileID: 713660671193342677, guid: 497209de1a76e2242beede79c87952ed, type: 3}
   Slot: 666
   MinimumStrength: 0
   MinimumAgility: 0
@@ -26,7 +26,7 @@ MonoBehaviour:
   SwingSounds: []
   Stats:
     Speed: 3
-    MinimumDamage: 2
+    MinimumDamage: 3
     MaximumDamage: 3
     MaxRange: 7
   AttackEffects: []

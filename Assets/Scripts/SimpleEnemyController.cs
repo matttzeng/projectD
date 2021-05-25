@@ -42,7 +42,7 @@ namespace ProjectDInternal {
 
 
 
-        public GameObject projectile;
+        //public GameObject projectile;
         public NavMeshAgent agent;
 
 
@@ -265,8 +265,8 @@ namespace ProjectDInternal {
 
             Debug.Log("打玩家");
             Vector3 shootPoint =new Vector3(gameObject.transform.position.x, gameObject.transform.position.y+1.0f, gameObject.transform.position.z); 
-            Rigidbody rb = Instantiate(projectile, shootPoint, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 12f, ForceMode.Impulse);
+            Rigidbody rb = Instantiate(GetComponent<CharacterData>().StartingWeapon.WorldObjectPrefab, shootPoint, Quaternion.identity).GetComponent<Rigidbody>();
+            rb.AddForce(transform.forward * 24f, ForceMode.Impulse);
             rb.AddForce(transform.up * 2f, ForceMode.Impulse);
 
         }
