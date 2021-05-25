@@ -102,7 +102,6 @@ MonoBehaviour:
   Speed: 6
   detectionRadius: 10
   SpottedAudioClip: []
-  projectile: {fileID: 713660671193342677, guid: 497209de1a76e2242beede79c87952ed, type: 3}
   agent: {fileID: 0}
 --- !u!114 &5667712714323555573
 MonoBehaviour:
@@ -124,7 +123,7 @@ MonoBehaviour:
       strength: 2
       defense: 1
       agility: 0
-      attack: 0
+      attack: 1
       skill: 0
       moveSpeed: 0
       attackSpeed: 0

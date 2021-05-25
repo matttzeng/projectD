@@ -64,9 +64,11 @@ namespace ProjectD
                 if (damageType == StatSystem.DamageType.Physical)
                 {
                     //source cna be null when it's elemental or effect damage
-                    if(m_Source !=  null)
+                    if (m_Source != null)
+                    {   
                         addedAmount += Mathf.FloorToInt(addedAmount + m_Source.Stats.stats.attack );
-                
+                        //addedAmount += Mathf.FloorToInt(addedAmount * m_Source.Stats.stats.strength * 0.01f);                     
+                    }
                     //each poitn of defense remove 1 damage, with a minimum of 1 damage
                     addedAmount = Mathf.Max(addedAmount - m_Target.Stats.stats.defense, 1);
                 }
@@ -152,7 +154,7 @@ namespace ProjectD
         public void Attack(CharacterData attacker, CharacterData target)
         {
             AttackData attackData = new AttackData(target, attacker);
-
+            
             int damage = Random.Range(Stats.MinimumDamage, Stats.MaximumDamage + 1);
 
             attackData.AddDamage(StatSystem.DamageType.Physical, damage);
@@ -248,6 +250,15 @@ public class WeaponEditor : Editor
     SerializedProperty m_WeaponStatProperty;
 
     [MenuItem("Assets/Create/Beginner Code/Weapon", priority = -999)]
+    
+    static public void CreateWeapon()
+    {
+        var newWeapon = CreateInstance<Weapon>();
+        newWeapon.Slot = (EquipmentItem.EquipmentSlot)666;
+        
+        ProjectWindowUtil.CreateAsset(newWeapon, "weapon.asset");
+    }
+    /*
     static public void CreateWeapon(string weaponName)
     {
         
@@ -266,7 +277,7 @@ public class WeaponEditor : Editor
         
         //ProjectWindowUtil.CreateAsset(newWeapon, "weapon.asset");
     }
-    
+    */
     void OnEnable()
     {
         m_Target = target as Weapon;

@@ -179,7 +179,7 @@ namespace ProjectD
         /// </summary>
         /// <param name="target">The CharacterData you want to attack</param>
         public void Attack(CharacterData target)
-        { 
+        {
             Equipment.Weapon.Attack(this, target);
         }
 

@@ -13,6 +13,7 @@ public class bullet :MonoBehaviour
     public float attackRange = 3f;
     public GameObject impactFX;
     private Vector3 dir;
+    public CharacterData Shooter;
 
     public void Seek(Transform _target)
     {
@@ -23,7 +24,7 @@ public class bullet :MonoBehaviour
 
     private void Start()
     {
-        damage = gameObject.GetComponent<CharacterData>().Stats.stats.attack;
+        //damage = gameObject.GetComponent<CharacterData>().Stats.stats.attack;
 
        dir = target.position - transform.position;
 

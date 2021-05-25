@@ -148,23 +148,21 @@ namespace ProjectDInternal
         {
             if (collision.gameObject.tag == "enemyBullet")
             {
-                Debug.Log("被"+collision.gameObject.name+"打中呢");
-               
+                //Debug.Log("被"+collision.gameObject.name+"打中呢");
+                //collision.gameObject.GetComponent<CharacterData>().Init();
 
                 //子彈 對玩家造成傷害
                 //下面這個應該才是對的方向  但是無效
-                //collision.gameObject.GetComponent<CharacterData>().Attack(m_CharacterData);
+                collision.gameObject.GetComponent<bullet>().Shooter.Attack(m_CharacterData);
                 //這個是硬找一個值去扣玩家的血  脫離原本characterData的架構了
-                int Dam = collision.gameObject.GetComponent<bullet>().damage;               
-                StatSystem.StatModifier modifier = new StatSystem.StatModifier();
-                m_CharacterData.Stats.ChangeHealth(-1*Dam);
-                Debug.Log("被打了" + Dam + "血");
+                //int Dam = collision.gameObject.GetComponent<bullet>().damage;               
+                //StatSystem.StatModifier modifier = new StatSystem.StatModifier();
+                //m_CharacterData.Stats.ChangeHealth(-1*Dam);
+                //Debug.Log("被打了" + Dam + "血");
 
                 //兩秒後刪除子彈
                 Destroy(collision.gameObject,2f);
-
-             
-                
+           
             }
         }
        

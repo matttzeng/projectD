@@ -255,19 +255,20 @@ namespace ProjectDInternal {
             VFXManager.PlayVFX(VFXType.StepPuff, pos); 
         }
 
-
+        
         void shootPlayer()
         {
 
-            
-
             transform.LookAt(CharacterControl.Instance.Data.transform.position);
 
-            Debug.Log("打玩家");
+            //Debug.Log("打玩家");
             Vector3 shootPoint =new Vector3(gameObject.transform.position.x, gameObject.transform.position.y+1.0f, gameObject.transform.position.z); 
-            Rigidbody rb = Instantiate(GetComponent<CharacterData>().StartingWeapon.WorldObjectPrefab, shootPoint, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 24f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 2f, ForceMode.Impulse);
+            GameObject rb = Instantiate(GetComponent<CharacterData>().StartingWeapon.WorldObjectPrefab, shootPoint, Quaternion.identity);
+            //Rigidbody rb = Instantiate(GetComponent<CharacterData>().StartingWeapon.WorldObjectPrefab, shootPoint, Quaternion.identity).GetComponent<Rigidbody>();
+            //var l = rb.AddComponent<Rigidbody>();
+            rb.GetComponent<bullet>().Shooter = m_CharacterData;
+            rb.GetComponent<Rigidbody>().AddForce(transform.forward * 24f, ForceMode.Impulse);
+            rb.GetComponent<Rigidbody>().AddForce(transform.up * 2f, ForceMode.Impulse);
 
         }
 
