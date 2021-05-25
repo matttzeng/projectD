@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ProjectD;
-
 
 public class bullet :MonoBehaviour
 {
@@ -23,8 +21,6 @@ public class bullet :MonoBehaviour
 
     private void Start()
     {
-        damage = gameObject.GetComponent<CharacterData>().Stats.stats.attack;
-
        dir = target.position - transform.position;
 
     }
