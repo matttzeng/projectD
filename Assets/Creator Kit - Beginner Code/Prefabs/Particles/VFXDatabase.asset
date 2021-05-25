@@ -34,3 +34,6 @@ MonoBehaviour:
   - Name: Nova
     Prefab: {fileID: 8779128011198322701, guid: f8a6f2d6d040286459bb850962622d20, type: 3}
     PoolSize: 32
+  - Name: BulletImpactFX
+    Prefab: {fileID: 263907923257804574, guid: 971cc2f067692414b9948ac0e4d9daf5, type: 3}
+    PoolSize: 32
