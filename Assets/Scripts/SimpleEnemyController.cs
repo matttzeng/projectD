@@ -2,7 +2,6 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-
 namespace ProjectDInternal {
     public class SimpleEnemyController : MonoBehaviour, 
         AnimationControllerDispatcher.IAttackFrameReceiver,
@@ -41,10 +40,12 @@ namespace ProjectDInternal {
 
 
 
+        public float shootRange = 15f;
+        public float shootingRate = 1f;
+        public float shootCountdown = 0f;
 
-        public GameObject projectile;
-        public NavMeshAgent agent;
-
+        public GameObject bulletPrefab;
+       
 
 
         // Start is called before the first frame update
@@ -207,7 +208,6 @@ namespace ProjectDInternal {
             m_Animator.SetFloat(m_SpeedAnimHash, m_Agent.velocity.magnitude/Speed);
         }
 
-       
         public void AttackFrame()
         {
             CharacterData playerData = CharacterControl.Instance.Data;
@@ -215,31 +215,18 @@ namespace ProjectDInternal {
             //if we can't reach the player anymore when it's time to damage, then that attack miss.
             if (!m_CharacterData.CanAttackReach(playerData))
                 return;
-            if (m_CharacterData.Equipment.Weapon.Stats.MaxRange <=2)
-            {
-                //近戰判定擊中扣血
-                m_CharacterData.Attack(playerData);
-            }
-            else if(m_CharacterData.Equipment.Weapon.Stats.MaxRange >= 3)
-            {
-                //遠程判定擊中扣血
-                shootPlayer();
-
-               
-
-                
-                //if (玩家被擊中)
-                //{
-                ////扣血
-                //    m_CharacterData.Attack(playerData);
-                //}
-                 
-               
-            }
-
             
 
+            m_CharacterData.Attack(playerData);
 
+
+            shoot();
+            /*
+            if (子彈打中玩家)
+            {
+                m_CharacterData.Attack(playerData);
+            }
+            */
         }
 
         void OnDrawGizmosSelected()
@@ -256,21 +243,16 @@ namespace ProjectDInternal {
         }
 
 
-        void shootPlayer()
+        void shoot()
         {
+          
+            CharacterData playerData = CharacterControl.Instance.Data;
 
-            
+            GameObject bulletGo = (GameObject)Instantiate(bulletPrefab, m_CharacterData.transform.position, m_CharacterData.transform.rotation);
+            bullet bullet = bulletGo.GetComponent<bullet>();
 
-            transform.LookAt(CharacterControl.Instance.Data.transform.position);
-
-            Debug.Log("打玩家");
-            Vector3 shootPoint =new Vector3(gameObject.transform.position.x, gameObject.transform.position.y+1.0f, gameObject.transform.position.z); 
-            Rigidbody rb = Instantiate(projectile, shootPoint, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 12f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 2f, ForceMode.Impulse);
-
+            if (bullet != null)
+                bullet.Seek(playerData.transform);
         }
-
-
     }
 }

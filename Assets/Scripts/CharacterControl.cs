@@ -143,25 +143,6 @@ namespace ProjectDInternal
             };
         }
 
-        //被球打扣血
-        public void OnCollisionEnter(Collision collision)
-        {
-            if (collision.gameObject.tag == "enemyBullet")
-            {
-                Debug.Log("被"+collision.gameObject.name+"打中呢");
-
-                //子彈 對玩家造成傷害
-                //collision.gameObject.GetComponent<Weapon>().Attack(m_CharacterData,m_CharacterData);
-                  
-                //m_CharacterData.Attack(m_CurrentTargetCharacterData);
-
-                Destroy(collision.gameObject,2f);
-
-             
-                
-            }
-        }
-       
         public void OnLevelUp()
         {
             

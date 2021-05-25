@@ -176,7 +176,6 @@ namespace ProjectD
             return false;
         }
 
-        /*
         public void shoot(CharacterData target,CharacterData attacker)
         {
 
@@ -186,7 +185,6 @@ namespace ProjectD
             if (bullet != null)
                 bullet.Seek(target.transform);
         }
-        */
         
 
         public override string GetDescription()

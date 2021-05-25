@@ -102,8 +102,6 @@ MonoBehaviour:
   Speed: 6
   detectionRadius: 10
   SpottedAudioClip: []
-  projectile: {fileID: 713660671193342677, guid: 497209de1a76e2242beede79c87952ed, type: 3}
-  agent: {fileID: 0}
 --- !u!114 &5667712714323555573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,10 +130,9 @@ MonoBehaviour:
       crit: 0
       skillSpeed: 0
       skillRange: 0
-      statsPoint: 0
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
-  StartingWeapon: {fileID: 11400000, guid: a93ab13e5f0641040af94c0613b4b3d9, type: 2}
+  StartingWeapon: {fileID: 11400000, guid: fe2930c8cf06ca84c9350406348026e6, type: 2}
   Skill: {fileID: 11400000, guid: 5bee6334369b9174dbf6c9ae5059da34, type: 2}
   HitClip:
   - {fileID: 8300000, guid: 52bbf808b3d93fb4f861009f0d06498b, type: 3}
@@ -174,8 +171,6 @@ MonoBehaviour:
   - Entries:
     - Weight: 10
       Item: {fileID: 11400000, guid: 2a9baed910381ef43b4143dae0c8cb09, type: 2}
-    - Weight: 90
-      Item: {fileID: 0}
   SpawnedClip: {fileID: 0}
   dropRandomWeapon: 0
 --- !u!1001 &5667712713484102679

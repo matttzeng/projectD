@@ -16,6 +16,9 @@ MonoBehaviour:
   ItemSprite: {fileID: 0}
   Description: 
   WorldObjectPrefab: {fileID: 0}
+  name: New Item
+  icon: {fileID: 0}
+  isDefaultItem: 0
   Slot: 666
   MinimumStrength: 0
   MinimumAgility: 0
@@ -28,5 +31,5 @@ MonoBehaviour:
     Speed: 3
     MinimumDamage: 2
     MaximumDamage: 3
-    MaxRange: 10
+    MaxRange: 2
   AttackEffects: []
