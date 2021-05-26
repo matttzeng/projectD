@@ -22,12 +22,11 @@ MonoBehaviour:
   MinimumDefense: 0
   EquippedEffects: []
   bulletPrefab: {fileID: 0}
-  SkillCategory: 1
   HitSounds: []
   SwingSounds: []
   Stats:
-    Speed: 5
+    Speed: 20
     MinimumDamage: 100
     MaximumDamage: 200
-    MaxRange: 10
+    MaxRange: 20
   AttackEffects: []

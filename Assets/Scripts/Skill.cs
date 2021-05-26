@@ -130,7 +130,7 @@ namespace ProjectD
                 return Description;
             }
         }
-
+    
         [System.Serializable]
         public struct Stat
         {
@@ -140,9 +140,6 @@ namespace ProjectD
             public float MaxRange;
         }
 
-        [Header("SkillCategory")]
-        public int SkillCategory;
-
         [Header("Sounds")]
         public AudioClip[] HitSounds;
         public AudioClip[] SwingSounds;
@@ -151,7 +148,7 @@ namespace ProjectD
         public Stat Stats = new Stat(){ Speed = 1.0f, MaximumDamage = 1, MinimumDamage = 1, MaxRange = 1};
 
         public List<SkillAttackEffect> AttackEffects;
-
+    
         public void Attack(CharacterData attacker, CharacterData target)
         {
             AttackData attackData = new AttackData(target, attacker);
@@ -160,77 +157,23 @@ namespace ProjectD
 
             attackData.AddDamage(StatSystem.DamageType.Physical, damage);
 
-            foreach (var wae in AttackEffects)
+            foreach(var wae in AttackEffects)
                 wae.OnAttack(target, attacker, ref attackData);
 
-            switch (SkillCategory)
+            //範圍攻擊, 距離小於5
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
+            foreach (GameObject enemy in enemies)
             {
-                case 1:
-                    //遠距範圍攻擊
-                    //Debug.Log("遠距範圍攻擊");
-                    RaycastHit[] hits1;
-                    hits1 = Physics.SphereCastAll(target.transform.position, 3.0F, target.transform.forward, 0.0F, LayerMask.GetMask("Target"));
-                   //Debug.Log("有幾個對象:" + hits1.Length);
-                    if (hits1.Length > 0)
-                    {
-                        foreach (RaycastHit hit in hits1)
-                        {
-                            CharacterData obj = hit.transform.gameObject.GetComponent<CharacterData>();
-                            obj.SkillDamage(attackData);
-                        }
-                    }
-                    /*GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
-                    foreach (GameObject enemy in enemies)
-                    {
-                        float distanceToEnemy = Vector3.Distance(target.transform.position, enemy.transform.position);
-                        if (distanceToEnemy <= 3.0f)
-                        {
-                            enemy.GetComponent<CharacterData>().SkillDamage(attackData);
-                        }
-                    }*/
-                    break;
-
-                case 2:
-                    //自身範圍攻擊
-                    //Debug.Log("自身範圍攻擊");
-                    RaycastHit[] hits2;
-                    hits2 = Physics.SphereCastAll(attacker.transform.position, 5.0F, attacker.transform.forward, 0.0F, LayerMask.GetMask("Target"));
-                    //Debug.Log("有幾個對象:" + hits2.Length);
-                    if (hits2.Length > 0)
-                    {
-                        foreach (RaycastHit hit in hits2)
-                        {
-                                CharacterData obj = hit.transform.gameObject.GetComponent<CharacterData>();
-                                obj.SkillDamage(attackData);
-                        }
-                    }
-                    /*GameObject[] enemies2 = GameObject.FindGameObjectsWithTag("enemy");
-                    foreach (GameObject enemy in enemies2)
-                    {
-                        float distanceToEnemy = Vector3.Distance(attacker.transform.position, enemy.transform.position);
-                        if (distanceToEnemy <= 5.0f)
-                        {
-                            enemy.GetComponent<CharacterData>().SkillDamage(attackData);
-                        }
-                    }*/
-                    break;
-
-                case 3:
-                    //直線攻擊
-                    RaycastHit[] hits3;
-                    hits3 = Physics.SphereCastAll(attacker.transform.position, 2.0F, attacker.transform.forward, Mathf.Infinity, LayerMask.GetMask("Target"));
-                    //Debug.Log("有幾個對象:" + hits3.Length);
-                    if (hits3.Length > 0)
-                    {
-                        foreach (RaycastHit hit in hits3)
-                        {
-                                CharacterData obj = hit.transform.gameObject.GetComponent<CharacterData>();
-                                obj.SkillDamage(attackData);                               
-                        }
-                    }
-                    break;
+                float distanceToEnemy = Vector3.Distance(target.transform.position, enemy.transform.position);
+                if (distanceToEnemy <= 5.0f)
+                {
+                    enemy.GetComponent<CharacterData>().SkillDamage(attackData);
+                }
             }
-            foreach (var wae in AttackEffects)
+
+                //target.SkillDamage(attackData);
+        
+            foreach(var wae in AttackEffects)
                 wae.OnPostAttack(target, attacker, attackData);     
         }
 
@@ -311,8 +254,6 @@ public class SkillEditor : Editor
     SerializedProperty m_MinimumDefenseProperty;
     
     SerializedProperty m_SkillStatProperty;
-
-    SerializedProperty m_SkillCategory;
     
     [MenuItem("Assets/Create/Beginner Code/Skill", priority = -999)]
     static public void CreateSkill()
@@ -328,8 +269,6 @@ public class SkillEditor : Editor
         m_Target = target as Skill;
         m_EquippedEffectListProperty = serializedObject.FindProperty(nameof(Skill.EquippedEffects));
         m_SkillAttackEffectListProperty = serializedObject.FindProperty(nameof(Skill.AttackEffects));
-
-        m_SkillCategory = serializedObject.FindProperty(nameof(Skill.SkillCategory));
 
         m_MinimumStrengthProperty = serializedObject.FindProperty(nameof(EquipmentItem.MinimumStrength));
         m_MinimumAgilityProperty = serializedObject.FindProperty(nameof(EquipmentItem.MinimumAgility));
@@ -365,7 +304,6 @@ public class SkillEditor : Editor
         EditorGUILayout.PropertyField(m_MinimumStrengthProperty);
         EditorGUILayout.PropertyField(m_MinimumAgilityProperty);
         EditorGUILayout.PropertyField(m_MinimumDefenseProperty);
-         EditorGUILayout.PropertyField(m_SkillCategory);
         
         //EditorGUILayout.PropertyField(m_SkillStatProperty, true);
         var child = m_SkillStatProperty.Copy();
