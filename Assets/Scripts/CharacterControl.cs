@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Timers;
-using EasyJoystick;
 using ProjectD;
 using UnityEngine;
 using UnityEngine.AI;
@@ -16,7 +15,7 @@ namespace ProjectDInternal
         AnimationControllerDispatcher.ISkillFrameReceiver
     {
 
-        [SerializeField] private Joystick joystick;
+        
         public static CharacterControl Instance { get; protected set; }
 
         public int Speed = 10;
@@ -161,12 +160,8 @@ namespace ProjectDInternal
                 //m_CharacterData.Stats.ChangeHealth(-1*Dam);
                 //Debug.Log("被打了" + Dam + "血");
 
-                VFXManager.PlayVFX(VFXType.BulletImpactFX, collision.contacts[0].point);
-
                 //兩秒後刪除子彈
                 Destroy(collision.gameObject,2f);
-
-
            
             }
         }
@@ -489,16 +484,9 @@ namespace ProjectDInternal
         
         void MoveCheck()
         {
-
-          
-            //Keyboard control:
-            //float xDirection = Input.GetAxis("Horizontal");
-            //float zDirection = Input.GetAxis("Vertical");
-
-            //mobile joystick control:
-            float xDirection = joystick.Horizontal();
-            float zDirection = joystick.Vertical();
-
+            
+            float xDirection = Input.GetAxis("Horizontal");
+            float zDirection = Input.GetAxis("Vertical");
 
             Vector3 moverDirection = new Vector3(xDirection, 0.0f, zDirection);
 
