@@ -6,5 +6,6 @@ public enum VFXType
 	Healing,
 	Negative,
 	Stronger,
-	Nova
+	Nova,
+	BulletImpactFX
 }
