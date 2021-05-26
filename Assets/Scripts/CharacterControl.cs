@@ -239,7 +239,7 @@ namespace ProjectDInternal
             }
 
             //Ray screenRay = CameraController.Instance.GameplayCamera.ScreenPointToRay(Input.mousePosition);
-            Ray screenRay = CameraController.Instance.GameplayCamera.ScreenPointToRay(transform.position);
+            //Ray screenRay = CameraController.Instance.GameplayCamera.ScreenPointToRay(transform.position);
 
             if (m_TargetInteractable != null)
             {
@@ -313,68 +313,52 @@ namespace ProjectDInternal
                 //if (!EventSystem.current.IsPointerOverGameObject() && m_CurrentState != State.ATTACKING)
                 if (m_CurrentState != State.ATTACKING)
                 {
-                
 
-                //Raycast to find object currently under the mouse cursor
-                ObjectsRaycasts(screenRay);
+                    //Raycast to find object currently under the mouse cursor
+                    ObjectsRaycasts();
+                    //攻擊球體範圍內敵人
+                    //if(m_RaycastHitCache[0].collider.GetComponentInParent<CharacterData>() != null)
+                        //m_CurrentTargetCharacterData = m_RaycastHitCache[0].collider.GetComponentInParent<CharacterData>();
 
-                //if (Input.GetMouseButton(0))
-                //{
-                //if (m_TargetInteractable == null)
-                        //{
-                            //InteractableObject obj = m_Highlighted as InteractableObject;
-                            //if (obj)
-                            //{
-                                //InteractWith(obj);
-                            //}
-                            //else
-                            //{
-                                CharacterData[] enemies = FindObjectsOfType<CharacterData>();
-                                float shortestDistance = Mathf.Infinity;
-                                CharacterData nearestEnemy = null;
+                    /*if(m_CurrentTargetCharacterData == null)
+                    {
+                        InteractableObject obj = m_Highlighted as InteractableObject;
+                        if (obj)
+                        {
+                            InteractWith(obj);
+                        }
+                    }*/
+                    
+                    //Debug.Log("有目標"+(m_CurrentTargetCharacterData != null));
 
-                                foreach (CharacterData enemy in enemies)
-                                {
-                                   
-                                    float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-                                    if (distanceToEnemy <= shortestDistance && distanceToEnemy >= 0.1)
-                                    {
-                                        shortestDistance = distanceToEnemy;
-                                        nearestEnemy = enemy;
-                                    }
-                                }    
-                                    if (nearestEnemy != null && shortestDistance <= 5f)
-                                    {
-                                        m_CurrentTargetCharacterData = nearestEnemy as CharacterData;
-                                    }
-                                    else
-                                    {
-                                        m_CurrentTargetCharacterData = null;
-                                        InteractableObject obj = m_Highlighted as InteractableObject;
-                                        if (obj)
-                                        {
-                                            InteractWith(obj);
-                                        }
+                    //搜索全地圖最近的敵人
+                    /*CharacterData[] enemies = FindObjectsOfType<CharacterData>();
+                    float shortestDistance = Mathf.Infinity;
+                    CharacterData nearestEnemy = null;
 
-                                    }
-                                    /*
-                                    CharacterData data = target as CharacterData;
-                                    if (data != null)
-                                    {
-                                        m_CurrentTargetCharacterData = data;
-                                    }
-                                    else
-                                    {
-                                        //MoveCheck(screenRay);
-                                    }
-                                    */
-                             
+                    foreach (CharacterData enemy in enemies)
+                    {
+                        float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+                        if (distanceToEnemy <= shortestDistance && distanceToEnemy >= 0.1)
+                        {
+                            shortestDistance = distanceToEnemy;
+                            nearestEnemy = enemy;
+                        }
+                    }
+                    if (nearestEnemy != null && shortestDistance <= 5f)
+                    {
+                        m_CurrentTargetCharacterData = nearestEnemy as CharacterData;
+                    }
+                    else
+                    {
+                        m_CurrentTargetCharacterData = null;
+                        InteractableObject obj = m_Highlighted as InteractableObject;
+                        if (obj)
+                        {
+                            InteractWith(obj);
+                        }
+                    }*/
 
-                                
-
-                            //}
-                        //}
-                    //}
                 }
             /*
             if (!EventSystem.current.IsPointerOverGameObject() && m_CurrentState != State.ATTACKING)
@@ -434,13 +418,13 @@ namespace ProjectDInternal
             m_CharacterData.Stats.ChangeHealth(m_CharacterData.Stats.stats.health);
         }
 
-        void ObjectsRaycasts(Ray screenRay)
+        void ObjectsRaycasts()
         {
             bool somethingFound = false;
 
             //first check for Target not interactable Object
-            int count = Physics.SphereCastNonAlloc(screenRay, 5.0f, m_RaycastHitCache, 1000.0f, m_TargetLayer);
-            
+            int count = Physics.SphereCastNonAlloc(transform.position, 6.0f, transform.forward, m_RaycastHitCache, 0.0f, m_TargetLayer);
+            //Debug.Log(count);
             if (count > 0)
             {
                 for (int i = 0; i < count; ++i)
@@ -450,6 +434,7 @@ namespace ProjectDInternal
                     if (data != null)
                     {
                         SwitchHighlightedObject(data);
+                        m_CurrentTargetCharacterData = data;
                         //Debug.Log("切換Highlight敵人");
                         somethingFound = true;
                         break;
@@ -458,7 +443,7 @@ namespace ProjectDInternal
             }
             else
             {
-                count = Physics.SphereCastNonAlloc(screenRay, 10.0f, m_RaycastHitCache, 1000.0f, m_InteractableLayer);
+                count = Physics.SphereCastNonAlloc(transform.position, 6.0f, transform.forward, m_RaycastHitCache, 0.0f, m_InteractableLayer);
                 //Debug.Log("找到裝備" + count);
                 if (count > 0)
                 {
@@ -468,6 +453,7 @@ namespace ProjectDInternal
                     {
                         SwitchHighlightedObject(obj);
                         //Debug.Log("切換Highlight裝備");
+                        InteractWith(obj);
                         somethingFound = true;
                     }
                 }

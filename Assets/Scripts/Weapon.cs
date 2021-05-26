@@ -163,8 +163,27 @@ namespace ProjectD
                 wae.OnAttack(target, attacker, ref attackData);
        
             target.Damage(attackData);
-        
-            foreach(var wae in AttackEffects)
+            /*
+            RaycastHit[] hits;
+            hits = Physics.SphereCastAll(attacker.transform.position, 3.0F, attacker.transform.forward, Mathf.Infinity, ~LayerMask.GetMask("Player"));
+            Debug.Log("有幾個對象:" + hits.Length);
+            if(hits.Length > 0)
+            {
+                foreach (RaycastHit hit in hits)
+                {
+                    Debug.Log("衝擊波打到人");
+                    CharacterData obj = hit.transform.gameObject.GetComponent<CharacterData>();
+                    if (obj != null)
+                    {
+                        obj.Damage(attackData);
+                    }
+                    Debug.Log("攻擊者血量" + attacker.Stats.CurrentHealth);
+                    Debug.Log("目標血量" + obj.Stats.CurrentHealth);
+                }
+            }
+            */
+
+            foreach (var wae in AttackEffects)
                 wae.OnPostAttack(target, attacker, attackData);     
         }
 
