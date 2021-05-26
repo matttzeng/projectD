@@ -83,4 +83,15 @@ public class WaveSpawner : MonoBehaviour
 
     }
 
+    public void RestartSpwan()
+    {
+        for(int i = 0; i < enemies.Length; i++)
+        {
+            Destroy(enemies[i].gameObject);
+        }
+      
+        waveNumber = 1;
+        SpawnWave();
+        Debug.Log("­«·s¥Í©Ç");
+    }
 }

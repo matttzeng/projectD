@@ -234,6 +234,9 @@ namespace ProjectDInternal
                 Data.Death();
 
                 m_CharacterAudio.Death(pos);
+                FindObjectOfType<GameManager>().EndGame();
+
+
 
                 return;
             }
