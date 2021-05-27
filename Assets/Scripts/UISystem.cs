@@ -12,7 +12,10 @@ namespace ProjectDInternal
     public class UISystem : MonoBehaviour
     {
         public static UISystem Instance { get; private set; }
-    
+        public Text WaveNumText;
+        private int currentWave;
+        public Text topLevelText;
+
         [Header("Player")]
         public CharacterControl PlayerCharacter;
         public Slider PlayerHealthSlider;
@@ -69,14 +72,25 @@ namespace ProjectDInternal
 
         void UpdatePlayerUI()
         {
+           
             CharacterData data = PlayerCharacter.Data;
-        
+
+            currentWave = WaveSpawner.waveNumber - 1;
+
+            if (currentWave == 0)
+            {
+                WaveNumText.text = "START!";
+            }
+            else
+                WaveNumText.text = "Wave " + currentWave.ToString();
+
+
             PlayerHealthSlider.value = PlayerCharacter.Data.Stats.CurrentHealth / (float) PlayerCharacter.Data.Stats.stats.health;
             MaxHealth.text = PlayerCharacter.Data.Stats.stats.health.ToString();
             CurrentHealth.text = PlayerCharacter.Data.Stats.CurrentHealth.ToString() + " / " + PlayerCharacter.Data.Stats.stats.health.ToString();
             currentLevel.text = "Lv:"+PlayerCharacter.level.currentLevel.ToString();
-            
-
+            topLevelText.text = "TOP WAVE : " + WaveNumText.text+"\nLV : "+PlayerCharacter.level.currentLevel.ToString();
+          
             if (PlayerCharacter.CurrentTarget != null)
             {
                 UpdateEnemyUI(PlayerCharacter.CurrentTarget);
@@ -144,6 +158,8 @@ namespace ProjectDInternal
                 InventoryWindow.Load(PlayerCharacter.Data);
                 SFXManager.PlaySound(SFXManager.Use.Sound2D, new SFXManager.PlayData(){ Clip = OpenInventoryClip});
             }
-        }
+      
+       
+    }
     }
 }
