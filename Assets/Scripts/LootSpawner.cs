@@ -100,14 +100,14 @@ namespace ProjectD
                     {
                         if (rng <= lookupTable[k].Percentage)
                         {
-                            string s = lookupTable[k].Entry.Item.name + UnityEngine.Random.Range(0, 10000);
+                            /*string s = lookupTable[k].Entry.Item.name + UnityEngine.Random.Range(0, 10000);
                             AssetDatabase.CopyAsset(AssetDatabase.GetAssetPath(lookupTable[k].Entry.Item), "Assets/InGameItem/" + s + ".asset");
                             Item o = AssetDatabase.LoadAssetAtPath("Assets/InGameItem/" + s + ".asset", (typeof(Item))) as Item;
 
                             GameObject obj = new GameObject(s);
                             var l = obj.AddComponent<Loot>();
                             l.Item = o;
-                            l.Spawn(position);
+                            l.Spawn(position);*/
 
                             //GameObject obj = new GameObject(lookupTable[k].Entry.Item.ItemName);
 
@@ -117,7 +117,7 @@ namespace ProjectD
                             //string weaponName = lookupTable[k].Entry.Item.name + UnityEngine.Random.Range(0, 10000);
 
 
-                            
+
 
                             //WeaponEditor.CreateWeapon(weaponName);
 
@@ -145,9 +145,14 @@ namespace ProjectD
                             //l.Item = lookupTable[k].Entry.Item;
                             //掉出這個weapon asset
                             //l.Spawn(position);
-                      
+
                             //GameObject obj = Instantiate(lookupTable[k].Entry.Item.WorldObjectPrefab);
-                             
+                            GameObject obj = new GameObject(lookupTable[k].Entry.Item.ItemName);
+                            //GameObject obj = Instantiate(lookupTable[k].Entry.Item.WorldObjectPrefab);
+                            var l = obj.AddComponent<Loot>();
+                            l.Item = lookupTable[k].Entry.Item;
+
+                            l.Spawn(position);
                             break;
 
                        }
