@@ -8,6 +8,7 @@ TagManager:
   - enemy
   - enemyBullet
   - ball
+  - weapon
   layers:
   - Default
   - TransparentFX

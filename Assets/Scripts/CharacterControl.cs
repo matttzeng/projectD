@@ -256,13 +256,13 @@ namespace ProjectDInternal
 
             if (m_CurrentTargetCharacterData != null)
             {
-                Debug.Log("攻擊檢查點2");
+                
                 if (m_CurrentTargetCharacterData.Stats.CurrentHealth == 0)
                     m_CurrentTargetCharacterData = null;
                     
                 else
                     CheckAttack();
-                Debug.Log("攻擊檢查點4");
+               
             }
 
             float mouseWheel = Input.GetAxis("Mouse ScrollWheel");
@@ -413,8 +413,8 @@ namespace ProjectDInternal
         void GoToRespawn()
         {
             m_Animator.ResetTrigger(m_HitParamID);
-
-            m_Agent.Warp(m_CurrentSpawn.transform.position);
+            //重新遊戲腳色重road 好像就不需要重生點了
+            //m_Agent.Warp(m_CurrentSpawn.transform.position);
             m_Agent.isStopped = true;
             m_Agent.ResetPath();
             m_IsKO = false;
@@ -565,7 +565,7 @@ namespace ProjectDInternal
 
         void CheckAttack()
         {
-            Debug.Log("攻擊檢查點2");
+            
             if (m_CurrentState == State.ATTACKING)
                 return;
 
@@ -624,7 +624,7 @@ namespace ProjectDInternal
 
         public void AttackFrame()
         {
-            Debug.Log("攻擊檢查點1");
+       
             if (m_CurrentTargetCharacterData == null)
             {
                 m_ClearPostAttack = false;
