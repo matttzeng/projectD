@@ -89,7 +89,7 @@ namespace ProjectDInternal
             MaxHealth.text = PlayerCharacter.Data.Stats.stats.health.ToString();
             CurrentHealth.text = PlayerCharacter.Data.Stats.CurrentHealth.ToString() + " / " + PlayerCharacter.Data.Stats.stats.health.ToString();
             currentLevel.text = "Lv:"+PlayerCharacter.level.currentLevel.ToString();
-            topLevelText.text = "TOP WAVE : " + WaveNumText.text+"\nLV : "+PlayerCharacter.level.currentLevel.ToString();
+            topLevelText.text = "TOP WAVE : " +currentWave.ToString() + "\nLV : "+PlayerCharacter.level.currentLevel.ToString();
           
             if (PlayerCharacter.CurrentTarget != null)
             {
