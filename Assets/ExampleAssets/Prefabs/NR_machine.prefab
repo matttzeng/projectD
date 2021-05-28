@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5601413061585539789}
   - component: {fileID: 3743708010937040914}
   - component: {fileID: 3218911725720455917}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: polySurface138
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3508543398101866008}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: NR_machine
   m_TagString: Untagged
   m_Icon: {fileID: 0}

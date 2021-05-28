@@ -35,7 +35,7 @@ namespace ProjectDInternal
         void Update()
         {
             Transform playerTransform = CharacterControl.Instance.transform;
-            m_Camera.transform.position = playerTransform.position + playerTransform.forward * 1.6f + Vector3.up * 1.5f;
+            m_Camera.transform.position = playerTransform.position + playerTransform.forward * 4f + Vector3.up * 1.5f;
             m_Camera.transform.LookAt(playerTransform.position + Vector3.up * 1.0f);
 
             m_Camera.Render();

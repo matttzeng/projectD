@@ -111,11 +111,16 @@ namespace ProjectDInternal
 
             m_CharacterData.Equipment.OnEquiped += item =>
             {
+                
                 if (item.Slot == (EquipmentItem.EquipmentSlot)666)
                 {
+                    
                     var obj = Instantiate(item.WorldObjectPrefab, WeaponLocator, false);
                     Helpers.RecursiveLayerChange(obj.transform, LayerMask.NameToLayer("PlayerEquipment"));
+                   
+                   
                 }
+
             };
 
             m_CharacterData.Equipment.OnUnequip += item =>
@@ -251,10 +256,13 @@ namespace ProjectDInternal
 
             if (m_CurrentTargetCharacterData != null)
             {
+                Debug.Log("攻擊檢查點2");
                 if (m_CurrentTargetCharacterData.Stats.CurrentHealth == 0)
                     m_CurrentTargetCharacterData = null;
+                    
                 else
                     CheckAttack();
+                Debug.Log("攻擊檢查點4");
             }
 
             float mouseWheel = Input.GetAxis("Mouse ScrollWheel");
@@ -557,6 +565,7 @@ namespace ProjectDInternal
 
         void CheckAttack()
         {
+            Debug.Log("攻擊檢查點2");
             if (m_CurrentState == State.ATTACKING)
                 return;
 
@@ -615,6 +624,7 @@ namespace ProjectDInternal
 
         public void AttackFrame()
         {
+            Debug.Log("攻擊檢查點1");
             if (m_CurrentTargetCharacterData == null)
             {
                 m_ClearPostAttack = false;

@@ -4,27 +4,28 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Shootable
   - enemy
-  - ball
   - enemyBullet
+  - ball
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
-  - ground
+  - 
+  - 
+  - Lighting
+  - Ground
+  - Postprocessing
+  - Player
+  - PlayerEquipment
+  - PlayerCollisionOnly
+  - Interactable
   - Level
   - Target
-  - Interactable
-  - PlayerCollisionOnly
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
   - 
   - 
   - 
@@ -41,6 +42,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Fire
+    uniqueID: 3804908061
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
