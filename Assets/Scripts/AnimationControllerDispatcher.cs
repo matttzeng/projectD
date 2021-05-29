@@ -12,6 +12,7 @@ namespace ProjectDInternal
         public interface IAttackFrameReceiver
         {
             void AttackFrame();
+          
         }
 
         public interface IFootstepFrameReceiver
