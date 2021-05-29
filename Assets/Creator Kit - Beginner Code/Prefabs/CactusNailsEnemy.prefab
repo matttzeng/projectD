@@ -173,8 +173,6 @@ MonoBehaviour:
   - Entries:
     - Weight: 10
       Item: {fileID: 11400000, guid: 2a9baed910381ef43b4143dae0c8cb09, type: 2}
-    - Weight: 90
-      Item: {fileID: 0}
   SpawnedClip: {fileID: 0}
   dropRandomWeapon: 0
 --- !u!1001 &5667712713484102679

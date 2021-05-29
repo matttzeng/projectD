@@ -67,7 +67,7 @@ namespace ProjectD
         public override string GetDescription()
         {
             string desc = base.GetDescription();
-
+            
             foreach (var effect in EquippedEffects)
                 desc += "\n" + effect.GetDescription();
         

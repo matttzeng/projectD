@@ -132,7 +132,10 @@ namespace ProjectD
                 return Description;
             }
         }
-    
+        //增加鑑定值, 0 = 未鑑定, 1 = 已鑑定
+        [Header("Identify")]
+        public int Identify;
+
         [System.Serializable]
         public struct Stat
         {
@@ -195,6 +198,13 @@ namespace ProjectD
         {
             string desc = base.GetDescription();
 
+            //武器註解, 未鑑定時顯示未鑑定
+            if(Identify == 0)
+            {
+                desc = $"Unidentified!!\n";
+                desc += $"(Click for identification)\n";
+            }
+
             int minimumDPS = Mathf.RoundToInt(Stats.MinimumDamage / Stats.Speed);
             int maximumDPS = Mathf.RoundToInt(Stats.MaximumDamage / Stats.Speed);
 
@@ -249,6 +259,8 @@ public class WeaponEditor : Editor
     
     SerializedProperty m_WeaponStatProperty;
 
+    SerializedProperty m_Identify;
+
     [MenuItem("Assets/Create/Beginner Code/Weapon", priority = -999)]
     
     static public void CreateWeapon()
@@ -284,6 +296,8 @@ public class WeaponEditor : Editor
         m_EquippedEffectListProperty = serializedObject.FindProperty(nameof(Weapon.EquippedEffects));
         m_WeaponAttackEffectListProperty = serializedObject.FindProperty(nameof(Weapon.AttackEffects));
 
+        m_Identify = serializedObject.FindProperty(nameof(Weapon.Identify));
+
         m_MinimumStrengthProperty = serializedObject.FindProperty(nameof(EquipmentItem.MinimumStrength));
         m_MinimumAgilityProperty = serializedObject.FindProperty(nameof(EquipmentItem.MinimumAgility));
         m_MinimumDefenseProperty = serializedObject.FindProperty(nameof(EquipmentItem.MinimumDefense));
@@ -318,6 +332,7 @@ public class WeaponEditor : Editor
         EditorGUILayout.PropertyField(m_MinimumStrengthProperty);
         EditorGUILayout.PropertyField(m_MinimumAgilityProperty);
         EditorGUILayout.PropertyField(m_MinimumDefenseProperty);
+        EditorGUILayout.PropertyField(m_Identify);
         
         //EditorGUILayout.PropertyField(m_WeaponStatProperty, true);
         var child = m_WeaponStatProperty.Copy();

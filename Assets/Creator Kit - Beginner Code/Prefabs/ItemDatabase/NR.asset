@@ -31,14 +31,15 @@ MonoBehaviour:
   ItemName: NR
   ItemSprite: {fileID: 21300000, guid: ae3a674970d509c4eaccb221ca0b93f0, type: 3}
   Description: "\u751F\u5316\u80FD\u6E90\u518D\u751F\u96FB\u78C1\u7832"
-  WorldObjectPrefab: {fileID: 4322058219642358946, guid: d80186cf7e49735499110b90fa040e7f, type: 3}
+  WorldObjectPrefab: {fileID: 4322058219642358946, guid: d80186cf7e49735499110b90fa040e7f,
+    type: 3}
   Slot: 666
   MinimumStrength: 0
   MinimumAgility: 0
   MinimumDefense: 0
   EquippedEffects:
   - {fileID: 8612021249231506279}
-  bulletPrefab: {fileID: 0}
+  Identify: 1
   HitSounds: []
   SwingSounds: []
   Stats:
@@ -77,5 +78,6 @@ MonoBehaviour:
       crit: 0
       skillSpeed: 0
       skillRange: 0
+      statsPoint: 0
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000

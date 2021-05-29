@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 namespace ProjectD
 {
     /// <summary>
@@ -101,6 +105,16 @@ namespace ProjectD
                 //special value for weapon
                 case (EquipmentItem.EquipmentSlot)666:
                     Weapon = item as Weapon;
+                    //武器鑑定值為0時(未鑑定), 複製為新武器並鑑定
+                    if (Weapon.Identify == 0)
+                    {                        
+                        string s = Weapon.name + UnityEngine.Random.Range(0, 10000);
+                        AssetDatabase.CopyAsset(AssetDatabase.GetAssetPath(Weapon), "Assets/InGameItem/" + s + ".asset");
+                        var o = AssetDatabase.LoadAssetAtPath("Assets/InGameItem/" + s + ".asset", typeof(Weapon)) as Weapon;
+
+                        Weapon = o;
+                        Weapon.Identify = 1;
+                    }
                     Weapon.EquippedBy(m_Owner);
                     break;
                 default:

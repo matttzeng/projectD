@@ -266,10 +266,12 @@ namespace ProjectDInternal {
             GameObject rb = Instantiate(GetComponent<CharacterData>().StartingWeapon.WorldObjectPrefab, shootPoint, Quaternion.identity);
             //Rigidbody rb = Instantiate(GetComponent<CharacterData>().StartingWeapon.WorldObjectPrefab, shootPoint, Quaternion.identity).GetComponent<Rigidbody>();
             //var l = rb.AddComponent<Rigidbody>();
-            rb.GetComponent<bullet>().Shooter = m_CharacterData;
-            rb.GetComponent<Rigidbody>().AddForce(transform.forward * 24f, ForceMode.Impulse);
-            rb.GetComponent<Rigidbody>().AddForce(transform.up * 2f, ForceMode.Impulse);
-
+            if (m_CharacterData != null)
+            {
+                rb.GetComponent<bullet>().Shooter = m_CharacterData;
+                rb.GetComponent<Rigidbody>().AddForce(transform.forward * 24f, ForceMode.Impulse);
+                rb.GetComponent<Rigidbody>().AddForce(transform.up * 2f, ForceMode.Impulse);
+            }
         }
 
 

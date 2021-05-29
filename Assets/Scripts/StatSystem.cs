@@ -96,7 +96,6 @@ namespace ProjectD
             {
                 if (modifier.Stats.randomvalue == true)
                 {
-                    Debug.Log("加之前" + this.health);
                     modifier.Stats.health = UnityEngine.Random.Range(0, modifier.Stats.health);
                     modifier.Stats.strength = UnityEngine.Random.Range(0, modifier.Stats.strength);
                     modifier.Stats.defense = UnityEngine.Random.Range(0, modifier.Stats.defense);
@@ -109,12 +108,6 @@ namespace ProjectD
                     modifier.Stats.crit = UnityEngine.Random.Range(0, modifier.Stats.crit);
                     modifier.Stats.skillRange = UnityEngine.Random.Range(0, modifier.Stats.skillRange);
                     modifier.Stats.skillSpeed = UnityEngine.Random.Range(0, modifier.Stats.skillSpeed);
-
-
-
-                    //Debug.Log("random"+modifier.Stats.health);
-
-
 
                     /*
                     this.health = modifier.Stats.health;
@@ -130,14 +123,58 @@ namespace ProjectD
                     this.skillRange = modifier.Stats.health;
                     this.skillSpeed = modifier.Stats.health;
                     */
+                    
+                    if (modifier.ModifierMode == StatModifier.Mode.Percentage)
+                    {
+                        health += Mathf.FloorToInt(health * (modifier.Stats.health / 100.0f));
+                        strength += Mathf.FloorToInt(strength * (modifier.Stats.strength / 100.0f));
+                        defense += Mathf.FloorToInt(defense * (modifier.Stats.defense / 100.0f));
+                        agility += Mathf.FloorToInt(agility * (modifier.Stats.agility / 100.0f));
+                        attack += Mathf.FloorToInt(attack * (modifier.Stats.attack / 100.0f));
+                        skill += Mathf.FloorToInt(skill * (modifier.Stats.skill / 100.0f));
+                        moveSpeed += Mathf.FloorToInt(moveSpeed * (modifier.Stats.moveSpeed / 100.0f));
+                        attackSpeed += Mathf.FloorToInt(attackSpeed * (modifier.Stats.attackSpeed / 100.0f));
+                        attackRange += Mathf.FloorToInt(attackRange * (modifier.Stats.attackRange / 100.0f));
+                        crit += Mathf.FloorToInt(crit * (modifier.Stats.crit / 100.0f));
+                        skillRange += Mathf.FloorToInt(skillRange * (modifier.Stats.skillRange / 100.0f));
+                        skillSpeed += Mathf.FloorToInt(skillSpeed * (modifier.Stats.skillSpeed / 100.0f));
+
+                        for (int i = 0; i < elementalProtection.Length; ++i)
+                            elementalProtection[i] += Mathf.FloorToInt(elementalProtection[i] * (modifier.Stats.elementalProtection[i] / 100.0f));
+
+                        for (int i = 0; i < elementalBoosts.Length; ++i)
+                            elementalBoosts[i] += Mathf.FloorToInt(elementalBoosts[i] * (modifier.Stats.elementalBoosts[i] / 100.0f));
+                    }
+
+                    else
+                    {
+                        health += modifier.Stats.health;
+                        strength += modifier.Stats.strength;
+                        defense += modifier.Stats.defense;
+                        agility += modifier.Stats.agility;
+                        attack += modifier.Stats.attack;
+                        skill += modifier.Stats.skill;
+                        moveSpeed += modifier.Stats.moveSpeed;
+                        attackSpeed += modifier.Stats.attackSpeed;
+                        attackRange += modifier.Stats.attackRange;
+                        crit += modifier.Stats.crit;
+                        skillRange += modifier.Stats.skillRange;
+                        skillSpeed += modifier.Stats.skillSpeed;
+
+                        for (int i = 0; i < elementalProtection.Length; ++i)
+                            elementalProtection[i] += modifier.Stats.elementalProtection[i];
+
+                        for (int i = 0; i < elementalBoosts.Length; ++i)
+                            elementalBoosts[i] += modifier.Stats.elementalBoosts[i];
+
+                    }
                     modifier.Stats.randomvalue = false;
+                }
 
 
-
-
-
-
-
+                else
+                {
+                    //bit convoluted, but allow to reuse the normal int stat system for percentage change
                     if (modifier.ModifierMode == StatModifier.Mode.Percentage)
                     {
                         health += Mathf.FloorToInt(health * (modifier.Stats.health / 100.0f));
@@ -187,63 +224,7 @@ namespace ProjectD
 
                         for (int i = 0; i < elementalBoosts.Length; ++i)
                             elementalBoosts[i] += modifier.Stats.elementalBoosts[i];
-
-                        //Debug.Log("加玩之後" + this.health);
                     }
-
-                };
-                
-
-                //bit convoluted, but allow to reuse the normal int stat system for percentage change
-                if (modifier.ModifierMode == StatModifier.Mode.Percentage)
-                {
-                    health += Mathf.FloorToInt(health * (modifier.Stats.health / 100.0f));
-                    strength += Mathf.FloorToInt(strength * (modifier.Stats.strength / 100.0f));
-                    defense += Mathf.FloorToInt(defense * (modifier.Stats.defense / 100.0f));
-                    agility += Mathf.FloorToInt(agility * (modifier.Stats.agility / 100.0f));
-                    attack += Mathf.FloorToInt(attack * (modifier.Stats.attack / 100.0f));
-                    skill += Mathf.FloorToInt(skill * (modifier.Stats.skill / 100.0f));
-                    moveSpeed += Mathf.FloorToInt(moveSpeed * (modifier.Stats.moveSpeed / 100.0f));
-                    attackSpeed += Mathf.FloorToInt(attackSpeed * (modifier.Stats.attackSpeed / 100.0f));
-                    attackRange += Mathf.FloorToInt(attackRange * (modifier.Stats.attackRange / 100.0f));
-                    crit += Mathf.FloorToInt(crit * (modifier.Stats.crit / 100.0f));
-                    skillRange += Mathf.FloorToInt(skillRange * (modifier.Stats.skillRange / 100.0f));
-                    skillSpeed += Mathf.FloorToInt(skillSpeed * (modifier.Stats.skillSpeed / 100.0f));
-
-
-
-
-
-
-
-
-                    for (int i = 0; i < elementalProtection.Length; ++i)
-                        elementalProtection[i] += Mathf.FloorToInt(elementalProtection[i] * (modifier.Stats.elementalProtection[i] / 100.0f));
-                
-                    for(int i = 0; i < elementalBoosts.Length; ++i)
-                        elementalBoosts[i] += Mathf.FloorToInt(elementalBoosts[i] * (modifier.Stats.elementalBoosts[i]/100.0f));
-                }
-             
-                else
-                {
-                    health += modifier.Stats.health;
-                    strength += modifier.Stats.strength;
-                    defense += modifier.Stats.defense;
-                    agility += modifier.Stats.agility;
-                    attack += modifier.Stats.attack;
-                    skill += modifier.Stats.skill;
-                    moveSpeed += modifier.Stats.moveSpeed;
-                    attackSpeed += modifier.Stats.attackSpeed ;
-                    attackRange += modifier.Stats.attackRange;
-                    crit += modifier.Stats.crit;
-                    skillRange += modifier.Stats.skillRange;
-                    skillSpeed += modifier.Stats.skillSpeed;
-
-                    for (int i = 0; i < elementalProtection.Length; ++i)
-                        elementalProtection[i] += modifier.Stats.elementalProtection[i];
-                
-                    for(int i = 0; i < elementalBoosts.Length; ++i)
-                        elementalBoosts[i] += modifier.Stats.elementalBoosts[i];
                 }
             }
         }
