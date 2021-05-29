@@ -17,7 +17,8 @@ namespace ProjectDInternal
         public ItemEntryUI FeetSlot;
         public ItemEntryUI AccessorySlot;
         public ItemEntryUI WeaponSlot;
-        
+        //public ItemEntryUI SkillSlot;
+
         public void Init(InventoryUI owner)
         {
             HeadSlot.Owner = owner;
@@ -26,6 +27,7 @@ namespace ProjectDInternal
             FeetSlot.Owner = owner;
             AccessorySlot.Owner = owner;
             WeaponSlot.Owner = owner;
+            //SkillSlot.Owner = owner;
         }
 
         public void UpdateEquipment(EquipmentSystem equipment, StatSystem system)
@@ -36,6 +38,7 @@ namespace ProjectDInternal
             var feet = equipment.GetItem(EquipmentItem.EquipmentSlot.Feet);
             var accessory = equipment.GetItem(EquipmentItem.EquipmentSlot.Accessory);
             var weapon = equipment.Weapon;
+            //var skill = equipment.Skill;
 
             HeadSlot.SetupEquipment(head);
             TorsoSlot.SetupEquipment(torso);
@@ -43,6 +46,7 @@ namespace ProjectDInternal
             FeetSlot.SetupEquipment(feet);
             AccessorySlot.SetupEquipment(accessory);
             WeaponSlot.SetupEquipment(weapon);
+            //SkillSlot.SetupEquipment(skill);
         }
     }
 }

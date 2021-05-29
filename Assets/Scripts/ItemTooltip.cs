@@ -14,19 +14,22 @@ namespace ProjectDInternal
     
         void Awake()
         {
-            m_RectTransform = GetComponent<RectTransform>();
-            m_CanvasScaler = GetComponentInParent<CanvasScaler>();
-            m_Canvas = GetComponentInParent<Canvas>();
+            //不用跟著滑鼠跑了  沒滑鼠了
+            // m_RectTransform = GetComponent<RectTransform>();
+            // m_CanvasScaler = GetComponentInParent<CanvasScaler>();
+            //m_Canvas = GetComponentInParent<Canvas>();
         }
 
         void OnEnable()
         {
-            UpdatePosition();
+            //不用跟著滑鼠跑了  沒滑鼠了
+            //  UpdatePosition();
         }
 
         void Update()
         {
-            UpdatePosition();
+           //不用跟著滑鼠跑了  沒滑鼠了
+          //  UpdatePosition();
         }
 
         public void UpdatePosition()

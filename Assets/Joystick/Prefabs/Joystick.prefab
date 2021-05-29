@@ -51,7 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   container: {fileID: 224567229519458988}
   handle: {fileID: 224804041420767500}
-  ArrowKeysSimulationEnabled: 0
+  ArrowKeysSimulationEnabled: 1
 --- !u!1 &1468428785243044
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.49264705, g: 0.49264705, b: 0.49264705, a: 0.497}
+  m_Color: {r: 0.49411765, g: 0.49411765, b: 0.49411765, a: 0.12156863}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.49264705, g: 0.49264705, b: 0.49264705, a: 0.497}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.3764706}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
