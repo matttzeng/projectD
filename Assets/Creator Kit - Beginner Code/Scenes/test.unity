@@ -3251,7 +3251,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &581540356 stripped
 RectTransform:
@@ -8639,7 +8639,7 @@ MonoBehaviour:
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
   StartingWeapon: {fileID: 11400000, guid: 2f5ad6aeb34e1ad438badf598e1a29ff, type: 2}
-  Skill: {fileID: 11400000, guid: 7beaf02ad0636c943938384e73288b5a, type: 2}
+  Skill: {fileID: 11400000, guid: e16a9813ef68b16408f6a9edf4098aa0, type: 2}
   HitClip: []
 --- !u!1 &1278397113
 GameObject:
@@ -11067,7 +11067,7 @@ PrefabInstance:
     - target: {fileID: 5667712714323555575, guid: fafd305c9f496b04d9a856ab300bb3ed,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5667712714323555575, guid: fafd305c9f496b04d9a856ab300bb3ed,
         type: 3}

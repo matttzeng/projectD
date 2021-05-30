@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using ProjectD;
 using UnityEngine;
-using Vector3 = UnityEngine.Vector3;
+//using Vector3 = UnityEngine.Vector3;
 #if UNITY_EDITOR
 using UnityEditor;
 using System.Linq;
@@ -142,6 +142,9 @@ namespace ProjectD
 
         [Header("SkillCategory")]
         public int SkillCategory;
+        public int SkillPosCategory;
+
+        public Vector3 skillPos; 
 
         [Header("Sounds")]
         public AudioClip[] HitSounds;
@@ -230,10 +233,25 @@ namespace ProjectD
                     }
                     break;
             }
-            foreach (var wae in AttackEffects)
-                wae.OnPostAttack(target, attacker, attackData);     
-        }
 
+            
+            switch (SkillPosCategory)
+            {
+                case 1:
+
+                    skillPos= attackData.Target.transform.position;
+
+                    break;
+                case 2:
+
+                    skillPos = attacker.transform.position;
+                    break;
+            }
+
+            foreach (var wae in AttackEffects)
+                wae.OnPostAttack(target, attacker, attackData);
+        }
+     
         public bool CanHit(CharacterData attacker, CharacterData target)
         {
             if (Vector3.SqrMagnitude(attacker.transform.position - target.transform.position) < Stats.MaxRange * Stats.MaxRange)
@@ -313,7 +331,8 @@ public class SkillEditor : Editor
     SerializedProperty m_SkillStatProperty;
 
     SerializedProperty m_SkillCategory;
-    
+    SerializedProperty m_SkillPosCategory;
+
     [MenuItem("Assets/Create/Beginner Code/Skill", priority = -999)]
     static public void CreateSkill()
     {
@@ -330,6 +349,7 @@ public class SkillEditor : Editor
         m_SkillAttackEffectListProperty = serializedObject.FindProperty(nameof(Skill.AttackEffects));
 
         m_SkillCategory = serializedObject.FindProperty(nameof(Skill.SkillCategory));
+        m_SkillPosCategory = serializedObject.FindProperty(nameof(Skill.SkillPosCategory));
 
         m_MinimumStrengthProperty = serializedObject.FindProperty(nameof(EquipmentItem.MinimumStrength));
         m_MinimumAgilityProperty = serializedObject.FindProperty(nameof(EquipmentItem.MinimumAgility));
@@ -366,7 +386,8 @@ public class SkillEditor : Editor
         EditorGUILayout.PropertyField(m_MinimumAgilityProperty);
         EditorGUILayout.PropertyField(m_MinimumDefenseProperty);
          EditorGUILayout.PropertyField(m_SkillCategory);
-        
+        EditorGUILayout.PropertyField(m_SkillPosCategory);
+
         //EditorGUILayout.PropertyField(m_SkillStatProperty, true);
         var child = m_SkillStatProperty.Copy();
         var depth = child.depth;

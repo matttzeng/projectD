@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Timers;
@@ -59,6 +60,7 @@ namespace ProjectDInternal
         NavMeshPath m_CalculatedPath;
 
         CharacterAudio m_CharacterAudio;
+       
 
         int m_TargetLayer;
         CharacterData m_CurrentTargetCharacterData = null;
@@ -669,7 +671,14 @@ namespace ProjectDInternal
 
                 var attackPos = m_CurrentTargetCharacterData.transform.position + transform.up * 0.5f;
                 Vector3 pos = transform.position;
-                VFXManager.PlayVFX(VFXType.Nova, pos);
+                
+                
+                string skillName = GetComponent<CharacterData>().Skill.ItemName;
+                Debug.Log("釋放" + skillName);
+                VFXType m_vFXType = (VFXType)Enum.Parse(typeof(VFXType), skillName);
+                
+                pos = GetComponent<CharacterData>().Skill.skillPos;
+                VFXManager.PlayVFX(m_vFXType, pos);
                 VFXManager.PlayVFX(VFXType.Hit, attackPos);
                 SFXManager.PlaySound(m_CharacterAudio.UseType, new SFXManager.PlayData() { Clip = m_CharacterData.Equipment.Weapon.GetHitSound(), PitchMin = 0.8f, PitchMax = 1.2f, Position = attackPos });
             }

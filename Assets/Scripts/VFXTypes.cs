@@ -7,5 +7,7 @@ public enum VFXType
 	Negative,
 	Stronger,
 	Nova,
-	BulletImpactFX
+	BulletImpactFX,
+	TestSkill,
+	IceLance
 }
