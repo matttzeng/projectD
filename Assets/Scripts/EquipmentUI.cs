@@ -11,21 +11,21 @@ namespace ProjectDInternal
     /// </summary>
     public class EquipmentUI : MonoBehaviour
     {
-        public ItemEntryUI HeadSlot;
-        public ItemEntryUI TorsoSlot;
-        public ItemEntryUI LegsSlot;
-        public ItemEntryUI FeetSlot;
-        public ItemEntryUI AccessorySlot;
+        //public ItemEntryUI HeadSlot;
+        //public ItemEntryUI TorsoSlot;
+        //public ItemEntryUI LegsSlot;
+        //public ItemEntryUI FeetSlot;
+        //public ItemEntryUI AccessorySlot;
         public ItemEntryUI WeaponSlot;
         //public ItemEntryUI SkillSlot;
 
         public void Init(InventoryUI owner)
         {
-            HeadSlot.Owner = owner;
-            TorsoSlot.Owner = owner;
-            LegsSlot.Owner = owner;
-            FeetSlot.Owner = owner;
-            AccessorySlot.Owner = owner;
+            //HeadSlot.Owner = owner;
+            //TorsoSlot.Owner = owner;
+            //LegsSlot.Owner = owner;
+            //FeetSlot.Owner = owner;
+            //AccessorySlot.Owner = owner;
             WeaponSlot.Owner = owner;
             //SkillSlot.Owner = owner;
         }
@@ -40,13 +40,16 @@ namespace ProjectDInternal
             var weapon = equipment.Weapon;
             //var skill = equipment.Skill;
 
-            HeadSlot.SetupEquipment(head);
-            TorsoSlot.SetupEquipment(torso);
-            LegsSlot.SetupEquipment(legs);
-            FeetSlot.SetupEquipment(feet);
-            AccessorySlot.SetupEquipment(accessory);
+            //HeadSlot.SetupEquipment(head);
+            //TorsoSlot.SetupEquipment(torso);
+            //LegsSlot.SetupEquipment(legs);
+            //FeetSlot.SetupEquipment(feet);
+            //AccessorySlot.SetupEquipment(accessory);
             WeaponSlot.SetupEquipment(weapon);
             //SkillSlot.SetupEquipment(skill);
+
+            //穿裝備時即時改變text值, 不受暫停影響
+            GetComponentInParent<UISystem>().UpdateStatsText();
         }
     }
 }

@@ -20,6 +20,7 @@ namespace ProjectDInternal
         public static CharacterControl Instance { get; protected set; }
 
         public int Speed = 10;
+        public StatsPoint m_StatsPoint;
         public Level level;
      
         public CharacterData Data => m_CharacterData;
@@ -86,6 +87,7 @@ namespace ProjectDInternal
         void Start()
         {
             level = new Level(1, OnLevelUp);
+            m_StatsPoint = new StatsPoint();
 
             QualitySettings.vSyncCount = 0;
             Application.targetFrameRate = 60;
@@ -178,16 +180,17 @@ namespace ProjectDInternal
        
         public void OnLevelUp()
         {
-            
+            m_CharacterData.Stats.stats.statsPoint += 1;
+            Debug.Log("素質點數: "+ m_CharacterData.Stats.stats.statsPoint);
 
              StatSystem.StatModifier modifier = new StatSystem.StatModifier();
             //m_CharacterData.Stats.ChangeHealth(m_CharacterData.Stats.CurrentHealth + 10);
             m_CharacterData.Stats.ChangeHealth(10);
-           // Debug.Log("目前血量+10");
-
-            m_CharacterData.Stats.AddModifier(modifier);
+            // Debug.Log("目前血量+10");
 
             modifier.Stats.health += 10;
+            m_CharacterData.Stats.AddModifier(modifier);
+
             //Debug.Log("最大血量+10 = " + m_CharacterData.Stats.stats.health);
 
             //Debug.Log("升到了等級 "+level.currentLevel);

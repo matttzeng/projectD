@@ -82,7 +82,7 @@ namespace ProjectD
                 crit = other.crit;
                 skillRange = other.skillRange;
                 skillSpeed = other.skillRange;
-                statsPoint = other.statsPoint;
+                //statsPoint = other.statsPoint;
 
                 Array.Copy(other.elementalProtection, elementalProtection, other.elementalProtection.Length);
                 Array.Copy(other.elementalBoosts, elementalBoosts, other.elementalBoosts.Length);

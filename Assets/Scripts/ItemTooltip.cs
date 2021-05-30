@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace ProjectDInternal 
 {
     public class ItemTooltip : MonoBehaviour
     {
-        public Text Name;
+        //創造TextMeshPro變數
+        public TMP_Text Name;
         public Text DescriptionText;
 
         RectTransform m_RectTransform;

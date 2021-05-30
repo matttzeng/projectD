@@ -50,9 +50,10 @@ namespace ProjectDInternal
 
         void Start()
         {
+            InventoryWindow.Load(PlayerCharacter.Data);
             m_ClosedInventorySprite = ((Image)OpenInventoryButton.targetGraphic).sprite;
             m_OpenInventorySprite = OpenInventoryButton.spriteState.pressedSprite;
-
+                    
             for (int i = 0; i < TimedModifierIcones.Length; ++i)
             {
                 TimedModifierIcones[i].gameObject.SetActive(false);
@@ -70,7 +71,7 @@ namespace ProjectDInternal
             UpdatePlayerUI();
         }
 
-        void UpdatePlayerUI()
+       public void UpdatePlayerUI()
         {
            
             CharacterData data = PlayerCharacter.Data;
@@ -114,10 +115,34 @@ namespace ProjectDInternal
             {
                 TimedModifierIcones[i].gameObject.SetActive(false);
             }
-        
-                
+
+            UpdateStatsText();
+            //var stats = data.Stats.stats;
+            //StatsText.text = $"剩餘點數 : {stats.statsPoint}\nAtk : {stats.attack} \nDef : {stats.defense} \nAtkSpeed : {stats.attackSpeed} \nMoveSpeed :{stats.moveSpeed} ";
+        }
+
+        //更新UI素質欄
+        public void UpdateStatsText()
+        {
+            CharacterData data = PlayerCharacter.Data;
             var stats = data.Stats.stats;
             StatsText.text = $"剩餘點數 : {stats.statsPoint}\nAtk : {stats.attack} \nDef : {stats.defense} \nAtkSpeed : {stats.attackSpeed} \nMoveSpeed :{stats.moveSpeed} ";
+        }
+
+        //素質加點, 目前只有寫Def
+        public void AddStatsPoint()
+        {
+            CharacterData data = PlayerCharacter.Data;
+
+            if (data.Stats.stats.statsPoint > 0)
+            {
+                StatSystem.StatModifier modifier = new StatSystem.StatModifier();
+
+                modifier.Stats.defense += 10;
+                data.Stats.AddModifier(modifier);                
+
+                data.Stats.stats.statsPoint -= 1;
+            }
         }
 
         void UpdateEnemyUI(CharacterData enemy)
@@ -144,6 +169,7 @@ namespace ProjectDInternal
 
         public void ToggleInventory()
         {
+
             if (InventoryWindow.gameObject.activeSelf)
             {
                 ((Image)OpenInventoryButton.targetGraphic).sprite = m_ClosedInventorySprite;
