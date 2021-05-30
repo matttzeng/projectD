@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     private bool gameEnded = false;
     public float restartDelay = 2f;
     public GameObject GameOverUI;
-    public GameObject GameUI;
+    public GameObject PlayUI;
 
     public void EndGame()
     {
@@ -16,10 +16,10 @@ public class GameManager : MonoBehaviour
         {
             gameEnded = true;
             GameOverUI .SetActive(true);
-            GameUI.SetActive(false);
+            PlayUI.SetActive(false);
 
             Time.timeScale = 0;
-            //Debug.Log("GAME OVER");
+            Debug.Log("GAME OVER");
             //Invoke("restart",restartDelay);
         }
 

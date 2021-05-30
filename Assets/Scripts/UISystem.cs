@@ -25,7 +25,8 @@ namespace ProjectDInternal
         public Slider currentEXP;
         public EffectIconUI[] TimedModifierIcones;
         public Text StatsText;
-       
+        public Text StatsPointText;
+        public Text SkillPointText;
 
         [Header("Enemy")]
         public Slider EnemyHealthSlider;
@@ -126,7 +127,9 @@ namespace ProjectDInternal
         {
             CharacterData data = PlayerCharacter.Data;
             var stats = data.Stats.stats;
-            StatsText.text = $"剩餘點數 : {stats.statsPoint}\nAtk : {stats.attack} \nDef : {stats.defense} \nAtkSpeed : {stats.attackSpeed} \nMoveSpeed :{stats.moveSpeed} ";
+            SkillPointText.text = $"天賦點數 : {stats.skillPoint}\nSkillAtk : {stats.skill} \nSkillSpeed : {stats.skillSpeed} \nSKillRange: {stats.skillRange} \nMoveSpeed :{stats.moveSpeed} ";
+            StatsPointText.text = $"等級點數 : {stats.statsPoint}\nAtk : {stats.attack} \nDef : {stats.defense} \nHP : {stats.attackSpeed}  ";
+            StatsText.text = $"Atk : {stats.attack} \nDef : {stats.defense} \nAtkSpeed : {stats.attackSpeed} \nMoveSpeed :{stats.moveSpeed} ";
         }
 
         //素質加點, 目前只有寫Def

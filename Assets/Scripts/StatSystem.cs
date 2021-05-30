@@ -62,6 +62,7 @@ namespace ProjectD
             public int skillSpeed;
             public int skillRange;
             public int statsPoint;
+            public int skillPoint;
 
 
             //use an array indexed by the DamageType enum for easy extensibility
