@@ -100,5 +100,14 @@ namespace ProjectD
 
             return i;
         }
+
+        public static VFXInstance PlayVFX2(VFXType type, Vector3 position, Vector3 forward)
+        {
+            var i = GetVFX(type);
+            i.Effect.gameObject.transform.position = position;
+            i.Effect.gameObject.transform.forward = forward;
+
+            return i;
+        }
     }
 }

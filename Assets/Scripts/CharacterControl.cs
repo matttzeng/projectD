@@ -51,6 +51,9 @@ namespace ProjectDInternal
         bool m_IsKO = false;
         float m_KOTimer = 0.0f;
 
+        float xDirection;
+        float zDirection;
+
         int m_InteractableLayer;
         int m_LevelLayer;
         Collider m_TargetCollider;
@@ -498,8 +501,8 @@ namespace ProjectDInternal
             //float zDirection = Input.GetAxis("Vertical");
 
             //mobile joystick control:
-            float xDirection = joystick.Horizontal();
-            float zDirection = joystick.Vertical();
+            xDirection = joystick.Horizontal();
+            zDirection = joystick.Vertical();
 
 
             Vector3 moverDirection = new Vector3(xDirection, 0.0f, zDirection);
@@ -510,8 +513,14 @@ namespace ProjectDInternal
 
             transform.position += moverDirection * Speed/20;
 
-            if ((Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0))
+
+            //if ((Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0))
+            if(xDirection != 0 || zDirection != 0)
             {
+                //Vector3 moverDirection = new Vector3(xDirection, 0.0f, zDirection);
+
+                //transform.position += moverDirection * Speed / 20;
+                
                 transform.rotation = Quaternion.LookRotation(moverDirection, Vector3.up);
                 m_Animator.SetBool("Run", true);
             }
@@ -581,12 +590,12 @@ namespace ProjectDInternal
                 //if the mouse button isn't pressed, we do NOT attack
                 //if (Input.GetMouseButton(0))
                 //{
-                    Vector3 forward = (m_CurrentTargetCharacterData.transform.position - transform.position);
+                    /*Vector3 forward = (m_CurrentTargetCharacterData.transform.position - transform.position);
                     forward.y = 0;
                     forward.Normalize();
 
 
-                    transform.forward = forward;
+                    transform.forward = forward;*/
                     if (m_CharacterData.CanSkillAttackTarget(m_CurrentTargetCharacterData))
                     {
                         m_CurrentState = State.ATTACKING;
@@ -605,12 +614,12 @@ namespace ProjectDInternal
                 //if the mouse button isn't pressed, we do NOT attack
                 //if (Input.GetMouseButton(0))
                 //{
-                    Vector3 forward = (m_CurrentTargetCharacterData.transform.position - transform.position);
+                    /*Vector3 forward = (m_CurrentTargetCharacterData.transform.position - transform.position);
                     forward.y = 0;
                     forward.Normalize();
 
 
-                    transform.forward = forward;
+                    transform.forward = forward;*/
                     if (m_CharacterData.CanAttackTarget(m_CurrentTargetCharacterData))
                     {
                         m_CurrentState = State.ATTACKING;
@@ -639,6 +648,13 @@ namespace ProjectDInternal
             //if we can't reach the target anymore when it's time to damage, then that attack miss.
             if (m_CharacterData.CanAttackReach(m_CurrentTargetCharacterData))
             {
+                //角色方向放在最後攻擊前
+                Vector3 forward = (m_CurrentTargetCharacterData.transform.position - transform.position);
+                forward.y = 0;
+                forward.Normalize();
+                transform.forward = forward;
+                //transform.rotation = Quaternion.LookRotation(moverDirection, Vector3.up);
+
                 m_CharacterData.Attack(m_CurrentTargetCharacterData);
 
                 var attackPos = m_CurrentTargetCharacterData.transform.position + transform.up * 0.5f;
@@ -667,6 +683,13 @@ namespace ProjectDInternal
             //if we can't reach the target anymore when it's time to damage, then that attack miss.
             if (m_CharacterData.CanSkillAttackReach(m_CurrentTargetCharacterData))
             {
+                //角色方向放在最後攻擊前
+                Vector3 forward = (m_CurrentTargetCharacterData.transform.position - transform.position);
+                forward.y = 0;
+                forward.Normalize();
+                transform.forward = forward;
+                //transform.rotation = Quaternion.LookRotation(moverDirection, Vector3.up);
+
                 m_CharacterData.SkillAttack(m_CurrentTargetCharacterData);
 
                 var attackPos = m_CurrentTargetCharacterData.transform.position + transform.up * 0.5f;
@@ -678,7 +701,8 @@ namespace ProjectDInternal
                 VFXType m_vFXType = (VFXType)Enum.Parse(typeof(VFXType), skillName);
                 
                 pos = GetComponent<CharacterData>().Skill.skillPos;
-                VFXManager.PlayVFX(m_vFXType, pos);
+                //增加特效方向VFXManager.PlayVFX2
+                VFXManager.PlayVFX2(m_vFXType, pos, transform.forward);
                 VFXManager.PlayVFX(VFXType.Hit, attackPos);
                 SFXManager.PlaySound(m_CharacterAudio.UseType, new SFXManager.PlayData() { Clip = m_CharacterData.Equipment.Weapon.GetHitSound(), PitchMin = 0.8f, PitchMax = 1.2f, Position = attackPos });
             }
