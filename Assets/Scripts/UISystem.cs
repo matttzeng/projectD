@@ -127,25 +127,58 @@ namespace ProjectDInternal
         {
             CharacterData data = PlayerCharacter.Data;
             var stats = data.Stats.stats;
-            //SkillPointText.text = $"天賦點數 : {stats.skillPoint}\nSkillAtk : {stats.skill} \nSkillSpeed : {stats.skillSpeed} \nSKillRange: {stats.skillRange} \nMoveSpeed :{stats.moveSpeed} ";
-            //StatsPointText.text = $"等級點數 : {stats.statsPoint}\nAtk : {stats.attack} \nDef : {stats.defense} \nHP : {stats.attackSpeed}  ";
-            StatsText.text = $"Atk : {stats.attack} \nDef : {stats.defense} \nAtkSpeed : {stats.attackSpeed} \nMoveSpeed :{stats.moveSpeed} ";
+            SkillPointText.text = $"天賦點數 : {stats.skillPoint}\nSkillAtk : {stats.skill} \nSkillSpeed : {stats.skillSpeed} \nSKillRange: {stats.skillRange} \nMoveSpeed :{stats.moveSpeed} ";
+            StatsPointText.text = $"等級點數 : {stats.statsPoint}\nAtk : {stats.attack} \nDef : {stats.defense} \nHP : {stats.health}  ";
+            //StatsText.text = $"Atk : {stats.attack} \nDef : {stats.defense} \nAtkSpeed : {stats.attackSpeed} \nMoveSpeed :{stats.moveSpeed} ";
         }
 
         //素質加點, 目前只有寫Def
-        public void AddStatsPoint()
+        public void AddStatsDEF()
         {
             CharacterData data = PlayerCharacter.Data;
 
             if (data.Stats.stats.statsPoint > 0)
             {
-                StatSystem.StatModifier modifier = new StatSystem.StatModifier();
-
-                modifier.Stats.defense += 10;
-                data.Stats.AddModifier(modifier);                
+                data.Stats.baseStats.defense += 1;
+                data.Stats.UpdateFinalStats();
 
                 data.Stats.stats.statsPoint -= 1;
             }
+        }
+
+        public void AddStatsAtk()
+        {
+            CharacterData data = PlayerCharacter.Data;
+
+            if (data.Stats.stats.statsPoint > 0)
+            {
+                data.Stats.baseStats.attack += 5;
+                data.Stats.UpdateFinalStats();
+
+                data.Stats.stats.statsPoint -= 1;
+            }
+        }
+
+        public void AddStatsHP()
+        {
+            CharacterData data = PlayerCharacter.Data;
+
+            if (data.Stats.stats.statsPoint > 0)
+            {
+                data.Stats.baseStats.health += 1;
+                data.Stats.UpdateFinalStats();
+
+                data.Stats.stats.statsPoint -= 1;
+            }
+        }
+
+        public void StatsReset()
+        {
+            CharacterData data = PlayerCharacter.Data;
+
+            data.Stats.stats.statsPoint = data.Stats.stats.initPoint;
+            data.Stats.Reset();
+            data.Stats.UpdateFinalStats();
         }
 
         void UpdateEnemyUI(CharacterData enemy)

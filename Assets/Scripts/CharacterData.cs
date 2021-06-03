@@ -55,14 +55,14 @@ namespace ProjectD
 
         public void Init()
         {
-            Stats.Init(this);
+            Stats.Init(this);            
 
             /* Stats change by every wave*/
-            StatSystem.StatModifier modifier = new StatSystem.StatModifier();
+            /*StatSystem.StatModifier modifier = new StatSystem.StatModifier();
             modifier.ModifierMode = StatSystem.StatModifier.Mode.Absolute;
             modifier.Stats.health += (WaveSpawner.waveNumber-1) * 10;
             
-            this.Stats.AddModifier(modifier);
+            this.Stats.AddModifier(modifier);*/
 
             Inventory.Init(this);
             Equipment.Init(this);

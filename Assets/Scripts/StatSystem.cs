@@ -63,6 +63,7 @@ namespace ProjectD
             public int skillRange;
             public int statsPoint;
             public int skillPoint;
+            public int initPoint;
 
 
             //use an array indexed by the DamageType enum for easy extensibility
@@ -277,8 +278,9 @@ namespace ProjectD
                 Timer = Duration;
             }
         }
-    
+
         public Stats baseStats;
+        public Stats initStats;
         public Stats stats { get; set; } = new Stats();
     
         public int CurrentMoveSpeed { get; private set; }
@@ -295,9 +297,15 @@ namespace ProjectD
         public void Init(CharacterData owner)
         {
             stats.Copy(baseStats);
+           
             CurrentHealth = stats.health;
             CurrentMoveSpeed = stats.moveSpeed;
             m_Owner = owner;
+        }
+
+        public void Reset()
+        {
+            baseStats.Copy(initStats);
         }
     
         /// <summary>
@@ -442,7 +450,7 @@ namespace ProjectD
             CurrentMoveSpeed = Mathf.Clamp(CurrentMoveSpeed + amount, 0, stats.moveSpeed);
         }
 
-        void UpdateFinalStats()
+        public void UpdateFinalStats()
         {
             bool maxHealthChange = false;
             int previousHealth = stats.health;

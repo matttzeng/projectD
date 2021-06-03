@@ -571,12 +571,12 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: DEF
+          m_StringArgument: Atk
           m_BoolArgument: 0
         m_CallState: 1
       - m_Target: {fileID: 1988532457}
         m_TargetAssemblyTypeName: ProjectDInternal.UISystem, Assembly-CSharp
-        m_MethodName: AddStatsPoint
+        m_MethodName: AddStatsAtk
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1301,6 +1301,26 @@ MonoBehaviour:
       skillRange: 0
       statsPoint: 0
       skillPoint: 0
+      initPoint: 0
+      elementalProtection: 00000000000000000000000000000000
+      elementalBoosts: 00000000000000000000000000000000
+    initStats:
+      randomvalue: 0
+      health: 0
+      strength: 0
+      defense: 0
+      agility: 0
+      attack: 0
+      skill: 0
+      moveSpeed: 0
+      attackSpeed: 0
+      attackRange: 0
+      crit: 0
+      skillSpeed: 0
+      skillRange: 0
+      statsPoint: 0
+      skillPoint: 0
+      initPoint: 0
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
   StartingWeapon: {fileID: 11400000, guid: 7f1a957562a85434e80c93859ff367a3, type: 2}
@@ -2800,12 +2820,12 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: DEF
+          m_StringArgument: HP
           m_BoolArgument: 0
         m_CallState: 1
       - m_Target: {fileID: 1988532457}
         m_TargetAssemblyTypeName: ProjectDInternal.UISystem, Assembly-CSharp
-        m_MethodName: AddStatsPoint
+        m_MethodName: AddStatsHP
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3171,6 +3191,26 @@ MonoBehaviour:
       skillRange: 0
       statsPoint: 0
       skillPoint: 0
+      initPoint: 0
+      elementalProtection: 00000000000000000000000000000000
+      elementalBoosts: 00000000000000000000000000000000
+    initStats:
+      randomvalue: 0
+      health: 0
+      strength: 0
+      defense: 0
+      agility: 0
+      attack: 0
+      skill: 0
+      moveSpeed: 0
+      attackSpeed: 0
+      attackRange: 0
+      crit: 0
+      skillSpeed: 0
+      skillRange: 0
+      statsPoint: 0
+      skillPoint: 0
+      initPoint: 0
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
   StartingWeapon: {fileID: 11400000, guid: 7f1a957562a85434e80c93859ff367a3, type: 2}
@@ -4067,7 +4107,19 @@ MonoBehaviour:
   buttonText: RESET
   clickEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1988532457}
+        m_TargetAssemblyTypeName: ProjectDInternal.UISystem, Assembly-CSharp
+        m_MethodName: StatsReset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
   hoverEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -7736,6 +7788,26 @@ MonoBehaviour:
       skillRange: 0
       statsPoint: 0
       skillPoint: 0
+      initPoint: 0
+      elementalProtection: 00000000000000000000000000000000
+      elementalBoosts: 00000000000000000000000000000000
+    initStats:
+      randomvalue: 0
+      health: 0
+      strength: 0
+      defense: 0
+      agility: 0
+      attack: 0
+      skill: 0
+      moveSpeed: 0
+      attackSpeed: 0
+      attackRange: 0
+      crit: 0
+      skillSpeed: 0
+      skillRange: 0
+      statsPoint: 0
+      skillPoint: 0
+      initPoint: 0
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
   StartingWeapon: {fileID: 11400000, guid: 7f1a957562a85434e80c93859ff367a3, type: 2}
@@ -8636,6 +8708,26 @@ MonoBehaviour:
       skillRange: 0
       statsPoint: 0
       skillPoint: 0
+      initPoint: 0
+      elementalProtection: 00000000000000000000000000000000
+      elementalBoosts: 00000000000000000000000000000000
+    initStats:
+      randomvalue: 0
+      health: 30
+      strength: 1
+      defense: 1
+      agility: 1
+      attack: 10
+      skill: 0
+      moveSpeed: 3
+      attackSpeed: 1
+      attackRange: 0
+      crit: 0
+      skillSpeed: 0
+      skillRange: 0
+      statsPoint: 0
+      skillPoint: 0
+      initPoint: 0
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
   StartingWeapon: {fileID: 11400000, guid: 2f5ad6aeb34e1ad438badf598e1a29ff, type: 2}
@@ -9185,7 +9277,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1391233978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9207,6 +9299,10 @@ MonoBehaviour:
   spawnPoint: {fileID: 450926277}
   enemies: []
   timeBetweenWaves: 5
+  addHealth: 0
+  addAttack: 0
+  addDefense: 0
+  addSpeed: 0
 --- !u!4 &1391233979
 Transform:
   m_ObjectHideFlags: 0
@@ -11206,6 +11302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1735039235}
   - component: {fileID: 1735039234}
+  - component: {fileID: 1735039236}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -11242,6 +11339,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1735039236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735039233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25d002f177103714496cf02fc90902b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 5667712714323555575, guid: fafd305c9f496b04d9a856ab300bb3ed,
+    type: 3}
+  miniBossPrefab: {fileID: 5667712714323555575, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+    type: 3}
+  bigBossPrefab: {fileID: 5667712714323555575, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+    type: 3}
+  spawnPoint: {fileID: 2036208790}
+  enemies: []
+  timeBetweenWaves: 5
+  addHealth: 20
+  addAttack: 2
+  addDefense: 0
+  addSpeed: 5
 --- !u!1 &1740472351
 GameObject:
   m_ObjectHideFlags: 0
@@ -12583,8 +12705,8 @@ MonoBehaviour:
   - {fileID: 1852036145}
   - {fileID: 43863383}
   StatsText: {fileID: 6018011904136577026}
-  StatsPointText: {fileID: 0}
-  SkillPointText: {fileID: 0}
+  StatsPointText: {fileID: 6018011904136577026}
+  SkillPointText: {fileID: 860330800}
   EnemyHealthSlider: {fileID: 5115311140359179855}
   EnemyName: {fileID: 5115311139302513033}
   EnemyEffectIcones:
@@ -12753,6 +12875,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2022573311}
   m_CullTransparentMesh: 0
+--- !u!4 &2036208790 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2527994518918882105, guid: 1f7d5a83c55fd3e43bd86fa6357fe012,
+    type: 3}
+  m_PrefabInstance: {fileID: 2527994518903917462}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2049142325
 GameObject:
   m_ObjectHideFlags: 0
@@ -14528,7 +14656,7 @@ MonoBehaviour:
         m_CallState: 1
       - m_Target: {fileID: 1988532457}
         m_TargetAssemblyTypeName: ProjectDInternal.UISystem, Assembly-CSharp
-        m_MethodName: AddStatsPoint
+        m_MethodName: AddStatsDEF
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15965,6 +16093,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1735039234}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: Restart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1391233978}
+        m_TargetAssemblyTypeName: WaveSpawner, Assembly-CSharp
+        m_MethodName: RestartSpwan
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

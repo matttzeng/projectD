@@ -186,6 +186,7 @@ namespace ProjectDInternal
         public void OnLevelUp()
         {
             m_CharacterData.Stats.stats.statsPoint += 1;
+            m_CharacterData.Stats.stats.initPoint += 1;
             Debug.Log("素質點數: "+ m_CharacterData.Stats.stats.statsPoint);
 
              StatSystem.StatModifier modifier = new StatSystem.StatModifier();

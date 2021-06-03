@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         GetComponent<WaveSpawner>().RestartSpwan();
         Debug.Log("重新生怪00");
-        DeteleWeapon();
+        //DeteleWeapon();
         Debug.Log("刪除場上武器");
     }
 
