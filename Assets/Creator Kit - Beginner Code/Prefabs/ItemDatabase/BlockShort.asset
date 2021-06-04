@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 721bded4ab38d3c45ac4302c289230a8, type: 3}
-  m_Name: weapon 1
+  m_Name: BlockShort
   m_EditorClassIdentifier: 
   ItemName: 
   ItemSprite: {fileID: 0}
@@ -20,16 +20,15 @@ MonoBehaviour:
   MinimumStrength: 0
   MinimumAgility: 0
   MinimumDefense: 0
-  EquippedEffects:
-  - {fileID: 1441689957936339806}
-  bulletPrefab: {fileID: 0}
+  EquippedEffects: []
+  Identify: 1
   HitSounds: []
   SwingSounds: []
   Stats:
-    Speed: 1
-    MinimumDamage: 1
-    MaximumDamage: 1
-    MaxRange: 1
+    Speed: 3
+    MinimumDamage: 3
+    MaximumDamage: 3
+    MaxRange: 3
   AttackEffects: []
 --- !u!114 &1441689957936339806
 MonoBehaviour:
@@ -60,5 +59,8 @@ MonoBehaviour:
       crit: 10
       skillSpeed: 10
       skillRange: 10
+      statsPoint: 0
+      skillPoint: 0
+      initPoint: 0
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000

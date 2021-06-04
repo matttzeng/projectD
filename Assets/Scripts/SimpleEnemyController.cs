@@ -15,9 +15,10 @@ namespace ProjectDInternal {
             ATTACKING
         }
     
-        public float Speed = 6.0f;
-        public float detectionRadius = 10.0f;
-
+        public float Speed;
+        public float detectionRadius;
+        public float bulletForce;
+      
         public AudioClip[] SpottedAudioClip;
 
         Vector3 m_StartingAnchor;
@@ -215,12 +216,13 @@ namespace ProjectDInternal {
             //if we can't reach the player anymore when it's time to damage, then that attack miss.
             if (!m_CharacterData.CanAttackReach(playerData))
                 return;
-            if (m_CharacterData.Equipment.Weapon.Stats.MaxRange <=2)
+            if (m_CharacterData.Equipment.Weapon.Stats.MaxRange <= 3)
             {
                 //近戰判定擊中扣血
                 m_CharacterData.Attack(playerData);
+                Debug.Log("近戰");
             }
-            else if(m_CharacterData.Equipment.Weapon.Stats.MaxRange >= 3)
+            else if(m_CharacterData.Equipment.Weapon.Stats.MaxRange > 3)
             {
                 //遠程判定擊中扣血
                 shootPlayer();
@@ -269,7 +271,7 @@ namespace ProjectDInternal {
             if (m_CharacterData != null)
             {
                 rb.GetComponent<bullet>().Shooter = m_CharacterData;
-                rb.GetComponent<Rigidbody>().AddForce(transform.forward * 24f, ForceMode.Impulse);
+                rb.GetComponent<Rigidbody>().AddForce(transform.forward * bulletForce, ForceMode.Impulse);
                 rb.GetComponent<Rigidbody>().AddForce(transform.up * 2f, ForceMode.Impulse);
             }
         }

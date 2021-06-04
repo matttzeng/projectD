@@ -4,7 +4,7 @@ using ProjectDInternal;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public Transform enemyPrefab;
+    public Transform[] enemyPrefab;
     public Transform miniBossPrefab;
     public Transform bigBossPrefab;
     public  Transform spawnPoint;
@@ -61,7 +61,7 @@ public class WaveSpawner : MonoBehaviour
             enemy.GetComponent<CharacterData>().Stats.baseStats.attack += (waveNumber - 1) * addAttack;
             enemy.GetComponent<CharacterData>().Stats.baseStats.defense += (waveNumber - 1) * addDefense;
             //enemy.AddComponent<SimpleEnemyController>().detectionRadius += (waveNumber - 1) * addDetection;
-            enemy.AddComponent<SimpleEnemyController>().Speed += (waveNumber - 1) * addSpeed;
+            //enemy.AddComponent<SimpleEnemyController>().Speed += (waveNumber - 1) * addSpeed;
             
         }
 
@@ -72,10 +72,10 @@ public class WaveSpawner : MonoBehaviour
     {
         spawnPoint.position = new Vector3(0, spawnPoint.position.y, 0);
         spawnPoint.position =new Vector3(spawnPoint.position.x + Random.Range(-10f, 10f), spawnPoint.position.y, spawnPoint.position.z + Random.Range(-10f, 10f));
-        
-        
-   
-        Instantiate(enemyPrefab,spawnPoint.position,spawnPoint.rotation);
+
+
+        int i = Random.Range(0, 4);
+        Instantiate(enemyPrefab[i],spawnPoint.position,spawnPoint.rotation);
 
 
     }

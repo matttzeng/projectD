@@ -165,13 +165,13 @@ namespace ProjectDInternal
 
             if (data.Stats.stats.statsPoint > 0)
             {
-                data.Stats.baseStats.health += 1;
+                data.Stats.baseStats.health += 5;
                 data.Stats.UpdateFinalStats();
 
                 data.Stats.stats.statsPoint -= 1;
             }
         }
-
+        //素質重置
         public void StatsReset()
         {
             CharacterData data = PlayerCharacter.Data;
