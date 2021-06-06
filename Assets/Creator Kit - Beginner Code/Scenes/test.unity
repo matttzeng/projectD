@@ -8731,7 +8731,7 @@ MonoBehaviour:
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
   StartingWeapon: {fileID: 11400000, guid: 2f5ad6aeb34e1ad438badf598e1a29ff, type: 2}
-  Skill: {fileID: 11400000, guid: e16a9813ef68b16408f6a9edf4098aa0, type: 2}
+  Skill: {fileID: 11400000, guid: 7beaf02ad0636c943938384e73288b5a, type: 2}
   HitClip: []
 --- !u!1 &1278397113
 GameObject:
@@ -20134,19 +20134,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5115311139597083535}
-        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: Pause
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!222 &5009800541637884751
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -23,12 +23,12 @@ MonoBehaviour:
   EquippedEffects: []
   bulletPrefab: {fileID: 0}
   SkillCategory: 1
-  SkillPosCategory: 0
-  skillPos: {x: 0, y: 0, z: 0}
+  SkillPosCategory: 1
+  skillPos: {x: 5.0916147, y: 0.11000001, z: 5.081537}
   HitSounds: []
   SwingSounds: []
   Stats:
-    Speed: 5
+    Speed: 3
     MinimumDamage: 100
     MaximumDamage: 200
     MaxRange: 10

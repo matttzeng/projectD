@@ -19,16 +19,19 @@ MonoBehaviour:
       randomvalue: 1
       health: 0
       strength: 2
-      defense: 3
+      defense: 5
       agility: 7
-      attack: 8
+      attack: 10
       skill: 39
-      moveSpeed: 0
-      attackSpeed: 2
+      moveSpeed: 5
+      attackSpeed: 300
       attackRange: 7
       crit: 7
       skillSpeed: 2
       skillRange: 5
+      statsPoint: 0
+      skillPoint: 0
+      initPoint: 0
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
 --- !u!114 &-3770104670826039834
@@ -62,14 +65,15 @@ MonoBehaviour:
   ItemName: LegendaryRake1
   ItemSprite: {fileID: 21300000, guid: 5d0f6ae4987d02846b822915a7301dfa, type: 3}
   Description: good
-  WorldObjectPrefab: {fileID: 8115497767533682948, guid: 2ce28e09982cac64fa114271e3976374, type: 3}
+  WorldObjectPrefab: {fileID: 8115497767533682948, guid: 2ce28e09982cac64fa114271e3976374,
+    type: 3}
   Slot: 666
   MinimumStrength: 0
   MinimumAgility: 0
   MinimumDefense: 0
   EquippedEffects:
   - {fileID: -7646669771339083695}
-  bulletPrefab: {fileID: 0}
+  Identify: 0
   HitSounds: []
   SwingSounds: []
   Stats:

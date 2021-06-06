@@ -9,5 +9,6 @@ public enum VFXType
 	Nova,
 	BulletImpactFX,
 	TestSkill,
-	IceLance
+	IceLance,
+	FireBall
 }
