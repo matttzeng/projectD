@@ -67,6 +67,12 @@ namespace ProjectDInternal
             m_HoveredItem = null;
             Tooltip.gameObject.SetActive(false);
         }
+        //設定腳色技能圖示, 暫定3個技能
+        public void LoadSkill(CharacterData data)
+        {
+            m_Data = data;
+            EquipementUI.SetSkill(m_Data.Skill);
+        }
 
         public void Load(CharacterData data)
         {

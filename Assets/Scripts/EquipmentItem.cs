@@ -23,7 +23,8 @@ namespace ProjectD
             Torso,
             Legs,
             Feet,
-            Accessory
+            Accessory,
+            Skill
         }
     
         public abstract class EquippedEffect : ScriptableObject
@@ -102,7 +103,9 @@ namespace ProjectD
         public void EquippedBy(CharacterData user)
         {
             foreach (var effect in EquippedEffects)
+            {
                 effect.Equipped(user);
+            }
         }
     
         public void UnequippedBy(CharacterData user)

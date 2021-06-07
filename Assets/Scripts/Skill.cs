@@ -337,7 +337,7 @@ public class SkillEditor : Editor
     static public void CreateSkill()
     {
         var newSkill = CreateInstance<Skill>();
-        newSkill.Slot = (EquipmentItem.EquipmentSlot)666;
+        newSkill.Slot = (EquipmentItem.EquipmentSlot)777;
         
         ProjectWindowUtil.CreateAsset(newSkill, "Skill.asset");
     }

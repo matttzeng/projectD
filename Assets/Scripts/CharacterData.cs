@@ -30,7 +30,8 @@ namespace ProjectD
         /// The starting weapon equipped when the Character is created. Set through the Unity Editor.
         /// </summary>
         public Weapon StartingWeapon;
-        public Skill Skill;
+        public Skill ChooseSkill;
+        public Skill[] Skill;
         public InventorySystem Inventory = new InventorySystem();
         public EquipmentSystem Equipment = new EquipmentSystem();
 
@@ -72,6 +73,23 @@ namespace ProjectD
                 StartingWeapon.UsedBy(this);
                 Equipment.InitWeapon(StartingWeapon, this);
             }
+
+            /*if (ChooseSkill != null)
+            {
+                ChooseSkill.UsedBy(this);
+                Debug.Log("裝技能");
+                Equipment.InitSkill(ChooseSkill, this);
+            }*/
+
+            /*if(Skill.Length > 0)
+            {
+                for(int i = 0; i < Skill.Length; i++)
+                {
+                    Skill[i].UsedBy(this);
+                    Debug.Log("裝技能");
+                    Equipment.InitSkill(Skill[i], this);
+                }
+            }*/
         }
 
         void Awake()
@@ -128,7 +146,7 @@ namespace ProjectD
         public bool CanSkillAttackReach(CharacterData target)
         {
 
-            return Skill.CanHit(this, target);
+            return ChooseSkill.CanHit(this, target);
         }
         /// <summary>
         /// Will check if the target is attackable. This in effect check :
@@ -185,7 +203,7 @@ namespace ProjectD
 
         public void SkillAttack(CharacterData target)
         {
-            Skill.Attack(this, target);
+            ChooseSkill.Attack(this, target);
         }
         /// <summary>
         /// This need to be called as soon as an attack is triggered, it will start the cooldown. This is separate from
@@ -205,7 +223,7 @@ namespace ProjectD
 
         public void SkillAttackTriggered()
         {
-            m_SkillAttackCoolDown = Skill.Stats.Speed/ (Stats.stats.skillSpeed*0.01f+1f);// - (Stats.stats.agility * 0.5f * 0.001f * Skill.Stats.Speed;
+            m_SkillAttackCoolDown = ChooseSkill.Stats.Speed/ (Stats.stats.skillSpeed*0.01f+1f);// - (Stats.stats.agility * 0.5f * 0.001f * Skill.Stats.Speed;
         }
         /// <summary>
         /// Damage the Character by the AttackData given as parameter. See the documentation for that class for how to

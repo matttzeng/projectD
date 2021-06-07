@@ -85,6 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 1
   detectionRadius: 15
+  bulletForce: 0
   SpottedAudioClip: []
   agent: {fileID: 0}
 --- !u!114 &5667712714323555573
@@ -116,10 +117,32 @@ MonoBehaviour:
       skillSpeed: 0
       skillRange: 0
       statsPoint: 0
+      skillPoint: 0
+      initPoint: 0
+      elementalProtection: 00000000000000000000000000000000
+      elementalBoosts: 00000000000000000000000000000000
+    initStats:
+      randomvalue: 0
+      health: 0
+      strength: 0
+      defense: 0
+      agility: 0
+      attack: 0
+      skill: 0
+      moveSpeed: 0
+      attackSpeed: 0
+      attackRange: 0
+      crit: 0
+      skillSpeed: 0
+      skillRange: 0
+      statsPoint: 0
+      skillPoint: 0
+      initPoint: 0
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
   StartingWeapon: {fileID: 11400000, guid: 7f1a957562a85434e80c93859ff367a3, type: 2}
-  Skill: {fileID: 0}
+  ChooseSkill: {fileID: 0}
+  Skill: []
   HitClip:
   - {fileID: 8300000, guid: 52bbf808b3d93fb4f861009f0d06498b, type: 3}
   - {fileID: 8300000, guid: a2b0c466fe3cda84da5a4a1f58ae2f07, type: 3}

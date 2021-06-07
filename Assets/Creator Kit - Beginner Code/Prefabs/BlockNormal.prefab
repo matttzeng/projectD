@@ -157,7 +157,8 @@ MonoBehaviour:
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
   StartingWeapon: {fileID: 11400000, guid: a93ab13e5f0641040af94c0613b4b3d9, type: 2}
-  Skill: {fileID: 11400000, guid: 5bee6334369b9174dbf6c9ae5059da34, type: 2}
+  ChooseSkill: {fileID: 0}
+  Skill: []
   HitClip:
   - {fileID: 8300000, guid: 52bbf808b3d93fb4f861009f0d06498b, type: 3}
   - {fileID: 8300000, guid: a2b0c466fe3cda84da5a4a1f58ae2f07, type: 3}

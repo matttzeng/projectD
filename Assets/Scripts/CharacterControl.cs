@@ -584,13 +584,15 @@ namespace ProjectDInternal
             if (m_CurrentState == State.ATTACKING)
                 return;
 
-            if (m_CharacterData.CanSkillAttackTarget(m_CurrentTargetCharacterData))
+            if (m_CharacterData.ChooseSkill != null)
             {
-                StopAgent();
+                if (m_CharacterData.CanSkillAttackTarget(m_CurrentTargetCharacterData))
+                {
+                    StopAgent();
 
-                //if the mouse button isn't pressed, we do NOT attack
-                //if (Input.GetMouseButton(0))
-                //{
+                    //if the mouse button isn't pressed, we do NOT attack
+                    //if (Input.GetMouseButton(0))
+                    //{
                     /*Vector3 forward = (m_CurrentTargetCharacterData.transform.position - transform.position);
                     forward.y = 0;
                     forward.Normalize();
@@ -606,6 +608,7 @@ namespace ProjectDInternal
 
                     }
 
+                }
             }
 
             if (m_CharacterData.CanAttackReach(m_CurrentTargetCharacterData))
@@ -635,6 +638,24 @@ namespace ProjectDInternal
             {
                 m_Agent.SetDestination(m_CurrentTargetCharacterData.transform.position);
             }*/
+        }
+
+        public void ChooseSkill0()
+        {
+            if(m_CharacterData.Skill[0] != null)
+                m_CharacterData.ChooseSkill = m_CharacterData.Skill[0];
+        }
+
+        public void ChooseSkill1()
+        {
+            if (m_CharacterData.Skill[1] != null)
+                m_CharacterData.ChooseSkill = m_CharacterData.Skill[1];
+        }
+
+        public void ChooseSkill2()
+        {
+            if (m_CharacterData.Skill[2] != null)
+                m_CharacterData.ChooseSkill = m_CharacterData.Skill[2];
         }
 
         public void AttackFrame()
@@ -697,11 +718,11 @@ namespace ProjectDInternal
                 Vector3 pos = transform.position;
                 
                 
-                string skillName = GetComponent<CharacterData>().Skill.ItemName;
+                string skillName = GetComponent<CharacterData>().ChooseSkill.ItemName;
                 Debug.Log("釋放" + skillName);
                 VFXType m_vFXType = (VFXType)Enum.Parse(typeof(VFXType), skillName);
                 
-                pos = GetComponent<CharacterData>().Skill.skillPos;
+                pos = GetComponent<CharacterData>().ChooseSkill.skillPos;
                 //增加特效方向VFXManager.PlayVFX2
                 VFXManager.PlayVFX2(m_vFXType, pos, transform.forward);
                 VFXManager.PlayVFX(VFXType.Hit, attackPos);

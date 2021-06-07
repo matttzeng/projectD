@@ -47,8 +47,7 @@ MonoBehaviour:
     MinimumDamage: 10
     MaximumDamage: 10
     MaxRange: 5
-  AttackEffects:
-  - {fileID: -3289981996849698856}
+  AttackEffects: []
 --- !u!114 &8612021249231506279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,5 +78,7 @@ MonoBehaviour:
       skillSpeed: 0
       skillRange: 0
       statsPoint: 0
+      skillPoint: 0
+      initPoint: 0
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000

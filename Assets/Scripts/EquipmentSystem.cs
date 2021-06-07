@@ -16,6 +16,7 @@ namespace ProjectD
     public class EquipmentSystem
     {
         public Weapon Weapon { get; private set; }
+        //public Skill Skill { get; private set; }
 
         public Action<EquipmentItem> OnEquiped { get; set; }
         public Action<EquipmentItem> OnUnequip { get; set; }
@@ -29,6 +30,7 @@ namespace ProjectD
         EquipmentItem m_AccessorySlot;
 
         Weapon m_DefaultWeapon;
+        //Skill m_DefaultSkill;
 
         public void Init(CharacterData owner)
         {
@@ -39,7 +41,12 @@ namespace ProjectD
         {
             m_DefaultWeapon = wep;
         }
-    
+
+        /*public void InitSkill(Skill wep, CharacterData data)
+        {
+            m_DefaultSkill = wep;
+        }*/
+
         public EquipmentItem GetItem(EquipmentItem.EquipmentSlot slot)
         {
             switch (slot)
@@ -54,6 +61,8 @@ namespace ProjectD
                     return m_FeetSlot;
                 case EquipmentItem.EquipmentSlot.Accessory:
                     return m_AccessorySlot;
+                //case EquipmentItem.EquipmentSlot.Skill:
+                    //return m_Skill;
                 default:
                     return null;
             }
@@ -117,6 +126,11 @@ namespace ProjectD
                     }
                     Weapon.EquippedBy(m_Owner);
                     break;
+                /*case (EquipmentItem.EquipmentSlot)777:
+                    Skill = item as Skill;
+                    Debug.Log("安裝技能");
+                    Skill.EquippedBy(m_Owner);
+                    break;*/
                 default:
                     break;
             }
@@ -196,6 +210,33 @@ namespace ProjectD
                             Equip(m_DefaultWeapon);
                     }
                     break;
+                /*case (EquipmentItem.EquipmentSlot)777:
+                    if (Skill != null &&
+                        (Skill != m_DefaultSkill || isReplacement)) // the only way to unequip the default weapon is through replacing it
+                    {
+                        Skill.UnequippedBy(m_Owner);
+
+                        //the default weapon does not go back to the inventory
+                        if (Skill != m_DefaultSkill)
+                            m_Owner.Inventory.AddItem(Skill);
+
+                        OnUnequip?.Invoke(Skill);
+                        Skill = null;
+
+                        //reequip the default weapon if this is not an unequip to equip a new one
+                        if (!isReplacement)
+                            Equip(m_DefaultSkill);
+                    }
+                    break;*/
+                /*case EquipmentItem.EquipmentSlot.Skill:
+                    if (m_AccessorySlot != null)
+                    {
+                        m_AccessorySlot.UnequippedBy(m_Owner);
+                        m_Owner.Inventory.AddItem(m_Skill);
+                        OnUnequip?.Invoke(m_Skill);
+                        m_AccessorySlot = null;
+                    }
+                    break;*/
                 default:
                     break;
             }

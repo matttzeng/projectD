@@ -15,22 +15,21 @@ MonoBehaviour:
   ItemName: Nova
   ItemSprite: {fileID: 21300000, guid: 70d33d3e0775e5f4b93354ffacc97c5e, type: 3}
   Description: "\u51B0\u971C\u65B0\u661F"
-  WorldObjectPrefab: {fileID: 8779128011198322701, guid: f8a6f2d6d040286459bb850962622d20,
-    type: 3}
-  Slot: 0
+  WorldObjectPrefab: {fileID: 0}
+  Slot: 777
   MinimumStrength: 0
   MinimumAgility: 0
   MinimumDefense: 0
   EquippedEffects: []
   bulletPrefab: {fileID: 0}
-  SkillCategory: 0
-  SkillPosCategory: 0
-  skillPos: {x: 0, y: 0, z: 0}
+  SkillCategory: 2
+  SkillPosCategory: 2
+  skillPos: {x: -4.2601, y: 0.11000001, z: -2.629209}
   HitSounds: []
   SwingSounds: []
   Stats:
-    Speed: 1
-    MinimumDamage: 1
-    MaximumDamage: 1
-    MaxRange: 1
+    Speed: 5
+    MinimumDamage: 20
+    MaximumDamage: 30
+    MaxRange: 10
   AttackEffects: []

@@ -16,7 +16,7 @@ MonoBehaviour:
   ItemSprite: {fileID: 21300000, guid: 70bf9a4108ed0934d9e052df06cf1638, type: 3}
   Description: "\u706B\u7403\u8853"
   WorldObjectPrefab: {fileID: 0}
-  Slot: 666
+  Slot: 777
   MinimumStrength: 0
   MinimumAgility: 0
   MinimumDefense: 0
@@ -24,12 +24,12 @@ MonoBehaviour:
   bulletPrefab: {fileID: 0}
   SkillCategory: 1
   SkillPosCategory: 1
-  skillPos: {x: 5.0916147, y: 0.11000001, z: 5.081537}
+  skillPos: {x: -0.5492891, y: 0.11000001, z: 1.5876957}
   HitSounds: []
   SwingSounds: []
   Stats:
-    Speed: 3
-    MinimumDamage: 100
-    MaximumDamage: 200
+    Speed: 8
+    MinimumDamage: 50
+    MaximumDamage: 100
     MaxRange: 10
   AttackEffects: []
