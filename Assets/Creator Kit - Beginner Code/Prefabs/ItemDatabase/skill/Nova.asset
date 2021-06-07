@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Nova
   m_EditorClassIdentifier: 
   ItemName: Nova
-  ItemSprite: {fileID: 21300000, guid: 70d33d3e0775e5f4b93354ffacc97c5e, type: 3}
+  ItemSprite: {fileID: 21300000, guid: 0aeef33d050ea9340841fdc36a023da5, type: 3}
   Description: "\u51B0\u971C\u65B0\u661F"
   WorldObjectPrefab: {fileID: 0}
   Slot: 777
@@ -24,7 +24,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 0}
   SkillCategory: 2
   SkillPosCategory: 2
-  skillPos: {x: -4.2601, y: 0.11000001, z: -2.629209}
+  skillPos: {x: 0, y: 0.11000001, z: -4.54}
   HitSounds: []
   SwingSounds: []
   Stats:

@@ -41,8 +41,13 @@ public class Menu : MonoBehaviour
     }
     public void Pause()
     {
+        Debug.Log("¼È°±");
+
         menuUI.SetActive(true);
+        Debug.Log("¼È°±1");
+
         Time.timeScale = 0f;
+        Debug.Log("¼È°±2");
         GameIsPaused = true;
     }
 

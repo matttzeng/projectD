@@ -22,13 +22,15 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: EnergyShockwave
   m_Shader: {fileID: 4800000, guid: 0406db5a14f94604a8c57ccfbc9f3b46, type: 3}
-  m_ShaderKeywords: EFFECT_BUMP _ALPHABLEND_ON _FADING_ON _FLIPBOOKBLENDING_OFF _NORMALMAP
-  m_LightmapFlags: 0
+  m_ShaderKeywords: _DISTORTION_ON _EMISSION _FADING_ON _NORMALMAP _SOFTPARTICLES_ON
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
+  m_CustomRenderQueue: 3000
+  stringTagMap:
+    RenderType: Transparent
+  disabledShaderPasses:
+  - SHADOWCASTER
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -84,10 +86,10 @@ Material:
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DistortionBlend: 0.724
+    - _DistortionBlend: 1
     - _DistortionEnabled: 1
-    - _DistortionStrength: 10
-    - _DistortionStrengthScaled: 1
+    - _DistortionStrength: 200
+    - _DistortionStrengthScaled: 20
     - _DstBlend: 10
     - _EmissionEnabled: 0
     - _FlipbookBlending: 0
@@ -116,6 +118,6 @@ Material:
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 8, g: 8, b: 8, a: 1}
     - _ColorAddSubDiff: {r: 1, g: 0, b: 0, a: 0}
-    - _EmissionColor: {r: 0.5, g: 0.33138573, b: 0.2287736, a: 1}
+    - _EmissionColor: {r: 2.0078433, g: 1.3333334, b: 0.9098039, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

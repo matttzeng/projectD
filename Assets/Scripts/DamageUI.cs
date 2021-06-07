@@ -25,7 +25,7 @@ namespace ProjectDInternal
                 float ratio = 1.0f - (Timer / MaxTime);
                 Vector3 pos = WorldPositionStart + new Vector3(ratio, Mathf.Sin(ratio * Mathf.PI), 0);
                 pos = cam.WorldToScreenPoint(pos);
-                //pos *= canvas.scaleFactor;
+                pos *= canvas.scaleFactor;
                 pos.z = 0.0f;
             
                 UIText.transform.position = pos;
