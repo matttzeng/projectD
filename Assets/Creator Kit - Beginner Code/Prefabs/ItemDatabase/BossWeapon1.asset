@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 721bded4ab38d3c45ac4302c289230a8, type: 3}
+  m_Name: BossWeapon1
+  m_EditorClassIdentifier: 
+  ItemName: 
+  ItemSprite: {fileID: 0}
+  Description: 
+  WorldObjectPrefab: {fileID: 1880412207359663785, guid: 6c7167e2f79539f40b46ad6f78a8ec6f,
+    type: 3}
+  Slot: 666
+  MinimumStrength: 0
+  MinimumAgility: 0
+  MinimumDefense: 0
+  EquippedEffects: []
+  Identify: 1
+  HitSounds: []
+  SwingSounds: []
+  Stats:
+    Speed: 3
+    MinimumDamage: 5
+    MaximumDamage: 5
+    MaxRange: 16
+  AttackEffects: []

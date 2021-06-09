@@ -9519,7 +9519,7 @@ MonoBehaviour:
   Stats:
     baseStats:
       randomvalue: 0
-      health: 30
+      health: 300
       strength: 1
       defense: 1
       agility: 1
@@ -17367,6 +17367,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4730651568047085444, guid: 25d59bc1ca3b86241a8cf65c3f42976b,
+        type: 3}
+      propertyPath: Stats.baseStats.health
+      value: 10000
+      objectReference: {fileID: 0}
     - target: {fileID: 4730651568047085446, guid: 25d59bc1ca3b86241a8cf65c3f42976b,
         type: 3}
       propertyPath: m_RootOrder
@@ -17431,6 +17436,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107504805655249206, guid: 25d59bc1ca3b86241a8cf65c3f42976b,
+        type: 3}
+      propertyPath: Speed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25d59bc1ca3b86241a8cf65c3f42976b, type: 3}

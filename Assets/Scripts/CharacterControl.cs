@@ -181,6 +181,11 @@ namespace ProjectDInternal
 
            
             }
+
+            if (collision.gameObject.GetComponent<BossEnemyController>())
+            {
+                collision.gameObject.GetComponent<BossEnemyController>().m_CharacterData.Attack(m_CharacterData);
+            }
         }
        
         public void OnLevelUp()

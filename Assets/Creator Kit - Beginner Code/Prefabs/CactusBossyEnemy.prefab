@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5667712714323555575}
   - component: {fileID: 5667712714323555560}
   - component: {fileID: 5667712714323555561}
-  - component: {fileID: 4833490305035089800}
+  - component: {fileID: -7902931198216172706}
   - component: {fileID: 5667712714323555573}
   - component: {fileID: 1969771359830447306}
   m_Layer: 16
@@ -46,11 +46,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1
-  m_Acceleration: 999
+  m_Speed: 3.5
+  m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 360
-  m_StoppingDistance: 0
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -71,7 +71,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.2982216, y: 3.9280415, z: 1.719141}
   m_Center: {x: 0.13493729, y: 1.9740207, z: 0.110500336}
---- !u!114 &4833490305035089800
+--- !u!114 &-7902931198216172706
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -80,13 +80,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5667712714323555562}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78424c3e025e7d54482eda4e38573275, type: 3}
+  m_Script: {fileID: 11500000, guid: 4dbba5f75b4d9d64f803bde5792571b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 1
+  Speed: 6
   detectionRadius: 15
-  bulletForce: 0
+  bulletForce: 50
   SpottedAudioClip: []
+  m_CharacterData: {fileID: 0}
   agent: {fileID: 0}
 --- !u!114 &5667712714323555573
 MonoBehaviour:
@@ -104,11 +105,11 @@ MonoBehaviour:
   Stats:
     baseStats:
       randomvalue: 0
-      health: 60
-      strength: 5
-      defense: 2
+      health: 500
+      strength: 0
+      defense: 10
       agility: 0
-      attack: 0
+      attack: 10
       skill: 0
       moveSpeed: 0
       attackSpeed: 0
@@ -140,7 +141,7 @@ MonoBehaviour:
       initPoint: 0
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
-  StartingWeapon: {fileID: 11400000, guid: 7f1a957562a85434e80c93859ff367a3, type: 2}
+  StartingWeapon: {fileID: 11400000, guid: 3d64b820c0872e943a92d5ebddb26d1b, type: 2}
   ChooseSkill: {fileID: 0}
   Skill: []
   HitClip:
@@ -176,8 +177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa3d267ff6fabdc4e8b9a091ba04c8df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackFrameReceiver: {fileID: 4833490305035089800}
-  FootstepFrameReceiver: {fileID: 4833490305035089800}
+  AttackFrameReceiver: {fileID: -7902931198216172706}
+  FootstepFrameReceiver: {fileID: -7902931198216172706}
   SkillFrameReceiver: {fileID: 0}
 --- !u!1001 &2865927052972858387
 PrefabInstance:
