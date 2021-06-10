@@ -84,7 +84,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 6
-  detectionRadius: 15
+  detectionRadius: 20
+  skillRadius: 0
+  skillInterval: 3
+  skillDelay: 1
   bulletForce: 50
   SpottedAudioClip: []
   m_CharacterData: {fileID: 0}

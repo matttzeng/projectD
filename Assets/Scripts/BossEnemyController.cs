@@ -1,4 +1,5 @@
-﻿using ProjectD;
+﻿using System.Collections;
+using ProjectD;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,6 +18,9 @@ namespace ProjectDInternal {
     
         public float Speed;
         public float detectionRadius;
+        public float skillRadius;
+        public float skillInterval;
+        public float skillDelay;
         public float bulletForce;
       
         public AudioClip[] SpottedAudioClip;
@@ -32,8 +36,10 @@ namespace ProjectDInternal {
         int m_AttackAnimHash;
         int m_DeathAnimHash;
         int m_HitAnimHash;
+        int skillFlag;
         bool m_Pursuing;
         float m_PursuitTimer = 0.0f;
+        float m_SkillTimer = 0.0f;
 
         State m_State;
 
@@ -75,6 +81,7 @@ namespace ProjectDInternal {
             m_LootSpawner = GetComponent<LootSpawner>();
         
             m_StartingAnchor = transform.position;
+            m_SkillTimer = skillInterval;
 
             //g = GameObject.Find("character").GetComponent<CharacterControl>();
 
@@ -121,13 +128,22 @@ namespace ProjectDInternal {
                 Destroy(this);
                 return;
             }
-        
+ 
             //NOTE : in a full game, this would use a targetting system that would give the closest target
             //of the opposing team (e.g. multiplayer or player owned pets). Here for simplicity we just reference
             //directly the player.
             Vector3 playerPosition = CharacterControl.Instance.transform.position;
             CharacterData playerData = CharacterControl.Instance.Data;
-        
+
+            //旋風斬使用中判定, 撞到角色時會停止, 需要修正
+            if (gameObject.GetComponent<Rigidbody>() && skillFlag ==3)
+            {
+                var l = playerPosition - transform.position;
+                gameObject.GetComponent<Rigidbody>().velocity = new Vector3(l.x, 0.0f, l.z);
+                gameObject.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 999f, 0);
+                return;
+            }
+
             switch (m_State)
             {
                 case State.IDLE:
@@ -155,6 +171,8 @@ namespace ProjectDInternal {
                     if (distToPlayer < detectionRadius * detectionRadius)
                     {
                         m_PursuitTimer = 4.0f;
+                        //視野範圍內時, 技能施放冷卻
+                        m_SkillTimer -= Time.deltaTime;
 
                         if (m_CharacterData.CanAttackTarget(playerData))
                         {
@@ -165,13 +183,26 @@ namespace ProjectDInternal {
                             m_Agent.velocity = Vector3.zero;
                             m_Agent.isStopped = true;
                         }
+                        //視野範圍內時, 技能施放
+                        else if (m_SkillTimer <= 0)
+                        {
+                            transform.LookAt(CharacterControl.Instance.Data.transform.position);
+                            m_CharacterData.AttackTriggered();
+                            m_Animator.SetTrigger(m_AttackAnimHash);
+                            //m_State = State.ATTACKING;
+                            m_Agent.ResetPath();
+                            m_Agent.velocity = Vector3.zero;
+                            m_Agent.isStopped = true;
+                            Invoke("SkillDelay", skillDelay);
+                            m_SkillTimer = skillInterval;
+                        }
                     }
                     else
                     {
                         if (m_PursuitTimer > 0.0f)
                         {
                             m_PursuitTimer -= Time.deltaTime;
-
+   
                             if (m_PursuitTimer <= 0.0f)
                             {
                                 m_Agent.SetDestination(m_StartingAnchor);
@@ -215,40 +246,28 @@ namespace ProjectDInternal {
             CharacterData playerData = CharacterControl.Instance.Data;
             //m_Animator.SetTrigger(m_AttackAnimHash);
             //if we can't reach the player anymore when it's time to damage, then that attack miss.
-            if (!m_CharacterData.CanAttackReach(playerData))
-                return;
+            //if (!m_CharacterData.CanAttackReach(playerData))
+                //return;
             if (m_CharacterData.Equipment.Weapon.Stats.MaxRange <= 3)
             {
+                if (!m_CharacterData.CanAttackReach(playerData))
+                    return;
                 //近戰判定擊中扣血
                 m_CharacterData.Attack(playerData);
                 Debug.Log("近戰");
             }
-            else if(m_CharacterData.Equipment.Weapon.Stats.MaxRange > 3)
+            //遠程判定擊中扣血
+            else if (m_CharacterData.Equipment.Weapon.Stats.MaxRange > 3)
             {
-                //遠程判定擊中扣血
-                int i = Random.Range(0, 3);
-                
-                if (i == 0)
-                    shootPlayer2();
-
-                if (i == 1)
-                    shootPlayer1();
-
-                if (i == 2)
-                    shootPlayer();
-
-                
-                //if (玩家被擊中)
-                //{
-                ////扣血
-                //    m_CharacterData.Attack(playerData);
-                //}
-                 
-               
+                //攻擊範圍內時
+                if (m_CharacterData.CanAttackReach(playerData))
+                    skillFlag = 3;
+                //攻擊範圍外時(視野內)
+                else    
+                    skillFlag = Random.Range(0, 3);
+                //技能選擇
+                shootPlayer(skillFlag); 
             }
-
-            
-
 
         }
 
@@ -265,78 +284,78 @@ namespace ProjectDInternal {
             VFXManager.PlayVFX(VFXType.StepPuff, pos); 
         }
 
-        
-        void shootPlayer()
+        void shootPlayer(int skillFlag)
         {
-
-            transform.LookAt(CharacterControl.Instance.Data.transform.position);
-
-            //Debug.Log("打玩家");
-            Vector3 shootPoint =new Vector3(gameObject.transform.position.x, gameObject.transform.position.y+1.0f, gameObject.transform.position.z); 
-            GameObject rb = Instantiate(GetComponent<CharacterData>().StartingWeapon.WorldObjectPrefab, shootPoint, Quaternion.identity);
-            //Rigidbody rb = Instantiate(GetComponent<CharacterData>().StartingWeapon.WorldObjectPrefab, shootPoint, Quaternion.identity).GetComponent<Rigidbody>();
-            //var l = rb.AddComponent<Rigidbody>();
-            if (m_CharacterData != null)
+            //丟子彈
+            if (skillFlag == 0)
             {
-                rb.GetComponent<bullet>().Shooter = m_CharacterData;
-                rb.GetComponent<Rigidbody>().AddForce(transform.forward * bulletForce, ForceMode.Impulse);
-                rb.GetComponent<Rigidbody>().AddForce(transform.up * 2f, ForceMode.Impulse);
-            }
-        }
+                transform.LookAt(CharacterControl.Instance.Data.transform.position);
 
-        void shootPlayer1()
-        {
-            var l = CharacterControl.Instance.Data.transform.position;
-            transform.LookAt(l);
-
-            //Debug.Log("打玩家");
-            for (int i = 0; i < 5; i++)
-            {
-                Vector3 shootPoint = new Vector3(l.x + Random.Range(-5f, 5f), 15.0f, l.z + Random.Range(-5f, 5f));
-
+                //Debug.Log("打玩家");
+                Vector3 shootPoint = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1.0f, gameObject.transform.position.z);
                 GameObject rb = Instantiate(GetComponent<CharacterData>().StartingWeapon.WorldObjectPrefab, shootPoint, Quaternion.identity);
                 //Rigidbody rb = Instantiate(GetComponent<CharacterData>().StartingWeapon.WorldObjectPrefab, shootPoint, Quaternion.identity).GetComponent<Rigidbody>();
                 //var l = rb.AddComponent<Rigidbody>();
                 if (m_CharacterData != null)
                 {
                     rb.GetComponent<bullet>().Shooter = m_CharacterData;
-                    //rb.GetComponent<Rigidbody>().AddForce(transform.forward * bulletForce, ForceMode.Impulse);
-                    rb.GetComponent<Rigidbody>().AddForce(transform.up * -2f, ForceMode.Impulse);
-                    Destroy(rb, 2f);
+                    rb.GetComponent<Rigidbody>().AddForce(transform.forward * bulletForce, ForceMode.Impulse);
+                    rb.GetComponent<Rigidbody>().AddForce(transform.up * 2f, ForceMode.Impulse);
+                }
+            }
+            //隕石術
+            if (skillFlag == 1)
+            {
+                var l = CharacterControl.Instance.Data.transform.position;
+                transform.LookAt(l);
+
+                //Debug.Log("打玩家");
+                for (int i = 0; i < 5; i++)
+                {
+                    Vector3 shootPoint = new Vector3(l.x + Random.Range(-5f, 5f), 15.0f, l.z + Random.Range(-5f, 5f));
+
+                    GameObject rb = Instantiate(GetComponent<CharacterData>().StartingWeapon.WorldObjectPrefab, shootPoint, Quaternion.identity);
+                    //Rigidbody rb = Instantiate(GetComponent<CharacterData>().StartingWeapon.WorldObjectPrefab, shootPoint, Quaternion.identity).GetComponent<Rigidbody>();
+                    //var l = rb.AddComponent<Rigidbody>();
+                    if (m_CharacterData != null)
+                    {
+                        rb.GetComponent<bullet>().Shooter = m_CharacterData;
+                        //rb.GetComponent<Rigidbody>().AddForce(transform.forward * bulletForce, ForceMode.Impulse);
+                        rb.GetComponent<Rigidbody>().AddForce(transform.up * -2f, ForceMode.Impulse);
+                        Destroy(rb, 2f);
+                    }
+                }
+            }
+            //衝鋒攻擊
+            if(skillFlag ==2)
+            {
+                transform.LookAt(CharacterControl.Instance.Data.transform.position);
+
+                if (m_CharacterData != null)
+                {
+                    if (!gameObject.GetComponent<Rigidbody>())
+                        gameObject.AddComponent<Rigidbody>();
+                    //gameObject.GetComponent<Rigidbody>().isKinematic = false;
+                    //gameObject.GetComponent<Rigidbody>().detectCollisions = false;
+                    //gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                    gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * bulletForce, ForceMode.Impulse);
+                    Invoke("Stop", 2);
+                }
+            }
+            //旋風斬
+            if(skillFlag ==3)
+            {
+                if (m_CharacterData != null)
+                {
+                    if (!gameObject.GetComponent<Rigidbody>())
+                        gameObject.AddComponent<Rigidbody>();
+                  
+                    //gameObject.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 999f, 0);
+                    Invoke("Stop", 4);
                 }
             }
         }
-
-        void shootPlayer2()
-        {
-
-            transform.LookAt(CharacterControl.Instance.Data.transform.position);
-
-            //Debug.Log("打玩家");
-            //Vector3 shootPoint = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1.0f, gameObject.transform.position.z);
-            //GameObject rb = Instantiate(GetComponent<CharacterData>().StartingWeapon.WorldObjectPrefab, shootPoint, Quaternion.identity);
-            //Vector3 shootPoint =new Vector3(gameObject.transform.position.x, gameObject.transform.position.y+1.0f, gameObject.transform.position.z); 
-            //GameObject rb = Instantiate(GetComponent<CharacterData>().StartingWeapon.WorldObjectPrefab, shootPoint, Quaternion.identity);
-            //Rigidbody rb = Instantiate(GetComponent<CharacterData>().StartingWeapon.WorldObjectPrefab, shootPoint, Quaternion.identity).GetComponent<Rigidbody>();
-            //var l = rb.AddComponent<Rigidbody>();
-            if (m_CharacterData != null)
-            {
-                //rb.GetComponent<bullet>().Shooter = m_CharacterData;
-                //rb.GetComponent<Rigidbody>().AddForce(transform.forward * bulletForce, ForceMode.Impulse);
-                //rb.GetComponent<Rigidbody>().AddForce(transform.up * 2f, ForceMode.Impulse);
-                //rb.GetComponent<bullet>().Shooter = m_CharacterData;
-                if (!gameObject.GetComponent<Rigidbody>())
-                    gameObject.AddComponent<Rigidbody>();
-                //gameObject.GetComponent<Rigidbody>().isKinematic = false;
-                //gameObject.GetComponent<Rigidbody>().detectCollisions = false;
-                //gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * bulletForce, ForceMode.Impulse);
-                Invoke("Stop", 2);
-                //Destroy(GetComponent<Rigidbody>());
-                //rb.GetComponent<Rigidbody>().AddForce(transform.up * 2f, ForceMode.Impulse);
-            }
-        }
-
+        //停止
         public void Stop()
         {
             if (gameObject.GetComponent<Rigidbody>())
@@ -345,14 +364,19 @@ namespace ProjectDInternal {
                 Debug.Log("停止");
             }
         }
-
+        //衝鋒攻擊, 撞到人時停止
         public void OnCollisionEnter(Collision collision)
         {
-            if (gameObject.GetComponent<Rigidbody>())
+            if (gameObject.GetComponent<Rigidbody>() && skillFlag ==2)
             {
                 Destroy(GetComponent<Rigidbody>());
                 Debug.Log("撞到Character");
             }
+        }
+
+        public void SkillDelay()
+        {
+            m_Agent.isStopped = false;
         }
 
 
