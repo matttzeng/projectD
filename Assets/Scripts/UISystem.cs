@@ -79,7 +79,7 @@ namespace ProjectDInternal
            
             CharacterData data = PlayerCharacter.Data;
 
-            currentWave = WaveSpawner.waveNumber - 1;
+            currentWave = WaveSpawner.waveNumber;
 
             if (currentWave == 0)
             {

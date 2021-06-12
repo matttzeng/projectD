@@ -15,9 +15,10 @@ public class WaveSpawner : MonoBehaviour
     public int addAttack;
     public int addDefense;
     public int addSpeed;
+    public bool loopGame = false;
     //public int addDetection;
 
-    public static int waveNumber = 1;
+    public static int waveNumber = 0;
 
     private void Update()
     {
@@ -38,6 +39,8 @@ public class WaveSpawner : MonoBehaviour
     }
     void SpawnWave()
     {
+        WaveSelection(loopGame);
+
         for (int i =0;i<waveNumber; i++)
         {
             SpwanEnemy();
@@ -64,8 +67,7 @@ public class WaveSpawner : MonoBehaviour
             //enemy.AddComponent<SimpleEnemyController>().Speed += (waveNumber - 1) * addSpeed;
             
         }
-
-        waveNumber++;
+        
 
     }
     void SpwanEnemy()
@@ -112,5 +114,22 @@ public class WaveSpawner : MonoBehaviour
         waveNumber = 0;
         SpawnWave();
         Debug.Log("­«·s¥Í©Ç, waveNumber =" + waveNumber);
+    }
+
+    public void WaveSelection(bool loopGame)
+    {
+        if (loopGame == false)
+            waveNumber++;
+
+        else if (loopGame == true)
+            return;
+    }
+
+    public void LoopGame()
+    {
+        if (loopGame == false)
+            loopGame = true;
+        else if (loopGame == true)
+            loopGame = false;
     }
 }
