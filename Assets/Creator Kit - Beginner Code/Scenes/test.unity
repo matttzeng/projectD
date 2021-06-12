@@ -13032,9 +13032,9 @@ MonoBehaviour:
   - {fileID: 8903997851397543823, guid: 62f9002a7610c914f8d38959634ff872, type: 3}
   - {fileID: 7104100457556044732, guid: 11d3266e5817a574e90686bd9b177b5c, type: 3}
   - {fileID: 4730651568047085446, guid: 25d59bc1ca3b86241a8cf65c3f42976b, type: 3}
-  miniBossPrefab: {fileID: 5667712714323555575, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+  miniBossPrefab: {fileID: 5667712714323555575, guid: 212864a8c7f0cc547a1cf7f4cc9f519d,
     type: 3}
-  bigBossPrefab: {fileID: 5667712714323555575, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+  bigBossPrefab: {fileID: 5667712714323555575, guid: 212864a8c7f0cc547a1cf7f4cc9f519d,
     type: 3}
   spawnPoint: {fileID: 2036208790}
   enemies: []
