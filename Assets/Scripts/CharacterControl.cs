@@ -686,7 +686,7 @@ namespace ProjectDInternal
 
                 var attackPos = m_CurrentTargetCharacterData.transform.position + transform.up * 0.5f;
                 VFXManager.PlayVFX(VFXType.Hit, attackPos);
-                SFXManager.PlaySound(m_CharacterAudio.UseType, new SFXManager.PlayData() { Clip = m_CharacterData.Equipment.Weapon.GetHitSound(), PitchMin = 0.8f, PitchMax = 1.2f, Position = attackPos });
+                SFXManager.PlaySound(m_CharacterAudio.UseType, new SFXManager.PlayData() { Clip = m_CharacterData.Equipment._Weapon.GetHitSound(), PitchMin = 0.8f, PitchMax = 1.2f, Position = attackPos });
             }
 
             if (m_ClearPostAttack)
@@ -731,7 +731,7 @@ namespace ProjectDInternal
                 //增加特效方向VFXManager.PlayVFX2
                 VFXManager.PlayVFX2(m_vFXType, pos, transform.forward);
                 VFXManager.PlayVFX(VFXType.Hit, attackPos);
-                SFXManager.PlaySound(m_CharacterAudio.UseType, new SFXManager.PlayData() { Clip = m_CharacterData.Equipment.Weapon.GetHitSound(), PitchMin = 0.8f, PitchMax = 1.2f, Position = attackPos });
+                SFXManager.PlaySound(m_CharacterAudio.UseType, new SFXManager.PlayData() { Clip = m_CharacterData.Equipment._Weapon.GetHitSound(), PitchMin = 0.8f, PitchMax = 1.2f, Position = attackPos });
             }
 
             if (m_ClearPostAttack)

@@ -18,17 +18,17 @@ MonoBehaviour:
     Stats:
       randomvalue: 1
       health: 0
-      strength: 2
-      defense: 5
-      agility: 7
-      attack: 10
-      skill: 39
-      moveSpeed: 5
-      attackSpeed: 300
-      attackRange: 7
-      crit: 7
-      skillSpeed: 2
-      skillRange: 5
+      strength: 0
+      defense: 0
+      agility: 100
+      attack: 100
+      skill: 100
+      moveSpeed: 100
+      attackSpeed: 100
+      attackRange: 100
+      crit: 0
+      skillSpeed: 0
+      skillRange: 0
       statsPoint: 0
       skillPoint: 0
       initPoint: 0

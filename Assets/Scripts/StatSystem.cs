@@ -170,7 +170,7 @@ namespace ProjectD
                             elementalBoosts[i] += modifier.Stats.elementalBoosts[i];
 
                     }
-                    modifier.Stats.randomvalue = false;
+                    //modifier.Stats.randomvalue = false;
                 }
 
 

@@ -15,7 +15,7 @@ namespace ProjectD
     /// </summary>
     public class EquipmentSystem
     {
-        public Weapon Weapon { get; private set; }
+        public Weapon _Weapon { get; private set; }
         //public Skill Skill { get; private set; }
 
         public Action<EquipmentItem> OnEquiped { get; set; }
@@ -113,18 +113,27 @@ namespace ProjectD
                     break;
                 //special value for weapon
                 case (EquipmentItem.EquipmentSlot)666:
-                    Weapon = item as Weapon;
+                    _Weapon = item as Weapon;
                     //武器鑑定值為0時(未鑑定), 複製為新武器並鑑定
-                    if (Weapon.Identify == 0)
-                    {                        
-                        string s = Weapon.name + UnityEngine.Random.Range(0, 10000);
-                        AssetDatabase.CopyAsset(AssetDatabase.GetAssetPath(Weapon), "Assets/InGameItem/" + s + ".asset");
-                        var o = AssetDatabase.LoadAssetAtPath("Assets/InGameItem/" + s + ".asset", typeof(Weapon)) as Weapon;
+                    if (_Weapon.Identify == 0)
+                    {
+                        //string ss = JsonUtility.ToJson(item);
+                        //Debug.Log(ss);
+                        //var w = JsonUtility.FromJson<EquipmentItem>(ss);
+                        //_Weapon = w as Weapon;
 
-                        Weapon = o;
-                        Weapon.Identify = 1;
+                        //string s = Weapon.name + UnityEngine.Random.Range(0, 10000);
+                        //AssetDatabase.CopyAsset(AssetDatabase.GetAssetPath(Weapon), "Assets/InGameItem/" + s + ".asset");
+                        //var o = AssetDatabase.LoadAssetAtPath("Assets/InGameItem/" + s + ".asset", typeof(Weapon)) as Weapon;
+
+                        //Weapon = o;
+                        _Weapon = _Weapon.Clone();
+                        Debug.Log(_Weapon.name);
+                        
+
+                        _Weapon.Identify = 1;
                     }
-                    Weapon.EquippedBy(m_Owner);
+                    _Weapon.EquippedBy(m_Owner);
                     break;
                 /*case (EquipmentItem.EquipmentSlot)777:
                     Skill = item as Skill;
@@ -193,17 +202,17 @@ namespace ProjectD
                     }
                     break;
                 case (EquipmentItem.EquipmentSlot)666:
-                    if (Weapon != null && 
-                        (Weapon != m_DefaultWeapon || isReplacement)) // the only way to unequip the default weapon is through replacing it
+                    if (_Weapon != null && 
+                        (_Weapon != m_DefaultWeapon || isReplacement)) // the only way to unequip the default weapon is through replacing it
                     {
-                        Weapon.UnequippedBy(m_Owner);
+                        _Weapon.UnequippedBy(m_Owner);
                     
                         //the default weapon does not go back to the inventory
-                        if(Weapon != m_DefaultWeapon)
-                            m_Owner.Inventory.AddItem(Weapon);
+                        if(_Weapon != m_DefaultWeapon)
+                            m_Owner.Inventory.AddItem(_Weapon);
                     
-                        OnUnequip?.Invoke(Weapon);
-                        Weapon = null;
+                        OnUnequip?.Invoke(_Weapon);
+                        _Weapon = null;
                     
                         //reequip the default weapon if this is not an unequip to equip a new one
                         if(!isReplacement)

@@ -51,7 +51,7 @@ namespace ProjectDInternal
             //var legs = equipment.GetItem(EquipmentItem.EquipmentSlot.Legs);
             //var feet = equipment.GetItem(EquipmentItem.EquipmentSlot.Feet);
             //var accessory = equipment.GetItem(EquipmentItem.EquipmentSlot.Accessory);
-            var weapon = equipment.Weapon;
+            var weapon = equipment._Weapon;
 
             //HeadSlot.SetupEquipment(head);
             TorsoSlot.SetupEquipment(torso);
