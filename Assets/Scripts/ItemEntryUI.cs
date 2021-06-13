@@ -8,8 +8,8 @@ using UnityEngine.EventSystems;
 
 namespace ProjectDInternal 
 {
-    public class ItemEntryUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler,
-         IBeginDragHandler, IDragHandler, IEndDragHandler
+    public class ItemEntryUI : MonoBehaviour, /*IPointerClickHandler,*/ IPointerEnterHandler, IPointerExitHandler,
+         IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerDownHandler, IPointerUpHandler
     {    
         public Image IconeImage;
         public Text ItemCount;
@@ -19,11 +19,38 @@ namespace ProjectDInternal
     
         public InventoryUI Owner { get; set; }
         public int Index { get; set; }
+        public float downTime;
+        public float upTime;
 
-        public void OnPointerClick(PointerEventData eventData)
+        /*public void OnPointerClick(PointerEventData eventData)
         {
             //if(identifyButton.onClick)
             if (eventData.clickCount % 1 == 0)
+            {
+                if (InventoryEntry != -1)
+                {
+                    if (Owner.Character.Inventory.Entries[InventoryEntry] != null)
+                        Owner.ObjectDoubleClicked(Owner.Character.Inventory.Entries[InventoryEntry]);
+                }
+                else
+                {
+                    Owner.EquipmentDoubleClicked(EquipmentItem);
+                }
+            }
+        }*/
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            downTime = Time.unscaledTime;
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            upTime = Time.unscaledTime;
+            //Debug.Log(upTime - downTime);
+            //if(identifyButton.onClick)
+            //if (eventData.clickCount % 1 == 0)
+            if (upTime - downTime < 0.5f)
             {
                 if (InventoryEntry != -1)
                 {
