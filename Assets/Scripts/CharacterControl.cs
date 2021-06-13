@@ -446,9 +446,10 @@ namespace ProjectDInternal
         void ObjectsRaycasts()
         {
             bool somethingFound = false;
+            float detecttionRadius = m_CharacterData.Equipment.Weapon.Stats.MaxRange - 0.5f;
 
             //first check for Target not interactable Object
-            int count = Physics.SphereCastNonAlloc(transform.position, 6.0f, transform.forward, m_RaycastHitCache, 0.0f, m_TargetLayer);
+            int count = Physics.SphereCastNonAlloc(transform.position, detecttionRadius, transform.forward, m_RaycastHitCache, 0.0f, m_TargetLayer);
             //Debug.Log(count);
             if (count > 0)
             {
@@ -686,7 +687,7 @@ namespace ProjectDInternal
 
                 var attackPos = m_CurrentTargetCharacterData.transform.position + transform.up * 0.5f;
                 VFXManager.PlayVFX(VFXType.Hit, attackPos);
-                SFXManager.PlaySound(m_CharacterAudio.UseType, new SFXManager.PlayData() { Clip = m_CharacterData.Equipment._Weapon.GetHitSound(), PitchMin = 0.8f, PitchMax = 1.2f, Position = attackPos });
+                SFXManager.PlaySound(m_CharacterAudio.UseType, new SFXManager.PlayData() { Clip = m_CharacterData.Equipment.Weapon.GetHitSound(), PitchMin = 0.8f, PitchMax = 1.2f, Position = attackPos });
             }
 
             if (m_ClearPostAttack)
@@ -731,7 +732,7 @@ namespace ProjectDInternal
                 //增加特效方向VFXManager.PlayVFX2
                 VFXManager.PlayVFX2(m_vFXType, pos, transform.forward);
                 VFXManager.PlayVFX(VFXType.Hit, attackPos);
-                SFXManager.PlaySound(m_CharacterAudio.UseType, new SFXManager.PlayData() { Clip = m_CharacterData.Equipment._Weapon.GetHitSound(), PitchMin = 0.8f, PitchMax = 1.2f, Position = attackPos });
+                SFXManager.PlaySound(m_CharacterAudio.UseType, new SFXManager.PlayData() { Clip = m_CharacterData.Equipment.Weapon.GetHitSound(), PitchMin = 0.8f, PitchMax = 1.2f, Position = attackPos });
             }
 
             if (m_ClearPostAttack)

@@ -170,7 +170,7 @@ namespace ProjectD
                             elementalBoosts[i] += modifier.Stats.elementalBoosts[i];
 
                     }
-                    //modifier.Stats.randomvalue = false;
+                    modifier.Stats.randomvalue = false;
                 }
 
 
@@ -254,6 +254,7 @@ namespace ProjectD
 
             public Mode ModifierMode = Mode.Absolute;
             public Stats Stats = new Stats();
+            //public string jsonString;
 
             
         }

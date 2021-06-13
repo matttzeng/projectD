@@ -140,7 +140,7 @@ namespace ProjectD
         public bool CanAttackReach(CharacterData target)
         {
 
-            return Equipment._Weapon.CanHit(this, target);
+            return Equipment.Weapon.CanHit(this, target);
         }
 
         public bool CanSkillAttackReach(CharacterData target)
@@ -198,7 +198,7 @@ namespace ProjectD
         /// <param name="target">The CharacterData you want to attack</param>
         public void Attack(CharacterData target)
         {
-            Equipment._Weapon.Attack(this, target);
+            Equipment.Weapon.Attack(this, target);
         }
 
         public void SkillAttack(CharacterData target)
@@ -214,7 +214,7 @@ namespace ProjectD
         {
             //Agility reduce by 0.5% the cooldown to attack (e.g. if agility = 50, 25% faster to attack)
             // m_AttackCoolDown = Equipment.Weapon.Stats.Speed - (Stats.stats.agility * 0.5f * 0.001f * Equipment.Weapon.Stats.Speed);
-            m_AttackCoolDown = Equipment._Weapon.Stats.Speed / (Stats.stats.attackSpeed *0.01f +1f);
+            m_AttackCoolDown = Equipment.Weapon.Stats.Speed / (Stats.stats.attackSpeed *0.01f +1f);
 
            
 

@@ -194,14 +194,14 @@ namespace ProjectD
         */
         
 
-        public override string GetDescription()
+        public override string GetDescription1()
         {
-            string desc = base.GetDescription();
+            string desc = base.GetDescription1();
 
             //武器註解, 未鑑定時顯示未鑑定
             if(Identify == 0)
             {
-                desc = $"Unidentified!!\n";
+                desc = $"\n\nUnidentified!!\n";
                 desc += $"(Click for identification)\n";
             }
 
@@ -256,6 +256,8 @@ public class WeaponEditor : Editor
     SerializedProperty m_MinimumStrengthProperty;
     SerializedProperty m_MinimumAgilityProperty;
     SerializedProperty m_MinimumDefenseProperty;
+
+    SerializedProperty m_Modifier;
     
     SerializedProperty m_WeaponStatProperty;
 
@@ -301,6 +303,8 @@ public class WeaponEditor : Editor
         m_MinimumStrengthProperty = serializedObject.FindProperty(nameof(EquipmentItem.MinimumStrength));
         m_MinimumAgilityProperty = serializedObject.FindProperty(nameof(EquipmentItem.MinimumAgility));
         m_MinimumDefenseProperty = serializedObject.FindProperty(nameof(EquipmentItem.MinimumDefense));
+
+        m_Modifier = serializedObject.FindProperty(nameof(EquipmentItem.Modifier));
         
         m_WeaponStatProperty = serializedObject.FindProperty(nameof(Weapon.Stats));
 
@@ -332,6 +336,9 @@ public class WeaponEditor : Editor
         EditorGUILayout.PropertyField(m_MinimumStrengthProperty);
         EditorGUILayout.PropertyField(m_MinimumAgilityProperty);
         EditorGUILayout.PropertyField(m_MinimumDefenseProperty);
+
+        EditorGUILayout.PropertyField(m_Modifier);
+
         EditorGUILayout.PropertyField(m_Identify);
         
         //EditorGUILayout.PropertyField(m_WeaponStatProperty, true);

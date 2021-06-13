@@ -118,6 +118,8 @@ namespace ProjectD
             //if the item have a world object prefab set use that...
             if (Item.WorldObjectPrefab != null)
             {
+                Item = Item.Clone();
+                Item.ItemName = Item.name;
                 var obj = Instantiate(Item.WorldObjectPrefab, transform, false);
                 obj.transform.localPosition = Vector3.zero;
                 obj.layer = LayerMask.NameToLayer("Interactable");

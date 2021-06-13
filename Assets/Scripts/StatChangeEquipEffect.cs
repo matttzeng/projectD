@@ -7,15 +7,38 @@ using UnityEngine;
 public class StatChangeEquipEffect : EquipmentItem.EquippedEffect
 {
     public StatSystem.StatModifier Modifier;
+    public string ss;
     
     public override void Equipped(CharacterData user)
     {
-        user.Stats.AddModifier(Modifier);
+        //user.Stats.AddModifier(Modifier);
+        //string ss = JsonUtility.ToJson(Modifier);
+        //Debug.Log(ss);
+        if (ss == "")
+        {
+            //Debug.Log("裝備的武器有json: " + Modifier.jsonString);
+            //ss = JsonUtility.ToJson(Modifier);
+            user.Stats.AddModifier(Modifier);
+            //Modifier.Stats = JsonUtility.FromJson<StatSystem.StatModifier.Stats>(Modifier.jsonString);
+            //ss = JsonUtility.ToJson(Modifier);
+            //Debug.Log("ss: " + ss);
+        }
+        //var w = JsonUtility.FromJson<StatSystem.StatModifier>(ss);
+        //Modifier = w as StatSystem.StatModifier;
+        else
+        {
+            //var w = JsonUtility.FromJson<StatSystem.StatModifier>(ss);
+            //Modifier = w as StatSystem.StatModifier;
+            user.Stats.AddModifier(Modifier);
+            //ss = JsonUtility.ToJson(Modifier);
+        }
     }
 
     public override void Removed(CharacterData user)
     {
         user.Stats.RemoveModifier(Modifier);
+        //Modifier.jsonString = JsonUtility.ToJson(Modifier.Stats);
+        //Debug.Log("脫下裝備的素質: " + Modifier.jsonString);
     }
 
     public override string GetDescription()

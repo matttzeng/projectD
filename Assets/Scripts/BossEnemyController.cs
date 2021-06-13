@@ -140,7 +140,7 @@ namespace ProjectDInternal {
             {
                 var l = playerPosition - transform.position;
                 gameObject.GetComponent<Rigidbody>().velocity = new Vector3(l.x, 0.0f, l.z);
-                gameObject.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 999f, 0);
+                //gameObject.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 999f, 0);
                 return;
             }
 
@@ -248,7 +248,7 @@ namespace ProjectDInternal {
             //if we can't reach the player anymore when it's time to damage, then that attack miss.
             //if (!m_CharacterData.CanAttackReach(playerData))
                 //return;
-            if (m_CharacterData.Equipment._Weapon.Stats.MaxRange <= 3)
+            if (m_CharacterData.Equipment.Weapon.Stats.MaxRange <= 3)
             {
                 if (!m_CharacterData.CanAttackReach(playerData))
                     return;
@@ -257,7 +257,7 @@ namespace ProjectDInternal {
                 Debug.Log("近戰");
             }
             //遠程判定擊中扣血
-            else if (m_CharacterData.Equipment._Weapon.Stats.MaxRange > 3)
+            else if (m_CharacterData.Equipment.Weapon.Stats.MaxRange > 3)
             {
                 //攻擊範圍內時
                 if (m_CharacterData.CanAttackReach(playerData))

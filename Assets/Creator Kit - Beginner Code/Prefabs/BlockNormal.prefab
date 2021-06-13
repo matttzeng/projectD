@@ -195,7 +195,7 @@ MonoBehaviour:
   Events:
   - Entries:
     - Weight: 10
-      Item: {fileID: 11400000, guid: 2a9baed910381ef43b4143dae0c8cb09, type: 2}
+      Item: {fileID: 11400000, guid: d28b5eb2900a95a4eb19429abe1b2407, type: 2}
   SpawnedClip: {fileID: 0}
   dropRandomWeapon: 0
 --- !u!1001 &5667712713484102679

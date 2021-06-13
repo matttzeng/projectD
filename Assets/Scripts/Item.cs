@@ -33,6 +33,11 @@ namespace ProjectD
         {
             return Description;
         }
+
+        public virtual string GetDescription1()
+        {
+            return Description;
+        }
     }
 }
 

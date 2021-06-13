@@ -110,7 +110,7 @@ namespace ProjectDInternal
             Item itemUsed = m_HoveredItem.InventoryEntry != -1 ? m_Data.Inventory.Entries[m_HoveredItem.InventoryEntry].Item : m_HoveredItem.EquipmentItem;
 
             Tooltip.Name.text = itemUsed.ItemName;
-            Tooltip.DescriptionText.text = itemUsed.GetDescription();
+            Tooltip.DescriptionText.text = itemUsed.GetDescription1();
         }
 
         public void ObjectHoverExited(ItemEntryUI exited)

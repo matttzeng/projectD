@@ -41,7 +41,8 @@ namespace ProjectD
         }
 
         public EquipmentSlot Slot;
-    
+        public StatSystem.StatModifier Modifier;
+
         [Header("Minimum Stats")]
         public int MinimumStrength;
         public int MinimumAgility;
@@ -65,12 +66,12 @@ namespace ProjectD
             return true;
         }
 
-        public override string GetDescription()
+        public override string GetDescription1()
         {
-            string desc = base.GetDescription();
+            string desc = base.GetDescription1() + "\n" + "\n";
             
-            foreach (var effect in EquippedEffects)
-                desc += "\n" + effect.GetDescription();
+            //foreach (var effect in EquippedEffects)
+                //desc += "\n" + effect.GetDescription1();
         
             bool requireStrength = MinimumStrength > 0;
             bool requireDefense = MinimumDefense > 0;
@@ -96,22 +97,55 @@ namespace ProjectD
                 }
             }
 
+            //string desc = base.GetDescription1() + "\n";
+
+            string unit = Modifier.ModifierMode == StatSystem.StatModifier.Mode.Percentage ? "%" : "";
+
+            if (Modifier.Stats.strength != 0)
+                desc += $"Str : {Modifier.Stats.strength:+0;-#}{unit}\n"; //format specifier to force the + sign to appear
+            if (Modifier.Stats.agility != 0)
+                desc += $"Agi : {Modifier.Stats.agility:+0;-#}{unit}\n";
+            if (Modifier.Stats.defense != 0)
+                desc += $"Def : {Modifier.Stats.defense:+0;-#}{unit}\n";
+            if (Modifier.Stats.health != 0)
+                desc += $"HP : {Modifier.Stats.health:+0;-#}{unit}\n";
+            if (Modifier.Stats.attack != 0)
+                desc += $"Atk : {Modifier.Stats.attack:+0;-#}{unit}\n";
+            if (Modifier.Stats.skill != 0)
+                desc += $"Skill : {Modifier.Stats.skill:+0;-#}{unit}\n";
+            if (Modifier.Stats.moveSpeed != 0)
+                desc += $"MoveSpeed : {Modifier.Stats.moveSpeed:+0;-#}{unit}\n";
+            if (Modifier.Stats.attackSpeed != 0)
+                desc += $"AtkSpeed : {Modifier.Stats.attackSpeed:+0;-#}{unit}\n";
+            if (Modifier.Stats.attackRange != 0)
+                desc += $"AtkRange : {Modifier.Stats.attackRange:+0;-#}{unit}\n";
+            if (Modifier.Stats.skillRange != 0)
+                desc += $"SkillRange : {Modifier.Stats.skillRange:+0;-#}{unit}\n";
+            if (Modifier.Stats.crit != 0)
+                desc += $"Crit : {Modifier.Stats.crit:+0;-#}{unit}\n";
+
+
+
+            //return desc;
+
             return desc;
         }
 
 
         public void EquippedBy(CharacterData user)
         {
-            foreach (var effect in EquippedEffects)
+            /*foreach (var effect in EquippedEffects)
             {
                 effect.Equipped(user);
-            }
+            }*/
+            user.Stats.AddModifier(Modifier);
         }
     
         public void UnequippedBy(CharacterData user)
         {
-            foreach (var effect in EquippedEffects)
-                effect.Removed(user);
+            /*foreach (var effect in EquippedEffects)
+                effect.Removed(user);*/
+            user.Stats.RemoveModifier(Modifier);
         }
     }
 }
@@ -133,6 +167,8 @@ public class EquipmentItemEditor : Editor
     SerializedProperty m_MinimumAgilityProperty;
     SerializedProperty m_MinimumDefenseProperty;
 
+    SerializedProperty m_Modifier;
+
     void OnEnable()
     {
         m_Target = target as EquipmentItem;
@@ -143,6 +179,8 @@ public class EquipmentItemEditor : Editor
         m_MinimumStrengthProperty = serializedObject.FindProperty(nameof(EquipmentItem.MinimumStrength));
         m_MinimumAgilityProperty = serializedObject.FindProperty(nameof(EquipmentItem.MinimumAgility));
         m_MinimumDefenseProperty = serializedObject.FindProperty(nameof(EquipmentItem.MinimumDefense));
+
+        m_Modifier = serializedObject.FindProperty(nameof(EquipmentItem.Modifier));
         
         m_ItemEditor = new ItemEditor();
         m_ItemEditor.Init(serializedObject);
@@ -164,6 +202,8 @@ public class EquipmentItemEditor : Editor
         EditorGUILayout.PropertyField(m_MinimumStrengthProperty);
         EditorGUILayout.PropertyField(m_MinimumAgilityProperty);
         EditorGUILayout.PropertyField(m_MinimumDefenseProperty);
+
+        EditorGUILayout.PropertyField(m_Modifier);
         
         int choice = EditorGUILayout.Popup("Add new Effect", -1, m_AvailableEquipEffectType.ToArray());
 
