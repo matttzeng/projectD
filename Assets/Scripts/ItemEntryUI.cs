@@ -13,7 +13,7 @@ namespace ProjectDInternal
     {    
         public Image IconeImage;
         public Text ItemCount;
-
+        public Button identifyButton;
         public int InventoryEntry { get; set; } = -1;
         public EquipmentItem EquipmentItem { get; private set; }
     
@@ -22,7 +22,8 @@ namespace ProjectDInternal
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (eventData.clickCount % 2 == 0)
+            //if(identifyButton.onClick)
+            if (eventData.clickCount % 1 == 0)
             {
                 if (InventoryEntry != -1)
                 {

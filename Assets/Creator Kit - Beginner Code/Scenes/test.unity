@@ -185,7 +185,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3218439}
   m_LocalRotation: {x: 0.38268343, y: 0.00000029667513, z: -0.00000012288685, w: 0.92387956}
-  m_LocalPosition: {x: -0.000018814633, y: 29.060432, z: -33.835434}
+  m_LocalPosition: {x: -0.000018814633, y: 29.060432, z: -36.895435}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 109617656}
@@ -1679,9 +1679,9 @@ RectTransform:
   m_Father: {fileID: 1541494537}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 3.1076, y: -605}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 3.1076, y: 533}
   m_SizeDelta: {x: 1000, y: 555.42236}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &214698306
@@ -1733,6 +1733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IconeImage: {fileID: 5115311140612621564}
   ItemCount: {fileID: 0}
+  identifyButton: {fileID: 0}
 --- !u!224 &247970155 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4024636409454239658, guid: 01e03ee29d288fd4da3468a69f6fe7bb,
@@ -2267,10 +2268,10 @@ RectTransform:
   m_Father: {fileID: 214698305}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -19, y: -42.5}
-  m_SizeDelta: {x: 1000, y: -85}
+  m_SizeDelta: {x: 1000, y: 471}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &348510859
 CanvasRenderer:
@@ -2732,6 +2733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IconeImage: {fileID: 1250039614}
   ItemCount: {fileID: 0}
+  identifyButton: {fileID: 0}
 --- !u!114 &477484562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3751,6 +3753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IconeImage: {fileID: 5115311139464626407}
   ItemCount: {fileID: 0}
+  identifyButton: {fileID: 0}
 --- !u!224 &590497041 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4024636409454239658, guid: 01e03ee29d288fd4da3468a69f6fe7bb,
@@ -5018,6 +5021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IconeImage: {fileID: 5115311140733337012}
   ItemCount: {fileID: 0}
+  identifyButton: {fileID: 0}
 --- !u!1 &765673593
 GameObject:
   m_ObjectHideFlags: 0
@@ -5998,6 +6002,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IconeImage: {fileID: 5115311139657861217}
   ItemCount: {fileID: 0}
+  identifyButton: {fileID: 0}
 --- !u!1 &865937292
 GameObject:
   m_ObjectHideFlags: 0
@@ -6868,7 +6873,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.38268343, y: 0.00000029667513, z: -0.00000012288685, w: 0.92387956}
-  m_LocalPosition: {x: -0.000018814633, y: 29.060432, z: -33.835434}
+  m_LocalPosition: {x: -0.000018814633, y: 29.060432, z: -36.895435}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7211,10 +7216,10 @@ RectTransform:
   m_Father: {fileID: 214698305}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 75}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 278}
+  m_SizeDelta: {x: 1000, y: 75}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1016031528
 MonoBehaviour:
@@ -10657,6 +10662,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IconeImage: {fileID: 1397047501}
   ItemCount: {fileID: 0}
+  identifyButton: {fileID: 0}
 --- !u!114 &1420360137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11550,6 +11556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IconeImage: {fileID: 5115311140439459656}
   ItemCount: {fileID: 0}
+  identifyButton: {fileID: 0}
 --- !u!1 &1562010005
 GameObject:
   m_ObjectHideFlags: 0
@@ -13879,7 +13886,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1837549525
 GameObject:
@@ -14645,6 +14652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IconeImage: {fileID: 1167523657}
   ItemCount: {fileID: 0}
+  identifyButton: {fileID: 0}
 --- !u!114 &1916489563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15514,7 +15522,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082409039}
   m_LocalRotation: {x: -0, y: 0.9999374, z: -0, w: 0.011192916}
-  m_LocalPosition: {x: 0, y: 0, z: -4.54}
+  m_LocalPosition: {x: 0, y: 0, z: -7.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 14741206}
@@ -16010,6 +16018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IconeImage: {fileID: 261993004672636663}
   ItemCount: {fileID: 0}
+  identifyButton: {fileID: 0}
 --- !u!114 &261993003248274222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16379,10 +16388,10 @@ RectTransform:
   m_Father: {fileID: 261993003895871875}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 210, y: -897}
-  m_SizeDelta: {x: 452.4691, y: 526.8978}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -430, y: 241}
+  m_SizeDelta: {x: 452.46912, y: 526.8978}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &261993003481004822
 MonoBehaviour:
@@ -16470,7 +16479,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.28, y: 221}
+  m_AnchoredPosition: {x: 10.280029, y: 221}
   m_SizeDelta: {x: 173.35, y: 34.14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &261993003525382915
@@ -17113,6 +17122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IconeImage: {fileID: 261993003899014865}
   ItemCount: {fileID: 0}
+  identifyButton: {fileID: 0}
 --- !u!114 &261993003691649619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17671,6 +17681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IconeImage: {fileID: 261993003300020840}
   ItemCount: {fileID: 0}
+  identifyButton: {fileID: 0}
 --- !u!114 &261993004128341029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18189,7 +18200,7 @@ PrefabInstance:
     - target: {fileID: 4730651568047085446, guid: 25d59bc1ca3b86241a8cf65c3f42976b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4730651568047085446, guid: 25d59bc1ca3b86241a8cf65c3f42976b,
         type: 3}
@@ -31294,6 +31305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IconeImage: {fileID: 5115311140940733938}
   ItemCount: {fileID: 0}
+  identifyButton: {fileID: 0}
 --- !u!1001 &5115311140875986800
 PrefabInstance:
   m_ObjectHideFlags: 0

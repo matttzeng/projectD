@@ -102,7 +102,7 @@ namespace ProjectDInternal
             at.MaxTime = 1.0f;
             at.Timer = at.MaxTime;
             at.UIText = t;
-            at.WorldPositionStart = worldPos + Vector3.up;
+            at.WorldPositionStart = worldPos + Vector3.up*5;
             at.PlaceText(m_MainCamera, m_Canvas);
         
             m_ActiveTexts.Add(at);

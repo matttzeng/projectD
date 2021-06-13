@@ -58,7 +58,8 @@ namespace EasyJoystick {
             for(int i = 0; i<Input.touchCount;i++)
             {
                 UnityEngine.Touch touch = Input.GetTouch(0);
-                Vector3 touchPosition = Camera.main.ScreenToViewportPoint(Input.touches[i].position);
+                Vector3 touchPosition = Camera.main.ScreenToViewportPoint(Input.touches[0].position);
+               
             }
 
 
