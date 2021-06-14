@@ -10,5 +10,6 @@ public enum VFXType
 	BulletImpactFX,
 	TestSkill,
 	IceLance,
-	FireBall
+	FireBall,
+	Shooting
 }

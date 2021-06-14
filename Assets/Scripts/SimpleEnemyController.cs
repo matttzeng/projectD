@@ -254,7 +254,7 @@ namespace ProjectDInternal {
             Vector3 pos = transform.position;
         
             m_CharacterAudio.Step(pos);
-            VFXManager.PlayVFX(VFXType.StepPuff, pos); 
+            VFXManager.PlayVFX(VFXType.StepPuff, pos, Quaternion.Euler(0, 0, 0)); 
         }
 
         

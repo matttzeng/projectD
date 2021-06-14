@@ -36,7 +36,10 @@ namespace ProjectDInternal {
         int m_AttackAnimHash;
         int m_DeathAnimHash;
         int m_HitAnimHash;
+        int m_whirlwindAnimHash;
+        int m_trippleSlashAnimHash;
         int skillFlag;
+        
         bool m_Pursuing;
         float m_PursuitTimer = 0.0f;
         float m_SkillTimer = 0.0f;
@@ -64,6 +67,8 @@ namespace ProjectDInternal {
             m_AttackAnimHash = Animator.StringToHash("Attack");
             m_DeathAnimHash = Animator.StringToHash("Death");
             m_HitAnimHash = Animator.StringToHash("Hit");
+            m_whirlwindAnimHash = Animator.StringToHash("whirlwind");
+            m_trippleSlashAnimHash = Animator.StringToHash("trippleSlash");
 
             m_CharacterData = GetComponent<CharacterData>();
             m_CharacterData.Init();
@@ -77,7 +82,7 @@ namespace ProjectDInternal {
             };
         
             m_Agent.speed = Speed;
-
+            
             m_LootSpawner = GetComponent<LootSpawner>();
         
             m_StartingAnchor = transform.position;
@@ -90,6 +95,7 @@ namespace ProjectDInternal {
         // Update is called once per frame
         void Update()
         {
+            transform.LookAt(CharacterControl.Instance.Data.transform.position);
             //See the Update function of CharacterControl.cs for a comment on how we could replace
             //this (polling
             //) to a callback method.
@@ -161,7 +167,8 @@ namespace ProjectDInternal {
 
                         m_PursuitTimer = 4.0f;
                         m_State = State.PURSUING;
-                        m_Agent.isStopped = false;
+                        
+                       m_Agent.isStopped = false;
                     }
                 }
                     break;
@@ -181,7 +188,9 @@ namespace ProjectDInternal {
                             m_State = State.ATTACKING;
                             m_Agent.ResetPath();
                             m_Agent.velocity = Vector3.zero;
-                            m_Agent.isStopped = true;
+                           
+                                //m_Agent.isStopped = true;
+
                         }
                         //視野範圍內時, 技能施放
                         else if (m_SkillTimer <= 0)
@@ -192,7 +201,8 @@ namespace ProjectDInternal {
                             //m_State = State.ATTACKING;
                             m_Agent.ResetPath();
                             m_Agent.velocity = Vector3.zero;
-                            m_Agent.isStopped = true;
+                           // m_Agent.isStopped = true;
+                              
                             Invoke("SkillDelay", skillDelay);
                             m_SkillTimer = skillInterval;
                         }
@@ -281,7 +291,7 @@ namespace ProjectDInternal {
             Vector3 pos = transform.position;
         
             m_CharacterAudio.Step(pos);
-            VFXManager.PlayVFX(VFXType.StepPuff, pos); 
+            VFXManager.PlayVFX(VFXType.StepPuff, pos, Quaternion.Euler(0, 0, 0)); 
         }
 
         void shootPlayer(int skillFlag)
@@ -333,8 +343,11 @@ namespace ProjectDInternal {
 
                 if (m_CharacterData != null)
                 {
+                    m_Agent.isStopped = false;
+                    m_Animator.SetTrigger(m_trippleSlashAnimHash);
                     if (!gameObject.GetComponent<Rigidbody>())
                         gameObject.AddComponent<Rigidbody>();
+                    
                     //gameObject.GetComponent<Rigidbody>().isKinematic = false;
                     //gameObject.GetComponent<Rigidbody>().detectCollisions = false;
                     //gameObject.GetComponent<Rigidbody>().isKinematic = true;
@@ -347,9 +360,11 @@ namespace ProjectDInternal {
             {
                 if (m_CharacterData != null)
                 {
+                    m_Agent.isStopped = false;
+                    m_Animator.SetTrigger(m_whirlwindAnimHash);
                     if (!gameObject.GetComponent<Rigidbody>())
                         gameObject.AddComponent<Rigidbody>();
-                  
+                 
                     //gameObject.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 999f, 0);
                     Invoke("Stop", 4);
                 }

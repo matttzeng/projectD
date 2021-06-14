@@ -176,7 +176,7 @@ namespace ProjectDInternal
                 //m_CharacterData.Stats.ChangeHealth(-1*Dam);
                 //Debug.Log("被打了" + Dam + "血");
 
-                VFXManager.PlayVFX(VFXType.BulletImpactFX, collision.contacts[0].point);
+                VFXManager.PlayVFX(VFXType.BulletImpactFX, collision.contacts[0].point,Quaternion.Euler(0,0,0));
 
                 //兩秒後刪除子彈
                 Destroy(collision.gameObject,2f);
@@ -744,7 +744,10 @@ namespace ProjectDInternal
                 m_CharacterData.Attack(m_CurrentTargetCharacterData);
 
                 var attackPos = m_CurrentTargetCharacterData.transform.position + transform.up * 0.5f;
-                VFXManager.PlayVFX(VFXType.Hit, attackPos);
+                VFXManager.PlayVFX(VFXType.Hit, attackPos, Quaternion.Euler(0, 0, 0));
+                var shootPos = WeaponLocator.transform.position + transform.up * 1f;
+
+                VFXManager.PlayVFX(VFXType.Shooting, shootPos, gameObject.GetComponent<CharacterControl>().transform.rotation);
                 SFXManager.PlaySound(m_CharacterAudio.UseType, new SFXManager.PlayData() { Clip = m_CharacterData.Equipment.Weapon.GetHitSound(), PitchMin = 0.8f, PitchMax = 1.2f, Position = attackPos });
             }
 
@@ -789,7 +792,7 @@ namespace ProjectDInternal
                 pos = GetComponent<CharacterData>().ChooseSkill.skillPos;
                 //增加特效方向VFXManager.PlayVFX2
                 VFXManager.PlayVFX2(m_vFXType, pos, transform.forward);
-                VFXManager.PlayVFX(VFXType.Hit, attackPos);
+                VFXManager.PlayVFX(VFXType.Hit, attackPos, Quaternion.Euler(0, 0, 0));
                 SFXManager.PlaySound(m_CharacterAudio.UseType, new SFXManager.PlayData() { Clip = m_CharacterData.Equipment.Weapon.GetHitSound(), PitchMin = 0.8f, PitchMax = 1.2f, Position = attackPos });
             }
 
@@ -837,7 +840,7 @@ namespace ProjectDInternal
             //    Volume = 0.3f
             //});
 
-            VFXManager.PlayVFX(VFXType.StepPuff, pos);
+            VFXManager.PlayVFX(VFXType.StepPuff, pos, Quaternion.Euler(0, 0, 0));
         }
     }
 }

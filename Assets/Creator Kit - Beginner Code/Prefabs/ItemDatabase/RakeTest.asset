@@ -50,5 +50,5 @@ MonoBehaviour:
     Speed: 1
     MinimumDamage: 10
     MaximumDamage: 15
-    MaxRange: 6
+    MaxRange: 9
   AttackEffects: []

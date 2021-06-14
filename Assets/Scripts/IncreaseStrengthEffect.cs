@@ -15,7 +15,7 @@ public class IncreaseStrengthEffect : UsableItem.UsageEffect
         modifier.ModifierMode = StatSystem.StatModifier.Mode.Absolute;
         modifier.Stats.strength = StrengthChange;
         
-        VFXManager.PlayVFX(VFXType.Stronger, user.transform.position);
+        VFXManager.PlayVFX(VFXType.Stronger, user.transform.position, Quaternion.Euler(0, 0, 0));
         
         user.Stats.AddTimedModifier(modifier, Duration, "StrengthAdd", EffectSprite);
         

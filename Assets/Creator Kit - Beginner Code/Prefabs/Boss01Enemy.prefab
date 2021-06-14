@@ -1586,6 +1586,7 @@ MonoBehaviour:
       initPoint: 0
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
+    unbeatable: 0
   StartingWeapon: {fileID: 11400000, guid: 3d64b820c0872e943a92d5ebddb26d1b, type: 2}
   ChooseSkill: {fileID: 0}
   Skill: []

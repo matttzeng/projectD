@@ -53,3 +53,6 @@ MonoBehaviour:
   - Name: FireBall
     Prefab: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
     PoolSize: 32
+  - Name: Shooting
+    Prefab: {fileID: 225989984589773444, guid: a8ab3830ed7145c41954668554008069, type: 3}
+    PoolSize: 32
