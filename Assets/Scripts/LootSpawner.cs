@@ -70,11 +70,11 @@ namespace ProjectD
                     SpawnEvent Event = Events[i];
 
                     //first iterate over all object to make a total weight value.
-                    int totalWeight = 0;
-                    foreach (var entry in Event.Entries)
+                    int totalWeight = 100;
+                    /*foreach (var entry in Event.Entries)
                     {
                         totalWeight += entry.Weight;
-                    }
+                    }*/
 
                     //if we don't have any weight just exit
                     if (totalWeight == 0)

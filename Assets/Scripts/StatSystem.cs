@@ -437,6 +437,7 @@ namespace ProjectD
             }
         }
 
+        public bool unbeatable;
         /// <summary>
         /// Change the health by the given amount : negative amount damage, positive amount heal. The function will
         /// take care of clamping the value in the range [0...MaxHealth]
@@ -444,7 +445,8 @@ namespace ProjectD
         /// <param name="amount"></param>
         public void ChangeHealth(int amount)
         {
-            CurrentHealth = Mathf.Clamp(CurrentHealth + amount, 0, stats.health);
+            if(!unbeatable)
+                CurrentHealth = Mathf.Clamp(CurrentHealth + amount, 0, stats.health);
         }
         public void ChangeMoveSpeed(int amount)
         {

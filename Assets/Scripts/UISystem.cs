@@ -134,14 +134,14 @@ namespace ProjectDInternal
             //StatsText.text = $"Atk : {stats.attack} \nDef : {stats.defense} \nAtkSpeed : {stats.attackSpeed} \nMoveSpeed :{stats.moveSpeed} ";
         }
 
-        //素質加點, 目前只有寫Def
+        //素質加點
         public void AddStatsDEF()
         {
             CharacterData data = PlayerCharacter.Data;
 
             if (data.Stats.stats.statsPoint > 0)
             {
-                data.Stats.baseStats.defense += 1;
+                data.Stats.baseStats.defense += 2;
                 data.Stats.UpdateFinalStats();
 
                 data.Stats.stats.statsPoint -= 1;
@@ -167,7 +167,7 @@ namespace ProjectDInternal
 
             if (data.Stats.stats.statsPoint > 0)
             {
-                data.Stats.baseStats.health += 5;
+                data.Stats.baseStats.health += 10;
                 data.Stats.UpdateFinalStats();
 
                 data.Stats.stats.statsPoint -= 1;

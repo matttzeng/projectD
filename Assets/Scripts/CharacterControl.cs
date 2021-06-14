@@ -48,6 +48,9 @@ namespace ProjectDInternal
         int m_RespawnParamID;
         int m_SkillAttackParamID;
 
+        public bool autoMode = false;
+        public float interactRadius = 3f;
+
         bool m_IsKO = false;
         float m_KOTimer = 0.0f;
 
@@ -422,6 +425,61 @@ namespace ProjectDInternal
             //Keyboard shortcuts
             if (Input.GetKeyUp(KeyCode.I))
                 UISystem.Instance.ToggleInventory();
+
+            if (autoMode == true)
+                AutoAttack();
+        }
+
+        public void AutoMode()
+        {
+            autoMode = !autoMode;
+            if (autoMode == true)
+                interactRadius = 30f;
+            if (autoMode == false)
+                interactRadius = 3f;
+        }
+
+        void AutoAttack()
+        {
+            m_Agent.speed = Speed*2;
+
+            //CharacterData[] enemies = FindObjectsOfType<CharacterData>();
+            float shortestDistance = Mathf.Infinity;
+            GameObject nearestEnemy = null;
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
+
+            foreach (GameObject enemy in enemies)
+            {
+                float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+                if (distanceToEnemy <= shortestDistance)
+                {
+                    shortestDistance = distanceToEnemy;
+                    nearestEnemy = enemy;
+                }
+            }
+            if (nearestEnemy != null)
+            {
+                m_CurrentTargetCharacterData = nearestEnemy.GetComponent<CharacterData>() as CharacterData;
+                if (!m_CharacterData.CanAttackReach(m_CurrentTargetCharacterData))
+                    m_Agent.SetDestination(m_CurrentTargetCharacterData.transform.position);
+                else if (m_CharacterData.CanAttackReach(m_CurrentTargetCharacterData))
+                    m_Agent.velocity = Vector3.zero;
+            }
+            else
+            {
+                m_CurrentTargetCharacterData = null;
+                InteractableObject obj = m_Highlighted as InteractableObject;
+                if (obj)
+                {
+                    //InteractWith(obj);
+                    m_Agent.SetDestination(obj.transform.position);
+                }
+            }
+        }
+
+        public void Unbeatable()
+        {
+            m_CharacterData.Stats.unbeatable = !m_CharacterData.Stats.unbeatable;
         }
 
         void GoToRespawn()
@@ -469,7 +527,7 @@ namespace ProjectDInternal
             }
             else
             {
-                count = Physics.SphereCastNonAlloc(transform.position, 6.0f, transform.forward, m_RaycastHitCache, 0.0f, m_InteractableLayer);
+                count = Physics.SphereCastNonAlloc(transform.position, interactRadius, transform.forward, m_RaycastHitCache, 0.0f, m_InteractableLayer);
                 //Debug.Log("找到裝備" + count);
                 if (count > 0)
                 {
