@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public float restartDelay = 2f;
     public GameObject GameOverUI;
     public GameObject PlayUI;
+    public Transform HighscoreTable;
 
     public void EndGame()
     {
@@ -17,6 +18,11 @@ public class GameManager : MonoBehaviour
             gameEnded = true;
             GameOverUI .SetActive(true);
             PlayUI.SetActive(false);
+            
+
+           // HighscoreTable.Find("highscoreEntryTemplate").gameObject.SetActive(true);
+            
+
 
             Time.timeScale = 0;
             Debug.Log("GAME OVER");
