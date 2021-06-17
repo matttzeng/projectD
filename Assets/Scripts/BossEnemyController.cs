@@ -144,8 +144,13 @@ namespace ProjectDInternal {
             //旋風斬使用中判定, 撞到角色時會停止, 需要修正
             if (gameObject.GetComponent<Rigidbody>() && skillFlag ==3)
             {
-                var l = playerPosition - transform.position;
-                gameObject.GetComponent<Rigidbody>().velocity = new Vector3(l.x, 0.0f, l.z);
+                Vector3 l = playerPosition - transform.position;
+                l.Normalize();
+
+                //Debug.Log(l);
+                m_Agent.SetDestination(playerPosition);
+                m_Agent.speed = 8;
+                //gameObject.GetComponent<Rigidbody>().velocity = new Vector3(l.x, 0.0f, l.z);
                 //gameObject.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 999f, 0);
                 return;
             }
@@ -273,7 +278,7 @@ namespace ProjectDInternal {
                 if (m_CharacterData.CanAttackReach(playerData))
                     skillFlag = 3;
                 //攻擊範圍外時(視野內)
-                else    
+                else
                     skillFlag = Random.Range(0, 3);
                 //技能選擇
                 shootPlayer(skillFlag); 
@@ -347,12 +352,13 @@ namespace ProjectDInternal {
                     m_Animator.SetTrigger(m_trippleSlashAnimHash);
                     if (!gameObject.GetComponent<Rigidbody>())
                         gameObject.AddComponent<Rigidbody>();
-                    
+                    gameObject.GetComponent<Rigidbody>().mass = 1;
                     //gameObject.GetComponent<Rigidbody>().isKinematic = false;
                     //gameObject.GetComponent<Rigidbody>().detectCollisions = false;
                     //gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                    gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * bulletForce, ForceMode.Impulse);
-                    Invoke("Stop", 2);
+                    Debug.Log(transform.forward * bulletForce);
+                    gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * bulletForce/2, ForceMode.Impulse);
+                    Invoke("Stop", 1.5f);
                 }
             }
             //旋風斬
@@ -364,9 +370,11 @@ namespace ProjectDInternal {
                     m_Animator.SetTrigger(m_whirlwindAnimHash);
                     if (!gameObject.GetComponent<Rigidbody>())
                         gameObject.AddComponent<Rigidbody>();
-                 
+                    gameObject.GetComponent<Rigidbody>().mass = 10000;
+                    //gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                    gameObject.GetComponent<BoxCollider>().size = new Vector3(7, 2, 7);
                     //gameObject.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 999f, 0);
-                    Invoke("Stop", 4);
+                    Invoke("Stop", 1.8f);
                 }
             }
         }
@@ -375,7 +383,9 @@ namespace ProjectDInternal {
         {
             if (gameObject.GetComponent<Rigidbody>())
             {
+                gameObject.GetComponent<BoxCollider>().size = new Vector3(3, 2, 3);
                 Destroy(GetComponent<Rigidbody>());
+                m_Agent.speed = Speed;
                 Debug.Log("停止");
             }
         }
