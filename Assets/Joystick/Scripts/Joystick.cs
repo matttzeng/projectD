@@ -37,11 +37,13 @@ namespace EasyJoystick {
 
       private PointerEventData pointerEventData ;
       private Camera cam ;
-
+      
 
       private void Awake () {
          maxLength = (container.sizeDelta.x / 2f) - (handle.sizeDelta.x / 2f) - 5f ;
-      }
+        
+        }
+     
 
       public void OnPointerDown (PointerEventData e) {
          _isTouching = true ;
@@ -53,17 +55,26 @@ namespace EasyJoystick {
          pointerEventData = e ;
       }
 
-      void Update () {
+        
+      void Update () 
+      {
+            /*
             //移動joystick到你手指位置
-            for(int i = 0; i<Input.touchCount;i++)
+            if (Input.touchCount > 0)
             {
+
                 UnityEngine.Touch touch = Input.GetTouch(0);
-                Vector3 touchPosition = Camera.main.ScreenToViewportPoint(Input.touches[0].position);
+                Vector3 touchPosition = Camera.main.ScreenToViewportPoint(touch.position);
                
+                touchPosition.z = 0f;
+                transform.position = touchPosition;
+              
             }
+            */
+            
 
 
-         if (_isTouching && RectTransformUtility.ScreenPointToLocalPointInRectangle (container, pointerEventData.position, cam, out point)) {
+            if (_isTouching && RectTransformUtility.ScreenPointToLocalPointInRectangle (container, pointerEventData.position, cam, out point)) {
             point = Vector2.ClampMagnitude (point, maxLength) ;
             handle.anchoredPosition = point ;
 
