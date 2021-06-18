@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 721bded4ab38d3c45ac4302c289230a8, type: 3}
-  m_Name: weapon01
+  m_Name: weapon03
   m_EditorClassIdentifier: 
-  ItemName: weapon01
-  ItemSprite: {fileID: 21300000, guid: c8d792fc2bc492f48a895ddbaf41fa63, type: 3}
-  Description: weapon01
-  WorldObjectPrefab: {fileID: 1090382368684441554, guid: 5336fad12ebea534987acfeac51fdc1a,
+  ItemName: weapon03
+  ItemSprite: {fileID: 21300000, guid: 1050689e0b771c44bb3616aac4142bf6, type: 3}
+  Description: weapon03
+  WorldObjectPrefab: {fileID: 1006753614390398824, guid: 6204886f64a997b409912e13a6b9be9e,
     type: 3}
   Slot: 666
   Modifier:
@@ -23,13 +23,13 @@ MonoBehaviour:
     Stats:
       randomvalue: 1
       health: 0
-      strength: 5
+      strength: 0
       defense: 0
       agility: 0
-      attack: 50
+      attack: 35
       skill: 0
       moveSpeed: 5
-      attackSpeed: 200
+      attackSpeed: 400
       attackRange: 5
       crit: 0
       skillSpeed: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
   SwingSounds: []
   Stats:
     Speed: 1
-    MinimumDamage: 20
-    MaximumDamage: 50
-    MaxRange: 3
+    MinimumDamage: 10
+    MaximumDamage: 20
+    MaxRange: 8
   AttackEffects: []

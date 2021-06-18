@@ -196,8 +196,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Events:
   - Entries:
-    - Weight: 10
-      Item: {fileID: 11400000, guid: d28b5eb2900a95a4eb19429abe1b2407, type: 2}
+    - Weight: 0
+      Item: {fileID: 11400000, guid: 858e1b2f804f08f4098bd6aefbacdaa1, type: 2}
+    - Weight: 20
+      Item: {fileID: 11400000, guid: 137f7e84fdd83824ebdd4af8154d0b05, type: 2}
   SpawnedClip: {fileID: 0}
   dropRandomWeapon: 0
 --- !u!114 &1724275202487983843
@@ -442,7 +444,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: d7aabf5e33eb7434b807049163b2ea0b, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: -5293603558876281242, guid: d3aea247b6976ac4298d5d2e8c0a681b,
         type: 3}
       propertyPath: m_Layer
