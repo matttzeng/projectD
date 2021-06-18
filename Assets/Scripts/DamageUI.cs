@@ -77,6 +77,21 @@ namespace ProjectDInternal
                 }
                 else
                 {
+                    /*
+                    //pool裡的傷害數字顏色大小不對 要重新判定  或是  開另一個不同的POOL
+                    if ( m_Owner.gameObject.tag == "Player")
+                    {
+                        t.color = Color.red;
+                        t.fontSize = 32;
+                    }
+                    else
+                    {
+                        t.color = Color.white;
+                        t.fontSize = 48;
+
+                    }
+                    */
+
                     var color = at.UIText.color;
                     color.a = at.Timer / at.MaxTime;
                     at.UIText.color = color;
@@ -102,11 +117,17 @@ namespace ProjectDInternal
                 t.color = Color.red;
                 t.fontSize = 32;
             }
+            else
+            {
+                t.color = Color.white;
+                t.fontSize = 48;
+            }
             t.gameObject.SetActive(true);
         
             ActiveText at = new ActiveText();
             at.MaxTime = 1.0f;
             at.Timer = at.MaxTime;
+            
             at.UIText = t;
             at.WorldPositionStart = worldPos + Vector3.up*5;
             at.PlaceText(m_MainCamera, m_Canvas);

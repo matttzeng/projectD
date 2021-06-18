@@ -499,6 +499,7 @@ namespace ProjectD
             bool isPlayer = false;
             if (m_Owner.gameObject.tag == "Player")
             {
+                Debug.Log("玩家受傷");
                isPlayer = true;
             }
             

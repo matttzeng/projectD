@@ -195,7 +195,7 @@ namespace ProjectDInternal
         {
             m_CharacterData.Stats.stats.statsPoint += 1;
             m_CharacterData.Stats.stats.initPoint += 1;
-            Debug.Log("素質點數: "+ m_CharacterData.Stats.stats.statsPoint);
+            //Debug.Log("素質點數: "+ m_CharacterData.Stats.stats.statsPoint);
 
              StatSystem.StatModifier modifier = new StatSystem.StatModifier();
             //m_CharacterData.Stats.ChangeHealth(m_CharacterData.Stats.CurrentHealth + 10);
@@ -786,7 +786,7 @@ namespace ProjectDInternal
                 
                 
                 string skillName = GetComponent<CharacterData>().ChooseSkill.ItemName;
-                Debug.Log("釋放" + skillName);
+                //Debug.Log("釋放" + skillName);
                 VFXType m_vFXType = (VFXType)Enum.Parse(typeof(VFXType), skillName);
                 
                 pos = GetComponent<CharacterData>().ChooseSkill.skillPos;

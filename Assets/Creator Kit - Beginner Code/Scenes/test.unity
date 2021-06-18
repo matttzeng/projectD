@@ -11295,7 +11295,7 @@ MonoBehaviour:
   sliderTag: Tag Text
   usePercent: 0
   showValue: 0
-  showPopupValue: 0
+  showPopupValue: 1
   useRoundValue: 0
   onValueChanged:
     m_PersistentCalls:
@@ -19041,7 +19041,6 @@ MonoBehaviour:
   StatsPointText: {fileID: 6018011904136577026}
   SkillPointText: {fileID: 860330800}
   EnemyHealthSlider: {fileID: 1206527875}
-  EnemyName: {fileID: 0}
   EnemyEffectIcones:
   - {fileID: 406700521}
   - {fileID: 253484677}

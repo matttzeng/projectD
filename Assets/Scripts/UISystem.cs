@@ -31,7 +31,7 @@ namespace ProjectDInternal
 
         [Header("Enemy")]
         public Slider EnemyHealthSlider;
-        public Text EnemyName;
+        //public Text EnemyName;
         public EffectIconUI[] EnemyEffectIcones;
     
         [Header("Inventory")]
@@ -202,7 +202,7 @@ namespace ProjectDInternal
         {
             EnemyHealthSlider.gameObject.SetActive(true);
             EnemyHealthSlider.value = enemy.Stats.CurrentHealth / (float) enemy.Stats.stats.health;
-            EnemyName.text = enemy.CharacterName;
+            //EnemyName.text = enemy.CharacterName;
 
             int top = enemy.Stats.ElementalEffects.Count;
         
