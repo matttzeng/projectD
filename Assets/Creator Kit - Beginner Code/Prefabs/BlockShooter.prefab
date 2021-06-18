@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 2
   detectionRadius: 15
-  bulletForce: 60
+  bulletForce: 36
   SpottedAudioClip: []
   agent: {fileID: 0}
 --- !u!114 &4730651568047085444

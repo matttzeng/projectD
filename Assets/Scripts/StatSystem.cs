@@ -65,6 +65,7 @@ namespace ProjectD
             public int skillPoint;
             public int initPoint;
 
+            
 
             //use an array indexed by the DamageType enum for easy extensibility
             public int[] elementalProtection = new int[Enum.GetValues(typeof(DamageType)).Length];   
@@ -494,17 +495,29 @@ namespace ProjectD
         public void Damage(Weapon.AttackData attackData)
         {
             int totalDamage = attackData.GetFullDamage();
-        
+
+            bool isPlayer = false;
+            if (m_Owner.gameObject.tag == "Player")
+            {
+               isPlayer = true;
+            }
+            
+
             ChangeHealth(-totalDamage);
-            DamageUI.Instance.NewDamage(totalDamage, m_Owner.transform.position);
+            DamageUI.Instance.NewDamage(totalDamage, m_Owner.transform.position,isPlayer);
         }
 
         public void SkillDamage(Skill.AttackData attackData)
         {
             int totalDamage = attackData.GetFullDamage();
 
+               bool isPlayer = false;
+            if (m_Owner.gameObject.tag == "Player")
+            {
+                isPlayer = true;
+            }
             ChangeHealth(-totalDamage);
-            DamageUI.Instance.NewDamage(totalDamage, m_Owner.transform.position);
+            DamageUI.Instance.NewDamage(totalDamage, m_Owner.transform.position, isPlayer);
         }
     }
 }

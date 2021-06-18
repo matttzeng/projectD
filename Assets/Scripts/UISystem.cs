@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ProjectD;
 using UnityEngine;
 using UnityEngine.UI;
+using Michsky.UI.ModernUIPack;
 
 namespace ProjectDInternal 
 {
@@ -22,7 +23,7 @@ namespace ProjectDInternal
         public Text MaxHealth;
         public Text CurrentHealth;
         public Text currentLevel;
-        public Slider currentEXP;
+        public GameObject expPB;
         public EffectIconUI[] TimedModifierIcones;
         public Text StatsText;
         public Text StatsPointText;
@@ -41,6 +42,9 @@ namespace ProjectDInternal
 
         Sprite m_ClosedInventorySprite;
         Sprite m_OpenInventorySprite;
+      
+
+       
 
         void Awake()
         {
@@ -122,6 +126,17 @@ namespace ProjectDInternal
             UpdateStatsText();
             //var stats = data.Stats.stats;
             //StatsText.text = $"剩餘點數 : {stats.statsPoint}\nAtk : {stats.attack} \nDef : {stats.defense} \nAtkSpeed : {stats.attackSpeed} \nMoveSpeed :{stats.moveSpeed} ";
+
+            var playEXP = PlayerCharacter.level;         
+           
+            float ExpDiff = 0.25f * (playEXP.currentLevel + (300.0f * Mathf.Pow(2.0f, playEXP.currentLevel / 7.0f)));
+            float topValue = playEXP.experience - playEXP.GetXPForLevel(playEXP.currentLevel);
+            
+            expPB.GetComponent<ProgressBar>().currentPercent = (topValue / ExpDiff)*100;
+
+          
+
+        
         }
 
         //更新UI素質欄

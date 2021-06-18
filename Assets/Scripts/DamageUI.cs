@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace ProjectDInternal 
 {
@@ -91,11 +92,16 @@ namespace ProjectDInternal
         /// </summary>
         /// <param name="amount">The amount of damage to display</param>
         /// <param name="worldPos">The position is the world where the damage text should appear (e.g. character head)</param>
-        public void NewDamage(int amount, Vector3 worldPos)
+        public void NewDamage(int amount, Vector3 worldPos ,bool isPlayer)
         {       
             var t = m_TextPool.Dequeue();
 
             t.text = amount.ToString();
+            if(isPlayer == true)
+            {
+                t.color = Color.red;
+                t.fontSize = 32;
+            }
             t.gameObject.SetActive(true);
         
             ActiveText at = new ActiveText();

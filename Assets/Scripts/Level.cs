@@ -14,6 +14,9 @@ public class Level
     public int MAX_EXP;
     public int MAX_LEVEL=99;
    
+   
+
+    
     public Level(int level,Action OnLevUp)
     {
         MAX_EXP = GetXPForLevel(MAX_LEVEL);
@@ -41,6 +44,7 @@ public class Level
 
         if (secondPass < 0)
             return MAX_EXP;
+
 
         return secondPass;
     }
