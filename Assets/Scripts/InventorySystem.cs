@@ -109,11 +109,13 @@ namespace ProjectD
         }
 
         //quality是物品稀有度  目前沒有分  都是0
-        public void EquipmentCombine(int quality)
+        public void EquipmentCombine(EquipmentItem[] itemCombined)
         {
             //刪除三個同品質  
             int itemCount = 0;
-            InventoryEntry itemDEL;
+            int qualityCalculate = 0;
+            //List<InventoryEntry> itemDEL = new List<InventoryEntry>();
+            int[] Array = new int[3];
           
         
            
@@ -124,28 +126,59 @@ namespace ProjectD
             for(int j = 0; j < 30; j++)
             {
                 
-                while (itemCount<=3)
+                if (itemCount<3)
                 {
                    
-                    Debug.Log("檢查點3" + Entries[j].Item.name+"  "+Entries[j].Item.itemQuality );
+                    //Debug.Log("檢查點3" + Entries[j].Item.name+"  "+Entries[j].Item.itemQuality );
                   
-                    if (Entries[j] != null && Entries[j].Item.itemQuality == quality)
+                    if (Entries[j] != null /*&& Entries[j].Item.itemQuality == quality*/)
                     {
 
                         Debug.Log("檢查點4");
-                        itemDEL = Entries[j];
+                        //itemDEL.Add(Entries[j]);
+                        Array[itemCount] = j;
+                        //AddToList(itemDEL.Item);
+                        //UseItem(itemDEL);
+                        
+                        if ((Entries[j].Item as Weapon).Modifier.Stats.itemQuality == 0)
+                            qualityCalculate += Random.Range(0, 15);
+                        else if ((Entries[j].Item as Weapon).Modifier.Stats.itemQuality == 1)
+                            qualityCalculate += Random.Range(0, 30);
+                        else if ((Entries[j].Item as Weapon).Modifier.Stats.itemQuality == 2)
+                            qualityCalculate += Random.Range(31, 50);
 
-                        AddToList(itemDEL.Item);
-                        UseItem(itemDEL);
+                        //Entries[j] = null;
                         itemCount++;
                         
                      
 
                     }
-                    else
+                    if (itemCount == 3 )
                     {
-                        Debug.Log("物品數量不足");
-                        break;
+                        //Debug.Log("物品數量不足");
+                        //break;
+                        /*UnityEngine.Object.Destroy(itemDEL.IndexOf(InventoryEntry));
+                        itemDEL[1] = null;
+                        itemDEL[2] = null;
+                        itemDEL.Clear();*/
+                        Entries[Array[0]] = null;
+                        Entries[Array[1]] = null;
+                        Entries[Array[2]] = null;
+
+                        Weapon itemCombine;
+                        itemCombine = itemCombined[Random.Range(0, itemCombined.Length)].Clone() as Weapon;
+                        itemCombine.ItemName = itemCombine.name;
+                        itemCombine.Modifier.Stats.randomvalue = true;
+
+                        if (qualityCalculate > 30 && qualityCalculate <= 80)
+                            itemCombine.Modifier.Stats.itemQuality = 1;
+                        else if (qualityCalculate > 80)
+                            itemCombine.Modifier.Stats.itemQuality = 2;
+
+                        Debug.Log("合成計算:" + qualityCalculate);
+                        Debug.Log("合成武器:" + itemCombine.name + ", 稀有度: " + itemCombine.Modifier.Stats.itemQuality);
+                        AddItem(itemCombine);
+                        itemCount = 0;
                     }
 
                 }             
@@ -154,12 +187,23 @@ namespace ProjectD
             //增加一個高1品質五品  (目前沒有分  增加同一品質物品
             //從刪掉的表格中隨機找一個物品生成
 
-            if(itemCount == 3) 
+            /*if(itemCount == 3) 
             {
-                Item itemCombine;
-                itemCombine = _itemDELs[Random.Range(0, 2)];
+                Weapon itemCombine;
+                itemCombine = itemCombined[Random.Range(0, itemCombined.Length)].Clone() as Weapon;
+                itemCombine.ItemName = itemCombine.name;
+                itemCombine.Modifier.Stats.randomvalue = true;
+
+                if (qualityCalculate > 3 && qualityCalculate <= 20)
+                    itemCombine.Modifier.Stats.itemQuality = 1;
+                else if (qualityCalculate > 20)
+                    itemCombine.Modifier.Stats.itemQuality = 2;
+
+                Debug.Log("合成計算:" + qualityCalculate);
+                Debug.Log("合成武器:" + itemCombine.name + ", 稀有度: "+itemCombine.Modifier.Stats.itemQuality);
                 AddItem(itemCombine);
-            }
+                itemCount = 0;
+            }*/
            
 
 

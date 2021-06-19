@@ -2,6 +2,7 @@
 using ProjectD;
 using UnityEngine;
 using System.Linq;
+using System;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -138,7 +139,12 @@ namespace ProjectD
             {
                 effect.Equipped(user);
             }*/
+            //QualityCalculate(Modifier);
+            //Debug.Log(itemQuality);
+            //Modifier.Stats.itemQuality = itemQuality;
+            Debug.Log(Modifier.Stats.itemQuality);
             user.Stats.AddModifier(Modifier);
+            Debug.Log(Modifier.Stats.itemQuality);
         }
     
         public void UnequippedBy(CharacterData user)
@@ -147,6 +153,23 @@ namespace ProjectD
                 effect.Removed(user);*/
             user.Stats.RemoveModifier(Modifier);
         }
+
+        /*public void QualatyCalculate(StatSystem.StatModifier Modifier)
+        {
+            float i = (itemQuality + 1) / 3;
+            Modifier.Stats.health = (int)Math.Floor(Modifier.Stats.health / i);
+            Modifier.Stats.strength = (int)Math.Floor(Modifier.Stats.strength / i);
+            Modifier.Stats.defense = (int)Math.Floor(Modifier.Stats.defense / i);
+            Modifier.Stats.agility = (int)Math.Floor(Modifier.Stats.agility / i);
+            Modifier.Stats.attack = (int)Math.Floor(Modifier.Stats.attack / i);
+            Modifier.Stats.skill = (int)Math.Floor(Modifier.Stats.skill / i);
+            Modifier.Stats.moveSpeed = (int)Math.Floor(Modifier.Stats.moveSpeed / i);
+            Modifier.Stats.attackSpeed = (int)Math.Floor(Modifier.Stats.attackSpeed / i);
+            Modifier.Stats.attackRange = (int)Math.Floor(Modifier.Stats.attackRange / i);
+            Modifier.Stats.crit = (int)Math.Floor(Modifier.Stats.crit / i);
+            Modifier.Stats.skillRange = (int)Math.Floor(Modifier.Stats.skillRange / i);
+            Modifier.Stats.skillSpeed = (int)Math.Floor(Modifier.Stats.skillSpeed / i);
+        }*/
     }
 }
 

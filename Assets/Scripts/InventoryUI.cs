@@ -26,6 +26,7 @@ namespace ProjectDInternal
         public ItemTooltip Tooltip;
 
         public EquipmentUI EquipementUI;
+        public EquipmentItem[] ItemCombined;
 
 
         public Canvas DragCanvas;
@@ -146,8 +147,9 @@ namespace ProjectDInternal
         public void EquipmentCombine()
         {
 
-            InventorySystem m = new InventorySystem();
-            m.EquipmentCombine(0);
+            InventorySystem m = m_Data.Inventory;
+            m.EquipmentCombine(ItemCombined);
+            Load(m_Data);
 
 
         }

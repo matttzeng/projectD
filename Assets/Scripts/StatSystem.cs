@@ -38,6 +38,8 @@ namespace ProjectD
             Electric
             //ADD YOUR CUSTOM TYPE AFTER
         }
+
+        //public int itemQuality;
     
         /// <summary>
         /// Store the stats, which are composed of 4 values : health, strength, agility and defense.
@@ -47,6 +49,7 @@ namespace ProjectD
         public class Stats
         {
             public bool randomvalue;
+            public int itemQuality;
 
             //Integer for simplicity, may switch to float later on. For now everything is integer
             public int health;
@@ -73,6 +76,7 @@ namespace ProjectD
         
             public void Copy(Stats other)
             {
+                itemQuality = other.itemQuality;
                 health = other.health;
                 strength = other.strength;
                 defense = other.defense;
@@ -99,19 +103,21 @@ namespace ProjectD
             {
                 if (modifier.Stats.randomvalue == true)
                 {
-                    modifier.Stats.health = UnityEngine.Random.Range(0, modifier.Stats.health);
-                    modifier.Stats.strength = UnityEngine.Random.Range(0, modifier.Stats.strength);
-                    modifier.Stats.defense = UnityEngine.Random.Range(0, modifier.Stats.defense);
-                    modifier.Stats.agility = UnityEngine.Random.Range(0, modifier.Stats.agility);
-                    modifier.Stats.attack = UnityEngine.Random.Range(0, modifier.Stats.attack);
-                    modifier.Stats.skill = UnityEngine.Random.Range(0, modifier.Stats.skill);
-                    modifier.Stats.moveSpeed = UnityEngine.Random.Range(0, modifier.Stats.moveSpeed);
-                    modifier.Stats.attackSpeed = UnityEngine.Random.Range(0, modifier.Stats.attackSpeed);
-                    modifier.Stats.attackRange = UnityEngine.Random.Range(0, modifier.Stats.attackRange);
-                    modifier.Stats.crit = UnityEngine.Random.Range(0, modifier.Stats.crit);
-                    modifier.Stats.skillRange = UnityEngine.Random.Range(0, modifier.Stats.skillRange);
-                    modifier.Stats.skillSpeed = UnityEngine.Random.Range(0, modifier.Stats.skillSpeed);
+                    float floor = modifier.Stats.itemQuality / 3f;
+                    float ceiling = (modifier.Stats.itemQuality + 1) / 3f;
 
+                    modifier.Stats.health = (int)Math.Ceiling(UnityEngine.Random.Range(modifier.Stats.health * floor, modifier.Stats.health* ceiling));
+                    modifier.Stats.strength = (int)Math.Ceiling(UnityEngine.Random.Range(modifier.Stats.strength * floor, modifier.Stats.strength* ceiling));
+                    modifier.Stats.defense = (int)Math.Ceiling(UnityEngine.Random.Range(modifier.Stats.defense * floor, modifier.Stats.defense* ceiling));
+                    modifier.Stats.agility = (int)Math.Ceiling(UnityEngine.Random.Range(modifier.Stats.agility * floor, modifier.Stats.agility * ceiling));
+                    modifier.Stats.attack = (int)Math.Ceiling(UnityEngine.Random.Range(modifier.Stats.attack * floor, modifier.Stats.attack * ceiling));
+                    modifier.Stats.skill = (int)Math.Ceiling(UnityEngine.Random.Range(modifier.Stats.skill * floor, modifier.Stats.skill * ceiling));
+                    modifier.Stats.moveSpeed = (int)Math.Ceiling(UnityEngine.Random.Range(modifier.Stats.moveSpeed * floor, modifier.Stats.moveSpeed * ceiling));
+                    modifier.Stats.attackSpeed = (int)Math.Ceiling(UnityEngine.Random.Range(modifier.Stats.attackSpeed * floor, modifier.Stats.attackSpeed * ceiling));
+                    modifier.Stats.attackRange = (int)Math.Ceiling(UnityEngine.Random.Range(modifier.Stats.attackRange * floor, modifier.Stats.attackRange * ceiling));
+                    modifier.Stats.crit = (int)Math.Ceiling(UnityEngine.Random.Range(modifier.Stats.crit * floor, modifier.Stats.crit* ceiling));
+                    modifier.Stats.skillRange = (int)Math.Ceiling(UnityEngine.Random.Range(modifier.Stats.skillRange * floor, modifier.Stats.skillRange * ceiling));
+                    modifier.Stats.skillSpeed = (int)Math.Ceiling(UnityEngine.Random.Range(modifier.Stats.skillSpeed * floor, modifier.Stats.skillSpeed * ceiling));
                     /*
                     this.health = modifier.Stats.health;
                     this.strength = modifier.Stats.strength;
@@ -126,7 +132,7 @@ namespace ProjectD
                     this.skillRange = modifier.Stats.health;
                     this.skillSpeed = modifier.Stats.health;
                     */
-                    
+
                     if (modifier.ModifierMode == StatModifier.Mode.Percentage)
                     {
                         health += Mathf.FloorToInt(health * (modifier.Stats.health / 100.0f));
@@ -256,6 +262,7 @@ namespace ProjectD
             public Mode ModifierMode = Mode.Absolute;
             public Stats Stats = new Stats();
             //public string jsonString;
+            //public int itemQuality;
 
             
         }
@@ -464,8 +471,7 @@ namespace ProjectD
             foreach (var modifier in m_ModifiersStack)
             {
                 if (modifier.Stats.health != 0)
-                    maxHealthChange = true;
-            
+                    maxHealthChange = true;                
                 stats.Modify(modifier);
             }
 
@@ -552,6 +558,9 @@ public class StatsDrawer : PropertyDrawer
 
         currentRect.y += EditorGUIUtility.singleLineHeight+17f;
         EditorGUI.PropertyField(currentRect, property.FindPropertyRelative(nameof(StatSystem.stats.randomvalue)));
+
+        currentRect.y += EditorGUIUtility.singleLineHeight;
+        EditorGUI.PropertyField(currentRect, property.FindPropertyRelative(nameof(StatSystem.stats.itemQuality)));
 
         currentRect.y += EditorGUIUtility.singleLineHeight;
         EditorGUI.PropertyField(currentRect, property.FindPropertyRelative(nameof(StatSystem.Stats.health)));

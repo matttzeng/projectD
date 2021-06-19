@@ -134,6 +134,7 @@ namespace ProjectD
                         Weapon.Identify = 1;
                     }*/
                     Weapon.Identify = 1;
+                    Debug.Log("Weapon: "+Weapon.Modifier.Stats.itemQuality);
                     Weapon.EquippedBy(m_Owner);
                     break;
                 /*case (EquipmentItem.EquipmentSlot)777:

@@ -18,7 +18,7 @@ namespace ProjectD
         public Sprite ItemSprite;
         public string Description;
         public GameObject WorldObjectPrefab;
-        public int itemQuality = 0;
+        //public int itemQuality;
         /// <summary>
         /// Called by the inventory system when the object is "used" (double clicked)
         /// </summary>
@@ -38,10 +38,10 @@ namespace ProjectD
         {
             return Description;
         }
-        public virtual int GetQuality()
+        /*public virtual int GetQuality()
         {
             return itemQuality;
-        }
+        }*/
     }
 }
 
@@ -54,7 +54,7 @@ public class ItemEditor
     SerializedProperty m_IconProperty;
     SerializedProperty m_DescriptionProperty;
     SerializedProperty m_WorldObjectPrefabProperty;
-    SerializedProperty m_itemQuality;
+    //SerializedProperty m_itemQuality;
 
 
     public void Init(SerializedObject target)
@@ -65,7 +65,7 @@ public class ItemEditor
         m_IconProperty = m_Target.FindProperty(nameof(Item.ItemSprite));
         m_DescriptionProperty = m_Target.FindProperty(nameof(Item.Description));
         m_WorldObjectPrefabProperty = m_Target.FindProperty(nameof(Item.WorldObjectPrefab));
-        m_itemQuality = m_Target.FindProperty(nameof(Item.itemQuality));
+        //m_itemQuality = m_Target.FindProperty(nameof(Item.itemQuality));
     }
 
     public void GUI()
@@ -74,7 +74,7 @@ public class ItemEditor
         EditorGUILayout.PropertyField(m_NameProperty);
         EditorGUILayout.PropertyField(m_DescriptionProperty, GUILayout.MinHeight(128));
         EditorGUILayout.PropertyField(m_WorldObjectPrefabProperty);
-        EditorGUILayout.PropertyField(m_itemQuality);
+        //EditorGUILayout.PropertyField(m_itemQuality);
     }
 }
 #endif

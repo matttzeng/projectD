@@ -1572,6 +1572,7 @@ MonoBehaviour:
   Stats:
     baseStats:
       randomvalue: 0
+      itemQuality: 0
       health: 100000
       strength: 0
       defense: 0
@@ -1591,6 +1592,7 @@ MonoBehaviour:
       elementalBoosts: 00000000000000000000000000000000
     initStats:
       randomvalue: 0
+      itemQuality: 0
       health: 0
       strength: 0
       defense: 0
@@ -5065,6 +5067,7 @@ MonoBehaviour:
   Stats:
     baseStats:
       randomvalue: 0
+      itemQuality: 0
       health: 100000
       strength: 0
       defense: 0
@@ -5084,6 +5087,7 @@ MonoBehaviour:
       elementalBoosts: 00000000000000000000000000000000
     initStats:
       randomvalue: 0
+      itemQuality: 0
       health: 0
       strength: 0
       defense: 0
@@ -11636,6 +11640,7 @@ MonoBehaviour:
   Stats:
     baseStats:
       randomvalue: 0
+      itemQuality: 0
       health: 100000
       strength: 0
       defense: 0
@@ -11655,6 +11660,7 @@ MonoBehaviour:
       elementalBoosts: 00000000000000000000000000000000
     initStats:
       randomvalue: 0
+      itemQuality: 0
       health: 0
       strength: 0
       defense: 0
@@ -13010,6 +13016,7 @@ MonoBehaviour:
   Stats:
     baseStats:
       randomvalue: 0
+      itemQuality: 0
       health: 150
       strength: 1
       defense: 1
@@ -13029,6 +13036,7 @@ MonoBehaviour:
       elementalBoosts: 00000000000000000000000000000000
     initStats:
       randomvalue: 0
+      itemQuality: 0
       health: 150
       strength: 1
       defense: 1
@@ -15268,6 +15276,7 @@ MonoBehaviour:
     type: 3}
   Tooltip: {fileID: 0}
   EquipementUI: {fileID: 2049142327}
+  ItemCombined: []
   DragCanvas: {fileID: 5115311139124518299}
 --- !u!114 &1541494539
 MonoBehaviour:
@@ -19894,6 +19903,7 @@ MonoBehaviour:
     type: 3}
   Tooltip: {fileID: 1827693117}
   EquipementUI: {fileID: 177990625}
+  ItemCombined: []
   DragCanvas: {fileID: 5115311139124518299}
 --- !u!114 &1999632592
 MonoBehaviour:
@@ -22718,6 +22728,10 @@ MonoBehaviour:
     type: 3}
   Tooltip: {fileID: 261993003481004822}
   EquipementUI: {fileID: 261993004586672385}
+  ItemCombined:
+  - {fileID: 11400000, guid: 09c192a307a33f044b1f789ea00c968c, type: 2}
+  - {fileID: 11400000, guid: 137f7e84fdd83824ebdd4af8154d0b05, type: 2}
+  - {fileID: 11400000, guid: 858e1b2f804f08f4098bd6aefbacdaa1, type: 2}
   DragCanvas: {fileID: 5115311139124518299}
 --- !u!1 &261993003899014863
 GameObject:
