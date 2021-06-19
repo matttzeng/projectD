@@ -142,5 +142,14 @@ namespace ProjectDInternal
                 }
             }
         }
+
+        public void EquipmentCombine()
+        {
+
+            InventorySystem m = new InventorySystem();
+            m.EquipmentCombine(0);
+
+
+        }
     }
 }

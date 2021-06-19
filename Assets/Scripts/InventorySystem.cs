@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace ProjectD 
 {
@@ -9,6 +10,7 @@ namespace ProjectD
     /// </summary>
     public class InventorySystem
     {
+      
         /// <summary>
         /// One entry in the inventory. Hold the type of Item and how many there is in that slot.
         /// </summary>
@@ -18,8 +20,11 @@ namespace ProjectD
             public Item Item;
         }
 
-        //Only 32 slots in inventory
-        public InventoryEntry[] Entries = new InventoryEntry[32];
+        private List<Item> _itemDELs= new List<Item>();
+
+
+        //Only 30 slots in inventory
+        public InventoryEntry[] Entries = new InventoryEntry[30];
 
         CharacterData m_Owner;
         
@@ -38,7 +43,7 @@ namespace ProjectD
             
             bool found = false;
             int firstEmpty = -1;
-            for (int i = 0; i < 32; ++i)
+            for (int i = 0; i < 30; ++i)
             {
                 if (Entries[i] == null)
                 {
@@ -87,7 +92,7 @@ namespace ProjectD
                 if (item.Count <= 0)
                 {
                     //maybe store the index in the InventoryEntry to avoid having to find it again here
-                    for (int i = 0; i < 32; ++i)
+                    for (int i = 0; i < 30; ++i)
                     {
                         if (Entries[i] == item)
                         {
@@ -102,5 +107,75 @@ namespace ProjectD
 
             return false;
         }
+
+        //quality是物品稀有度  目前沒有分  都是0
+        public void EquipmentCombine(int quality)
+        {
+            //刪除三個同品質  
+            int itemCount = 0;
+            InventoryEntry itemDEL;
+          
+        
+           
+
+           
+
+
+            for(int j = 0; j < 30; j++)
+            {
+                
+                while (itemCount<=3)
+                {
+                   
+                    Debug.Log("檢查點3" + Entries[j].Item.name+"  "+Entries[j].Item.itemQuality );
+                  
+                    if (Entries[j] != null && Entries[j].Item.itemQuality == quality)
+                    {
+
+                        Debug.Log("檢查點4");
+                        itemDEL = Entries[j];
+
+                        AddToList(itemDEL.Item);
+                        UseItem(itemDEL);
+                        itemCount++;
+                        
+                     
+
+                    }
+                    else
+                    {
+                        Debug.Log("物品數量不足");
+                        break;
+                    }
+
+                }             
+            }
+
+            //增加一個高1品質五品  (目前沒有分  增加同一品質物品
+            //從刪掉的表格中隨機找一個物品生成
+
+            if(itemCount == 3) 
+            {
+                Item itemCombine;
+                itemCombine = _itemDELs[Random.Range(0, 2)];
+                AddItem(itemCombine);
+            }
+           
+
+
+
+
+
+
+
+        }
+
+      
+        //合成刪掉的物品的表格
+        public void AddToList(Item item)
+        {
+            _itemDELs.Add(item);
+        }
     }
+    
 }
