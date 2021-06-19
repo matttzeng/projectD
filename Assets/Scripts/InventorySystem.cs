@@ -178,6 +178,7 @@ namespace ProjectD
                         Debug.Log("合成計算:" + qualityCalculate);
                         Debug.Log("合成武器:" + itemCombine.name + ", 稀有度: " + itemCombine.Modifier.Stats.itemQuality);
                         AddItem(itemCombine);
+                        qualityCalculate = 0;
                         itemCount = 0;
                     }
 
