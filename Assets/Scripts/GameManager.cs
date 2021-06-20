@@ -27,6 +27,11 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             Debug.Log("GAME OVER");
             //Invoke("restart",restartDelay);
+
+            PlayfabManager pfManager = new PlayfabManager();
+            pfManager.SendLeaderboard(WaveSpawner.waveNumber);
+
+;          
         }
 
     }
