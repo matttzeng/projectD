@@ -1,0 +1,2 @@
+item Sprite,item Name,Description,world Object Prefab,item Quality,Minimum Strength,minimumAgility,minimumDefense,ModifierMode,randomValue,Health,Strength,Def,Agi,Atk,skill,MoveSpeed,Atk Speed,Atk Range,Skill Range,Crit,Skill Speed,physcial(protection),physical(boost),Fire(protection),Fire(boost),cold(protection),Cold(boost),Electric(protection),Electric(boost),identify,speed,min Damage,max Damage,Max Range
+weapon00,weapon00,weapon00,weapon00,0,0,0,0,Absolute,true,0,0,0,0,10,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,5,1

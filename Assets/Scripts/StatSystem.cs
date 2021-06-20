@@ -132,7 +132,7 @@ namespace ProjectD
                     this.skillRange = modifier.Stats.health;
                     this.skillSpeed = modifier.Stats.health;
                     */
-
+                    
                     if (modifier.ModifierMode == StatModifier.Mode.Percentage)
                     {
                         health += Mathf.FloorToInt(health * (modifier.Stats.health / 100.0f));

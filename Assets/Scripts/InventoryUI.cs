@@ -123,6 +123,7 @@ namespace ProjectDInternal
             }
         }
 
+        /*
         public void HandledDroppedEntry(Vector3 position)
         {
             for (int i = 0; i < ItemSlots.Length; ++i)
@@ -143,6 +144,7 @@ namespace ProjectDInternal
                 }
             }
         }
+        */
 
         public void EquipmentCombine()
         {

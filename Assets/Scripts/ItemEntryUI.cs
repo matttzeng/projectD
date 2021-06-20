@@ -9,9 +9,11 @@ using UnityEngine.EventSystems;
 namespace ProjectDInternal 
 {
     public class ItemEntryUI : MonoBehaviour, /*IPointerClickHandler,*/ IPointerEnterHandler, IPointerExitHandler,
-         IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerDownHandler, IPointerUpHandler
+     /*IBeginDragHandler, IDragHandler,*/ IEndDragHandler, IPointerDownHandler, IPointerUpHandler
+  
     {    
         public Image IconeImage;
+        public Image OutlineColor;
         public Text ItemCount;
         public Button identifyButton;
         public int InventoryEntry { get; set; } = -1;
@@ -85,6 +87,27 @@ namespace ProjectDInternal
             {
                // Debug.Log("顯示道具圖片");
                 IconeImage.sprite = entry.Item.ItemSprite;
+                
+              
+                    if ((entry.Item as Weapon).Modifier.Stats.itemQuality == 1)
+                    {
+                        OutlineColor.color = Color.green;
+                    }
+                    if ((entry.Item as Weapon).Modifier.Stats.itemQuality == 2)
+                    {
+                        OutlineColor.color = Color.blue;
+                    }
+                    if ((entry.Item as Weapon).Modifier.Stats.itemQuality == 3)
+                    {
+                        OutlineColor.color = Color.yellow;
+                    }
+
+                
+
+
+
+
+
 
                 if (entry.Count > 1)
                 {
@@ -106,8 +129,25 @@ namespace ProjectDInternal
             IconeImage.enabled = enabled;
             if (enabled)
                 IconeImage.sprite = itm.ItemSprite;
-        }
 
+            
+
+            if ((EquipmentItem as Weapon).Modifier.Stats.itemQuality == 1)
+            {
+                OutlineColor.color = Color.green;
+            }
+            if ((EquipmentItem as Weapon).Modifier.Stats.itemQuality == 2)
+            {
+                OutlineColor.color = Color.blue;
+            }
+            if ((EquipmentItem as Weapon).Modifier.Stats.itemQuality == 3)
+            {
+                OutlineColor.color = Color.yellow;
+            }
+
+
+        }
+        /*
         public void OnBeginDrag(PointerEventData eventData)
         {
             if(EquipmentItem != null)
@@ -119,7 +159,9 @@ namespace ProjectDInternal
         
             transform.SetParent(Owner.DragCanvas.transform, true);
         }
+        */
     
+        /*
         public void OnDrag(PointerEventData eventData)
         {
             if(EquipmentItem != null)
@@ -128,7 +170,7 @@ namespace ProjectDInternal
             transform.localPosition = transform.localPosition + UnscaleEventDelta(eventData.delta);
         }
     
-    
+        */
         Vector3 UnscaleEventDelta(Vector3 vec)
         {
             Vector2 referenceResolution = Owner.DragCanvasScaler.referenceResolution;
@@ -146,7 +188,7 @@ namespace ProjectDInternal
             if(EquipmentItem != null)
                 return;
         
-            Owner.HandledDroppedEntry(eventData.position);
+           // Owner.HandledDroppedEntry(eventData.position);
         
             RectTransform t = transform as RectTransform;
         

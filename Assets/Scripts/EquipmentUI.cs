@@ -54,7 +54,7 @@ namespace ProjectDInternal
             var weapon = equipment.Weapon;
 
             //HeadSlot.SetupEquipment(head);
-            TorsoSlot.SetupEquipment(torso);
+            //TorsoSlot.SetupEquipment(torso);
             //LegsSlot.SetupEquipment(legs);
             //FeetSlot.SetupEquipment(feet);
             //AccessorySlot.SetupEquipment(accessory);

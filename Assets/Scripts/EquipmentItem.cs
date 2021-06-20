@@ -103,11 +103,11 @@ namespace ProjectD
             string unit = Modifier.ModifierMode == StatSystem.StatModifier.Mode.Percentage ? "%" : "";
 
             if (Modifier.Stats.itemQuality == 0)
-                desc += $"Quality : Green\n";
+                desc += $"Quality : White\n";
             if (Modifier.Stats.itemQuality == 1)
-                desc += $"Quality : Blue\n";
+                desc += $"Quality : Green\n";
             if (Modifier.Stats.itemQuality == 2)
-                desc += $"Quality : Golden\n";
+                desc += $"Quality : Yellow\n";
             if (Modifier.Stats.strength != 0)
                 desc += $"Str : {Modifier.Stats.strength:+0;-#}{unit}\n"; //format specifier to force the + sign to appear
             if (Modifier.Stats.agility != 0)

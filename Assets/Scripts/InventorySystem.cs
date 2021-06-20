@@ -18,6 +18,7 @@ namespace ProjectD
         {
             public int Count;
             public Item Item;
+            public Color Color;
         }
 
         private List<Item> _itemDELs= new List<Item>();
@@ -40,7 +41,7 @@ namespace ProjectD
         /// <param name="item">The item to add to the inventory</param>
         public void AddItem(Item item)
         {
-            
+           
             bool found = false;
             int firstEmpty = -1;
             for (int i = 0; i < 30; ++i)
@@ -66,10 +67,15 @@ namespace ProjectD
                 InventoryEntry entry = new InventoryEntry();
                 entry.Item = item;
                 entry.Count = 1;
-                
-                
+
+             
+
+
                 Entries[firstEmpty] = entry;
-                
+
+
+
+
             }
         }
 
