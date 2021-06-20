@@ -108,52 +108,47 @@ namespace ProjectD
             return false;
         }
 
-        //quality是物品稀有度  目前沒有分  都是0
+        //裝備合成, 目前只實裝武器
         public void EquipmentCombine(EquipmentItem[] itemCombined)
-        {
-            //刪除三個同品質  
+        { 
             int itemCount = 0;
-            int qualityCalculate = 0;
-            //List<InventoryEntry> itemDEL = new List<InventoryEntry>();
-            int[] Array = new int[3];
-          
-        
-           
+            //int qualityCalculate = 0; 
+            //int[] Array = new int[3];
 
-           
-
-
-            for(int j = 0; j < 30; j++)
+            //qualityIndex: 綠裝0, 藍裝1, 金裝2
+            for (int qualityIndex = 1; qualityIndex>=0; qualityIndex--)
             {
-                
-                if (itemCount<3)
+                int[] Array = new int[3];
+
+                for (int j = 0; j < 30; j++)
                 {
-                   
-                    //Debug.Log("檢查點3" + Entries[j].Item.name+"  "+Entries[j].Item.itemQuality );
-                  
-                    if (Entries[j] != null /*&& Entries[j].Item.itemQuality == quality*/)
+
+                    if (itemCount < 3)
                     {
 
-                        Debug.Log("檢查點4");
-                        //itemDEL.Add(Entries[j]);
-                        Array[itemCount] = j;
-                        //AddToList(itemDEL.Item);
-                        //UseItem(itemDEL);
-                        
-                        if ((Entries[j].Item as Weapon).Modifier.Stats.itemQuality == 0)
-                            qualityCalculate += Random.Range(0, 15);
-                        else if ((Entries[j].Item as Weapon).Modifier.Stats.itemQuality == 1)
-                            qualityCalculate += Random.Range(0, 30);
-                        else if ((Entries[j].Item as Weapon).Modifier.Stats.itemQuality == 2)
-                            qualityCalculate += Random.Range(31, 50);
+                        //Debug.Log("檢查點3" + Entries[j].Item.name+"  "+Entries[j].Item.itemQuality );
 
-                        //Entries[j] = null;
-                        itemCount++;
-                        
-                     
+                        if (Entries[j] != null && (Entries[j].Item as Weapon).Modifier.Stats.itemQuality == qualityIndex)
+                        {
 
+                            Debug.Log("檢查點4");
+                            //itemDEL.Add(Entries[j]);
+                            Array[itemCount] = j;
+                            //AddToList(itemDEL.Item);
+                            //UseItem(itemDEL);
+
+                            /*if ((Entries[j].Item as Weapon).Modifier.Stats.itemQuality == 0)
+                                qualityCalculate += Random.Range(0, 15);
+                            else if ((Entries[j].Item as Weapon).Modifier.Stats.itemQuality == 1)
+                                qualityCalculate += Random.Range(0, 30);
+                            else if ((Entries[j].Item as Weapon).Modifier.Stats.itemQuality == 2)
+                                qualityCalculate += Random.Range(31, 50);*/
+
+                            //Entries[j] = null;
+                            itemCount++;
+                        }
                     }
-                    if (itemCount == 3 )
+                    if (itemCount == 3)
                     {
                         //Debug.Log("物品數量不足");
                         //break;
@@ -169,22 +164,32 @@ namespace ProjectD
                         itemCombine = itemCombined[Random.Range(0, itemCombined.Length)].Clone() as Weapon;
                         itemCombine.ItemName = itemCombine.name;
                         itemCombine.Modifier.Stats.randomvalue = true;
+                        itemCombine.Modifier.Stats.itemQuality = qualityIndex;
 
-                        if (qualityCalculate > 30 && qualityCalculate <= 80)
+                        float qualityRandom = Random.Range(0, 100);
+
+                        /*if (qualityCalculate > 30 && qualityCalculate <= 80)
                             itemCombine.Modifier.Stats.itemQuality = 1;
                         else if (qualityCalculate > 80)
+                            itemCombine.Modifier.Stats.itemQuality = 2;*/
+
+                        //Debug.Log("合成計算:" + qualityCalculate);
+
+                        //綠裝合成升藍裝機率
+                        if (qualityRandom > 70 && qualityIndex == 0)
+                            itemCombine.Modifier.Stats.itemQuality = 1;
+                        //藍裝合成升金裝機率
+                        if (qualityRandom > 90 && qualityIndex == 1)
                             itemCombine.Modifier.Stats.itemQuality = 2;
 
-                        Debug.Log("合成計算:" + qualityCalculate);
                         Debug.Log("合成武器:" + itemCombine.name + ", 稀有度: " + itemCombine.Modifier.Stats.itemQuality);
                         AddItem(itemCombine);
-                        qualityCalculate = 0;
+                        //qualityCalculate = 0;
                         itemCount = 0;
                     }
-
-                }             
+                }
+                itemCount = 0;
             }
-
             //增加一個高1品質五品  (目前沒有分  增加同一品質物品
             //從刪掉的表格中隨機找一個物品生成
 

@@ -89,6 +89,10 @@ namespace ProjectDInternal
             {
                 WaveNumText.text = "START!";
             }
+            //關卡Loop時(角色無敵時), Wave顯示LOOP!
+            else if (data.Stats.unbeatable == true)
+                WaveNumText.text = "LOOP!";
+
             else
                 WaveNumText.text = "Wave " + currentWave.ToString();
 
@@ -197,6 +201,20 @@ namespace ProjectDInternal
             data.Stats.Reset();
             data.Stats.UpdateFinalStats();
         }
+        //使用治癒藥水(若冷卻為0)
+        public void Potion()
+        {
+            if (WaveSpawner.potionCount <= 0)
+            {
+                CharacterData data = PlayerCharacter.Data;
+                data.Stats.ChangeHealth(Mathf.FloorToInt(1.0f * data.Stats.stats.health));
+                VFXManager.PlayVFX3(VFXType.Healing, data.transform.position);
+                WaveSpawner.potionCount = 10;
+                //WaveSpawner.PotionText.text = WaveSpawner.potionCount.ToString();
+            }
+            
+            
+        }
 
         void UpdateEnemyUI(CharacterData enemy)
         {
@@ -239,6 +257,6 @@ namespace ProjectDInternal
             }
       
        
-    }
+        }
     }
 }

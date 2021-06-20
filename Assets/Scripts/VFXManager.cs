@@ -109,5 +109,13 @@ namespace ProjectD
 
             return i;
         }
+
+        public static VFXInstance PlayVFX3(VFXType type, Vector3 position)
+        {
+            var i = GetVFX(type);
+            i.Effect.gameObject.transform.position = position;
+            //i.Effect.gameObject.transform.rotation = rotation;
+            return i;
+        }
     }
 }

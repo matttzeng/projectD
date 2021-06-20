@@ -148,9 +148,9 @@ namespace ProjectD
             //QualityCalculate(Modifier);
             //Debug.Log(itemQuality);
             //Modifier.Stats.itemQuality = itemQuality;
-            Debug.Log(Modifier.Stats.itemQuality);
+            //Debug.Log(Modifier.Stats.itemQuality);
             user.Stats.AddModifier(Modifier);
-            Debug.Log(Modifier.Stats.itemQuality);
+            //Debug.Log(Modifier.Stats.itemQuality);
         }
     
         public void UnequippedBy(CharacterData user)

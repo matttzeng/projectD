@@ -1,5 +1,6 @@
 using ProjectD;
 using UnityEngine;
+using UnityEngine.UI;
 using ProjectDInternal;
 
 public class WaveSpawner : MonoBehaviour
@@ -16,6 +17,9 @@ public class WaveSpawner : MonoBehaviour
     public int addDefense;
     public int addSpeed;
     public bool loopGame = false;
+    public CharacterData PlayerData;
+    public Text PotionText;
+    public static int potionCount = 0;
     //public int addDetection;
 
     public static int waveNumber = 0;
@@ -41,7 +45,12 @@ public class WaveSpawner : MonoBehaviour
     {
         WaveSelection(loopGame);
 
-        for (int i =0;i<waveNumber; i++)
+        int i = waveNumber;
+        if(waveNumber >= 5)
+            i = 5 + Mathf.FloorToInt(waveNumber / 5);
+        Debug.Log("生怪數: " + i);
+
+        for (int j =0;j<i; j++)
         {
             SpwanEnemy();
         }
@@ -56,18 +65,28 @@ public class WaveSpawner : MonoBehaviour
             SpwanBigBoss();
         }
 
-        //每波增加怪物素質強度
-        GameObject[] enemies2 = GameObject.FindGameObjectsWithTag("enemy");
-        foreach(var enemy in enemies2)
+        if (loopGame == false)
         {
-            enemy.GetComponent<CharacterData>().Stats.baseStats.health += (waveNumber - 1) * addHealth;
-            enemy.GetComponent<CharacterData>().Stats.baseStats.attack += (waveNumber - 1) * addAttack;
-            enemy.GetComponent<CharacterData>().Stats.baseStats.defense += (waveNumber - 1) * addDefense;
-            //enemy.AddComponent<SimpleEnemyController>().detectionRadius += (waveNumber - 1) * addDetection;
-            //enemy.AddComponent<SimpleEnemyController>().Speed += (waveNumber - 1) * addSpeed;
-            
+            //每波增加怪物素質強度
+            GameObject[] enemies2 = GameObject.FindGameObjectsWithTag("enemy");
+            foreach (var enemy in enemies2)
+            {
+                //每10關強度增加10%
+                if (waveNumber % 10 == 0)
+                {
+                    enemy.GetComponent<CharacterData>().Stats.baseStats.health = Mathf.FloorToInt(enemy.GetComponent<CharacterData>().Stats.baseStats.health * 1.1f);
+                    enemy.GetComponent<CharacterData>().Stats.baseStats.attack = Mathf.FloorToInt(enemy.GetComponent<CharacterData>().Stats.baseStats.attack * 1.1f);
+                    enemy.GetComponent<CharacterData>().Stats.baseStats.defense = Mathf.FloorToInt(enemy.GetComponent<CharacterData>().Stats.baseStats.defense * 1.1f);
+                }
+
+                enemy.GetComponent<CharacterData>().Stats.baseStats.health += (waveNumber - 1) * addHealth;
+                enemy.GetComponent<CharacterData>().Stats.baseStats.attack += (waveNumber - 1) * addAttack;
+                enemy.GetComponent<CharacterData>().Stats.baseStats.defense += (waveNumber - 1) * addDefense;
+                //enemy.AddComponent<SimpleEnemyController>().detectionRadius += (waveNumber - 1) * addDetection;
+                //enemy.AddComponent<SimpleEnemyController>().Speed += (waveNumber - 1) * addSpeed;
+
+            }
         }
-        
 
     }
     void SpwanEnemy()
@@ -112,17 +131,45 @@ public class WaveSpawner : MonoBehaviour
         }
       
         waveNumber = 0;
-        SpawnWave();
+        potionCount = 0;
+        //SpawnWave();
         Debug.Log("重新生怪, waveNumber =" + waveNumber);
     }
-
+    //每關結束後判定Loop與否, Loop時啟動角色無敵
     public void WaveSelection(bool loopGame)
     {
-        if (loopGame == false)
+        PlayerData.Stats.unbeatable = false;
+        //王關不能Loop, 進下一關開始Loop
+        if (waveNumber % 5 == 0 && loopGame == true)
+        {
             waveNumber++;
+            if (potionCount > 0)
+                potionCount--;
+            PotionCount();
+            PlayerData.Stats.unbeatable = true;
+        }
+            
+        else if (loopGame == false)
+        {
+            waveNumber++;
+            if (potionCount > 0)
+                potionCount--;
+            PotionCount();
+        }            
 
         else if (loopGame == true)
-            return;
+        {
+            PlayerData.Stats.unbeatable = true;
+            //return;
+        }
+    }
+    //治癒藥水冷卻回合
+    public void PotionCount()
+    {        
+        if (potionCount <= 0)
+            PotionText.text = "";
+        else
+            PotionText.text = potionCount.ToString();
     }
 
     public void LoopGame()

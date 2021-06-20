@@ -477,10 +477,10 @@ namespace ProjectDInternal
             }
         }
 
-        public void Unbeatable()
+        /*public void Unbeatable()
         {
             m_CharacterData.Stats.unbeatable = !m_CharacterData.Stats.unbeatable;
-        }
+        }*/
 
         void GoToRespawn()
         {
