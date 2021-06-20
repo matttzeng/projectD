@@ -5085,7 +5085,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -89.5145, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -19580,7 +19580,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a38119d4c983f2340b80bbf1d2d05770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highscoreEntryTemplate: {fileID: 0}
+  highscoreEntryTemplate: {fileID: 9175891011987302972, guid: 87e81b67d1b5e6c40910c18b74ff0586,
+    type: 3}
   highscoreEntryContainer: {fileID: 986467427}
 --- !u!1 &1740472351
 GameObject:
