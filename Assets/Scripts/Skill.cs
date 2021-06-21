@@ -279,13 +279,14 @@ namespace ProjectD
 
             int minimumDPS = Mathf.RoundToInt(Stats.MinimumDamage / Stats.Speed);
             int maximumDPS = Mathf.RoundToInt(Stats.MaximumDamage / Stats.Speed);
-
+            
             desc += "\n";
             desc += $"Damage: {Stats.MinimumDamage} - {Stats.MaximumDamage}\n";
             desc += $"DPS: {minimumDPS} - {maximumDPS}\n";
+            
             desc += $"Attack Speed : {Stats.Speed}s\n";
             desc += $"Range : {Stats.MaxRange}m\n";
-
+            
             return desc;
         }
 

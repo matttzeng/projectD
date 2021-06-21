@@ -17,7 +17,6 @@ MonoBehaviour:
   Description: weapon02
   WorldObjectPrefab: {fileID: 359469582963428527, guid: 669409aadc3be9241996e74c712fa99b,
     type: 3}
-  itemQuality: 0
   Slot: 666
   Modifier:
     ModifierMode: 1
@@ -31,7 +30,7 @@ MonoBehaviour:
       attack: 10
       skill: 0
       moveSpeed: 5
-      attackSpeed: 1000
+      attackSpeed: 50
       attackRange: 7
       crit: 0
       skillSpeed: 0
@@ -46,7 +45,8 @@ MonoBehaviour:
   MinimumDefense: 0
   EquippedEffects: []
   Identify: 0
-  HitSounds: []
+  HitSounds:
+  - {fileID: 8300000, guid: da078f70b13000741a2976168db4c95d, type: 3}
   SwingSounds: []
   Stats:
     Speed: 1

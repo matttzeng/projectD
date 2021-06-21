@@ -87,19 +87,22 @@ namespace ProjectDInternal
             {
                // Debug.Log("顯示道具圖片");
                 IconeImage.sprite = entry.Item.ItemSprite;
-                
-              
+
+                 if ((entry.Item as Weapon).Modifier.Stats.itemQuality == 0)
+                   {
+                   OutlineColor.color = Color.white;
+                   }
                     if ((entry.Item as Weapon).Modifier.Stats.itemQuality == 1)
-                    {
-                        OutlineColor.color = Color.green;
-                    }
-                    if ((entry.Item as Weapon).Modifier.Stats.itemQuality == 2)
-                    {
-                        OutlineColor.color = Color.blue;
-                    }
-                    if ((entry.Item as Weapon).Modifier.Stats.itemQuality == 3)
-                    {
-                        OutlineColor.color = Color.yellow;
+                   {
+                       OutlineColor.color = Color.green;
+                   }
+                   if ((entry.Item as Weapon).Modifier.Stats.itemQuality == 2)
+                   {
+                       OutlineColor.color = Color.blue;
+                   }
+                   if ((entry.Item as Weapon).Modifier.Stats.itemQuality == 3)
+                   {
+                       OutlineColor.color = Color.yellow;
                     }
 
                 
@@ -130,8 +133,12 @@ namespace ProjectDInternal
             if (enabled)
                 IconeImage.sprite = itm.ItemSprite;
 
-            
 
+
+            if ((EquipmentItem as Weapon).Modifier.Stats.itemQuality == 0)
+            {
+                OutlineColor.color = Color.white;
+            }
             if ((EquipmentItem as Weapon).Modifier.Stats.itemQuality == 1)
             {
                 OutlineColor.color = Color.green;

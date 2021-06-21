@@ -204,7 +204,7 @@ namespace ProjectD
                 desc = $"\n\nUnidentified!!\n";
                 desc += $"(Click for identification)\n";
             }
-
+            /*
             int minimumDPS = Mathf.RoundToInt(Stats.MinimumDamage / Stats.Speed);
             int maximumDPS = Mathf.RoundToInt(Stats.MaximumDamage / Stats.Speed);
 
@@ -214,7 +214,7 @@ namespace ProjectD
             desc += $"Attack Speed : {Stats.Speed}s\n";
             desc += $"Range : {Stats.MaxRange}m\n";
            
-
+            */
             return desc;
         }
 

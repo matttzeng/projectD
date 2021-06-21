@@ -5,13 +5,20 @@ using PlayFab;
 using PlayFab.ClientModels;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class PlayfabManager : MonoBehaviour
 {
+    public GameObject nameWindow;
+    public GameObject leaderboardWindow;
     public GameObject highscoreEntryTemplate;
     public Transform highscoreEntryContainer;
+    public GameObject nameInput;
+    //public GameObject nameError;
     string MyPlayfabID;
 
+
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -24,16 +31,44 @@ public class PlayfabManager : MonoBehaviour
         {
 
             CustomId = SystemInfo.deviceUniqueIdentifier,
-            CreateAccount = true
+            CreateAccount = true,
+            InfoRequestParameters = new GetPlayerCombinedInfoRequestParams
+            {
+                GetPlayerProfile = true
+            }
+           
         };
         PlayFabClientAPI.LoginWithCustomID(request,OnSuccess, OnError);
     }
 
+
+
     void OnSuccess(LoginResult result)
     {
         Debug.Log("Suceessful Login/Account create!");
-    }
 
+        string name = null;
+        if(result.InfoResultPayload.PlayerProfile != null)
+        name = result.InfoResultPayload.PlayerProfile.DisplayName;
+
+        if (name == null)
+            nameWindow.SetActive(true);
+        else
+            leaderboardWindow.SetActive(true);
+    }
+    public void SubmitNameButton()
+    {
+        var request = new UpdateUserTitleDisplayNameRequest
+        {
+            DisplayName = nameInput.GetComponent<TMP_InputField>().text,
+        };
+        PlayFabClientAPI.UpdateUserTitleDisplayName(request, OnDisplayNameUpdate, OnError);
+    }
+    void OnDisplayNameUpdate(UpdateUserTitleDisplayNameResult result)
+    {
+        Debug.Log("Updated display name!");
+        leaderboardWindow.SetActive(true);
+    }
     void OnError(PlayFabError error)
     {
         //Debug.Log("Error while logging in/Creating account");
@@ -43,6 +78,7 @@ public class PlayfabManager : MonoBehaviour
 
     public void SendLeaderboard(int score)
     {
+
         var request = new UpdatePlayerStatisticsRequest
         {
             Statistics = new List<StatisticUpdate>
@@ -50,8 +86,10 @@ public class PlayfabManager : MonoBehaviour
                 new StatisticUpdate
                 {
                     StatisticName = "PlatformScore",
+                  
                     Value = score
                 }
+                
             }
         };
         PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderboardUpdate, OnError);
@@ -75,23 +113,25 @@ public class PlayfabManager : MonoBehaviour
 
     void OnLeaderboardGet(GetLeaderboardResult result)
     {
+
         foreach(var item in result.Leaderboard)
         {
+           
 
-            Debug.Log(item.StatValue + "  " + item.PlayFabId + " ");
+            
 
             GameObject newRow = Instantiate(highscoreEntryTemplate, highscoreEntryContainer);
 
 
            
-            newRow.transform.Find("pos").GetComponent<TMP_Text>().text = item.Position.ToString(); 
+            newRow.transform.Find("pos").GetComponent<TMP_Text>().text = (item.Position+1).ToString(); 
 
 
           
             newRow.transform.Find("score").GetComponent<TMP_Text>().text = item.StatValue.ToString();
 
             
-            newRow.transform.Find("name").GetComponent<TMP_Text>().text = item.PlayFabId.ToString();
+            newRow.transform.Find("name").GetComponent<TMP_Text>().text =item.DisplayName;
 
             GetAccountInfoRequest request = new GetAccountInfoRequest();
             PlayFabClientAPI.GetAccountInfo(request, Successs, OnError);
@@ -106,7 +146,7 @@ public class PlayfabManager : MonoBehaviour
                 newRow.transform.Find("background").gameObject.SetActive(false);
             }
 
-
+            Debug.Log(item.StatValue + "  " + item.PlayFabId + " "+item.DisplayName);
 
         }
 
@@ -122,7 +162,8 @@ public class PlayfabManager : MonoBehaviour
     {
 
         MyPlayfabID = result.AccountInfo.PlayFabId;
-        Debug.Log("ID : " + MyPlayfabID);
+        Debug.Log("ID : " + MyPlayfabID) ;
+
     }
 
     

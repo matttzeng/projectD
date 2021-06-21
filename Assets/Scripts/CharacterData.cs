@@ -214,7 +214,7 @@ namespace ProjectD
         {
             //Agility reduce by 0.5% the cooldown to attack (e.g. if agility = 50, 25% faster to attack)
             // m_AttackCoolDown = Equipment.Weapon.Stats.Speed - (Stats.stats.agility * 0.5f * 0.001f * Equipment.Weapon.Stats.Speed);
-            m_AttackCoolDown = Equipment.Weapon.Stats.Speed / (Stats.stats.attackSpeed *0.01f +1f);
+            m_AttackCoolDown = Equipment.Weapon.Stats.Speed / (Stats.stats.attackSpeed *0.2f +1f);
 
            
 

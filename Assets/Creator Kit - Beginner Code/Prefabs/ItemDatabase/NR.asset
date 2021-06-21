@@ -38,6 +38,7 @@ MonoBehaviour:
     ModifierMode: 1
     Stats:
       randomvalue: 0
+      itemQuality: 0
       health: 0
       strength: 0
       defense: 0
@@ -61,7 +62,8 @@ MonoBehaviour:
   EquippedEffects:
   - {fileID: 8612021249231506279}
   Identify: 1
-  HitSounds: []
+  HitSounds:
+  - {fileID: 8300000, guid: b60607b257249b541ba98b924d168817, type: 3}
   SwingSounds: []
   Stats:
     Speed: 1
@@ -86,6 +88,7 @@ MonoBehaviour:
     ModifierMode: 1
     Stats:
       randomvalue: 0
+      itemQuality: 0
       health: 0
       strength: 100
       defense: 0

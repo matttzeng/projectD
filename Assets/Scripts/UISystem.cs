@@ -4,6 +4,7 @@ using ProjectD;
 using UnityEngine;
 using UnityEngine.UI;
 using Michsky.UI.ModernUIPack;
+using TMPro;
 
 namespace ProjectDInternal 
 {
@@ -15,7 +16,7 @@ namespace ProjectDInternal
         public static UISystem Instance { get; private set; }
         public Text WaveNumText;
         private int currentWave;
-        public Text topLevelText;
+        private Text topLevelText;
 
         [Header("Player")]
         public CharacterControl PlayerCharacter;
@@ -25,7 +26,7 @@ namespace ProjectDInternal
         public Text currentLevel;
         public GameObject expPB;
         public EffectIconUI[] TimedModifierIcones;
-        public Text StatsText;
+        public TMP_Text StatsText;
         public Text StatsPointText;
         public Text SkillPointText;
 
@@ -101,7 +102,7 @@ namespace ProjectDInternal
             MaxHealth.text = PlayerCharacter.Data.Stats.stats.health.ToString();
             CurrentHealth.text = PlayerCharacter.Data.Stats.CurrentHealth.ToString() + " / " + PlayerCharacter.Data.Stats.stats.health.ToString();
             currentLevel.text = "Lv:"+PlayerCharacter.level.currentLevel.ToString();
-            topLevelText.text = "TOP WAVE : " +currentWave.ToString() + "\nLV : "+PlayerCharacter.level.currentLevel.ToString();
+           // topLevelText.text = "TOP WAVE : " +currentWave.ToString() + "\nLV : "+PlayerCharacter.level.currentLevel.ToString();
           
             if (PlayerCharacter.CurrentTarget != null)
             {
@@ -148,9 +149,9 @@ namespace ProjectDInternal
         {
             CharacterData data = PlayerCharacter.Data;
             var stats = data.Stats.stats;
-            SkillPointText.text = $"天賦點數 : {stats.skillPoint}\nSkillAtk : {stats.skill} \nSkillSpeed : {stats.skillSpeed} \nSKillRange: {stats.skillRange} \nMoveSpeed :{stats.moveSpeed} ";
-            StatsPointText.text = $"等級點數 : {stats.statsPoint}\nAtk : {stats.attack} \nDef : {stats.defense} \nHP : {stats.health}  ";
-            //StatsText.text = $"Atk : {stats.attack} \nDef : {stats.defense} \nAtkSpeed : {stats.attackSpeed} \nMoveSpeed :{stats.moveSpeed} ";
+            SkillPointText.text = $"Skill point : {stats.skillPoint}\nSkillAtk : {stats.skill} \nSkillSpeed : {stats.skillSpeed} \nSKillRange: {stats.skillRange} \nMoveSpeed :{stats.moveSpeed} ";
+            StatsPointText.text = $"LV point : {stats.statsPoint}\n   Atk : {stats.attack} \n   Def : {stats.defense} \n   HP : {stats.health}  ";
+            StatsText.text = $"HP :{stats.health} \nAtk : {stats.attack} \nDef : {stats.defense} \nAtkRange : {stats.attackRange} \nAtkSpeed : {stats.attackSpeed} \nMoveSpeed :{stats.moveSpeed} ";
         }
 
         //素質加點

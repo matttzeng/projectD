@@ -67,13 +67,14 @@ namespace ProjectD
             return true;
         }
 
+        //武器的desc
         public override string GetDescription1()
         {
-            string desc = base.GetDescription1() + "\n" + "\n";
+            string desc = base.GetDescription1() + "\n";
             
             //foreach (var effect in EquippedEffects)
                 //desc += "\n" + effect.GetDescription1();
-        
+            
             bool requireStrength = MinimumStrength > 0;
             bool requireDefense = MinimumDefense > 0;
             bool requireAgility = MinimumAgility > 0;
@@ -107,11 +108,16 @@ namespace ProjectD
             if (Modifier.Stats.itemQuality == 1)
                 desc += $"Quality : Green\n";
             if (Modifier.Stats.itemQuality == 2)
+                desc += $"Quality : Blue\n";
+            if (Modifier.Stats.itemQuality == 3)
                 desc += $"Quality : Yellow\n";
+            /*
+            
             if (Modifier.Stats.strength != 0)
                 desc += $"Str : {Modifier.Stats.strength:+0;-#}{unit}\n"; //format specifier to force the + sign to appear
             if (Modifier.Stats.agility != 0)
                 desc += $"Agi : {Modifier.Stats.agility:+0;-#}{unit}\n";
+            */
             if (Modifier.Stats.defense != 0)
                 desc += $"Def : {Modifier.Stats.defense:+0;-#}{unit}\n";
             if (Modifier.Stats.health != 0)

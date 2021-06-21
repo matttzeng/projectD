@@ -116,11 +116,13 @@ namespace ProjectDInternal
 
         public void ObjectHoverExited(ItemEntryUI exited)
         {
+            /*
             if (m_HoveredItem == exited)
             {
                 m_HoveredItem = null;
                 Tooltip.gameObject.SetActive(false);
             }
+            */
         }
 
         /*

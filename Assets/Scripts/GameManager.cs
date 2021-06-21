@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour
     public GameObject PlayUI;
     public Transform HighscoreTable;
 
+    private void Awake()
+    {
+        Time.timeScale = 0;
+    }
     public void EndGame()
     {
         if(gameEnded== false)

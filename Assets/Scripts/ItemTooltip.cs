@@ -8,7 +8,7 @@ namespace ProjectDInternal
     {
         //創造TextMeshPro變數
         public TMP_Text Name;
-        public Text DescriptionText;
+        public TMP_Text DescriptionText;
 
         RectTransform m_RectTransform;
         CanvasScaler m_CanvasScaler;
