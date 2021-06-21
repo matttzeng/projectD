@@ -136,6 +136,7 @@ MonoBehaviour:
   Stats:
     baseStats:
       randomvalue: 0
+      itemQuality: 0
       health: 20
       strength: 2
       defense: 1
@@ -143,7 +144,7 @@ MonoBehaviour:
       attack: 1
       skill: 0
       moveSpeed: 0
-      attackSpeed: 0
+      attackSpeed: 50
       attackRange: 0
       crit: 0
       skillSpeed: 0
@@ -155,6 +156,7 @@ MonoBehaviour:
       elementalBoosts: 00000000000000000000000000000000
     initStats:
       randomvalue: 0
+      itemQuality: 0
       health: 0
       strength: 0
       defense: 0

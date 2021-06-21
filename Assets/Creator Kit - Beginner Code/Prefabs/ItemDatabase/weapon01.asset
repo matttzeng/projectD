@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2675758771428510004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ede1304c2e3962944934976e64fc8e9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Description: 
+  PercentageHealthStolen: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52,4 +66,5 @@ MonoBehaviour:
     MinimumDamage: 5
     MaximumDamage: 10
     MaxRange: 3
-  AttackEffects: []
+  AttackEffects:
+  - {fileID: -2675758771428510004}

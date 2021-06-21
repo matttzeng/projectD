@@ -20,6 +20,8 @@ public class WaveSpawner : MonoBehaviour
     public CharacterData PlayerData;
     public Text PotionText;
     public static int potionCount = 0;
+
+    
     //public int addDetection;
 
     public static int waveNumber = 0;
@@ -43,6 +45,12 @@ public class WaveSpawner : MonoBehaviour
     }
     void SpawnWave()
     {
+
+        //飄移修正  每wave重制位置
+        PlayerData.GetComponentInChildren<Animator>().transform.position = PlayerData.GetComponent<Transform>().transform.position;
+      
+
+
         WaveSelection(loopGame);
 
         int i = waveNumber;

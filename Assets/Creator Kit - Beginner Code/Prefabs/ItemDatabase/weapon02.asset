@@ -30,8 +30,8 @@ MonoBehaviour:
       attack: 10
       skill: 0
       moveSpeed: 5
-      attackSpeed: 50
-      attackRange: 7
+      attackSpeed: 100
+      attackRange: 10
       crit: 0
       skillSpeed: 0
       skillRange: 0
