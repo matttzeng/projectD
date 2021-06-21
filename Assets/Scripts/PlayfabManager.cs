@@ -17,7 +17,7 @@ public class PlayfabManager : MonoBehaviour
     //public GameObject nameError;
     string MyPlayfabID;
 
-
+    GameManager gameManager;
    
     // Start is called before the first frame update
     void Start()
@@ -51,10 +51,14 @@ public class PlayfabManager : MonoBehaviour
         if(result.InfoResultPayload.PlayerProfile != null)
         name = result.InfoResultPayload.PlayerProfile.DisplayName;
 
-        if (name == null)
-            nameWindow.SetActive(true);
-        else
-            leaderboardWindow.SetActive(true);
+        if (name != null)
+        {
+            nameWindow.SetActive(false);
+            Debug.Log("already have Name");
+            gameManager.Restart();
+        }
+       
+      
     }
     public void SubmitNameButton()
     {
