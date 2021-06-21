@@ -20603,6 +20603,8 @@ MonoBehaviour:
     type: 3}
   highscoreEntryContainer: {fileID: 986467427}
   nameInput: {fileID: 603087218}
+  gameManager: {fileID: 1735039234}
+  menu: {fileID: 5115311139597083534}
 --- !u!1 &1740472351
 GameObject:
   m_ObjectHideFlags: 0
@@ -28347,7 +28349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.09411765, g: 0.09411765, b: 0.09411765, a: 0.9529412}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

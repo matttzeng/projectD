@@ -17,7 +17,8 @@ public class PlayfabManager : MonoBehaviour
     //public GameObject nameError;
     string MyPlayfabID;
 
-    GameManager gameManager;
+    public GameManager gameManager;
+    public GameObject menu;
    
     // Start is called before the first frame update
     void Start()
@@ -55,7 +56,10 @@ public class PlayfabManager : MonoBehaviour
         {
             nameWindow.SetActive(false);
             Debug.Log("already have Name");
-            gameManager.Restart();
+            menu.GetComponent<Menu>().Resume();
+            Debug.Log("卡住了嗎1");
+            
+          
         }
        
       
