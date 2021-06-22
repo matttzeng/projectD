@@ -10,27 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 721bded4ab38d3c45ac4302c289230a8, type: 3}
-  m_Name: BossWeapon1
+  m_Name: Bossweapon01
   m_EditorClassIdentifier: 
-  ItemName: 
-  ItemSprite: {fileID: 0}
-  Description: 
-  WorldObjectPrefab: {fileID: 1880412207359663785, guid: 6c7167e2f79539f40b46ad6f78a8ec6f,
+  ItemName: Bossweapon01
+  ItemSprite: {fileID: 21300000, guid: cd541d29126edfc49a8a63ea22c689ae, type: 3}
+  Description: Bossweapon01
+  WorldObjectPrefab: {fileID: 1006753614390398824, guid: dded05a5060844c4b9efe1e7cdac50bb,
     type: 3}
   Slot: 666
   Modifier:
     ModifierMode: 1
     Stats:
-      randomvalue: 0
+      randomvalue: 1
+      itemQuality: 0
       health: 0
       strength: 0
-      defense: 0
+      defense: 30
       agility: 0
-      attack: 0
+      attack: 100
       skill: 0
-      moveSpeed: 0
-      attackSpeed: 0
-      attackRange: 0
+      moveSpeed: 5
+      attackSpeed: 100
+      attackRange: 5
       crit: 0
       skillSpeed: 0
       skillRange: 0
@@ -44,11 +45,12 @@ MonoBehaviour:
   MinimumDefense: 0
   EquippedEffects: []
   Identify: 1
-  HitSounds: []
+  HitSounds:
+  - {fileID: 8300000, guid: 162921cb7cf21194f951f9d9acac6068, type: 3}
   SwingSounds: []
   Stats:
-    Speed: 3
-    MinimumDamage: 5
-    MaximumDamage: 5
-    MaxRange: 8
+    Speed: 1
+    MinimumDamage: 30
+    MaximumDamage: 45
+    MaxRange: 3
   AttackEffects: []

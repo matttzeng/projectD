@@ -104,7 +104,8 @@ namespace ProjectD
                 if (modifier.Stats.randomvalue == true)
                 {
                     float floor = modifier.Stats.itemQuality / 3f;
-                    float ceiling = (modifier.Stats.itemQuality + 1) / 3f;
+                    //float ceiling = (modifier.Stats.itemQuality + 1) / 3f;
+                    float ceiling = ((modifier.Stats.itemQuality + +1) * 2 - 1) / 3f;
 
                     modifier.Stats.health = (int)Math.Ceiling(UnityEngine.Random.Range(modifier.Stats.health * floor, modifier.Stats.health* ceiling));
                     modifier.Stats.strength = (int)Math.Ceiling(UnityEngine.Random.Range(modifier.Stats.strength * floor, modifier.Stats.strength* ceiling));

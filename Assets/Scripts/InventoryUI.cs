@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Analytics;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 namespace ProjectDInternal
 {
@@ -27,7 +28,7 @@ namespace ProjectDInternal
 
         public EquipmentUI EquipementUI;
         public EquipmentItem[] ItemCombined;
-
+        public TMP_Text CombineNotification;
 
         public Canvas DragCanvas;
 
@@ -42,6 +43,7 @@ namespace ProjectDInternal
         ItemEntryUI[] m_ItemEntries;
         ItemEntryUI m_HoveredItem;
         CharacterData m_Data;
+        TMP_Text m_CombineNotification;
 
         public void Init()
         {
@@ -151,9 +153,13 @@ namespace ProjectDInternal
         public void EquipmentCombine()
         {
 
+            
             InventorySystem m = m_Data.Inventory;
+           
             m.EquipmentCombine(ItemCombined);
+           
             Load(m_Data);
+            CombineNotification.text = m.combineResult;
 
 
         }

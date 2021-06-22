@@ -10,7 +10,8 @@ namespace ProjectD
     /// </summary>
     public class InventorySystem
     {
-      
+        public string combineResult;
+
         /// <summary>
         /// One entry in the inventory. Hold the type of Item and how many there is in that slot.
         /// </summary>
@@ -118,12 +119,18 @@ namespace ProjectD
         public void EquipmentCombine(EquipmentItem[] itemCombined)
         { 
             int itemCount = 0;
+            int greenNum = 0;
+            int blueNum = 0;
+            int yellowNum = 0;
+            int orangeNum = 0;
+            bool isCombined = false;
             //int qualityCalculate = 0; 
             //int[] Array = new int[3];
 
-            //qualityIndex: 綠裝0, 藍裝1, 金裝2
-            for (int qualityIndex = 1; qualityIndex>=0; qualityIndex--)
+            //qualityIndex: 白裝0, 綠裝1, 藍裝2
+            for (int qualityIndex = 3; qualityIndex>=0; qualityIndex--)
             {
+               
                 int[] Array = new int[3];
 
                 for (int j = 0; j < 30; j++)
@@ -156,6 +163,7 @@ namespace ProjectD
                     }
                     if (itemCount == 3)
                     {
+                        isCombined = true;
                         //Debug.Log("物品數量不足");
                         //break;
                         /*UnityEngine.Object.Destroy(itemDEL.IndexOf(InventoryEntry));
@@ -181,46 +189,87 @@ namespace ProjectD
 
                         //Debug.Log("合成計算:" + qualityCalculate);
 
-                        //綠裝合成升藍裝機率
-                        if (qualityRandom > 70 && qualityIndex == 0)
+                        //白裝合成升綠裝機率
+                        if (qualityRandom > 50 && qualityIndex == 0)
+                        {
                             itemCombine.Modifier.Stats.itemQuality = 1;
-                        //藍裝合成升金裝機率
-                        if (qualityRandom > 90 && qualityIndex == 1)
-                            itemCombine.Modifier.Stats.itemQuality = 2;
+                            greenNum++;
+                        }
+                      
+                   
 
-                        Debug.Log("合成武器:" + itemCombine.name + ", 稀有度: " + itemCombine.Modifier.Stats.itemQuality);
-                        AddItem(itemCombine);
+                        //綠裝合成升藍裝機率
+                        if (qualityRandom > 70 && qualityIndex == 1)
+                        {
+                            itemCombine.Modifier.Stats.itemQuality = 2;
+                           
+                            blueNum++;
+                            greenNum -= blueNum;
+                        }
+
+                        if (qualityRandom > 70 && qualityIndex == 2)
+                        {
+                            itemCombine.Modifier.Stats.itemQuality = 3;
+                           
+                            yellowNum++;
+                            blueNum -= yellowNum;
+                        }
+
+
+                        if (qualityRandom > 80 && qualityIndex == 3)
+                        {
+                            itemCombine.Modifier.Stats.itemQuality = 4;
+
+                            orangeNum++;
+                            yellowNum -= orangeNum;
+                        }
+
+
+
+                        if (itemCombine.Modifier.Stats.itemQuality != 0)
+                        {
+                            AddItem(itemCombine);
+                        }
+
+                    
+                       
                         //qualityCalculate = 0;
                         itemCount = 0;
                     }
+                  
+
+                
                 }
                 itemCount = 0;
             }
-            //增加一個高1品質五品  (目前沒有分  增加同一品質物品
-            //從刪掉的表格中隨機找一個物品生成
 
-            /*if(itemCount == 3) 
+            if (greenNum + blueNum + yellowNum+orangeNum >= 1)
             {
-                Weapon itemCombine;
-                itemCombine = itemCombined[Random.Range(0, itemCombined.Length)].Clone() as Weapon;
-                itemCombine.ItemName = itemCombine.name;
-                itemCombine.Modifier.Stats.randomvalue = true;
+                combineResult = "Item combine result : \nCombine Success : ";
 
-                if (qualityCalculate > 3 && qualityCalculate <= 20)
-                    itemCombine.Modifier.Stats.itemQuality = 1;
-                else if (qualityCalculate > 20)
-                    itemCombine.Modifier.Stats.itemQuality = 2;
+                if (greenNum >= 1)
+                    combineResult += greenNum + "green item get ";
+                if (blueNum >= 1)
+                    combineResult += blueNum + "blue item get ";
+                if (yellowNum >= 1)
+                    combineResult += yellowNum + "yellow item get ";
+                if (orangeNum >= 1)
+                    combineResult += orangeNum + "gold item get ";
+                Debug.Log("禾埕1");
 
-                Debug.Log("合成計算:" + qualityCalculate);
-                Debug.Log("合成武器:" + itemCombine.name + ", 稀有度: "+itemCombine.Modifier.Stats.itemQuality);
-                AddItem(itemCombine);
-                itemCount = 0;
-            }*/
-           
+            }
+            else if(isCombined == true)
+            {
+                combineResult = "Combine failure";
+                Debug.Log("禾埕2");
+            }
+            else
+            {
+                combineResult = "Not enough items\nNeed 3 same quality items";
+                Debug.Log("禾埕3");
+            }
 
-
-
-
+            
 
 
 
