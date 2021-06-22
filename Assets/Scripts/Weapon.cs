@@ -173,7 +173,7 @@ namespace ProjectD
 
         public bool CanHit(CharacterData attacker, CharacterData target)
         {
-            if (Vector3.SqrMagnitude(attacker.transform.position - target.transform.position) < Stats.MaxRange * Stats.MaxRange)
+            if (Vector3.SqrMagnitude(attacker.transform.position - target.transform.position) < (Stats.MaxRange+attacker.Stats.stats.attackRange) * (Stats.MaxRange + attacker.Stats.stats.attackRange))
             {
                 return true;
             }

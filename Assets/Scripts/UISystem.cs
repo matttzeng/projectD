@@ -17,6 +17,7 @@ namespace ProjectDInternal
         public Text WaveNumText;
         private int currentWave;
         private Text topLevelText;
+        public GameObject potionButton;
 
         [Header("Player")]
         public CharacterControl PlayerCharacter;
@@ -205,12 +206,14 @@ namespace ProjectDInternal
         //使用治癒藥水(若冷卻為0)
         public void Potion()
         {
+
             if (WaveSpawner.potionCount <= 0)
             {
                 CharacterData data = PlayerCharacter.Data;
                 data.Stats.ChangeHealth(Mathf.FloorToInt(1.0f * data.Stats.stats.health));
                 VFXManager.PlayVFX3(VFXType.Healing, data.transform.position);
                 WaveSpawner.potionCount = 10;
+                potionButton.SetActive(false);
                 //WaveSpawner.PotionText.text = WaveSpawner.potionCount.ToString();
             }
             

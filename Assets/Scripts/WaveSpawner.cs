@@ -20,6 +20,7 @@ public class WaveSpawner : MonoBehaviour
     public CharacterData PlayerData;
     public Text PotionText;
     public static int potionCount = 0;
+    public GameObject potionButton;
 
     
     //public int addDetection;
@@ -175,7 +176,12 @@ public class WaveSpawner : MonoBehaviour
     public void PotionCount()
     {        
         if (potionCount <= 0)
+        {
             PotionText.text = "";
+            potionButton.SetActive(true);
+        }
+           
+        
         else
             PotionText.text = potionCount.ToString();
     }
