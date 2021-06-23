@@ -22,7 +22,8 @@ namespace ProjectDInternal {
         public float skillInterval;
         public float skillDelay;
         public float bulletForce;
-      
+        public Transform skillPoint;
+
         public AudioClip[] SpottedAudioClip;
 
         Vector3 m_StartingAnchor;
@@ -109,10 +110,10 @@ namespace ProjectDInternal {
                 if(m_LootSpawner != null)
                     m_LootSpawner.SpawnLoot();
 
+                Instantiate(skillPoint,transform.position,transform.rotation);
                 
 
-                
-                    if (m_CharacterData.name == "CactusBossyEnemy")
+                if (m_CharacterData.name == "CactusBossyEnemy")
                     {
                     GameObject.Find("Character").GetComponent<CharacterControl>().level.AddExp(200);
                      }

@@ -1532,6 +1532,8 @@ MonoBehaviour:
   skillInterval: 3
   skillDelay: 1
   bulletForce: 50
+  skillPoint: {fileID: 4151486517033604241, guid: 11672226d5949cd448092b09e3516b7b,
+    type: 3}
   SpottedAudioClip: []
   m_CharacterData: {fileID: 0}
   agent: {fileID: 0}
