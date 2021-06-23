@@ -210,7 +210,8 @@ namespace ProjectDInternal
             if (WaveSpawner.potionCount <= 0)
             {
                 CharacterData data = PlayerCharacter.Data;
-                data.Stats.ChangeHealth(Mathf.FloorToInt(1.0f * data.Stats.stats.health));
+                //data.Stats.ChangeHealth(Mathf.FloorToInt(1.0f * data.Stats.stats.health));
+                data.Stats.CurrentHealth = data.Stats.stats.health;
                 VFXManager.PlayVFX3(VFXType.Healing, data.transform.position);
                 WaveSpawner.potionCount = 10;
                 potionButton.SetActive(false);

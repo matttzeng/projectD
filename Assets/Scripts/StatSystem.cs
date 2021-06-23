@@ -294,7 +294,7 @@ namespace ProjectD
         public Stats stats { get; set; } = new Stats();
     
         public int CurrentMoveSpeed { get; private set; }
-        public int CurrentHealth { get; private set; }
+        public int CurrentHealth { get; set; }
         public List<BaseElementalEffect> ElementalEffects => m_ElementalEffects;
         public List<TimedStatModifier> TimedModifierStack => m_TimedModifierStack;
 

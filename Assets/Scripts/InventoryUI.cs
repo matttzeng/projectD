@@ -93,6 +93,9 @@ namespace ProjectDInternal
             if (m_Data.Inventory.UseItem(usedItem))
                 SFXManager.PlaySound(SFXManager.Use.Sound2D, new SFXManager.PlayData() { Clip = usedItem.Item is EquipmentItem ? SFXManager.ItemEquippedSound : SFXManager.ItemUsedSound });
 
+            Tooltip.Name.text = usedItem.Item.ItemName;
+            Tooltip.DescriptionText.text = usedItem.Item.GetDescription1();
+
             ObjectHoverExited(m_HoveredItem);
             Load(m_Data);
         }
