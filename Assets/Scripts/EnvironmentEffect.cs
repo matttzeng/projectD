@@ -70,6 +70,7 @@ namespace ProjectD
 
             //獲得技能點數1
             target.Stats.stats.skillPoint += 1;
+            target.Stats.stats.initSkillPoint += 1;
             SFXManager.PlaySound(SFXManager.Use.Sound2D, new SFXManager.PlayData(){Clip = SFXManager.PickupSound});
         
             //UISystem.Instance.InventoryWindow.Load(target);

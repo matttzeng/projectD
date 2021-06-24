@@ -30,6 +30,7 @@ namespace ProjectDInternal
         public TMP_Text StatsText;
         public Text StatsPointText;
         public Text SkillPointText;
+        public Text PassiveSkillText;
 
         [Header("Enemy")]
         public Slider EnemyHealthSlider;
@@ -44,9 +45,15 @@ namespace ProjectDInternal
 
         Sprite m_ClosedInventorySprite;
         Sprite m_OpenInventorySprite;
-      
 
-       
+        public List<StatSystem.StatModifier> skillModifiersStack = new List<StatSystem.StatModifier>();
+        public int AtkLevel;
+        public int DEFLevel;
+        public int HPLevel;
+        public float MoveSpeedLevel;
+
+
+
 
         void Awake()
         {
@@ -150,7 +157,9 @@ namespace ProjectDInternal
         {
             CharacterData data = PlayerCharacter.Data;
             var stats = data.Stats.stats;
-            SkillPointText.text = $"Skill point : {stats.skillPoint}\nSkillAtk : {stats.skill} \nSkillSpeed : {stats.skillSpeed} \nSKillRange: {stats.skillRange} \nMoveSpeed :{stats.moveSpeed} ";
+            //SkillPointText.text = $"Skill point : {stats.skillPoint}\nSkillAtk : {stats.skill} \nSkillSpeed : {stats.skillSpeed} \nSKillRange: {stats.skillRange} \nMoveSpeed :{stats.moveSpeed} ";
+            SkillPointText.text = $"Skill point : {stats.skillPoint}\nSkillAtk : {stats.skill} \nSkillSpeed : {stats.skillSpeed} ";
+            PassiveSkillText.text = $"Atk + 5% : {AtkLevel}/10 \nDEF + 5% : {DEFLevel}/10 \nHP + 10%: {HPLevel}/10 \nMoveSpeed +1: {MoveSpeedLevel}/2 ";
             StatsPointText.text = $"LV point : {stats.statsPoint}\n   Atk : {stats.attack} \n   Def : {stats.defense} \n   HP : {stats.health}  ";
             StatsText.text = $"HP :{stats.health} \nAtk : {stats.attack} \nDef : {stats.defense} \nAtkRange : {stats.attackRange} \nAtkSpeed : {stats.attackSpeed} \nMoveSpeed :{stats.moveSpeed} ";
         }
@@ -203,6 +212,138 @@ namespace ProjectDInternal
             data.Stats.Reset();
             data.Stats.UpdateFinalStats();
         }
+        //增加技能攻擊力10
+        public void AddSkillAtk()
+        {
+            CharacterData data = PlayerCharacter.Data;
+
+            if (data.Stats.stats.skillPoint > 0)
+            {
+                StatSystem.StatModifier newModifier = new StatSystem.StatModifier();
+                newModifier.Stats.skill = 10;
+
+                skillModifiersStack.Add(newModifier);
+                data.Stats.AddModifier(skillModifiersStack[skillModifiersStack.Count - 1]);
+                data.Stats.UpdateFinalStats();
+
+                data.Stats.stats.skillPoint -= 1;
+            }
+        }
+        //增加技能速度5
+        public void AddSkillSpeed()
+        {
+            CharacterData data = PlayerCharacter.Data;
+
+            if (data.Stats.stats.skillPoint > 0)
+            {
+                StatSystem.StatModifier newModifier = new StatSystem.StatModifier();
+                newModifier.Stats.skillSpeed = 5;
+
+                skillModifiersStack.Add(newModifier);
+                data.Stats.AddModifier(skillModifiersStack[skillModifiersStack.Count - 1]);
+                data.Stats.UpdateFinalStats();
+
+                data.Stats.stats.skillPoint -= 1;
+            }
+        }
+        //技能加攻擊5% 最高10級
+        public void AddPassiveAtk()
+        {
+            CharacterData data = PlayerCharacter.Data;
+
+            if (data.Stats.stats.skillPoint > 0 && AtkLevel <= 10)
+            {
+                StatSystem.StatModifier newModifier = new StatSystem.StatModifier();
+                newModifier.ModifierMode = StatSystem.StatModifier.Mode.Percentage;
+                newModifier.Stats.attack = 5;
+
+                skillModifiersStack.Add(newModifier);
+                data.Stats.AddModifier(skillModifiersStack[skillModifiersStack.Count - 1]);
+                data.Stats.UpdateFinalStats();
+
+                data.Stats.stats.skillPoint -= 1;
+                AtkLevel++;
+            }
+        }
+        //技能加防禦5% 最高10級
+        public void AddPassiveDEF()
+        {
+            CharacterData data = PlayerCharacter.Data;
+
+            if (data.Stats.stats.skillPoint > 0 && DEFLevel < 10)
+            {
+                StatSystem.StatModifier newModifier = new StatSystem.StatModifier();
+                newModifier.ModifierMode = StatSystem.StatModifier.Mode.Percentage;
+                newModifier.Stats.defense = 5;
+
+                skillModifiersStack.Add(newModifier);
+                data.Stats.AddModifier(skillModifiersStack[skillModifiersStack.Count - 1]);
+                data.Stats.UpdateFinalStats();
+
+                data.Stats.stats.skillPoint -= 1;
+                DEFLevel++;
+            }
+        }
+        //技能加生命10% 最高10級
+        public void AddPassiveHP()
+        {
+            CharacterData data = PlayerCharacter.Data;
+
+            if (data.Stats.stats.skillPoint > 0 && HPLevel < 10)
+            {
+                StatSystem.StatModifier newModifier = new StatSystem.StatModifier();
+                newModifier.ModifierMode = StatSystem.StatModifier.Mode.Percentage;
+                newModifier.Stats.health = 10;
+
+                skillModifiersStack.Add(newModifier);
+                data.Stats.AddModifier(skillModifiersStack[skillModifiersStack.Count - 1]);
+                data.Stats.UpdateFinalStats();
+
+                data.Stats.stats.skillPoint -= 1;
+                HPLevel++;
+            }
+        }
+        //技能加跑速1 最高2級
+        public void AddPassiveMoveSpeed()
+        {
+            CharacterData data = PlayerCharacter.Data;
+
+            if (data.Stats.stats.skillPoint > 0 && MoveSpeedLevel < 2)
+            {
+                StatSystem.StatModifier newModifier = new StatSystem.StatModifier();
+                //newModifier.ModifierMode = StatSystem.StatModifier.Mode.Percentage;
+                newModifier.Stats.moveSpeed = 1;
+
+                skillModifiersStack.Add(newModifier);
+                data.Stats.AddModifier(skillModifiersStack[skillModifiersStack.Count - 1]);
+                data.Stats.UpdateFinalStats();
+
+                data.Stats.stats.skillPoint -= 1;
+                MoveSpeedLevel++;
+            }
+        }
+        //重置技能點數
+        public void ResetSkill()
+        {
+            CharacterData data = PlayerCharacter.Data;
+
+            for(int i =0; i<skillModifiersStack.Count; i++)
+            {
+                data.Stats.RemoveModifier(skillModifiersStack[i]);
+            }
+            
+            skillModifiersStack.Clear();
+            data.Stats.stats.skillPoint = data.Stats.stats.initSkillPoint;
+            AtkLevel = 0;
+            DEFLevel = 0;
+            HPLevel = 0;
+            MoveSpeedLevel = 0;
+            data.Stats.stats.skill = 0;
+            data.Stats.stats.skillSpeed = 0;            
+            data.Stats.UpdateFinalStats();
+            
+        }
+
         //使用治癒藥水(若冷卻為0)
         public void Potion()
         {

@@ -67,8 +67,9 @@ namespace ProjectD
             public int statsPoint;
             public int skillPoint;
             public int initPoint;
+            public int initSkillPoint;
 
-            
+
 
             //use an array indexed by the DamageType enum for easy extensibility
             public int[] elementalProtection = new int[Enum.GetValues(typeof(DamageType)).Length];   
@@ -300,7 +301,7 @@ namespace ProjectD
 
         CharacterData m_Owner;
     
-        List<StatModifier> m_ModifiersStack = new List<StatModifier>();
+        public List<StatModifier> m_ModifiersStack = new List<StatModifier>();
         List<TimedStatModifier> m_TimedModifierStack = new List<TimedStatModifier>();
         List<BaseElementalEffect> m_ElementalEffects = new List<BaseElementalEffect>();
     

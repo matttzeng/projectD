@@ -158,8 +158,8 @@ namespace ProjectD
         public void Attack(CharacterData attacker, CharacterData target)
         {
             AttackData attackData = new AttackData(target, attacker);
-
-            int damage = Random.Range(Stats.MinimumDamage, Stats.MaximumDamage + 1);
+            int skillAtk = attacker.Stats.stats.skill;
+            int damage = Random.Range(Stats.MinimumDamage + skillAtk , Stats.MaximumDamage + skillAtk + 1);
 
             attackData.AddDamage(StatSystem.DamageType.Physical, damage);
 
