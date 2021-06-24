@@ -58,15 +58,19 @@ public class GameManager : MonoBehaviour
         //DeteleWeapon();
         Debug.Log("刪除場上武器");
 
+        LoadDataFromFile();
+
+
+       
+        /*
         string jsonString = PlayerPrefs.GetString("LastWeapon");
-        Weapon lastWeapon = JsonUtility.FromJson<Weapon>(jsonString);
-        Debug.Log(jsonString);
+        Weapon lastWeapon = JsonUtility.FromJsonOverwrite(jsonString,obj);
         Debug.Log(lastWeapon.name);
 
         itemEntryUI.SetupEquipment(lastWeapon);
         
         Debug.Log("讀取武器");
-
+        */
 
     }
 
@@ -82,6 +86,45 @@ public class GameManager : MonoBehaviour
         if (Directory.Exists("Assets/InGameItem/")) { Directory.Delete("Assets/InGameItem/", true); }
         Directory.CreateDirectory("Assets/InGameItem/");
         Debug.Log("刪除InGameItem");
+    }
+
+    public void SaveToFile(Weapon lastWeapon)
+    {
+
+
+        string json = JsonUtility.ToJson(lastWeapon);
+        PlayerPrefs.SetString("LastWeapon", json);
+
+        Debug.Log("存武器"+json);
+    }
+
+
+    public void LoadDataFromFile()
+    {
+        Weapon lastWeapon = (Weapon)ScriptableObject.CreateInstance(typeof(Weapon));
+      
+
+        string jsonString = PlayerPrefs.GetString("LastWeapon");
+        Debug.Log("讀武器1" + jsonString);
+
+        JsonUtility.FromJsonOverwrite(jsonString, lastWeapon); 
+       
+        Debug.Log("讀武器2" + lastWeapon.ItemName);
+
+
+
+
+        //穿裝備   物器是 lastWeapon
+
+
+
+        EquipmentSystem equipmentSystem = new EquipmentSystem();
+        equipmentSystem.Equip(lastWeapon);
+
+        
+
+
+
     }
 }
 

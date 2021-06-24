@@ -66,27 +66,19 @@ namespace ProjectDInternal
             //穿裝備時即時改變text值, 不受暫停影響
             GetComponentInParent<UISystem>().UpdateStatsText();
 
-
-            Weapon lastWeapon = weapon;
-
-          
-           // string json = JsonUtility.ToJson(lastWeapon);
-           // PlayerPrefs.SetString("LastWeapon", json);
+            GameManager gameManager = new GameManager();
+            gameManager.SaveToFile(weapon);
 
 
-            
-
-
-            Debug.Log("save last weapon " + lastWeapon.name);
             //Debug.Log(json);
 
 
-           // string jsonString = PlayerPrefs.GetString("LastWeapon");
-           
+            // string jsonString = PlayerPrefs.GetString("LastWeapon");
 
-           // Weapon aWeapon = JsonUtility.FromJson<Weapon>(jsonString);
 
-           // Debug.Log(aWeapon.name);
+            // Weapon aWeapon = JsonUtility.FromJson<Weapon>(jsonString);
+
+            // Debug.Log(aWeapon.name);
 
         }
 

@@ -213,9 +213,10 @@ namespace ProjectDInternal
         // Update is called once per frame
         void Update()
         {
+
            
-            
-            
+
+
             CharacterData data = this.Data;
             var stats = data.Stats.stats;
             Speed =   (float)stats.moveSpeed/1.5f;
@@ -842,5 +843,16 @@ namespace ProjectDInternal
 
             VFXManager.PlayVFX(VFXType.StepPuff, pos, Quaternion.Euler(0, 0, 0));
         }
+
+
+        private void OnDrawGizmosSelected()
+        {
+            float  attackRange = GetComponent<CharacterData>().Stats.stats.attackRange;
+            Gizmos.color = Color.red;
+            Vector3 drawPos = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+            Gizmos.DrawWireSphere(drawPos, attackRange);
+        }
+
+
     }
 }

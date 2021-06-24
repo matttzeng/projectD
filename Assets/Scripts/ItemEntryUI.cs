@@ -134,7 +134,6 @@ namespace ProjectDInternal
                 IconeImage.sprite = itm.ItemSprite;
 
 
-
             if ((EquipmentItem as Weapon).Modifier.Stats.itemQuality == 0)
             {
                 OutlineColor.color = Color.white;
