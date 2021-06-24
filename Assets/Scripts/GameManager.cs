@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         //DeteleWeapon();
         Debug.Log("刪除場上武器");
 
-        LoadDataFromFile();
+        //LoadDataFromFile();
 
 
        
@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void LoadDataFromFile()
+    /*public void LoadDataFromFile()
     {
         Weapon lastWeapon = (Weapon)ScriptableObject.CreateInstance(typeof(Weapon));
       
@@ -121,11 +121,10 @@ public class GameManager : MonoBehaviour
         EquipmentSystem equipmentSystem = new EquipmentSystem();
         equipmentSystem.Equip(lastWeapon);
 
-        
 
 
 
-    }
+    }*/
 }
 
 
