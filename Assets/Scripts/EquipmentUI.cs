@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ProjectD;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 namespace ProjectDInternal
 {
@@ -29,7 +30,7 @@ namespace ProjectDInternal
             WeaponSlot.Owner = owner;
 
             //初始化裝備UI裡的技能欄
-            for(int i = 0; i < SkillSlot.Length; i++)
+            for (int i = 0; i < SkillSlot.Length; i++)
             {
                 SkillSlot[i].Owner = owner;
                 Debug.Log("初始技能欄");
@@ -43,7 +44,7 @@ namespace ProjectDInternal
             SkillSlot[2].SetupEquipment(skill[2]);
 
         }
-        
+
         public void UpdateEquipment(EquipmentSystem equipment, StatSystem system)
         {
             //var head = equipment.GetItem(EquipmentItem.EquipmentSlot.Head);
@@ -60,8 +61,35 @@ namespace ProjectDInternal
             //AccessorySlot.SetupEquipment(accessory);
             WeaponSlot.SetupEquipment(weapon);
 
+
+
             //穿裝備時即時改變text值, 不受暫停影響
             GetComponentInParent<UISystem>().UpdateStatsText();
+
+
+            Weapon lastWeapon = weapon;
+
+          
+           // string json = JsonUtility.ToJson(lastWeapon);
+           // PlayerPrefs.SetString("LastWeapon", json);
+
+
+            
+
+
+            Debug.Log("save last weapon " + lastWeapon.name);
+            //Debug.Log(json);
+
+
+           // string jsonString = PlayerPrefs.GetString("LastWeapon");
+           
+
+           // Weapon aWeapon = JsonUtility.FromJson<Weapon>(jsonString);
+
+           // Debug.Log(aWeapon.name);
+
         }
+
+
     }
 }

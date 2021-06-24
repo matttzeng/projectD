@@ -164,7 +164,7 @@ MonoBehaviour:
       attack: 0
       skill: 0
       moveSpeed: 0
-      attackSpeed: 0
+      attackSpeed: 50
       attackRange: 0
       crit: 0
       skillSpeed: 0

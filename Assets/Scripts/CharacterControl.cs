@@ -20,7 +20,7 @@ namespace ProjectDInternal
         [SerializeField] private Joystick joystick;
         public static CharacterControl Instance { get; protected set; }
 
-        public int Speed = 10;
+        public float Speed = 10;
         public StatsPoint m_StatsPoint;
         public Level level;
      
@@ -218,7 +218,7 @@ namespace ProjectDInternal
             
             CharacterData data = this.Data;
             var stats = data.Stats.stats;
-            Speed =   stats.moveSpeed;
+            Speed =   (float)stats.moveSpeed/1.5f;
 
 
           

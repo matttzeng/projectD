@@ -2,6 +2,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using ProjectD;
 using System.IO;
+using ProjectDInternal;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class GameManager : MonoBehaviour
     public GameObject GameOverUI;
     public GameObject PlayUI;
     public Transform HighscoreTable;
+  
+   
+    public ItemEntryUI itemEntryUI;
 
     private void Awake()
     {
@@ -22,10 +26,13 @@ public class GameManager : MonoBehaviour
             gameEnded = true;
             GameOverUI .SetActive(true);
             PlayUI.SetActive(false);
-            
 
-           // HighscoreTable.Find("highscoreEntryTemplate").gameObject.SetActive(true);
-            
+            string jsonString = PlayerPrefs.GetString("highscoreTable");
+            //Equipment.GetComponent<>
+           // weapon highscores = JsonUtility.FromJson<Highscores>(jsonString);
+
+            // HighscoreTable.Find("highscoreEntryTemplate").gameObject.SetActive(true);
+
 
 
             Time.timeScale = 0;
@@ -50,6 +57,17 @@ public class GameManager : MonoBehaviour
         Debug.Log("重新生怪00");
         //DeteleWeapon();
         Debug.Log("刪除場上武器");
+
+        string jsonString = PlayerPrefs.GetString("LastWeapon");
+        Weapon lastWeapon = JsonUtility.FromJson<Weapon>(jsonString);
+        Debug.Log(jsonString);
+        Debug.Log(lastWeapon.name);
+
+        itemEntryUI.SetupEquipment(lastWeapon);
+        
+        Debug.Log("讀取武器");
+
+
     }
 
     public void DeteleWeapon()

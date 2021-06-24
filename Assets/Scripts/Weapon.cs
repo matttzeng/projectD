@@ -15,6 +15,7 @@ namespace ProjectD
     /// OnAttack function called during a hit, and their OnPostAttack function called after all OnAttack of all effects
     /// are called.
     /// </summary>
+    [System.Serializable]
     public class Weapon : EquipmentItem
     {
         
@@ -173,7 +174,7 @@ namespace ProjectD
 
         public bool CanHit(CharacterData attacker, CharacterData target)
         {
-            if (Vector3.SqrMagnitude(attacker.transform.position - target.transform.position) < (Stats.MaxRange+attacker.Stats.stats.attackRange) * (Stats.MaxRange + attacker.Stats.stats.attackRange))
+            if (Vector3.SqrMagnitude(attacker.transform.position - target.transform.position) < (Stats.MaxRange+attacker.Stats.stats.attackRange/2) * (Stats.MaxRange + attacker.Stats.stats.attackRange/2))
             {
                 return true;
             }

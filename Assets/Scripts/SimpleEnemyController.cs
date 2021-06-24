@@ -260,11 +260,12 @@ namespace ProjectDInternal {
         
         void shootPlayer()
         {
-
+            this.GetComponentInChildren<Transform>().LookAt(CharacterControl.Instance.Data.transform.position);
             transform.LookAt(CharacterControl.Instance.Data.transform.position);
-
+          
+            Debug.Log(this.GetComponentInChildren<Transform>().name);
             //Debug.Log("打玩家");
-            Vector3 shootPoint =new Vector3(gameObject.transform.position.x, gameObject.transform.position.y+1.0f, gameObject.transform.position.z); 
+            Vector3 shootPoint =new Vector3(gameObject.transform.position.x, gameObject.transform.position.y+2.0f, gameObject.transform.position.z); 
             GameObject rb = Instantiate(GetComponent<CharacterData>().StartingWeapon.WorldObjectPrefab, shootPoint, Quaternion.identity);
             //Rigidbody rb = Instantiate(GetComponent<CharacterData>().StartingWeapon.WorldObjectPrefab, shootPoint, Quaternion.identity).GetComponent<Rigidbody>();
             //var l = rb.AddComponent<Rigidbody>();

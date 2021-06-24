@@ -139,7 +139,7 @@ public class HighscoreTable : MonoBehaviour
     public void DeleteSaves()
     {
         Debug.Log("清除排行榜");
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteKey("highscoreTable");
         PlayerPrefs.Save();
 
         highscoreEntryList = new List<HighscoreEntry>()
