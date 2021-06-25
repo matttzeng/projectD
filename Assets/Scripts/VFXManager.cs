@@ -76,6 +76,7 @@ namespace ProjectD
             if (Instance.m_Instances[idx].Count == 0)
             {
                 Instance.CreateNewInstances(idx);
+               
             }
 
             //we put the instance from the from to the back of the queue. Perfect for one shot particle, it will have been

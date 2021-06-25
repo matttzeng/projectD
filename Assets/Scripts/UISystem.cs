@@ -26,6 +26,9 @@ namespace ProjectDInternal
         public Text CurrentHealth;
         public Text currentLevel;
         public GameObject expPB;
+        public GameObject skillPB;
+
+
         public EffectIconUI[] TimedModifierIcones;
         public TMP_Text StatsText;
         public Text StatsPointText;
@@ -147,9 +150,10 @@ namespace ProjectDInternal
             
             expPB.GetComponent<ProgressBar>().currentPercent = (topValue / ExpDiff)*100;
 
-          
+           
+            skillPB.GetComponent<ProgressBar>().currentPercent = 100-((PlayerCharacter.Data.m_SkillAttackCoolDown / PlayerCharacter.Data.skillCD) * 100);
+            
 
-        
         }
 
         //更新UI素質欄

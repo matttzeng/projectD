@@ -119,17 +119,26 @@ namespace ProjectDInternal
 
             m_CharacterData = GetComponent<CharacterData>();
 
+
+
             //讀取上一次最後的武器為初始武器
-            Weapon lastWeapon = (Weapon)ScriptableObject.CreateInstance(typeof(Weapon));
+            
+            if (PlayerPrefs.GetString("LastWeapon") != "")
+            {
 
-            string jsonString = PlayerPrefs.GetString("LastWeapon");
-            Debug.Log("讀武器1" + jsonString);
+                Weapon lastWeapon = (Weapon)ScriptableObject.CreateInstance(typeof(Weapon));
+            
+                string jsonString = PlayerPrefs.GetString("LastWeapon");
+                JsonUtility.FromJsonOverwrite(jsonString, lastWeapon);
 
-            JsonUtility.FromJsonOverwrite(jsonString, lastWeapon);
+                Debug.Log("讀武器2" + lastWeapon.ItemName);
 
-            Debug.Log("讀武器2" + lastWeapon.ItemName);
 
-            m_CharacterData.StartingWeapon = lastWeapon;
+                    m_CharacterData.StartingWeapon = lastWeapon;
+       
+            }
+
+
 
             m_CharacterData.Equipment.OnEquiped += item =>
             {

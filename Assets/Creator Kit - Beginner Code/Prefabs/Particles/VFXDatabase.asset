@@ -40,19 +40,19 @@ MonoBehaviour:
   - Name: Nova
     Prefab: {fileID: 8779128011198322701, guid: f8a6f2d6d040286459bb850962622d20,
       type: 3}
-    PoolSize: 32
+    PoolSize: 6
   - Name: BulletImpactFX
     Prefab: {fileID: 263907923257804574, guid: 971cc2f067692414b9948ac0e4d9daf5, type: 3}
     PoolSize: 32
   - Name: TestSkill
     Prefab: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
-    PoolSize: 32
+    PoolSize: 6
   - Name: IceLance
     Prefab: {fileID: 1820680284854294, guid: 1a1c02facd51d87458dcaa3a761e2c03, type: 3}
-    PoolSize: 32
+    PoolSize: 6
   - Name: FireBall
     Prefab: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
-    PoolSize: 32
+    PoolSize: 6
   - Name: Shooting
     Prefab: {fileID: 225989984589773444, guid: a8ab3830ed7145c41954668554008069, type: 3}
     PoolSize: 32

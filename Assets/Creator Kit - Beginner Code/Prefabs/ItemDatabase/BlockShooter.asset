@@ -18,6 +18,29 @@ MonoBehaviour:
   WorldObjectPrefab: {fileID: 713660671193342677, guid: 497209de1a76e2242beede79c87952ed,
     type: 3}
   Slot: 666
+  Modifier:
+    ModifierMode: 1
+    Stats:
+      randomvalue: 0
+      itemQuality: 0
+      health: 0
+      strength: 0
+      defense: 0
+      agility: 0
+      attack: 0
+      skill: 0
+      moveSpeed: 0
+      attackSpeed: 0
+      attackRange: 0
+      crit: 0
+      skillSpeed: 0
+      skillRange: 0
+      statsPoint: 0
+      skillPoint: 0
+      initPoint: 0
+      initSkillPoint: 0
+      elementalProtection: 00000000000000000000000000000000
+      elementalBoosts: 00000000000000000000000000000000
   MinimumStrength: 0
   MinimumAgility: 0
   MinimumDefense: 0
@@ -30,4 +53,21 @@ MonoBehaviour:
     MinimumDamage: 3
     MaximumDamage: 3
     MaxRange: 16
-  AttackEffects: []
+  AttackEffects:
+  - {fileID: 3546850488522364559}
+--- !u!114 &3546850488522364559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b826785bd79bdb43a127d008f406406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Description: 
+  PercentageChance: 100
+  Damage: 1
+  Time: 10

@@ -43,6 +43,8 @@ namespace ProjectD
         /// </summary>
         public Action OnDamage { get; set; }
 
+        public float skillCD;
+
         /// <summary>
         /// Will return true if the attack cooldown have reached 0. False otherwise.
         /// </summary>
@@ -52,7 +54,7 @@ namespace ProjectD
         }
 
         float m_AttackCoolDown;
-        float m_SkillAttackCoolDown;
+       public float m_SkillAttackCoolDown;
 
         public void Init()
         {
@@ -224,6 +226,8 @@ namespace ProjectD
         public void SkillAttackTriggered()
         {
             m_SkillAttackCoolDown = ChooseSkill.Stats.Speed/ (Stats.stats.skillSpeed*0.01f+1f);// - (Stats.stats.agility * 0.5f * 0.001f * Skill.Stats.Speed;
+
+            skillCD = ChooseSkill.Stats.Speed / (Stats.stats.skillSpeed * 0.01f + 1f);
         }
         /// <summary>
         /// Damage the Character by the AttackData given as parameter. See the documentation for that class for how to
