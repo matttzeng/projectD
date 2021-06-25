@@ -68,6 +68,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Description: 
-  PercentageChance: 100
+  PercentageChance: 50
   Damage: 1
   Time: 10

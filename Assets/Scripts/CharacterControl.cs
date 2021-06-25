@@ -28,6 +28,7 @@ namespace ProjectDInternal
         public CharacterData CurrentTarget => m_CurrentTargetCharacterData;
 
         public Transform WeaponLocator;
+        public GameObject rangeUI;
 
         [Header("Audio")]
         public AudioClip[] SpurSoundClips;
@@ -75,6 +76,9 @@ namespace ProjectDInternal
         bool m_ClearPostAttack = false;
 
         SpawnPoint m_CurrentSpawn = null;
+
+
+        private bool rangeUIisShow;
 
         enum State
         {
@@ -670,6 +674,12 @@ namespace ProjectDInternal
             if (m_CurrentState == State.ATTACKING)
                 return;
 
+
+
+          
+
+
+
             if (m_CharacterData.ChooseSkill != null)
             {
                 if (m_CharacterData.CanSkillAttackTarget(m_CurrentTargetCharacterData))
@@ -688,7 +698,7 @@ namespace ProjectDInternal
                     if (m_CharacterData.CanSkillAttackTarget(m_CurrentTargetCharacterData))
                     {
                         m_CurrentState = State.ATTACKING;
-
+                        
                         m_CharacterData.SkillAttackTriggered();
                         m_Animator.SetTrigger(m_SkillAttackParamID);
 
@@ -720,10 +730,16 @@ namespace ProjectDInternal
                     }
                 //}
             }
-            /*else
+            else if(m_CharacterData.CanAttackTarget(m_CurrentTargetCharacterData)!=true)
             {
-                m_Agent.SetDestination(m_CurrentTargetCharacterData.transform.position);
-            }*/
+                if(rangeUIisShow ==false)
+                    StartCoroutine(ShowRangeUI(1.0f));
+                //m_Agent.SetDestination(m_CurrentTargetCharacterData.transform.position);
+            }
+
+
+           
+
         }
 
         public void ChooseSkill0()
@@ -866,14 +882,19 @@ namespace ProjectDInternal
         }
 
 
-        private void OnDrawGizmosSelected()
-        {
-            float  attackRange = GetComponent<CharacterData>().Stats.stats.attackRange;
-            Gizmos.color = Color.red;
-            Vector3 drawPos = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
-            Gizmos.DrawWireSphere(drawPos, attackRange);
-        }
+      
 
+        IEnumerator ShowRangeUI(float showTime)
+        {
+            rangeUIisShow = true;
+            Debug.Log("開啟攻擊範圍UI");
+            rangeUI.SetActive(true);
+            yield return new WaitForSeconds(showTime);
+            rangeUI.SetActive(false);
+            yield return new WaitForSeconds(showTime*3f);
+
+            rangeUIisShow = false;
+        }
 
     }
 }

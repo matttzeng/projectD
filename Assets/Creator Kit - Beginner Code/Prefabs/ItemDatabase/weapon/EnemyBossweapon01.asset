@@ -15,7 +15,7 @@ MonoBehaviour:
   ItemName: Bossweapon01
   ItemSprite: {fileID: 21300000, guid: cd541d29126edfc49a8a63ea22c689ae, type: 3}
   Description: Bossweapon01
-  WorldObjectPrefab: {fileID: 713660671193342677, guid: 497209de1a76e2242beede79c87952ed,
+  WorldObjectPrefab: {fileID: 713660671193342677, guid: 89293888885571d45adb76ed66f43703,
     type: 3}
   Slot: 666
   Modifier:
@@ -38,6 +38,7 @@ MonoBehaviour:
       statsPoint: 0
       skillPoint: 0
       initPoint: 0
+      initSkillPoint: 0
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
   MinimumStrength: 0
