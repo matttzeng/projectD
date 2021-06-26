@@ -730,13 +730,13 @@ namespace ProjectDInternal
                     }
                 //}
             }
-            else if(m_CharacterData.CanAttackTarget(m_CurrentTargetCharacterData)!=true)
-            {
+            //else if(m_CharacterData.CanAttackTarget(m_CurrentTargetCharacterData)!=true)
+           // {
                // AttackRangeUI attackRangeUI = new AttackRangeUI();
                 //attackRangeUI.ShowRangeUI(1.0f);
 
                 //m_Agent.SetDestination(m_CurrentTargetCharacterData.transform.position);
-            }
+            //}
 
 
            

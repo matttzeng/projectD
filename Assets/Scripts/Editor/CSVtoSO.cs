@@ -16,7 +16,11 @@ public class CSVtoSO : MonoBehaviour
 
     private static string anyWeaponPath = "/ItemDataBase/anyWeapon.asset";
 
-
+    [MenuItem("Utilities/Clean PlayerPrefs")]
+    public static void CleanPlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 
 
     //save scriptableObj to json 
