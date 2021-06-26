@@ -40,6 +40,8 @@ namespace ProjectDInternal {
         LootSpawner m_LootSpawner;
         CharacterControl g;
 
+        public int bulletAmount = 1;
+
 
 
 
@@ -188,7 +190,8 @@ namespace ProjectDInternal {
                     break;
                 case State.ATTACKING:
                 {
-                    if (!m_CharacterData.CanAttackReach(playerData))
+                        transform.LookAt(CharacterControl.Instance.Data.transform.position);
+                        if (!m_CharacterData.CanAttackReach(playerData))
                     {
                         m_State = State.PURSUING;
                         m_Agent.isStopped = false;
@@ -265,15 +268,24 @@ namespace ProjectDInternal {
           
             Debug.Log(this.GetComponentInChildren<Transform>().name);
             //Debug.Log("打玩家");
-            Vector3 shootPoint =new Vector3(gameObject.transform.position.x, gameObject.transform.position.y+2.0f, gameObject.transform.position.z); 
-            GameObject rb = Instantiate(GetComponent<CharacterData>().StartingWeapon.WorldObjectPrefab, shootPoint, Quaternion.identity);
-            //Rigidbody rb = Instantiate(GetComponent<CharacterData>().StartingWeapon.WorldObjectPrefab, shootPoint, Quaternion.identity).GetComponent<Rigidbody>();
-            //var l = rb.AddComponent<Rigidbody>();
-            if (m_CharacterData != null)
+            Vector3 shootPoint =new Vector3(gameObject.transform.position.x, gameObject.transform.position.y+1.0f, gameObject.transform.position.z);
+            for (int i = 0; i < bulletAmount && i < 5; i++)
             {
-                rb.GetComponent<bullet>().Shooter = m_CharacterData;
-                rb.GetComponent<Rigidbody>().AddForce(transform.forward * bulletForce, ForceMode.Impulse);
-                rb.GetComponent<Rigidbody>().AddForce(transform.up * 2f, ForceMode.Impulse);
+                GameObject rb = Instantiate(GetComponent<CharacterData>().StartingWeapon.WorldObjectPrefab, shootPoint, Quaternion.identity);
+                rb.GetComponent<Rigidbody>().useGravity = false;
+                //Rigidbody rb = Instantiate(GetComponent<CharacterData>().StartingWeapon.WorldObjectPrefab, shootPoint, Quaternion.identity).GetComponent<Rigidbody>();
+                //var l = rb.AddComponent<Rigidbody>();
+                if (m_CharacterData != null)
+                {
+                    rb.GetComponent<bullet>().Shooter = m_CharacterData;
+                    Vector3 newDir = Quaternion.Euler(0, i * 10, 0) * transform.forward;
+
+                    if (i%2 ==0 && i > 0)
+                        newDir = Quaternion.Euler(0, -(i-1) * 10, 0) * transform.forward;
+                    
+                    rb.GetComponent<Rigidbody>().AddForce(newDir * bulletForce, ForceMode.Impulse);
+                    //rb.GetComponent<Rigidbody>().AddForce(transform.up * 2f, ForceMode.Impulse);
+                }
             }
         }
 

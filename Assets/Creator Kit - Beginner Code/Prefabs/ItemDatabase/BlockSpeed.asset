@@ -29,7 +29,7 @@ MonoBehaviour:
       attack: 0
       skill: 0
       moveSpeed: 0
-      attackSpeed: 50
+      attackSpeed: 0
       attackRange: 0
       crit: 0
       skillSpeed: 0
@@ -37,6 +37,7 @@ MonoBehaviour:
       statsPoint: 0
       skillPoint: 0
       initPoint: 0
+      initSkillPoint: 0
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
   MinimumStrength: 0

@@ -121,6 +121,7 @@ MonoBehaviour:
   Stats:
     baseStats:
       randomvalue: 0
+      itemQuality: 0
       health: 20
       strength: 2
       defense: 1
@@ -136,15 +137,17 @@ MonoBehaviour:
       statsPoint: 0
       skillPoint: 0
       initPoint: 0
+      initSkillPoint: 0
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
     initStats:
       randomvalue: 0
-      health: 0
-      strength: 0
-      defense: 0
+      itemQuality: 0
+      health: 20
+      strength: 2
+      defense: 1
       agility: 0
-      attack: 0
+      attack: 1
       skill: 0
       moveSpeed: 0
       attackSpeed: 0
@@ -155,8 +158,10 @@ MonoBehaviour:
       statsPoint: 0
       skillPoint: 0
       initPoint: 0
+      initSkillPoint: 0
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
+    m_ModifiersStack: []
     unbeatable: 0
   StartingWeapon: {fileID: 11400000, guid: a93ab13e5f0641040af94c0613b4b3d9, type: 2}
   ChooseSkill: {fileID: 0}
@@ -165,6 +170,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 52bbf808b3d93fb4f861009f0d06498b, type: 3}
   - {fileID: 8300000, guid: a2b0c466fe3cda84da5a4a1f58ae2f07, type: 3}
   - {fileID: 8300000, guid: a8594e4675d2b1049a71204ba41705d8, type: 3}
+  skillCD: 0
+  m_SkillAttackCoolDown: 0
 --- !u!114 &6382404329323532681
 MonoBehaviour:
   m_ObjectHideFlags: 0

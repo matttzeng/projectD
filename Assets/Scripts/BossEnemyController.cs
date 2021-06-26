@@ -50,7 +50,7 @@ namespace ProjectDInternal {
         LootSpawner m_LootSpawner;
         CharacterControl g;
 
-
+        public int bulletAmount = 1;
 
 
         //public GameObject projectile;
@@ -307,6 +307,30 @@ namespace ProjectDInternal {
             {
                 transform.LookAt(CharacterControl.Instance.Data.transform.position);
 
+                Debug.Log(this.GetComponentInChildren<Transform>().name);
+                //Debug.Log("打玩家");
+                Vector3 shootPoint = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1.0f, gameObject.transform.position.z);
+                for (int i = 0; i < bulletAmount && i < 5; i++)
+                {
+                    GameObject rb = Instantiate(GetComponent<CharacterData>().StartingWeapon.WorldObjectPrefab, shootPoint, Quaternion.identity);
+                    rb.GetComponent<Rigidbody>().useGravity = false;
+                    //Rigidbody rb = Instantiate(GetComponent<CharacterData>().StartingWeapon.WorldObjectPrefab, shootPoint, Quaternion.identity).GetComponent<Rigidbody>();
+                    //var l = rb.AddComponent<Rigidbody>();
+                    if (m_CharacterData != null)
+                    {
+                        rb.GetComponent<bullet>().Shooter = m_CharacterData;
+                        Vector3 newDir = Quaternion.Euler(0, i * 10, 0) * transform.forward;
+
+                        if (i % 2 == 0 && i > 0)
+                            newDir = Quaternion.Euler(0, -(i - 1) * 10, 0) * transform.forward;
+
+                        rb.GetComponent<Rigidbody>().AddForce(newDir * bulletForce, ForceMode.Impulse);
+                        //rb.GetComponent<Rigidbody>().AddForce(transform.up * 2f, ForceMode.Impulse);
+                    }
+                }
+                /*
+                transform.LookAt(CharacterControl.Instance.Data.transform.position);
+
                 //Debug.Log("打玩家");
                 Vector3 shootPoint = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1.0f, gameObject.transform.position.z);
                 GameObject rb = Instantiate(GetComponent<CharacterData>().StartingWeapon.WorldObjectPrefab, shootPoint, Quaternion.identity);
@@ -317,7 +341,7 @@ namespace ProjectDInternal {
                     rb.GetComponent<bullet>().Shooter = m_CharacterData;
                     rb.GetComponent<Rigidbody>().AddForce(transform.forward * bulletForce, ForceMode.Impulse);
                     rb.GetComponent<Rigidbody>().AddForce(transform.up * 2f, ForceMode.Impulse);
-                }
+                }*/
             }
             //隕石術
             if (skillFlag == 1)
