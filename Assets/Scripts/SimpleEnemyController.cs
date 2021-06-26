@@ -219,13 +219,13 @@ namespace ProjectDInternal {
             //if we can't reach the player anymore when it's time to damage, then that attack miss.
             if (!m_CharacterData.CanAttackReach(playerData))
                 return;
-            if (m_CharacterData.Equipment.Weapon.Stats.MaxRange <= 3)
+            if (m_CharacterData.Stats.stats.attackRange <= 3)
             {
                 //近戰判定擊中扣血
                 m_CharacterData.Attack(playerData);
                 Debug.Log("近戰");
             }
-            else if(m_CharacterData.Equipment.Weapon.Stats.MaxRange > 3)
+            else if(m_CharacterData.Stats.stats.attackRange > 3)
             {
                 //遠程判定擊中扣血
                 shootPlayer();

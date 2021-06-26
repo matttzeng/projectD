@@ -119,6 +119,7 @@ MonoBehaviour:
   detectionRadius: 10
   bulletForce: 24
   SpottedAudioClip: []
+  bulletAmount: 1
   agent: {fileID: 0}
 --- !u!114 &7104100457556044734
 MonoBehaviour:
@@ -138,10 +139,10 @@ MonoBehaviour:
       randomvalue: 0
       itemQuality: 0
       health: 20
-      strength: 2
+      strength: 0
       defense: 1
       agility: 0
-      attack: 15
+      attack: 5
       skill: 0
       moveSpeed: 0
       attackSpeed: 0
@@ -159,10 +160,10 @@ MonoBehaviour:
       randomvalue: 0
       itemQuality: 0
       health: 20
-      strength: 2
+      strength: 0
       defense: 1
       agility: 0
-      attack: 15
+      attack: 5
       skill: 0
       moveSpeed: 0
       attackSpeed: 0

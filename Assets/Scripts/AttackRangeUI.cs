@@ -23,29 +23,48 @@ public class AttackRangeUI : MonoBehaviour
     {
 
 
-            float attackRange = GetComponent<CharacterData>().Stats.stats.attackRange;
-            Debug.Log("§ðÀ»¶ZÂ÷" + attackRange);
-
-            rend.material.SetFloat("_scale", attackRange * 0.13f);
-        
 
 
 
     }
 
-    
-   public  IEnumerator ShowRangeUI(float showTime)
+    public  void ShowRangeUI()
     {
+
+        float attackRange = GetComponent<CharacterData>().Stats.stats.attackRange;
+        Debug.Log("§ðÀ»¶ZÂ÷" + attackRange);
+
+        rend.material.SetFloat("_scale", attackRange * -0.07f-0.06f);
+        Debug.Log(attackRange);
+
+
+        rangeUI.SetActive(true);
+
+        StartCoroutine(CloseAfetrSeconds(2, rangeUI));
+
+        IEnumerator CloseAfetrSeconds(int seconds,GameObject obj)
+        {
+            yield return new WaitForSeconds(seconds);
+            obj.SetActive(false);
+        }
+
+    }
+
+    /*
+   public  IEnumerator ShowRangeUI()
+    {
+        
         if (rangeUIisShow == true)
             yield break;
       
         rangeUIisShow = true;
         Debug.Log("¶}±Ò§ðÀ»½d³òUI");
         rangeUI.SetActive(true);
-        yield return new WaitForSeconds(showTime);
+        yield return new WaitForSeconds(1f);
         rangeUI.SetActive(false);
-        yield return new WaitForSeconds(showTime * 3f);
+       
 
         rangeUIisShow = false;
     }
+    */
 }

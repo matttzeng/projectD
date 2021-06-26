@@ -17,6 +17,29 @@ MonoBehaviour:
   Description: 
   WorldObjectPrefab: {fileID: 0}
   Slot: 666
+  Modifier:
+    ModifierMode: 1
+    Stats:
+      randomvalue: 0
+      itemQuality: 0
+      health: 0
+      strength: 0
+      defense: 0
+      agility: 0
+      attack: 0
+      skill: 0
+      moveSpeed: 0
+      attackSpeed: 0
+      attackRange: 2
+      crit: 0
+      skillSpeed: 0
+      skillRange: 0
+      statsPoint: 0
+      skillPoint: 0
+      initPoint: 0
+      initSkillPoint: 0
+      elementalProtection: 00000000000000000000000000000000
+      elementalBoosts: 00000000000000000000000000000000
   MinimumStrength: 0
   MinimumAgility: 0
   MinimumDefense: 0
@@ -47,6 +70,7 @@ MonoBehaviour:
     ModifierMode: 1
     Stats:
       randomvalue: 1
+      itemQuality: 0
       health: 10
       strength: 10
       defense: 10
@@ -62,5 +86,7 @@ MonoBehaviour:
       statsPoint: 0
       skillPoint: 0
       initPoint: 0
+      initSkillPoint: 0
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
+  ss: 

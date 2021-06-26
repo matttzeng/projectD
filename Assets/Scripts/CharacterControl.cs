@@ -530,7 +530,8 @@ namespace ProjectDInternal
         void ObjectsRaycasts()
         {
             bool somethingFound = false;
-            float detecttionRadius = m_CharacterData.Equipment.Weapon.Stats.MaxRange - 0.5f;
+            // float detecttionRadius = m_CharacterData.Equipment.Weapon.Stats.MaxRange - 0.5f;
+            float detecttionRadius = m_CharacterData.Stats.stats.attackRange*1.5f;
 
             //first check for Target not interactable Object
             int count = Physics.SphereCastNonAlloc(transform.position, detecttionRadius, transform.forward, m_RaycastHitCache, 0.0f, m_TargetLayer);

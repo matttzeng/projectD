@@ -200,31 +200,31 @@ public class WaveSpawner : MonoBehaviour
     //怪物成長函數
     public void EnemyGrowth()
     {        
-        enemyPrefab[0].GetComponent<CharacterData>().Stats.baseStats.health += (waveNumber - 1) * addHealth;
-        enemyPrefab[0].GetComponent<CharacterData>().Stats.baseStats.attack += (waveNumber - 1) * addAttack;
-        enemyPrefab[0].GetComponent<CharacterData>().Stats.baseStats.defense += (waveNumber - 1) * addDefense;
+        enemyPrefab[0].GetComponent<CharacterData>().Stats.baseStats.health += addHealth;
+        enemyPrefab[0].GetComponent<CharacterData>().Stats.baseStats.attack += addAttack;
+        enemyPrefab[0].GetComponent<CharacterData>().Stats.baseStats.defense += addDefense;
 
-        enemyPrefab[1].GetComponent<CharacterData>().Stats.baseStats.health += (waveNumber - 1) * addHealth;
-        enemyPrefab[1].GetComponent<CharacterData>().Stats.baseStats.attack += (waveNumber - 1) * addAttack;
-        enemyPrefab[1].GetComponent<CharacterData>().Stats.baseStats.defense += (waveNumber - 1) * addDefense;
+        enemyPrefab[1].GetComponent<CharacterData>().Stats.baseStats.health += addHealth;
+        enemyPrefab[1].GetComponent<CharacterData>().Stats.baseStats.attack += addAttack;
+        enemyPrefab[1].GetComponent<CharacterData>().Stats.baseStats.defense += addDefense;
 
-        enemyPrefab[2].GetComponent<CharacterData>().Stats.baseStats.health += (waveNumber - 1) * addHealth;
-        enemyPrefab[2].GetComponent<CharacterData>().Stats.baseStats.attack += (waveNumber - 1) * addAttack*2;
-        enemyPrefab[2].GetComponent<CharacterData>().Stats.baseStats.defense += (waveNumber - 1) * addDefense;
+        enemyPrefab[2].GetComponent<CharacterData>().Stats.baseStats.health += addHealth;
+        enemyPrefab[2].GetComponent<CharacterData>().Stats.baseStats.attack += addAttack*2;
+        enemyPrefab[2].GetComponent<CharacterData>().Stats.baseStats.defense += addDefense;
 
-        enemyPrefab[3].GetComponent<CharacterData>().Stats.baseStats.health += (waveNumber - 1) * addHealth;
-        enemyPrefab[3].GetComponent<CharacterData>().Stats.baseStats.attack += (waveNumber - 1) * addAttack;
-        enemyPrefab[3].GetComponent<CharacterData>().Stats.baseStats.defense += (waveNumber - 1) * addDefense;
+        enemyPrefab[3].GetComponent<CharacterData>().Stats.baseStats.health += addHealth;
+        enemyPrefab[3].GetComponent<CharacterData>().Stats.baseStats.attack += addAttack;
+        enemyPrefab[3].GetComponent<CharacterData>().Stats.baseStats.defense += addDefense;
 
         //miniboss目前bigboss一樣, 未免重複計算先註解掉
         /*
-        miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.health += (waveNumber - 1) * addHealth;
-        miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.attack += (waveNumber - 1) * addAttack;
-        miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.defense += (waveNumber - 1) * addDefense;
+        miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.health +=  addHealth;
+        miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.attack +=  addAttack;
+        miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.defense += addDefense;
         */
-        bigBossPrefab.GetComponent<CharacterData>().Stats.baseStats.health += (waveNumber - 1) * addHealth;
-        bigBossPrefab.GetComponent<CharacterData>().Stats.baseStats.attack += (waveNumber - 1) * addAttack;
-        bigBossPrefab.GetComponent<CharacterData>().Stats.baseStats.defense += (waveNumber - 1) * addDefense;
+        bigBossPrefab.GetComponent<CharacterData>().Stats.baseStats.health += addHealth;
+        bigBossPrefab.GetComponent<CharacterData>().Stats.baseStats.attack += addAttack;
+        bigBossPrefab.GetComponent<CharacterData>().Stats.baseStats.defense +=  addDefense;
 
         if (waveNumber % 10 == 0)
         {
@@ -246,7 +246,7 @@ public class WaveSpawner : MonoBehaviour
             enemyPrefab[3].GetComponent<CharacterData>().Stats.baseStats.attack = Mathf.FloorToInt(enemyPrefab[3].GetComponent<CharacterData>().Stats.baseStats.attack * 1.1f);
             enemyPrefab[3].GetComponent<CharacterData>().Stats.baseStats.defense = Mathf.FloorToInt(enemyPrefab[3].GetComponent<CharacterData>().Stats.baseStats.defense * 1.1f);
             enemyPrefab[3].GetComponent<SimpleEnemyController>().bulletAmount+= 2;
-            enemyPrefab[3].GetComponent<SimpleEnemyController>().bulletForce += 10;
+           // enemyPrefab[3].GetComponent<SimpleEnemyController>().bulletForce += 10;
             /*
             miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.health = Mathf.FloorToInt(miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.health * 1.2f);
             miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.attack = Mathf.FloorToInt(miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.attack * 1.2f);
@@ -270,7 +270,7 @@ public class WaveSpawner : MonoBehaviour
                         
             enemyPrefab[3].GetComponent<CharacterData>().Stats.Reset();
             enemyPrefab[3].GetComponent<SimpleEnemyController>().bulletAmount = 1;
-            enemyPrefab[3].GetComponent<SimpleEnemyController>().bulletForce = 36;
+            enemyPrefab[3].GetComponent<SimpleEnemyController>().bulletForce = 30;
 
             miniBossPrefab.GetComponent<CharacterData>().Stats.Reset();
 

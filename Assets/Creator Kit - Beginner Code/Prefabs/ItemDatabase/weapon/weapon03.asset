@@ -38,6 +38,7 @@ MonoBehaviour:
       statsPoint: 0
       skillPoint: 0
       initPoint: 0
+      initSkillPoint: 0
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
   MinimumStrength: 0
@@ -51,5 +52,5 @@ MonoBehaviour:
     Speed: 1
     MinimumDamage: 5
     MaximumDamage: 10
-    MaxRange: 5
+    MaxRange: 3
   AttackEffects: []
