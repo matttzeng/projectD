@@ -99,7 +99,7 @@ namespace ProjectDInternal {
                 
 
                 
-                    if (m_CharacterData.name == "CactusBossyEnemy")
+                    if (m_CharacterData.name == "Boss01Enemy")
                     {
                     GameObject.Find("Character").GetComponent<CharacterControl>().level.AddExp(200);
                      }

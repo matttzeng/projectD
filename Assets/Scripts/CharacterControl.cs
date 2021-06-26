@@ -78,7 +78,7 @@ namespace ProjectDInternal
         SpawnPoint m_CurrentSpawn = null;
 
 
-        private bool rangeUIisShow;
+       
 
         enum State
         {
@@ -732,8 +732,9 @@ namespace ProjectDInternal
             }
             else if(m_CharacterData.CanAttackTarget(m_CurrentTargetCharacterData)!=true)
             {
-                if(rangeUIisShow ==false)
-                    StartCoroutine(ShowRangeUI(1.0f));
+               // AttackRangeUI attackRangeUI = new AttackRangeUI();
+                //attackRangeUI.ShowRangeUI(1.0f);
+
                 //m_Agent.SetDestination(m_CurrentTargetCharacterData.transform.position);
             }
 
@@ -786,7 +787,9 @@ namespace ProjectDInternal
                 var shootPos = WeaponLocator.transform.position + transform.up * 1f;
 
                 VFXManager.PlayVFX(VFXType.Shooting, shootPos, gameObject.GetComponent<CharacterControl>().transform.rotation);
-                SFXManager.PlaySound(m_CharacterAudio.UseType, new SFXManager.PlayData() { Clip = m_CharacterData.Equipment.Weapon.GetHitSound(), PitchMin = 0.8f, PitchMax = 1.2f, Position = attackPos });
+                SFXManager.PlaySound(m_CharacterAudio.UseType, new SFXManager.PlayData() 
+                { Clip = m_CharacterData.Equipment.Weapon.GetHitSound(),
+                    PitchMin = 0.8f, PitchMax = 1.2f, Position = attackPos });
             }
 
             if (m_ClearPostAttack)
@@ -884,17 +887,7 @@ namespace ProjectDInternal
 
       
 
-        IEnumerator ShowRangeUI(float showTime)
-        {
-            rangeUIisShow = true;
-            Debug.Log("開啟攻擊範圍UI");
-            rangeUI.SetActive(true);
-            yield return new WaitForSeconds(showTime);
-            rangeUI.SetActive(false);
-            yield return new WaitForSeconds(showTime*3f);
-
-            rangeUIisShow = false;
-        }
+      
 
     }
 }

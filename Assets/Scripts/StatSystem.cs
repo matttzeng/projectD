@@ -104,6 +104,8 @@ namespace ProjectD
             {
                 if (modifier.Stats.randomvalue == true)
                 {
+                
+
                     float floor = modifier.Stats.itemQuality / 3f;
                     //float ceiling = (modifier.Stats.itemQuality + 1) / 3f;
                     float ceiling = ((modifier.Stats.itemQuality + +1) * 2 - 1) / 3f;
@@ -467,6 +469,7 @@ namespace ProjectD
         {
             bool maxHealthChange = false;
             int previousHealth = stats.health;
+
         
             stats.Copy(baseStats);
 
@@ -491,6 +494,14 @@ namespace ProjectD
                 float percentage = CurrentHealth / (float)previousHealth;
                 CurrentHealth = Mathf.RoundToInt(percentage * stats.health );
             }
+            
+            if (m_Owner.gameObject.tag == "Player")
+            {
+                //AttackRangeUI attackRangeUI = new AttackRangeUI();
+               // attackRangeUI.SetAttakRangeUI();
+            }
+            
+           
         }
 
         /// <summary>
@@ -539,7 +550,7 @@ public class StatsDrawer : PropertyDrawer
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
         int enumTypesCount = Enum.GetValues(typeof(StatSystem.DamageType)).Length;
-        int lineCount = enumTypesCount + 17;
+        int lineCount = enumTypesCount + 21;
         float extraHeight = 6f;
         float propertyHeight = lineCount * EditorGUIUtility.singleLineHeight + extraHeight;
 
@@ -558,7 +569,7 @@ public class StatsDrawer : PropertyDrawer
         
         EditorGUI.DropShadowLabel(currentRect, property.displayName);
 
-        currentRect.y += EditorGUIUtility.singleLineHeight+17f;
+        currentRect.y += EditorGUIUtility.singleLineHeight+30f;
         EditorGUI.PropertyField(currentRect, property.FindPropertyRelative(nameof(StatSystem.stats.randomvalue)));
 
         currentRect.y += EditorGUIUtility.singleLineHeight;
