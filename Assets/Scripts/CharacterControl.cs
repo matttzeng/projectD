@@ -58,6 +58,8 @@ namespace ProjectDInternal
         float xDirection;
         float zDirection;
 
+        float detecttionRadius;
+
         int m_InteractableLayer;
         int m_LevelLayer;
         Collider m_TargetCollider;
@@ -531,7 +533,14 @@ namespace ProjectDInternal
         {
             bool somethingFound = false;
             // float detecttionRadius = m_CharacterData.Equipment.Weapon.Stats.MaxRange - 0.5f;
-            float detecttionRadius = m_CharacterData.Stats.stats.attackRange*1.5f;
+
+            if (m_CharacterData.m_SkillAttackCoolDown <= 0 && m_CharacterData.ChooseSkill != null)
+                detecttionRadius = m_CharacterData.ChooseSkill.Stats.MaxRange;
+            //不知道武器偵測範圍要改多少..
+            else
+                detecttionRadius = m_CharacterData.Stats.stats.attackRange + 0.5f;
+
+            //detecttionRadius = m_CharacterData.Stats.stats.attackRange*1.5f;
 
             //first check for Target not interactable Object
             int count = Physics.SphereCastNonAlloc(transform.position, detecttionRadius, transform.forward, m_RaycastHitCache, 0.0f, m_TargetLayer);
