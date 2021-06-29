@@ -22,6 +22,7 @@ namespace ProjectDInternal {
         public float skillInterval;
         public float skillDelay;
         public float bulletForce;
+        public float dashSpeed;
         public Transform skillPoint;
 
         public AudioClip[] SpottedAudioClip;
@@ -382,7 +383,7 @@ namespace ProjectDInternal {
                     //gameObject.GetComponent<Rigidbody>().detectCollisions = false;
                     //gameObject.GetComponent<Rigidbody>().isKinematic = true;
                     Debug.Log(transform.forward * bulletForce);
-                    gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * bulletForce/2, ForceMode.Impulse);
+                    gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * dashSpeed, ForceMode.Impulse);
                     Invoke("Stop", 1.5f);
                 }
             }

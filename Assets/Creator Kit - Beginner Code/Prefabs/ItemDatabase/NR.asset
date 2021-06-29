@@ -47,13 +47,14 @@ MonoBehaviour:
       skill: 0
       moveSpeed: 1
       attackSpeed: 0
-      attackRange: 0
+      attackRange: 10
       crit: 0
       skillSpeed: 0
       skillRange: 0
       statsPoint: 0
       skillPoint: 0
       initPoint: 0
+      initSkillPoint: 0
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
   MinimumStrength: 0
@@ -104,6 +105,7 @@ MonoBehaviour:
       statsPoint: 0
       skillPoint: 0
       initPoint: 0
+      initSkillPoint: 0
       elementalProtection: 00000000000000000000000000000000
       elementalBoosts: 00000000000000000000000000000000
   ss: '{"ModifierMode":1,"Stats":{"randomvalue":false,"health":0,"strength":100,"defense":0,"agility":0,"attack":0,"skill":0,"moveSpeed":2,"attackSpeed":0,"attackRange":0,"crit":0,"skillSpeed":0,"skillRange":0,"statsPoint":0,"skillPoint":0,"initPoint":0,"elementalProtection":[0,0,0,0],"elementalBoosts":[0,0,0,0]}}'

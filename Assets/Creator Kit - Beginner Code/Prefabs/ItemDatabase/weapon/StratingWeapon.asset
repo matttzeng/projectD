@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 721bded4ab38d3c45ac4302c289230a8, type: 3}
+  m_Name: StratingWeapon
+  m_EditorClassIdentifier: 
+  ItemName: StratingWeapon
+  ItemSprite: {fileID: 21300000, guid: ae3a674970d509c4eaccb221ca0b93f0, type: 3}
+  Description: StratingWeapon
+  WorldObjectPrefab: {fileID: 7022561314472484388, guid: e445cf79239d58a4a9b58b1d2ed99d63,
+    type: 3}
+  Slot: 666
+  Modifier:
+    ModifierMode: 1
+    Stats:
+      randomvalue: 0
+      itemQuality: 0
+      health: 0
+      strength: 0
+      defense: 0
+      agility: 0
+      attack: 5
+      skill: 0
+      moveSpeed: 0
+      attackSpeed: 0
+      attackRange: 3
+      crit: 0
+      skillSpeed: 0
+      skillRange: 0
+      statsPoint: 0
+      skillPoint: 0
+      initPoint: 0
+      initSkillPoint: 0
+      elementalProtection: 00000000000000000000000000000000
+      elementalBoosts: 00000000000000000000000000000000
+  MinimumStrength: 0
+  MinimumAgility: 0
+  MinimumDefense: 0
+  EquippedEffects: []
+  Identify: 0
+  HitSounds: []
+  SwingSounds: []
+  Stats:
+    Speed: 1
+    MinimumDamage: 5
+    MaximumDamage: 5
+    MaxRange: 1
+  AttackEffects: []

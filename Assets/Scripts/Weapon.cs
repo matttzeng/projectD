@@ -74,7 +74,7 @@ namespace ProjectD
                         //addedAmount += Mathf.FloorToInt(addedAmount * m_Source.Stats.stats.strength * 0.01f);                     
                     }
                     //each poitn of defense remove 1 damage, with a minimum of 1 damage
-                    addedAmount = Mathf.Max(addedAmount - (int)Math.Sqrt( m_Target.Stats.stats.defense), 1);
+                    addedAmount = Mathf.Max(addedAmount -  m_Target.Stats.stats.defense,1);
                 }
             
                 //we then add boost per damage type. Not this is called elementalBoost, but physical can also be boosted

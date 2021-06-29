@@ -11,5 +11,6 @@ public enum VFXType
 	TestSkill,
 	IceLance,
 	FireBall,
-	Shooting
+	Shooting,
+	LevelUp
 }

@@ -56,3 +56,7 @@ MonoBehaviour:
   - Name: Shooting
     Prefab: {fileID: 225989984589773444, guid: a8ab3830ed7145c41954668554008069, type: 3}
     PoolSize: 32
+  - Name: LevelUp
+    Prefab: {fileID: 3317137113860023057, guid: 0881a44de8cf2be47a64647335fb5efe,
+      type: 3}
+    PoolSize: 6

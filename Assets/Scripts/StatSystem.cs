@@ -116,9 +116,9 @@ namespace ProjectD
                     modifier.Stats.agility = (int)Math.Ceiling(UnityEngine.Random.Range(modifier.Stats.agility * floor, modifier.Stats.agility * ceiling));
                     modifier.Stats.attack = (int)Math.Ceiling(UnityEngine.Random.Range(modifier.Stats.attack * floor, modifier.Stats.attack * ceiling));
                     modifier.Stats.skill = (int)Math.Ceiling(UnityEngine.Random.Range(modifier.Stats.skill * floor, modifier.Stats.skill * ceiling));
-                    modifier.Stats.moveSpeed = (int)Math.Ceiling(UnityEngine.Random.Range(modifier.Stats.moveSpeed * floor, modifier.Stats.moveSpeed * ceiling));
+                    modifier.Stats.moveSpeed =1+ (int)Math.Ceiling(UnityEngine.Random.Range(modifier.Stats.moveSpeed * floor, modifier.Stats.moveSpeed * ceiling));
                     modifier.Stats.attackSpeed = (int)Math.Ceiling(UnityEngine.Random.Range(modifier.Stats.attackSpeed * floor, modifier.Stats.attackSpeed * ceiling));
-                    modifier.Stats.attackRange = (int)Math.Ceiling(UnityEngine.Random.Range(modifier.Stats.attackRange * floor, modifier.Stats.attackRange * ceiling));
+                    modifier.Stats.attackRange = 1+(int)Math.Ceiling(UnityEngine.Random.Range(modifier.Stats.attackRange * floor, modifier.Stats.attackRange * ceiling));
                     modifier.Stats.crit = (int)Math.Ceiling(UnityEngine.Random.Range(modifier.Stats.crit * floor, modifier.Stats.crit* ceiling));
                     modifier.Stats.skillRange = (int)Math.Ceiling(UnityEngine.Random.Range(modifier.Stats.skillRange * floor, modifier.Stats.skillRange * ceiling));
                     modifier.Stats.skillSpeed = (int)Math.Ceiling(UnityEngine.Random.Range(modifier.Stats.skillSpeed * floor, modifier.Stats.skillSpeed * ceiling));
@@ -402,6 +402,7 @@ namespace ProjectD
                 m_ElementalEffects.Add(effect);
         }
 
+    
         public void Death()
         {
             foreach(var e in ElementalEffects)

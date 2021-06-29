@@ -69,7 +69,7 @@ namespace ProjectDInternal
         NavMeshPath m_CalculatedPath;
 
         CharacterAudio m_CharacterAudio;
-       
+      
 
         int m_TargetLayer;
         CharacterData m_CurrentTargetCharacterData = null;
@@ -78,6 +78,8 @@ namespace ProjectDInternal
         bool m_ClearPostAttack = false;
 
         SpawnPoint m_CurrentSpawn = null;
+
+        VFXManager.VFXInstance m_LevelUpInstance;
 
 
        
@@ -102,6 +104,8 @@ namespace ProjectDInternal
         {
             level = new Level(1, OnLevelUp);
             m_StatsPoint = new StatsPoint();
+
+          
 
             QualitySettings.vSyncCount = 0;
             Application.targetFrameRate = 60;
@@ -232,10 +236,22 @@ namespace ProjectDInternal
             modifier.Stats.health += 10;
             m_CharacterData.Stats.AddModifier(modifier);
 
+
+            m_LevelUpInstance = VFXManager.GetVFX(VFXType.LevelUp);
+            m_LevelUpInstance.Effect.transform.position = this.transform.position;
+
+            // m_LevelUpInstance = VFXManager.GetVFX(VFXType.LevelUp);
+            //m_LevelUpInstance.Effect.transform.position =  this.transform.position;
+
+
             //Debug.Log("最大血量+10 = " + m_CharacterData.Stats.stats.health);
 
             //Debug.Log("升到了等級 "+level.currentLevel);
         }
+
+  
+        
+        
 
         // Update is called once per frame
         void Update()
@@ -894,9 +910,7 @@ namespace ProjectDInternal
             VFXManager.PlayVFX(VFXType.StepPuff, pos, Quaternion.Euler(0, 0, 0));
         }
 
-
-      
-
+  
       
 
     }

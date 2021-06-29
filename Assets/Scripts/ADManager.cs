@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Advertisements;
 using ProjectDInternal;
 using ProjectD;
+using UnityEngine.UI;
 
 public class ADManager : MonoBehaviour,IUnityAdsListener
 
@@ -12,21 +13,30 @@ public class ADManager : MonoBehaviour,IUnityAdsListener
     string GooglePlay_ID = "4181603";
     bool TestMode = true;
     public string mySurfacingId = "Rewarded_Android";
+    public string placementId = "bannerPlacement";
 
-  
+
+
     public bool adStarted;
     public bool adCompleted;
 
 
     public GameObject UISystem;
     public GameObject statsMenu;
+    public GameObject skillMenu;
+
+    public Toggle LoopToggle;
   
    
     // Start is called before the first frame update
     void Start()
     {
         Advertisement.AddListener(this);
-        Advertisement.Initialize(GooglePlay_ID,TestMode);        
+        Advertisement.Initialize(GooglePlay_ID,TestMode);
+
+      
+        StartCoroutine(ShowBannerWhenReady());
+        
     }
 
     // Update is called once per frame
@@ -44,7 +54,7 @@ public class ADManager : MonoBehaviour,IUnityAdsListener
     }
     public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
     {
-        if(statsMenu.activeSelf ==true)
+        if(statsMenu.activeSelf ==true ^ skillMenu.activeSelf ==true)
         
         Time.timeScale = 0f;
         else
@@ -71,10 +81,13 @@ public class ADManager : MonoBehaviour,IUnityAdsListener
 
     public void ADreward()
     {
-        if (statsMenu.activeSelf != true)
-            UISystem.GetComponent<UISystem>().Potion();
-        else
+        if (skillMenu.activeSelf == true)
+           
+            UISystem.GetComponent<UISystem>().ResetSkill();
+        else if (statsMenu.activeSelf == true)
             UISystem.GetComponent<UISystem>().StatsReset();
+        else
+            UISystem.GetComponent<UISystem>().Potion();
     }
   public void OnUnityAdsReady (string surfacingId) {
         // If the ready Ad Unit or legacy Placement is rewarded, show the ad:
@@ -92,5 +105,33 @@ public class ADManager : MonoBehaviour,IUnityAdsListener
     // When the object that subscribes to ad events is destroyed, remove the listener:
     public void OnDestroy() {
         Advertisement.RemoveListener(this);
+    }
+    IEnumerator ShowBannerWhenReady()
+    {
+        while (!Advertisement.IsReady(placementId))
+        {
+            yield return new WaitForSeconds(0.5f);
+        }
+        Advertisement.Banner.Show(placementId);
+    }
+    public void ShowBanner(bool bannerOn)
+    {
+
+        bannerOn = LoopToggle.isOn;
+    
+        if (bannerOn)
+        {
+            Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
+
+            Advertisement.Banner.Show();
+           
+        }
+
+        else
+        {
+            Advertisement.Banner.Hide();
+       
+        }
+           
     }
 }

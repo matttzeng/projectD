@@ -199,7 +199,8 @@ public class WaveSpawner : MonoBehaviour
     }
     //怪物成長函數
     public void EnemyGrowth()
-    {        
+    {     
+        
         enemyPrefab[0].GetComponent<CharacterData>().Stats.baseStats.health += addHealth;
         enemyPrefab[0].GetComponent<CharacterData>().Stats.baseStats.attack += addAttack;
         enemyPrefab[0].GetComponent<CharacterData>().Stats.baseStats.defense += addDefense;
@@ -225,6 +226,7 @@ public class WaveSpawner : MonoBehaviour
         bigBossPrefab.GetComponent<CharacterData>().Stats.baseStats.health += addHealth;
         bigBossPrefab.GetComponent<CharacterData>().Stats.baseStats.attack += addAttack;
         bigBossPrefab.GetComponent<CharacterData>().Stats.baseStats.defense +=  addDefense;
+
 
         if (waveNumber % 10 == 0)
         {
@@ -257,6 +259,9 @@ public class WaveSpawner : MonoBehaviour
             bigBossPrefab.GetComponent<CharacterData>().Stats.baseStats.defense = Mathf.FloorToInt(bigBossPrefab.GetComponent<CharacterData>().Stats.baseStats.defense * 1.2f);
             bigBossPrefab.GetComponent<BossEnemyController>().bulletAmount += 2;
             bigBossPrefab.GetComponent<BossEnemyController>().Speed += 1;
+            bigBossPrefab.GetComponent<BossEnemyController>().dashSpeed += 3f;
+            if (bigBossPrefab.GetComponent<BossEnemyController>().skillDelay>=4)
+                 bigBossPrefab.GetComponent<BossEnemyController>().skillDelay -= 1f;
         }
 
         if (waveNumber == 1)
@@ -277,6 +282,8 @@ public class WaveSpawner : MonoBehaviour
             bigBossPrefab.GetComponent<CharacterData>().Stats.Reset();
             bigBossPrefab.GetComponent<BossEnemyController>().bulletAmount = 1;
             bigBossPrefab.GetComponent<BossEnemyController>().Speed = 4;
+            bigBossPrefab.GetComponent<BossEnemyController>().skillDelay = 5f;
+            bigBossPrefab.GetComponent<BossEnemyController>().dashSpeed = 15f;
         }
 
     }
