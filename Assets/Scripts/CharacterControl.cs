@@ -257,7 +257,7 @@ namespace ProjectDInternal
         void Update()
         {
 
-           
+      
 
 
             CharacterData data = this.Data;

@@ -31,7 +31,7 @@ MonoBehaviour:
       skill: 0
       moveSpeed: 0
       attackSpeed: 0
-      attackRange: 3
+      attackRange: 4
       crit: 0
       skillSpeed: 0
       skillRange: 0
@@ -50,7 +50,7 @@ MonoBehaviour:
   SwingSounds: []
   Stats:
     Speed: 1
-    MinimumDamage: 5
+    MinimumDamage: 1
     MaximumDamage: 5
     MaxRange: 1
   AttackEffects: []

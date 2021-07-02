@@ -105,7 +105,10 @@ namespace ProjectDInternal
                        OutlineColor.color = Color.yellow;
                     }
 
-                
+                if ((entry.Item as Weapon).Modifier.Stats.itemQuality == 4)
+                {
+                    OutlineColor.color = Color.red;
+                }
 
 
 
@@ -152,7 +155,7 @@ namespace ProjectDInternal
             }
             if ((EquipmentItem as Weapon).Modifier.Stats.itemQuality == 4)
             {
-                OutlineColor.color = Color.cyan;
+                OutlineColor.color = Color.red;
             }
 
         }

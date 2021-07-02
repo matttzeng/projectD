@@ -104,7 +104,10 @@ namespace ProjectD
             {
                 if (modifier.Stats.randomvalue == true)
                 {
-                
+                  //物品掉落等級
+                    int v = WaveSpawner.waveNumber/5 > 4 ?  4 : WaveSpawner.waveNumber/5;
+
+                    modifier.Stats.itemQuality = (int)UnityEngine.Random.Range(  0f, v);
 
                     float floor = modifier.Stats.itemQuality / 3f;
                     //float ceiling = (modifier.Stats.itemQuality + 1) / 3f;
@@ -139,6 +142,8 @@ namespace ProjectD
                     
                     if (modifier.ModifierMode == StatModifier.Mode.Percentage)
                     {
+                     
+
                         health += Mathf.FloorToInt(health * (modifier.Stats.health / 100.0f));
                         strength += Mathf.FloorToInt(strength * (modifier.Stats.strength / 100.0f));
                         defense += Mathf.FloorToInt(defense * (modifier.Stats.defense / 100.0f));
@@ -161,6 +166,7 @@ namespace ProjectD
 
                     else
                     {
+                        itemQuality += modifier.Stats.itemQuality;
                         health += modifier.Stats.health;
                         strength += modifier.Stats.strength;
                         defense += modifier.Stats.defense;
@@ -219,6 +225,8 @@ namespace ProjectD
 
                     else
                     {
+                        itemQuality += modifier.Stats.itemQuality;
+
                         health += modifier.Stats.health;
                         strength += modifier.Stats.strength;
                         defense += modifier.Stats.defense;

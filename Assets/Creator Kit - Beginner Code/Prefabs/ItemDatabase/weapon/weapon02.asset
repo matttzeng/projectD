@@ -27,7 +27,7 @@ MonoBehaviour:
       strength: 0
       defense: 0
       agility: 0
-      attack: 10
+      attack: 50
       skill: 0
       moveSpeed: 3
       attackSpeed: 100

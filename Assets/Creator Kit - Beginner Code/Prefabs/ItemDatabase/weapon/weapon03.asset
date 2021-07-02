@@ -28,12 +28,12 @@ MonoBehaviour:
       defense: 0
       agility: 0
       attack: 100
-      skill: 0
+      skill: 200
       moveSpeed: 3
       attackSpeed: 10
       attackRange: 5
       crit: 0
-      skillSpeed: 0
+      skillSpeed: 100
       skillRange: 0
       statsPoint: 0
       skillPoint: 0

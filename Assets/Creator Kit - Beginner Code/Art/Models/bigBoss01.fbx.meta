@@ -1,0 +1,1000 @@
+fileFormatVersion: 2
+guid: 72f3a787d967b4a48a11187f3f851262
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: Fly
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bigboss_L_initialShadingGroup2
+    second: {fileID: 2100000, guid: 53df02cd15a29054c85c49c473344c78, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 0
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Fly
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 42
+      lastFrame: 81
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 1
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 1
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bigboss_L:Group42417
+        weight: 0
+      - path: bigboss_L:Hips
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:LeftUpLeg
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:LeftUpLeg/bigboss_L:LeftLeg
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:LeftUpLeg/bigboss_L:LeftLeg/bigboss_L:LeftFoot
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:LeftUpLeg/bigboss_L:LeftLeg/bigboss_L:LeftFoot/bigboss_L:LeftToeBase
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:RightUpLeg
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:RightUpLeg/bigboss_L:RightLeg
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:RightUpLeg/bigboss_L:RightLeg/bigboss_L:RightFoot
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:RightUpLeg/bigboss_L:RightLeg/bigboss_L:RightFoot/bigboss_L:RightToeBase
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:LeftShoulder
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:LeftShoulder/bigboss_L:LeftArm
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:LeftShoulder/bigboss_L:LeftArm/bigboss_L:LeftForeArm
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:LeftShoulder/bigboss_L:LeftArm/bigboss_L:LeftForeArm/bigboss_L:LeftHand
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:LeftShoulder/bigboss_L:LeftArm/bigboss_L:LeftForeArm/bigboss_L:LeftHand/bigboss_L:LeftHandIndex1
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:LeftShoulder/bigboss_L:LeftArm/bigboss_L:LeftForeArm/bigboss_L:LeftHand/bigboss_L:LeftHandIndex1/bigboss_L:LeftHandIndex2
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:LeftShoulder/bigboss_L:LeftArm/bigboss_L:LeftForeArm/bigboss_L:LeftHand/bigboss_L:LeftHandIndex1/bigboss_L:LeftHandIndex2/bigboss_L:LeftHandIndex3
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:LeftShoulder/bigboss_L:LeftArm/bigboss_L:LeftForeArm/bigboss_L:LeftHand/bigboss_L:LeftHandIndex1/bigboss_L:LeftHandIndex2/bigboss_L:LeftHandIndex3/bigboss_L:LeftHandIndex4
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:LeftShoulder/bigboss_L:LeftArm/bigboss_L:LeftForeArm/bigboss_L:LeftHand/bigboss_L:LeftHandMiddle1
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:LeftShoulder/bigboss_L:LeftArm/bigboss_L:LeftForeArm/bigboss_L:LeftHand/bigboss_L:LeftHandMiddle1/bigboss_L:LeftHandMiddle2
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:LeftShoulder/bigboss_L:LeftArm/bigboss_L:LeftForeArm/bigboss_L:LeftHand/bigboss_L:LeftHandMiddle1/bigboss_L:LeftHandMiddle2/bigboss_L:LeftHandMiddle3
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:LeftShoulder/bigboss_L:LeftArm/bigboss_L:LeftForeArm/bigboss_L:LeftHand/bigboss_L:LeftHandMiddle1/bigboss_L:LeftHandMiddle2/bigboss_L:LeftHandMiddle3/bigboss_L:LeftHandMiddle4
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:LeftShoulder/bigboss_L:LeftArm/bigboss_L:LeftForeArm/bigboss_L:LeftHand/bigboss_L:LeftHandRing1
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:LeftShoulder/bigboss_L:LeftArm/bigboss_L:LeftForeArm/bigboss_L:LeftHand/bigboss_L:LeftHandRing1/bigboss_L:LeftHandRing2
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:LeftShoulder/bigboss_L:LeftArm/bigboss_L:LeftForeArm/bigboss_L:LeftHand/bigboss_L:LeftHandRing1/bigboss_L:LeftHandRing2/bigboss_L:LeftHandRing3
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:LeftShoulder/bigboss_L:LeftArm/bigboss_L:LeftForeArm/bigboss_L:LeftHand/bigboss_L:LeftHandRing1/bigboss_L:LeftHandRing2/bigboss_L:LeftHandRing3/bigboss_L:LeftHandRing4
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:LeftShoulder/bigboss_L:LeftArm/bigboss_L:LeftForeArm/bigboss_L:LeftHand/bigboss_L:LeftHandThumb1
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:LeftShoulder/bigboss_L:LeftArm/bigboss_L:LeftForeArm/bigboss_L:LeftHand/bigboss_L:LeftHandThumb1/bigboss_L:LeftHandThumb2
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:LeftShoulder/bigboss_L:LeftArm/bigboss_L:LeftForeArm/bigboss_L:LeftHand/bigboss_L:LeftHandThumb1/bigboss_L:LeftHandThumb2/bigboss_L:LeftHandThumb3
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:LeftShoulder/bigboss_L:LeftArm/bigboss_L:LeftForeArm/bigboss_L:LeftHand/bigboss_L:LeftHandThumb1/bigboss_L:LeftHandThumb2/bigboss_L:LeftHandThumb3/bigboss_L:LeftHandThumb4
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:Neck
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:Neck/bigboss_L:Head
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:Neck/bigboss_L:Head/bigboss_L:HeadTop_End
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:RightShoulder
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:RightShoulder/bigboss_L:RightArm
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:RightShoulder/bigboss_L:RightArm/bigboss_L:RightForeArm
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:RightShoulder/bigboss_L:RightArm/bigboss_L:RightForeArm/bigboss_L:RightHand
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:RightShoulder/bigboss_L:RightArm/bigboss_L:RightForeArm/bigboss_L:RightHand/bigboss_L:RightHandIndex1
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:RightShoulder/bigboss_L:RightArm/bigboss_L:RightForeArm/bigboss_L:RightHand/bigboss_L:RightHandIndex1/bigboss_L:RightHandIndex2
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:RightShoulder/bigboss_L:RightArm/bigboss_L:RightForeArm/bigboss_L:RightHand/bigboss_L:RightHandIndex1/bigboss_L:RightHandIndex2/bigboss_L:RightHandIndex3
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:RightShoulder/bigboss_L:RightArm/bigboss_L:RightForeArm/bigboss_L:RightHand/bigboss_L:RightHandIndex1/bigboss_L:RightHandIndex2/bigboss_L:RightHandIndex3/bigboss_L:RightHandIndex4
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:RightShoulder/bigboss_L:RightArm/bigboss_L:RightForeArm/bigboss_L:RightHand/bigboss_L:RightHandMiddle1
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:RightShoulder/bigboss_L:RightArm/bigboss_L:RightForeArm/bigboss_L:RightHand/bigboss_L:RightHandMiddle1/bigboss_L:RightHandMiddle2
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:RightShoulder/bigboss_L:RightArm/bigboss_L:RightForeArm/bigboss_L:RightHand/bigboss_L:RightHandMiddle1/bigboss_L:RightHandMiddle2/bigboss_L:RightHandMiddle3
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:RightShoulder/bigboss_L:RightArm/bigboss_L:RightForeArm/bigboss_L:RightHand/bigboss_L:RightHandMiddle1/bigboss_L:RightHandMiddle2/bigboss_L:RightHandMiddle3/bigboss_L:RightHandMiddle4
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:RightShoulder/bigboss_L:RightArm/bigboss_L:RightForeArm/bigboss_L:RightHand/bigboss_L:RightHandRing1
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:RightShoulder/bigboss_L:RightArm/bigboss_L:RightForeArm/bigboss_L:RightHand/bigboss_L:RightHandRing1/bigboss_L:RightHandRing2
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:RightShoulder/bigboss_L:RightArm/bigboss_L:RightForeArm/bigboss_L:RightHand/bigboss_L:RightHandRing1/bigboss_L:RightHandRing2/bigboss_L:RightHandRing3
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:RightShoulder/bigboss_L:RightArm/bigboss_L:RightForeArm/bigboss_L:RightHand/bigboss_L:RightHandRing1/bigboss_L:RightHandRing2/bigboss_L:RightHandRing3/bigboss_L:RightHandRing4
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:RightShoulder/bigboss_L:RightArm/bigboss_L:RightForeArm/bigboss_L:RightHand/bigboss_L:RightHandThumb1
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:RightShoulder/bigboss_L:RightArm/bigboss_L:RightForeArm/bigboss_L:RightHand/bigboss_L:RightHandThumb1/bigboss_L:RightHandThumb2
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:RightShoulder/bigboss_L:RightArm/bigboss_L:RightForeArm/bigboss_L:RightHand/bigboss_L:RightHandThumb1/bigboss_L:RightHandThumb2/bigboss_L:RightHandThumb3
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/bigboss_L:RightShoulder/bigboss_L:RightArm/bigboss_L:RightForeArm/bigboss_L:RightHand/bigboss_L:RightHandThumb1/bigboss_L:RightHandThumb2/bigboss_L:RightHandThumb3/bigboss_L:RightHandThumb4
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/wind1Left
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/wind1Left/wind2Left
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/wind1Left/wind2Left/wind3Left
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/wind1Left/wind2Left/wind3Left/wind4Left
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/wind1Right
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/wind1Right/wind2Right
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/wind1Right/wind2Right/wind3Right
+        weight: 1
+      - path: bigboss_L:Hips/bigboss_L:Spine/bigboss_L:Spine1/bigboss_L:Spine2/wind1Right/wind2Right/wind3Right/wind4Right
+        weight: 1
+      - path: bigboss_L:Hips/joint1
+        weight: 1
+      - path: bigboss_L:Hips/joint1/joint2
+        weight: 1
+      - path: bigboss_L:Hips/joint1/joint2/joint3
+        weight: 1
+      - path: bigboss_L:Hips/joint1/joint2/joint3/joint4
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0.96
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1.5
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: bigboss_L:Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:Spine2
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:LeftHandRing1
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:LeftHandRing2
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:LeftHandRing3
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:LeftHandThumb3
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:LeftHandThumb2
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:LeftHandThumb1
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:LeftHandMiddle3
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:LeftHandMiddle2
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:LeftHandMiddle1
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:LeftHandIndex3
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:LeftHandIndex2
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:LeftHandIndex1
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:RightHandThumb3
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:RightHandThumb2
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:RightHandThumb1
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:RightHandRing1
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:RightHandRing2
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:RightHandRing3
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:RightHandIndex1
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:RightHandIndex2
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:RightHandIndex3
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:RightHandMiddle1
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:RightHandMiddle2
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: bigboss_L:RightHandMiddle3
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: bigBoss01(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:Group42417
+      parentName: bigBoss01(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:Hips
+      parentName: bigBoss01(Clone)
+      position: {x: -0.00048751826, y: 2.2819726, z: -0.06235576}
+      rotation: {x: 0.44826317, y: -0.546864, z: -0.44826317, w: 0.546864}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:LeftUpLeg
+      parentName: bigboss_L:Hips
+      position: {x: 0.17300025, y: 0.01698613, z: 0.3445397}
+      rotation: {x: -0.04969219, y: 0.92580205, z: 0.3629725, w: 0.09312522}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:LeftLeg
+      parentName: bigboss_L:LeftUpLeg
+      position: {x: -0.7265329, y: 1.498801e-17, z: 1.3322676e-16}
+      rotation: {x: 0.785891, y: 0.4913934, z: 0.09433242, w: -0.36333084}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:LeftFoot
+      parentName: bigboss_L:LeftLeg
+      position: {x: -0.6078026, y: -4.8044895e-16, z: 3.1974422e-16}
+      rotation: {x: 0.5219037, y: 0.25240713, z: 0.2888278, w: 0.7618962}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:LeftToeBase
+      parentName: bigboss_L:LeftFoot
+      position: {x: -0.47107702, y: -2.6645352e-17, z: -9.6589404e-17}
+      rotation: {x: 0.7073405, y: 0.30254182, z: -0.19857089, w: 0.6072129}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:LeftToe_End
+      parentName: bigboss_L:LeftToeBase
+      position: {x: -0.5337651, y: -9.992007e-17, z: -5.3290704e-17}
+      rotation: {x: -0.5188157, y: 0.73321867, z: 0.024763301, w: 0.43887067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:RightUpLeg
+      parentName: bigboss_L:Hips
+      position: {x: 0.17299528, y: 0.016987115, z: -0.3445395}
+      rotation: {x: 0.92580205, y: 0.049692173, z: -0.09312522, w: 0.3629725}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:RightLeg
+      parentName: bigboss_L:RightUpLeg
+      position: {x: 0.72653824, y: 0.0000010364307, z: 0.0000006608475}
+      rotation: {x: 0.785891, y: 0.4913934, z: 0.09433242, w: -0.36333084}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:RightFoot
+      parentName: bigboss_L:RightLeg
+      position: {x: 0.6078027, y: -0.00000060309026, z: 0.0000012679609}
+      rotation: {x: 0.5219037, y: 0.25240713, z: 0.2888278, w: 0.7618962}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:RightToeBase
+      parentName: bigboss_L:RightFoot
+      position: {x: 0.47107702, y: -0.0000008094661, z: -0.00000012608761}
+      rotation: {x: 0.7073405, y: 0.30254182, z: -0.19857089, w: 0.6072129}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:RightToe_End
+      parentName: bigboss_L:RightToeBase
+      position: {x: 0.53376555, y: -0.0000005071628, z: -0.00000014560872}
+      rotation: {x: -0.5188157, y: 0.73321867, z: 0.024763301, w: 0.43887067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:Spine
+      parentName: bigboss_L:Hips
+      position: {x: -0.40827897, y: 1.3322676e-16, z: 8.9630886e-32}
+      rotation: {x: 0, y: 0, z: 0.049624715, w: 0.998768}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:Spine1
+      parentName: bigboss_L:Spine
+      position: {x: -0.41119656, y: -3.4638954e-16, z: -1.215905e-16}
+      rotation: {x: 0.9783832, y: -0.20680045, z: 1.0221086e-16, w: 8.41895e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:Spine2
+      parentName: bigboss_L:Spine1
+      position: {x: -0.47196168, y: 8.326673e-17, z: 1.10758386e-16}
+      rotation: {x: 8.3347006e-26, y: 5.9273265e-18, z: 0.17920487, w: 0.9838118}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:LeftShoulder
+      parentName: bigboss_L:Spine2
+      position: {x: -0.18673606, y: 0.07129581, z: -0.25987887}
+      rotation: {x: 0.34661174, y: -0.50339484, z: 0.6587823, w: -0.43870243}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:LeftArm
+      parentName: bigboss_L:LeftShoulder
+      position: {x: 7.3136924e-10, y: 0.5284419, z: 0.000000004515941}
+      rotation: {x: 0.11350442, y: -0.013269974, z: -0.11535994, w: 0.9867283}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:LeftForeArm
+      parentName: bigboss_L:LeftArm
+      position: {x: -1.082234e-10, y: 1.0118822, z: 4.1947967e-10}
+      rotation: {x: -0.10346958, y: 0.0010419888, z: -0.010015921, w: 0.99458164}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:LeftHand
+      parentName: bigboss_L:LeftForeArm
+      position: {x: -0.000000003635025, y: 1.0414072, z: 0.000000008252675}
+      rotation: {x: 0.1727765, y: 0.97250587, z: -0.03732343, w: 0.15161693}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:LeftHandIndex1
+      parentName: bigboss_L:LeftHand
+      position: {x: 0.19601256, y: 0.327567, z: -0.011236279}
+      rotation: {x: -0.1937301, y: 0.009262339, z: -0.046849124, w: 0.97989184}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:LeftHandIndex2
+      parentName: bigboss_L:LeftHandIndex1
+      position: {x: 0.091059424, y: 0.32224438, z: -0.000000004121407}
+      rotation: {x: -0.3512619, y: 9.749477e-18, z: -2.5986915e-17, w: 0.9362773}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:LeftHandIndex3
+      parentName: bigboss_L:LeftHandIndex2
+      position: {x: -0.010173345, y: 0.28477594, z: -0.000000006804092}
+      rotation: {x: -0.51998705, y: 2.3708095e-17, z: 1.443254e-17, w: 0.85417414}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:LeftHandIndex4
+      parentName: bigboss_L:LeftHandIndex3
+      position: {x: -0.080886096, y: 0.17941938, z: 8.5133506e-10}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:LeftHandMiddle1
+      parentName: bigboss_L:LeftHand
+      position: {x: 0.0026820137, y: 0.4598216, z: 0.06001535}
+      rotation: {x: -0.10948401, y: -0.015152674, z: 0.13625392, w: 0.984489}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:LeftHandMiddle2
+      parentName: bigboss_L:LeftHandMiddle1
+      position: {x: 0.06889773, y: 0.31588113, z: -0.000000010817734}
+      rotation: {x: -0.30084503, y: -2.6469745e-17, z: -8.350127e-18, w: 0.95367306}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:LeftHandMiddle3
+      parentName: bigboss_L:LeftHandMiddle2
+      position: {x: -0.0010821159, y: 0.2845407, z: 5.866322e-10}
+      rotation: {x: -0.65569377, y: 0, z: -0, w: 0.75502694}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:LeftHandMiddle4
+      parentName: bigboss_L:LeftHandMiddle3
+      position: {x: -0.06781562, y: 0.18708564, z: -0.000000004398822}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:LeftHandRing1
+      parentName: bigboss_L:LeftHand
+      position: {x: -0.19869462, y: 0.374005, z: -0.016074797}
+      rotation: {x: -0.4903261, y: -0.10069348, z: 0.1741467, w: 0.848006}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:LeftHandRing2
+      parentName: bigboss_L:LeftHandRing1
+      position: {x: -0.044889834, y: 0.12614064, z: -0.0000000023093245}
+      rotation: {x: 0.1516851, y: -5.262634e-19, z: -3.4293016e-18, w: 0.9884289}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:LeftHandRing3
+      parentName: bigboss_L:LeftHandRing2
+      position: {x: 0.008201366, y: 0.14402622, z: -0.000000001626659}
+      rotation: {x: 0.06574111, y: 9.123411e-19, z: 1.3847766e-17, w: 0.9978367}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:LeftHandRing4
+      parentName: bigboss_L:LeftHandRing3
+      position: {x: 0.03668847, y: 0.08606989, z: 3.3895659e-10}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:LeftHandThumb1
+      parentName: bigboss_L:LeftHand
+      position: {x: 0.10927779, y: 0.08617708, z: -0.15434784}
+      rotation: {x: -0.4388357, y: 0.073276855, z: -0.147501, w: 0.8833443}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:LeftHandThumb2
+      parentName: bigboss_L:LeftHandThumb1
+      position: {x: 0.060280174, y: 0.15494774, z: 0.000000010427996}
+      rotation: {x: -0.12085913, y: -2.671349e-17, z: -1.0242544e-17, w: 0.99266964}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:LeftHandThumb3
+      parentName: bigboss_L:LeftHandThumb2
+      position: {x: 0.031933893, y: 0.19035879, z: -0.000000007710962}
+      rotation: {x: 0.20347558, y: -2.717493e-17, z: 5.647582e-18, w: 0.97908}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:LeftHandThumb4
+      parentName: bigboss_L:LeftHandThumb3
+      position: {x: -0.09221408, y: 0.13924962, z: 0.000000009829623}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:Neck
+      parentName: bigboss_L:Spine2
+      position: {x: -0.3022599, y: -1.4654943e-16, z: 3.5201825e-18}
+      rotation: {x: 1.1129628e-24, y: -8.537422e-17, z: 0.1920052, w: 0.98139393}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:Head
+      parentName: bigboss_L:Neck
+      position: {x: -0.6284707, y: 5.5955235e-16, z: -1.0529026e-16}
+      rotation: {x: -2.3423144e-25, y: -5.3553215e-17, z: -0.24744736, w: 0.96890134}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:HeadTop_End
+      parentName: bigboss_L:Head
+      position: {x: -0.41964602, y: 3.4638954e-16, z: -4.358095e-17}
+      rotation: {x: 0.4005237, y: -0.5827356, z: 0.4005237, w: 0.5827356}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:RightShoulder
+      parentName: bigboss_L:Spine2
+      position: {x: -0.18912272, y: 0.06671316, z: 0.25987887}
+      rotation: {x: 0.66171044, y: 0.4331275, z: 0.35347572, w: 0.49959463}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:RightArm
+      parentName: bigboss_L:RightShoulder
+      position: {x: -1.3829629e-10, y: 0.5284419, z: 0.0000000045749022}
+      rotation: {x: 0.11426108, y: 0.012135451, z: 0.10491457, w: 0.98782086}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:RightForeArm
+      parentName: bigboss_L:RightArm
+      position: {x: 0.000000003895575, y: 1.0113271, z: -0.000000007537938}
+      rotation: {x: -0.10349521, y: -0.00090402336, z: 0.00868768, w: 0.9945916}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:RightHand
+      parentName: bigboss_L:RightForeArm
+      position: {x: -0.000000015453203, y: 1.040292, z: -0.000000014758624}
+      rotation: {x: -0.1694861, y: 0.9709608, z: -0.03844545, w: -0.16441254}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:RightHandIndex1
+      parentName: bigboss_L:RightHand
+      position: {x: -0.20261559, y: 0.3268439, z: -0.017244173}
+      rotation: {x: -0.20147492, y: -0.0025368475, z: 0.012332163, w: 0.9794128}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:RightHandIndex2
+      parentName: bigboss_L:RightHandIndex1
+      position: {x: -0.10280414, y: 0.31926787, z: -0.0000000023101547}
+      rotation: {x: -0.3480856, y: 0, z: -0, w: 0.9374628}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:RightHandIndex3
+      parentName: bigboss_L:RightHandIndex2
+      position: {x: 0.012841516, y: 0.28736576, z: -0.0000000028462783}
+      rotation: {x: -0.57341355, y: 1.1936569e-17, z: -1.7054401e-17, w: 0.8192661}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:RightHandIndex4
+      parentName: bigboss_L:RightHandIndex3
+      position: {x: 0.08996264, y: 0.16029388, z: -0.0000000023568967}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:RightHandMiddle1
+      parentName: bigboss_L:RightHand
+      position: {x: -0.00954183, y: 0.46286055, z: 0.06563039}
+      rotation: {x: -0.12126142, y: 0.019731957, z: -0.15939343, w: 0.97954077}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:RightHandMiddle2
+      parentName: bigboss_L:RightHandMiddle1
+      position: {x: -0.0766353, y: 0.31432343, z: -0.000000010124792}
+      rotation: {x: -0.26808012, y: -1.9298913e-17, z: -3.418035e-17, w: 0.96339667}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:RightHandMiddle3
+      parentName: bigboss_L:RightHandMiddle2
+      position: {x: -0.004366817, y: 0.27262095, z: 0.000000010771087}
+      rotation: {x: -0.6265291, y: -8.694838e-18, z: 1.081632e-17, w: 0.779398}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:RightHandMiddle4
+      parentName: bigboss_L:RightHandMiddle3
+      position: {x: 0.08100211, y: 0.19742838, z: -0.000000007223951}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:RightHandRing1
+      parentName: bigboss_L:RightHand
+      position: {x: 0.21215738, y: 0.37286574, z: -0.022038499}
+      rotation: {x: -0.4816419, y: 0.089198306, z: -0.15875775, w: 0.8572402}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:RightHandRing2
+      parentName: bigboss_L:RightHandRing1
+      position: {x: 0.04168889, y: 0.124382265, z: -0.0000000011919549}
+      rotation: {x: 0.15237443, y: -1.05731e-18, z: -6.8578674e-18, w: 0.98832285}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:RightHandRing3
+      parentName: bigboss_L:RightHandRing2
+      position: {x: -0.007397564, y: 0.13141666, z: 7.8762924e-10}
+      rotation: {x: 0.09281654, y: 2.6347673e-17, z: -1.6394056e-17, w: 0.99568325}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:RightHandRing4
+      parentName: bigboss_L:RightHandRing3
+      position: {x: -0.034291327, y: 0.08113463, z: 0.000000005609118}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:RightHandThumb1
+      parentName: bigboss_L:RightHand
+      position: {x: -0.10742452, y: 0.084907085, z: -0.15678898}
+      rotation: {x: -0.45334947, y: -0.065254286, z: 0.12664725, w: 0.8798731}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:RightHandThumb2
+      parentName: bigboss_L:RightHandThumb1
+      position: {x: -0.06329373, y: 0.15403365, z: 2.742868e-10}
+      rotation: {x: -0.11104777, y: 7.705487e-19, z: -6.8959773e-18, w: 0.99381506}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:RightHandThumb3
+      parentName: bigboss_L:RightHandThumb2
+      position: {x: -0.029597415, y: 0.18825486, z: 0.000000002552067}
+      rotation: {x: 0.23294127, y: 3.0224756e-17, z: 7.0306034e-18, w: 0.97249085}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bigboss_L:RightHandThumb4
+      parentName: bigboss_L:RightHandThumb3
+      position: {x: 0.092891134, y: 0.14333014, z: -0.0000000047323923}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: wind1Left
+      parentName: bigboss_L:Spine2
+      position: {x: -0.22300924, y: 0.27846193, z: -0.3568005}
+      rotation: {x: 0.74570996, y: -0.5892763, z: 0.05829205, w: 0.3054051}
+      scale: {x: 1, y: 1, z: 1}
+    - name: wind2Left
+      parentName: wind1Left
+      position: {x: -0.54155546, y: -2.6645352e-17, z: 1.5987211e-16}
+      rotation: {x: 0.033453953, y: -0.03245685, z: -0.08687375, w: 0.99512833}
+      scale: {x: 1, y: 1, z: 1}
+    - name: wind3Left
+      parentName: wind2Left
+      position: {x: -0.42278636, y: -4.6629366e-17, z: -2.6645352e-17}
+      rotation: {x: -0.10250844, y: 0.20977253, z: 0.40805632, w: 0.882597}
+      scale: {x: 1, y: 1, z: 1}
+    - name: wind4Left
+      parentName: wind3Left
+      position: {x: -0.4491502, y: -5.995204e-17, z: 1.3322676e-16}
+      rotation: {x: -0.002969282, y: 0.27654445, z: 0.010317711, w: 0.9609412}
+      scale: {x: 1, y: 1, z: 1}
+    - name: wind1Right
+      parentName: bigboss_L:Spine2
+      position: {x: -0.22300743, y: 0.27846178, z: 0.35777554}
+      rotation: {x: 0.5892763, y: 0.74570996, z: 0.3054051, w: -0.05829205}
+      scale: {x: 1, y: 1, z: 1}
+    - name: wind2Right
+      parentName: wind1Right
+      position: {x: 0.5415569, y: -0.0000018274013, z: -0.000000073577546}
+      rotation: {x: 0.033453953, y: -0.03245685, z: -0.08687375, w: 0.99512833}
+      scale: {x: 1, y: 1, z: 1}
+    - name: wind3Right
+      parentName: wind2Right
+      position: {x: 0.42278925, y: -0.0000017809662, z: -0.0000006300109}
+      rotation: {x: -0.10250844, y: 0.20977253, z: 0.40805632, w: 0.882597}
+      scale: {x: 1, y: 1, z: 1}
+    - name: wind4Right
+      parentName: wind3Right
+      position: {x: 0.44914964, y: -0.0000009939993, z: -0.00000016864277}
+      rotation: {x: -0.002969282, y: 0.27654445, z: 0.010317711, w: 0.9609412}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint1
+      parentName: bigboss_L:Hips
+      position: {x: 0.55607593, y: -0.45966324, z: -0.00048751826}
+      rotation: {x: -1.0999741e-17, y: -1.3013001e-17, z: 0.8081325, w: 0.5890007}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint2
+      parentName: joint1
+      position: {x: -0.59762466, y: 0, z: 0}
+      rotation: {x: 8.108e-42, y: 1.1046339e-32, z: -0.30328807, w: 0.9528989}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint3
+      parentName: joint2
+      position: {x: -0.63233757, y: 2.1316282e-16, z: 1.3312027e-32}
+      rotation: {x: 1.33789e-40, y: -7.612564e-33, z: -0.15641615, w: 0.9876913}
+      scale: {x: 1, y: 1, z: 1}
+    - name: joint4
+      parentName: joint3
+      position: {x: -0.39344096, y: 1.5987211e-16, z: -5.9164567e-33}
+      rotation: {x: -1.03056e-40, y: 9.972816e-33, z: 0.34960145, w: 0.9368985}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1.5
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

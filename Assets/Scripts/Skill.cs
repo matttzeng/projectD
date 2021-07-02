@@ -272,7 +272,7 @@ namespace ProjectD
                 bullet.Seek(target.transform);
         }
         
-
+        //技能的desc
         public override string GetDescription()
         {
             string desc = base.GetDescription();
