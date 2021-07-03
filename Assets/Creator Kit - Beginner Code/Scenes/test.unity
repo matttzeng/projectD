@@ -10462,6 +10462,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: c05c988258dfcb14cb496b8fcdd4e43a, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 6d005fd92087b914398fe0b1bad67e3f,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d005fd92087b914398fe0b1bad67e3f, type: 3}
 --- !u!1 &595760622
@@ -24748,6 +24753,16 @@ MonoBehaviour:
   SpurSoundClips: []
   autoMode: 0
   interactRadius: 3
+  StartSprite:
+  - {fileID: 21300000, guid: c8d792fc2bc492f48a895ddbaf41fa63, type: 3}
+  - {fileID: 21300000, guid: 9b0a0c5313efba1498b6d78266102451, type: 3}
+  - {fileID: 21300000, guid: 1050689e0b771c44bb3616aac4142bf6, type: 3}
+  - {fileID: 21300000, guid: cd541d29126edfc49a8a63ea22c689ae, type: 3}
+  StartWorldObject:
+  - {fileID: 1090382368684441554, guid: 5336fad12ebea534987acfeac51fdc1a, type: 3}
+  - {fileID: 359469582963428527, guid: 669409aadc3be9241996e74c712fa99b, type: 3}
+  - {fileID: 1006753614390398824, guid: 6204886f64a997b409912e13a6b9be9e, type: 3}
+  - {fileID: 1006753614390398824, guid: dded05a5060844c4b9efe1e7cdac50bb, type: 3}
 --- !u!114 &1276781333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24823,7 +24838,7 @@ MonoBehaviour:
       elementalBoosts: 00000000000000000000000000000000
     m_ModifiersStack: []
     unbeatable: 0
-  StartingWeapon: {fileID: 11400000, guid: fdd560a11afb66b4a9861ac654a282d0, type: 2}
+  StartingWeapon: {fileID: 11400000, guid: 8af86a4df536577419b758893e407d1d, type: 2}
   ChooseSkill: {fileID: 0}
   Skill:
   - {fileID: 11400000, guid: 1414171b61ff0c147823a9a60b6c1698, type: 2}
@@ -32092,6 +32107,7 @@ GameObject:
   - component: {fileID: 1735039234}
   - component: {fileID: 1735039236}
   - component: {fileID: 1735039237}
+  - component: {fileID: 1735039238}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -32182,6 +32198,23 @@ MonoBehaviour:
   nameInput: {fileID: 603087218}
   gameManager: {fileID: 1735039234}
   menu: {fileID: 5115311139597083534}
+--- !u!114 &1735039238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735039233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 264f256eff332734b997334820db7812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2082409039}
+  level: 0
+  SkillPoint: 0
+  StatsPoint: 0
+  Wave: 0
 --- !u!1 &1740472351
 GameObject:
   m_ObjectHideFlags: 0
@@ -45497,7 +45530,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2511549651022676226}
   m_LocalRotation: {x: -0.04370901, y: -0.059077002, z: -0.72682357, w: 0.6828814}
-  m_LocalPosition: {x: 0.8, y: -0.079, z: 0}
+  m_LocalPosition: {x: -0.713, y: -0.079, z: 0.034}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1451822146}

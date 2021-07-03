@@ -21,14 +21,21 @@ public class Save : MonoBehaviour
         
     }
 
-    public static void SavePlayer()
+    public  void SavePlayer()
     {
-       //level = player.GetComponent<CharacterControl>().level.currentLevel;
-       // player.GetComponent<CharacterData>().Stats.
+       level = player.GetComponent<CharacterControl>().level.currentLevel;
+        string json = JsonUtility.ToJson(level);
+        PlayerPrefs.SetString("Level", json);
+
+        Debug.Log("存玩家等級" + json);
     }
 
-    public static void SaveWave()
+    public  void SaveWave()
     {
-      //  Wave = WaveSpawner.waveNumber;
+        Wave = WaveSpawner.waveNumber;
+        string json = JsonUtility.ToJson(Wave);
+        PlayerPrefs.SetString("Wave", json);
+        Debug.Log("存關卡" + json);
+
     }
 }

@@ -174,17 +174,15 @@ namespace ProjectDInternal
                     m_CharacterData.StartingWeapon = lastWeapon;
                 }
 
-                else
-                    return;
-
+             
 
                 //Debug.Log("讀武器2" + lastWeapon.ItemName);
 
 
-                    //m_CharacterData.StartingWeapon = lastWeapon;
-       
-            }
+                //m_CharacterData.StartingWeapon = lastWeapon;
 
+            }
+           
 
 
             m_CharacterData.Equipment.OnEquiped += item =>

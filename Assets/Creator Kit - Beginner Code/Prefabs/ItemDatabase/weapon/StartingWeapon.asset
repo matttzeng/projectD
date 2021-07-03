@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 721bded4ab38d3c45ac4302c289230a8, type: 3}
   m_Name: StartingWeapon
   m_EditorClassIdentifier: 
-  ItemName: StratingWeapon
+  ItemName: StartingWeapon
   ItemSprite: {fileID: 21300000, guid: cd2900430c2cf7343ae4dbec6169e919, type: 3}
-  Description: StratingWeapon
+  Description: StartingWeapon
   WorldObjectPrefab: {fileID: 7021322073304542454, guid: 1392b5814a8ad0648a238c0d4aa8036c,
     type: 3}
   Slot: 666
