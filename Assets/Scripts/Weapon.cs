@@ -177,11 +177,14 @@ namespace ProjectD
 
         public bool CanHit(CharacterData attacker, CharacterData target)
         {
-            
-            //if (Vector3.SqrMagnitude(attacker.transform.position - target.transform.position) < (Stats.MaxRange + attacker.Stats.stats.attackRange /2) * (Stats.MaxRange + attacker.Stats.stats.attackRange/2))
-            if (Vector3.SqrMagnitude(attacker.transform.position - target.transform.position) < (attacker.Stats.stats.attackRange +1) * (attacker.Stats.stats.attackRange +1))
+            if (target != null)
+            {
+                //if (Vector3.SqrMagnitude(attacker.transform.position - target.transform.position) < (Stats.MaxRange + attacker.Stats.stats.attackRange /2) * (Stats.MaxRange + attacker.Stats.stats.attackRange/2))
+                if (Vector3.SqrMagnitude(attacker.transform.position - target.transform.position) < (attacker.Stats.stats.attackRange + 1) * (attacker.Stats.stats.attackRange + 1))
                 {
-                return true;
+                    return true;
+                }
+
             }
 
             return false;

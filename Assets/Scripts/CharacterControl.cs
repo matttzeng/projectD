@@ -91,7 +91,8 @@ namespace ProjectDInternal
         {
             DEFAULT,
             HIT,
-            ATTACKING
+            ATTACKING,
+            SKILLING
         }
 
         State m_CurrentState;
@@ -357,36 +358,16 @@ namespace ProjectDInternal
 
             if (m_CurrentTargetCharacterData != null)
             {
-                
+
                 if (m_CurrentTargetCharacterData.Stats.CurrentHealth == 0)
                     m_CurrentTargetCharacterData = null;
-                    
+
                 else
+                    CheckSkill();
                     CheckAttack();
                
             }
 
-            float mouseWheel = Input.GetAxis("Mouse ScrollWheel");
-            if (!Mathf.Approximately(mouseWheel, 0.0f))
-            {
-                Vector3 view = m_MainCamera.ScreenToViewportPoint(Input.mousePosition);
-                if (view.x > 0f && view.x < 1f && view.y > 0f && view.y < 1f)
-                    CameraController.Instance.Zoom(-mouseWheel * Time.deltaTime * 20.0f);
-            }
-
-            if (Input.GetMouseButtonDown(0))
-           // { //if we click the mouse button, we clear any previously et targets
-                //m_Animator.SetTrigger(m_AttackParamID);
-                if (m_CurrentState != State.ATTACKING)
-                {
-                    m_CurrentTargetCharacterData = null;
-                    m_TargetInteractable = null;
-                }
-                else
-                {
-                    m_ClearPostAttack = true;
-                }
-           // }
 
             MoveCheck();
 
@@ -428,49 +409,7 @@ namespace ProjectDInternal
 
                     //Raycast to find object currently under the mouse cursor
                     ObjectsRaycasts();
-                    //攻擊球體範圍內敵人
-                    //if(m_RaycastHitCache[0].collider.GetComponentInParent<CharacterData>() != null)
-                        //m_CurrentTargetCharacterData = m_RaycastHitCache[0].collider.GetComponentInParent<CharacterData>();
-
-                    /*if(m_CurrentTargetCharacterData == null)
-                    {
-                        InteractableObject obj = m_Highlighted as InteractableObject;
-                        if (obj)
-                        {
-                            InteractWith(obj);
-                        }
-                    }*/
-                    
-                    //Debug.Log("有目標"+(m_CurrentTargetCharacterData != null));
-
-                    //搜索全地圖最近的敵人
-                    /*CharacterData[] enemies = FindObjectsOfType<CharacterData>();
-                    float shortestDistance = Mathf.Infinity;
-                    CharacterData nearestEnemy = null;
-
-                    foreach (CharacterData enemy in enemies)
-                    {
-                        float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-                        if (distanceToEnemy <= shortestDistance && distanceToEnemy >= 0.1)
-                        {
-                            shortestDistance = distanceToEnemy;
-                            nearestEnemy = enemy;
-                        }
-                    }
-                    if (nearestEnemy != null && shortestDistance <= 5f)
-                    {
-                        m_CurrentTargetCharacterData = nearestEnemy as CharacterData;
-                    }
-                    else
-                    {
-                        m_CurrentTargetCharacterData = null;
-                        InteractableObject obj = m_Highlighted as InteractableObject;
-                        if (obj)
-                        {
-                            InteractWith(obj);
-                        }
-                    }*/
-
+                   
                 }
             /*
             if (!EventSystem.current.IsPointerOverGameObject() && m_CurrentState != State.ATTACKING)
@@ -734,15 +673,10 @@ namespace ProjectDInternal
             m_Agent.velocity = Vector3.zero;
         }
 
-        void CheckAttack()
+        void CheckSkill()
         {
-            
-            if (m_CurrentState == State.ATTACKING)
+            if (m_CurrentState == State.SKILLING)
                 return;
-
-
-
-          
 
 
 
@@ -750,21 +684,13 @@ namespace ProjectDInternal
             {
                 if (m_CharacterData.CanSkillAttackTarget(m_CurrentTargetCharacterData))
                 {
-                    StopAgent();
+                   // StopAgent();
 
-                    //if the mouse button isn't pressed, we do NOT attack
-                    //if (Input.GetMouseButton(0))
-                    //{
-                    /*Vector3 forward = (m_CurrentTargetCharacterData.transform.position - transform.position);
-                    forward.y = 0;
-                    forward.Normalize();
-
-
-                    transform.forward = forward;*/
+                    
                     if (m_CharacterData.CanSkillAttackTarget(m_CurrentTargetCharacterData))
                     {
-                        m_CurrentState = State.ATTACKING;
-                        
+                        m_CurrentState = State.SKILLING;
+
                         m_CharacterData.SkillAttackTriggered();
                         m_Animator.SetTrigger(m_SkillAttackParamID);
 
@@ -773,19 +699,21 @@ namespace ProjectDInternal
                 }
             }
 
+         
+
+
+        }
+        void CheckAttack()
+        {
+            
+            if (m_CurrentState == State.ATTACKING)
+                return;
+
+
             if (m_CharacterData.CanAttackReach(m_CurrentTargetCharacterData))
             {
                 StopAgent();
 
-                //if the mouse button isn't pressed, we do NOT attack
-                //if (Input.GetMouseButton(0))
-                //{
-                    /*Vector3 forward = (m_CurrentTargetCharacterData.transform.position - transform.position);
-                    forward.y = 0;
-                    forward.Normalize();
-
-
-                    transform.forward = forward;*/
                     if (m_CharacterData.CanAttackTarget(m_CurrentTargetCharacterData))
                     {
                         m_CurrentState = State.ATTACKING;
@@ -794,16 +722,9 @@ namespace ProjectDInternal
                         m_Animator.SetTrigger(m_AttackParamID);
 
                     }
-                //}
+             
             }
-            //else if(m_CharacterData.CanAttackTarget(m_CurrentTargetCharacterData)!=true)
-           // {
-               // AttackRangeUI attackRangeUI = new AttackRangeUI();
-                //attackRangeUI.ShowRangeUI(1.0f);
-
-                //m_Agent.SetDestination(m_CurrentTargetCharacterData.transform.position);
-            //}
-
+          
 
            
 

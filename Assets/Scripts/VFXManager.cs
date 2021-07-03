@@ -83,7 +83,7 @@ namespace ProjectD
             //disabled before being back on front of the list
             var inst = Instance.m_Instances[idx].Dequeue();
             Instance.m_Instances[idx].Enqueue(inst);
-        
+        if(inst.Effect.gameObject!=null)
             inst.Effect.gameObject.SetActive(true);
             return inst;
         }
@@ -97,8 +97,14 @@ namespace ProjectD
         public static VFXInstance PlayVFX(VFXType type, Vector3 position,Quaternion rotation)
         {
             var i = GetVFX(type);
-            i.Effect.gameObject.transform.position = position;
-            i.Effect.gameObject.transform.rotation = rotation;
+
+            if (i.Effect.gameObject != null) 
+            {
+
+                i.Effect.gameObject.transform.position = position;
+                i.Effect.gameObject.transform.rotation = rotation;
+            }
+        
             return i;
         }
 

@@ -202,7 +202,7 @@ namespace ProjectDInternal
 
             if (data.Stats.stats.statsPoint > 0)
             {
-                data.Stats.baseStats.health += 10;
+                data.Stats.baseStats.health += 30;
                 data.Stats.UpdateFinalStats();
 
                 data.Stats.stats.statsPoint -= 1;

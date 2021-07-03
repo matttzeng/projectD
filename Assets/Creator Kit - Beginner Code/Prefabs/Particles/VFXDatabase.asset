@@ -15,14 +15,14 @@ MonoBehaviour:
   Entries:
   - Name: Hit
     Prefab: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
-    PoolSize: 32
+    PoolSize: 16
   - Name: FireEffect
     Prefab: {fileID: 100004, guid: 9dd6363b38f00af4aabb30303e5608ac, type: 3}
     PoolSize: 6
   - Name: StepPuff
     Prefab: {fileID: 5473230745075671558, guid: b88ed6cb119004249aec3c1fec061dd4,
       type: 3}
-    PoolSize: 32
+    PoolSize: 12
   - Name: Healing
     Prefab: {fileID: 1844191813266838, guid: 968c924d2be019d4b9e67647551eec3e, type: 3}
     PoolSize: 6
@@ -40,7 +40,7 @@ MonoBehaviour:
     PoolSize: 6
   - Name: BulletImpactFX
     Prefab: {fileID: 263907923257804574, guid: 971cc2f067692414b9948ac0e4d9daf5, type: 3}
-    PoolSize: 32
+    PoolSize: 16
   - Name: TestSkill
     Prefab: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
     PoolSize: 6
@@ -56,4 +56,4 @@ MonoBehaviour:
   - Name: LevelUp
     Prefab: {fileID: 3317137113860023057, guid: 0881a44de8cf2be47a64647335fb5efe,
       type: 3}
-    PoolSize: 6
+    PoolSize: 12
