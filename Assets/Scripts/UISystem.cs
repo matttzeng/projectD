@@ -69,10 +69,11 @@ namespace ProjectDInternal
         {
             InventoryWindow.Load(PlayerCharacter.Data);
             //匯入腳色技能圖示, 暫定3個技能
+            //InventoryWindow.LoadSkill(PlayerCharacter.Data);
+            //m_ClosedInventorySprite = ((Image)OpenInventoryButton.targetGraphic).sprite;
+            //m_OpenInventorySprite = OpenInventoryButton.spriteState.pressedSprite;
             InventoryWindow.LoadSkill(PlayerCharacter.Data);
-            m_ClosedInventorySprite = ((Image)OpenInventoryButton.targetGraphic).sprite;
-            m_OpenInventorySprite = OpenInventoryButton.spriteState.pressedSprite;
-                    
+
             for (int i = 0; i < TimedModifierIcones.Length; ++i)
             {
                 TimedModifierIcones[i].gameObject.SetActive(false);

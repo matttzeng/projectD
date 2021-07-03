@@ -135,29 +135,30 @@ namespace ProjectDInternal
             IconeImage.enabled = enabled;
             if (enabled)
                 IconeImage.sprite = itm.ItemSprite;
-
-
-            if ((EquipmentItem as Weapon).Modifier.Stats.itemQuality == 0)
+           
+            if (itm.Slot == (EquipmentItem.EquipmentSlot)666)
             {
-                OutlineColor.color = Color.white;
+                if ((EquipmentItem as Weapon).Modifier.Stats.itemQuality == 0)
+                {
+                    OutlineColor.color = Color.white;
+                }
+                if ((EquipmentItem as Weapon).Modifier.Stats.itemQuality == 1)
+                {
+                    OutlineColor.color = Color.green;
+                }
+                if ((EquipmentItem as Weapon).Modifier.Stats.itemQuality == 2)
+                {
+                    OutlineColor.color = Color.blue;
+                }
+                if ((EquipmentItem as Weapon).Modifier.Stats.itemQuality == 3)
+                {
+                    OutlineColor.color = Color.yellow;
+                }
+                if ((EquipmentItem as Weapon).Modifier.Stats.itemQuality == 4)
+                {
+                    OutlineColor.color = Color.red;
+                }
             }
-            if ((EquipmentItem as Weapon).Modifier.Stats.itemQuality == 1)
-            {
-                OutlineColor.color = Color.green;
-            }
-            if ((EquipmentItem as Weapon).Modifier.Stats.itemQuality == 2)
-            {
-                OutlineColor.color = Color.blue;
-            }
-            if ((EquipmentItem as Weapon).Modifier.Stats.itemQuality == 3)
-            {
-                OutlineColor.color = Color.yellow;
-            }
-            if ((EquipmentItem as Weapon).Modifier.Stats.itemQuality == 4)
-            {
-                OutlineColor.color = Color.red;
-            }
-
         }
         /*
         public void OnBeginDrag(PointerEventData eventData)
