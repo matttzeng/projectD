@@ -14,20 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Entries:
   - Name: Hit
-    Prefab: {fileID: 5035945247045292663, guid: 066850a0f599f4a4b9c3b3725aff2b81,
-      type: 3}
+    Prefab: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
     PoolSize: 32
   - Name: FireEffect
-    Prefab: {fileID: 6530873684951725854, guid: 4bae35886e50cdb4ea86c6732f729e10,
-      type: 3}
+    Prefab: {fileID: 100004, guid: 9dd6363b38f00af4aabb30303e5608ac, type: 3}
     PoolSize: 6
   - Name: StepPuff
     Prefab: {fileID: 5473230745075671558, guid: b88ed6cb119004249aec3c1fec061dd4,
       type: 3}
     PoolSize: 32
   - Name: Healing
-    Prefab: {fileID: 2630727110794422432, guid: 2d3274be2c23aae4caa26cd176e92bd5,
-      type: 3}
+    Prefab: {fileID: 1844191813266838, guid: 968c924d2be019d4b9e67647551eec3e, type: 3}
     PoolSize: 6
   - Name: Negative
     Prefab: {fileID: 5818628162665171348, guid: b82fd326cca8bc843a1bb96a1c93eb1c,

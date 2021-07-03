@@ -109,17 +109,25 @@ namespace ProjectD
         {
             Stats.Tick();
 
-            if (m_AttackCoolDown > 0.0f)
-                m_AttackCoolDown -= Time.deltaTime;
-
             if (m_SkillAttackCoolDown > 0.0f)
                 m_SkillAttackCoolDown -= Time.deltaTime;
 
 
+            if (m_AttackCoolDown > 0.0f)
+                m_AttackCoolDown -= Time.deltaTime;
+
+           
+
             Animator anim = GetComponentInChildren<Animator>();
+
+            //這邊還要加個條件 避免怪物的ANIMATOR沒有ATTACKSPEED 一值跳黃
             if (anim != null)
-                //這邊還要加個條件 避免怪物的ANIMATOR沒有ATTACKSPEED 一值跳黃
-                anim.SetFloat("AttackSpeed",1+this.Stats.stats.attackSpeed*0.01f);
+            {
+                anim.SetFloat("AttackSpeed", 1 + this.Stats.stats.attackSpeed * 0.01f);
+            }
+               
+               
+
 
             
       
