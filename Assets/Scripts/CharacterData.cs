@@ -233,9 +233,9 @@ namespace ProjectD
 
         public void SkillAttackTriggered()
         {
-            m_SkillAttackCoolDown = ChooseSkill.Stats.Speed/ (Stats.stats.skillSpeed*0.03f+1f);// - (Stats.stats.agility * 0.5f * 0.001f * Skill.Stats.Speed;
+            m_SkillAttackCoolDown = ChooseSkill.Stats.Speed/ (Stats.stats.skillSpeed*0.015f+1f);// - (Stats.stats.agility * 0.5f * 0.001f * Skill.Stats.Speed;
 
-            skillCD = ChooseSkill.Stats.Speed / (Stats.stats.skillSpeed * 0.03f + 1f);
+            skillCD = ChooseSkill.Stats.Speed / (Stats.stats.skillSpeed * 0.015f + 1f);
         }
         /// <summary>
         /// Damage the Character by the AttackData given as parameter. See the documentation for that class for how to

@@ -2,6 +2,9 @@ using ProjectD;
 using UnityEngine;
 using UnityEngine.UI;
 using ProjectDInternal;
+using Random = UnityEngine.Random;
+using System;
+
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -21,12 +24,14 @@ public class WaveSpawner : MonoBehaviour
     public Text PotionText;
     public static int potionCount = 0;
     public GameObject potionButton;
-
+  
+   
     
     //public int addDetection;
 
     public static int waveNumber = 0;
-    [SerializeField]
+
+
     private void Update()
     {
 
@@ -37,6 +42,12 @@ public class WaveSpawner : MonoBehaviour
         {
             if (countdown <= 0f)
             {
+                if(MainMenu.isContinue)
+                {
+                   Debug.Log ("繼續遊戲");
+                   GetComponent<Save>().LoadingData();
+                    MainMenu.isContinue = false;
+                }
                 SpawnWave();
                 countdown = timeBetweenWaves;
             }
@@ -203,7 +214,7 @@ public class WaveSpawner : MonoBehaviour
         
         enemyPrefab[0].GetComponent<CharacterData>().Stats.baseStats.health += addHealth;
         enemyPrefab[0].GetComponent<CharacterData>().Stats.baseStats.attack += addAttack;
-        enemyPrefab[0].GetComponent<CharacterData>().Stats.baseStats.defense += addDefense;
+        enemyPrefab[0].GetComponent<CharacterData>().Stats.baseStats.defense += addDefense+2;
 
         enemyPrefab[1].GetComponent<CharacterData>().Stats.baseStats.health += addHealth;
         enemyPrefab[1].GetComponent<CharacterData>().Stats.baseStats.attack += addAttack;
@@ -218,11 +229,11 @@ public class WaveSpawner : MonoBehaviour
         enemyPrefab[3].GetComponent<CharacterData>().Stats.baseStats.defense += addDefense;
 
         //miniboss目前bigboss一樣, 未免重複計算先註解掉
-        /*
+        
         miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.health +=  addHealth;
-        miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.attack +=  addAttack;
+        miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.attack += (int)(addAttack * 1.2);
         miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.defense += addDefense;
-        */
+        
         bigBossPrefab.GetComponent<CharacterData>().Stats.baseStats.health += addHealth;
         bigBossPrefab.GetComponent<CharacterData>().Stats.baseStats.attack += (int)(addAttack * 1.2);
         bigBossPrefab.GetComponent<CharacterData>().Stats.baseStats.defense +=  addDefense;
@@ -230,9 +241,9 @@ public class WaveSpawner : MonoBehaviour
 
         if (waveNumber % 10 == 0)
         {
-            enemyPrefab[0].GetComponent<CharacterData>().Stats.baseStats.health = Mathf.FloorToInt(enemyPrefab[0].GetComponent<CharacterData>().Stats.baseStats.health * 1.2f);
-            enemyPrefab[0].GetComponent<CharacterData>().Stats.baseStats.attack = Mathf.FloorToInt(enemyPrefab[0].GetComponent<CharacterData>().Stats.baseStats.attack * 1.2f);
-            enemyPrefab[0].GetComponent<CharacterData>().Stats.baseStats.defense = Mathf.FloorToInt(enemyPrefab[0].GetComponent<CharacterData>().Stats.baseStats.defense * 1.2f);
+            enemyPrefab[0].GetComponent<CharacterData>().Stats.baseStats.health = Mathf.FloorToInt(enemyPrefab[0].GetComponent<CharacterData>().Stats.baseStats.health * 1.1f);
+            enemyPrefab[0].GetComponent<CharacterData>().Stats.baseStats.attack = Mathf.FloorToInt(enemyPrefab[0].GetComponent<CharacterData>().Stats.baseStats.attack * 1.1f);
+            enemyPrefab[0].GetComponent<CharacterData>().Stats.baseStats.defense = Mathf.FloorToInt(enemyPrefab[0].GetComponent<CharacterData>().Stats.baseStats.defense * 1.3f);
 
             enemyPrefab[1].GetComponent<CharacterData>().Stats.baseStats.health = Mathf.FloorToInt(enemyPrefab[1].GetComponent<CharacterData>().Stats.baseStats.health * 1.1f);
             enemyPrefab[1].GetComponent<CharacterData>().Stats.baseStats.attack = Mathf.FloorToInt(enemyPrefab[1].GetComponent<CharacterData>().Stats.baseStats.attack * 1.1f);
@@ -241,19 +252,19 @@ public class WaveSpawner : MonoBehaviour
             enemyPrefab[1].GetComponent<SimpleEnemyController>().Speed += 3;
 
             enemyPrefab[2].GetComponent<CharacterData>().Stats.baseStats.health = Mathf.FloorToInt(enemyPrefab[2].GetComponent<CharacterData>().Stats.baseStats.health * 1.1f);
-            enemyPrefab[2].GetComponent<CharacterData>().Stats.baseStats.attack = Mathf.FloorToInt(enemyPrefab[2].GetComponent<CharacterData>().Stats.baseStats.attack * 1.2f);
+            enemyPrefab[2].GetComponent<CharacterData>().Stats.baseStats.attack = Mathf.FloorToInt(enemyPrefab[2].GetComponent<CharacterData>().Stats.baseStats.attack * 1.3f);
             enemyPrefab[2].GetComponent<CharacterData>().Stats.baseStats.defense = Mathf.FloorToInt(enemyPrefab[2].GetComponent<CharacterData>().Stats.baseStats.defense * 1.1f);
 
             enemyPrefab[3].GetComponent<CharacterData>().Stats.baseStats.health = Mathf.FloorToInt(enemyPrefab[3].GetComponent<CharacterData>().Stats.baseStats.health * 1.1f);
-            enemyPrefab[3].GetComponent<CharacterData>().Stats.baseStats.attack = Mathf.FloorToInt(enemyPrefab[3].GetComponent<CharacterData>().Stats.baseStats.attack * 1.1f);
+            enemyPrefab[3].GetComponent<CharacterData>().Stats.baseStats.attack = Mathf.FloorToInt(enemyPrefab[3].GetComponent<CharacterData>().Stats.baseStats.attack * 1.2f);
             enemyPrefab[3].GetComponent<CharacterData>().Stats.baseStats.defense = Mathf.FloorToInt(enemyPrefab[3].GetComponent<CharacterData>().Stats.baseStats.defense * 1.1f);
             enemyPrefab[3].GetComponent<SimpleEnemyController>().bulletAmount+= 1;
            // enemyPrefab[3].GetComponent<SimpleEnemyController>().bulletForce += 10;
-            /*
-            miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.health = Mathf.FloorToInt(miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.health * 1.2f);
+            
+            miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.health = Mathf.FloorToInt(miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.health * 1.5f);
             miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.attack = Mathf.FloorToInt(miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.attack * 1.2f);
             miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.defense = Mathf.FloorToInt(miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.defense * 1.2f);
-            */
+            
             bigBossPrefab.GetComponent<CharacterData>().Stats.baseStats.health = Mathf.FloorToInt(bigBossPrefab.GetComponent<CharacterData>().Stats.baseStats.health * 1.5f);
             bigBossPrefab.GetComponent<CharacterData>().Stats.baseStats.attack = Mathf.FloorToInt(bigBossPrefab.GetComponent<CharacterData>().Stats.baseStats.attack * 1.2f);
             bigBossPrefab.GetComponent<CharacterData>().Stats.baseStats.defense = Mathf.FloorToInt(bigBossPrefab.GetComponent<CharacterData>().Stats.baseStats.defense * 1.2f);

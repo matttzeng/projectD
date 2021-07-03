@@ -23,10 +23,10 @@ public class PlayfabManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        login();
+       login();
     }
 
-    void login()
+   public  void login()
     {
         var request = new LoginWithCustomIDRequest
         {
@@ -44,7 +44,7 @@ public class PlayfabManager : MonoBehaviour
 
 
 
-    void OnSuccess(LoginResult result)
+     void OnSuccess(LoginResult result)
     {
         Debug.Log("Suceessful Login/Account create!");
 

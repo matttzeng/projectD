@@ -270,7 +270,7 @@ namespace ProjectDInternal
             Debug.Log(this.GetComponentInChildren<Transform>().name);
             //Debug.Log("打玩家");
             Vector3 shootPoint = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1.0f, gameObject.transform.position.z);
-            for (int i = 0; i < bulletAmount && i < 5; i++)
+            for (int i = 0; i < bulletAmount && i < 3; i++)
             {
                 GameObject rb = Instantiate(GetComponent<CharacterData>().StartingWeapon.WorldObjectPrefab, shootPoint, Quaternion.identity);
                 rb.GetComponent<Rigidbody>().useGravity = false;

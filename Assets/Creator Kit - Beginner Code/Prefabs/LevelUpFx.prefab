@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3317137113860023057}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
   m_Children:
   - {fileID: 379808708701292553}
   - {fileID: 3317137113859997495}
@@ -60,7 +60,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 0.7
+    scalar: 0
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -4798,7 +4798,7 @@ Transform:
   m_GameObject: {fileID: 3317137113860023059}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
   m_Children: []
   m_Father: {fileID: 3317137113859997489}
   m_RootOrder: 3
@@ -4826,7 +4826,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 0.7
+    scalar: 0
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -9488,7 +9488,7 @@ Transform:
   m_GameObject: {fileID: 3317137113860023061}
   m_LocalRotation: {x: 0.7071068, y: 0.00006170671, z: -0.00006170671, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
   m_Children: []
   m_Father: {fileID: 3317137113859997489}
   m_RootOrder: 2
@@ -9516,7 +9516,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 0.7
+    scalar: 0
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -14304,7 +14304,7 @@ Transform:
   m_GameObject: {fileID: 3317137113860023063}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
   m_Children: []
   m_Father: {fileID: 3317137113859997489}
   m_RootOrder: 1
@@ -14332,7 +14332,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 0.7
+    scalar: 0
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -19074,7 +19074,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &379808708701292553
 Transform:
   m_ObjectHideFlags: 0

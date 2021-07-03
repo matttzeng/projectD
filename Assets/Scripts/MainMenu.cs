@@ -4,24 +4,33 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 
 
-public class MainMenu : MonoBehaviour
+namespace ProjectD
 {
-    
- 
-    // Start is called before the first frame update
-
-  
-
-    public void PlayGame()
+    public class MainMenu : MonoBehaviour
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        public static bool isContinue;
+        // Start is called before the first frame update
+
+        
+
+        public void PlayGame()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        public void ContinueGame()
+        {
+            isContinue = true;
+            PlayGame();
+        }
+
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
+
+
+
     }
-
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
-
-
 
 }

@@ -122,6 +122,8 @@ namespace ProjectD
             int greenNum = 0;
             int blueNum = 0;
             int yellowNum = 0;
+            int purpleNum = 0;
+            int redNum = 0;
             int orangeNum = 0;
             bool isCombined = false;
             //int qualityCalculate = 0; 
@@ -139,37 +141,21 @@ namespace ProjectD
                     if (itemCount < 3)
                     {
 
-                        //Debug.Log("檢查點3" + Entries[j].Item.name+"  "+Entries[j].Item.itemQuality );
+                
 
                         if (Entries[j] != null && (Entries[j].Item as Weapon).Modifier.Stats.itemQuality == qualityIndex)
                         {
 
-                            Debug.Log("檢查點4");
-                            //itemDEL.Add(Entries[j]);
+                  
                             Array[itemCount] = j;
-                            //AddToList(itemDEL.Item);
-                            //UseItem(itemDEL);
-
-                            /*if ((Entries[j].Item as Weapon).Modifier.Stats.itemQuality == 0)
-                                qualityCalculate += Random.Range(0, 15);
-                            else if ((Entries[j].Item as Weapon).Modifier.Stats.itemQuality == 1)
-                                qualityCalculate += Random.Range(0, 30);
-                            else if ((Entries[j].Item as Weapon).Modifier.Stats.itemQuality == 2)
-                                qualityCalculate += Random.Range(31, 50);*/
-
-                            //Entries[j] = null;
+                           
                             itemCount++;
                         }
                     }
                     if (itemCount == 3)
                     {
                         isCombined = true;
-                        //Debug.Log("物品數量不足");
-                        //break;
-                        /*UnityEngine.Object.Destroy(itemDEL.IndexOf(InventoryEntry));
-                        itemDEL[1] = null;
-                        itemDEL[2] = null;
-                        itemDEL.Clear();*/
+                 
                         Entries[Array[0]] = null;
                         Entries[Array[1]] = null;
                         Entries[Array[2]] = null;
@@ -182,12 +168,7 @@ namespace ProjectD
 
                         float qualityRandom = Random.Range(0, 100);
 
-                        /*if (qualityCalculate > 30 && qualityCalculate <= 80)
-                            itemCombine.Modifier.Stats.itemQuality = 1;
-                        else if (qualityCalculate > 80)
-                            itemCombine.Modifier.Stats.itemQuality = 2;*/
-
-                        //Debug.Log("合成計算:" + qualityCalculate);
+        
 
                         //白裝合成升綠裝機率
                         if (qualityRandom > 50 && qualityIndex == 0)
@@ -220,9 +201,28 @@ namespace ProjectD
                         {
                             itemCombine.Modifier.Stats.itemQuality = 4;
 
-                            orangeNum++;
-                            yellowNum -= orangeNum;
+                            purpleNum++;
+                            yellowNum -= purpleNum;
                         }
+
+                        if (qualityRandom > 80 && qualityIndex == 4)
+                        {
+                            itemCombine.Modifier.Stats.itemQuality = 5;
+
+                            orangeNum++;
+                            purpleNum -= orangeNum;
+                        }
+
+
+                        if (qualityRandom > 80 && qualityIndex == 5)
+                        {
+                            itemCombine.Modifier.Stats.itemQuality = 6;
+
+                            redNum++;
+                            orangeNum -= redNum;
+                        }
+
+
 
 
 
@@ -254,19 +254,23 @@ namespace ProjectD
                 if (yellowNum >= 1)
                     combineResult += yellowNum + "yellow item get ";
                 if (orangeNum >= 1)
-                    combineResult += orangeNum + "gold item get ";
-                Debug.Log("禾埕1");
+                    combineResult += orangeNum + "purple item get !";
+                if (orangeNum >= 1)
+                    combineResult += orangeNum + "Orange item get !! ";
+                if (orangeNum >= 1)
+                    combineResult += orangeNum + "Red item get !!!";
+
 
             }
             else if(isCombined == true)
             {
                 combineResult = "Combine failure";
-                Debug.Log("禾埕2");
+              
             }
             else
             {
                 combineResult = "Not enough items\nNeed 3 same quality items";
-                Debug.Log("禾埕3");
+          
             }
 
             

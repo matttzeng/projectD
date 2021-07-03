@@ -111,6 +111,12 @@ namespace ProjectD
                 desc += $"Quality : Blue\n";
             if (Modifier.Stats.itemQuality == 3)
                 desc += $"Quality : Yellow\n";
+            if (Modifier.Stats.itemQuality == 4)
+                desc += $"Quality : Purple\n";
+            if (Modifier.Stats.itemQuality == 5)
+                desc += $"Quality : Orange\n";
+            if (Modifier.Stats.itemQuality == 6)
+                desc += $"Quality : Red\n";
             /*
             
             if (Modifier.Stats.strength != 0)
