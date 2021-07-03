@@ -105,9 +105,7 @@ namespace ProjectDInternal
             level = new Level(1, OnLevelUp);
             m_StatsPoint = new StatsPoint();
 
-            m_LevelUpInstance = VFXManager.GetVFX(VFXType.LevelUp);
-            m_LevelUpInstance.Effect.SetActive(false);
-
+          
 
             QualitySettings.vSyncCount = 0;
             Application.targetFrameRate = 60;
@@ -239,9 +237,8 @@ namespace ProjectDInternal
             m_CharacterData.Stats.AddModifier(modifier);
 
 
-            //m_LevelUpInstance = VFXManager.GetVFX(VFXType.LevelUp);
-            //m_LevelUpInstance.Effect.transform.position = this.transform.position;
-            m_LevelUpInstance.Effect.SetActive(true);
+            m_LevelUpInstance = VFXManager.GetVFX(VFXType.LevelUp);
+            m_LevelUpInstance.Effect.transform.position = this.transform.position;
 
             // m_LevelUpInstance = VFXManager.GetVFX(VFXType.LevelUp);
             //m_LevelUpInstance.Effect.transform.position =  this.transform.position;
@@ -268,14 +265,9 @@ namespace ProjectDInternal
             Speed =   (float)stats.moveSpeed/1.5f;
 
 
+          
 
-            if((m_LevelUpInstance.Effect as GameObject).activeInHierarchy)
-            {
-                m_LevelUpInstance.Effect.transform.position = this.transform.position;
-                Debug.Log((m_LevelUpInstance.Effect as GameObject).activeInHierarchy);
-
-            }
-                
+           
 
             
 
