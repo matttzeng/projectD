@@ -105,9 +105,9 @@ namespace ProjectD
                 if (modifier.Stats.randomvalue == true)
                 {
                   //物品掉落等級
-                    int v = WaveSpawner.waveNumber/5 > 4 ?  4 : WaveSpawner.waveNumber/5;
+                    //int v = WaveSpawner.waveNumber/5 > 4 ?  4 : WaveSpawner.waveNumber/5;
 
-                    modifier.Stats.itemQuality = (int)UnityEngine.Random.Range(  0f, v);
+                    //modifier.Stats.itemQuality = (int)UnityEngine.Random.Range(  0f, v);
 
                     float floor = modifier.Stats.itemQuality / 3f;
                     //float ceiling = (modifier.Stats.itemQuality + 1) / 3f;

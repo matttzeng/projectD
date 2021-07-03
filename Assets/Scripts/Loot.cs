@@ -120,6 +120,10 @@ namespace ProjectD
             {
                 Item = Item.Clone();
                 Item.ItemName = Item.name;
+                //掉落隨關卡增加武器階級
+                int v = WaveSpawner.waveNumber / 5 > 4 ? 4 : WaveSpawner.waveNumber / 5;
+                (Item as EquipmentItem).Modifier.Stats.itemQuality = (int)UnityEngine.Random.Range(0f, v);
+
                 var obj = Instantiate(Item.WorldObjectPrefab, transform, false);
                 obj.transform.localPosition = Vector3.zero;
                 obj.layer = LayerMask.NameToLayer("Interactable");
