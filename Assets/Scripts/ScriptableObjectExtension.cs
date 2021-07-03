@@ -18,7 +18,7 @@ public static class ScriptableObjectExtension
         T instance = Object.Instantiate(scriptableObject);
 
        
-        instance.name = scriptableObject.name + UnityEngine.Random.Range(0, 10000); // remove (Clone) from name
+        instance.name = scriptableObject.name; // remove (Clone) from name
         return instance;
     }
 }

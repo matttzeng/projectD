@@ -58,6 +58,9 @@ namespace ProjectDInternal
         float xDirection;
         float zDirection;
 
+        public Sprite[] StartSprite;
+        public GameObject[] StartWorldObject;
+
         float detecttionRadius;
 
         int m_InteractableLayer;
@@ -143,10 +146,42 @@ namespace ProjectDInternal
                 string jsonString = PlayerPrefs.GetString("LastWeapon");
                 JsonUtility.FromJsonOverwrite(jsonString, lastWeapon);
 
-                Debug.Log("讀武器2" + lastWeapon.ItemName);
-
-
+                if (lastWeapon.ItemName == "weapon01")
+                {
+                    lastWeapon.ItemSprite = StartSprite[0];
+                    lastWeapon.WorldObjectPrefab = StartWorldObject[0];
                     m_CharacterData.StartingWeapon = lastWeapon;
+                }
+
+                else if (lastWeapon.ItemName == "weapon02")
+                {
+                    lastWeapon.ItemSprite = StartSprite[1];
+                    lastWeapon.WorldObjectPrefab = StartWorldObject[1];
+                    m_CharacterData.StartingWeapon = lastWeapon;
+                }
+
+                else if (lastWeapon.ItemName == "weapon03")
+                {
+                    lastWeapon.ItemSprite = StartSprite[2];
+                    lastWeapon.WorldObjectPrefab = StartWorldObject[2];
+                    m_CharacterData.StartingWeapon = lastWeapon;
+                }
+
+                else if (lastWeapon.ItemName == "Bossweapon01")
+                {
+                    lastWeapon.ItemSprite = StartSprite[3];
+                    lastWeapon.WorldObjectPrefab = StartWorldObject[3];
+                    m_CharacterData.StartingWeapon = lastWeapon;
+                }
+
+                else
+                    return;
+
+
+                //Debug.Log("讀武器2" + lastWeapon.ItemName);
+
+
+                    //m_CharacterData.StartingWeapon = lastWeapon;
        
             }
 
@@ -239,9 +274,10 @@ namespace ProjectDInternal
             m_CharacterData.Stats.AddModifier(modifier);
 
 
-            //m_LevelUpInstance = VFXManager.GetVFX(VFXType.LevelUp);
+            m_LevelUpInstance = VFXManager.GetVFX(VFXType.LevelUp);
             //m_LevelUpInstance.Effect.transform.position = this.transform.position;
-            m_LevelUpInstance.Effect.SetActive(true);
+            //m_LevelUpInstance.Effect.SetActive(true);
+            //m_LevelUpInstance.Effect.transform.position = this.transform.position;
 
             // m_LevelUpInstance = VFXManager.GetVFX(VFXType.LevelUp);
             //m_LevelUpInstance.Effect.transform.position =  this.transform.position;
@@ -269,11 +305,9 @@ namespace ProjectDInternal
 
 
 
-            if((m_LevelUpInstance.Effect as GameObject).activeInHierarchy)
+            if(m_LevelUpInstance.Effect.activeInHierarchy)
             {
                 m_LevelUpInstance.Effect.transform.position = this.transform.position;
-                Debug.Log((m_LevelUpInstance.Effect as GameObject).activeInHierarchy);
-
             }
                 
 

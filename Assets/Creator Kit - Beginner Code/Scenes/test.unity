@@ -24748,6 +24748,16 @@ MonoBehaviour:
   SpurSoundClips: []
   autoMode: 0
   interactRadius: 3
+  StartSprite:
+  - {fileID: 21300000, guid: c8d792fc2bc492f48a895ddbaf41fa63, type: 3}
+  - {fileID: 21300000, guid: 9b0a0c5313efba1498b6d78266102451, type: 3}
+  - {fileID: 21300000, guid: 1050689e0b771c44bb3616aac4142bf6, type: 3}
+  - {fileID: 21300000, guid: cd541d29126edfc49a8a63ea22c689ae, type: 3}
+  StartWorldObject:
+  - {fileID: 1090382368684441554, guid: 5336fad12ebea534987acfeac51fdc1a, type: 3}
+  - {fileID: 359469582963428527, guid: 669409aadc3be9241996e74c712fa99b, type: 3}
+  - {fileID: 1006753614390398824, guid: 6204886f64a997b409912e13a6b9be9e, type: 3}
+  - {fileID: 1006753614390398824, guid: dded05a5060844c4b9efe1e7cdac50bb, type: 3}
 --- !u!114 &1276781333
 MonoBehaviour:
   m_ObjectHideFlags: 0
