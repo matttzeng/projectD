@@ -1532,6 +1532,7 @@ MonoBehaviour:
   skillInterval: 3
   skillDelay: 5
   bulletForce: 50
+  dashSpeed: 20
   skillPoint: {fileID: 4151486517033604241, guid: 11672226d5949cd448092b09e3516b7b,
     type: 3}
   SpottedAudioClip: []
@@ -2169,7 +2170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackFrameReceiver: {fileID: -7902931198216172706}
   FootstepFrameReceiver: {fileID: -7902931198216172706}
-  SkillFrameReceiver: {fileID: 0}
+  SkillFrameReceiver: {fileID: -7902931198216172706}
 --- !u!1 &7378400831652923486
 GameObject:
   m_ObjectHideFlags: 0

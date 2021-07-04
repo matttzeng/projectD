@@ -22,7 +22,7 @@ namespace ProjectDInternal {
         public float skillInterval;
         public float skillDelay;
         public float bulletForce;
-        public float dashSpeed;
+        public float dashSpeed = 20f;
         public Transform skillPoint;
 
         public AudioClip[] SpottedAudioClip;
@@ -384,7 +384,7 @@ namespace ProjectDInternal {
                     //gameObject.GetComponent<Rigidbody>().isKinematic = true;
                     Debug.Log(transform.forward * bulletForce);
                     gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * dashSpeed, ForceMode.Impulse);
-                    Invoke("Stop", 1.5f);
+                    Invoke("Stop", 3.0f);
                 }
             }
             //旋風斬
@@ -396,7 +396,7 @@ namespace ProjectDInternal {
                     m_Animator.SetTrigger(m_whirlwindAnimHash);
                     if (!gameObject.GetComponent<Rigidbody>())
                         gameObject.AddComponent<Rigidbody>();
-                    gameObject.GetComponent<Rigidbody>().mass = 10000;
+                    gameObject.GetComponent<Rigidbody>().mass = 300;
                     //gameObject.GetComponent<Rigidbody>().isKinematic = true;
                     gameObject.GetComponent<BoxCollider>().size = new Vector3(7, 2, 7);
                     //gameObject.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 999f, 0);

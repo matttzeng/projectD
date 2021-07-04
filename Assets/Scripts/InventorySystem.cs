@@ -130,7 +130,7 @@ namespace ProjectD
             //int[] Array = new int[3];
 
             //qualityIndex: 白裝0, 綠裝1, 藍裝2
-            for (int qualityIndex = 3; qualityIndex>=0; qualityIndex--)
+            for (int qualityIndex = 5; qualityIndex>=0; qualityIndex--)
             {
                
                 int[] Array = new int[3];
@@ -253,7 +253,7 @@ namespace ProjectD
                     combineResult += blueNum + "blue item get ";
                 if (yellowNum >= 1)
                     combineResult += yellowNum + "yellow item get ";
-                if (orangeNum >= 1)
+                if (purpleNum >= 1)
                     combineResult += orangeNum + "purple item get !";
                 if (orangeNum >= 1)
                     combineResult += orangeNum + "Orange item get !! ";

@@ -42,12 +42,23 @@ public class WaveSpawner : MonoBehaviour
         {
             if (countdown <= 0f)
             {
+              
                 if(MainMenu.isContinue)
                 {
                    Debug.Log ("Ä~Äò¹CÀ¸");
                    GetComponent<Save>().LoadingData();
                     MainMenu.isContinue = false;
+
+                    int i = waveNumber;
+                    for (waveNumber = 0; waveNumber < i; waveNumber++)
+                        EnemyGrowth();
+                    if(waveNumber>0)
+                         waveNumber -= 1;
+
+
+
                 }
+                
                 SpawnWave();
                 countdown = timeBetweenWaves;
             }
@@ -264,7 +275,8 @@ public class WaveSpawner : MonoBehaviour
             miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.health = Mathf.FloorToInt(miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.health * 1.5f);
             miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.attack = Mathf.FloorToInt(miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.attack * 1.2f);
             miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.defense = Mathf.FloorToInt(miniBossPrefab.GetComponent<CharacterData>().Stats.baseStats.defense * 1.2f);
-            
+            miniBossPrefab.GetComponent<BossEnemyController>().dashSpeed += 6f;
+
             bigBossPrefab.GetComponent<CharacterData>().Stats.baseStats.health = Mathf.FloorToInt(bigBossPrefab.GetComponent<CharacterData>().Stats.baseStats.health * 1.5f);
             bigBossPrefab.GetComponent<CharacterData>().Stats.baseStats.attack = Mathf.FloorToInt(bigBossPrefab.GetComponent<CharacterData>().Stats.baseStats.attack * 1.2f);
             bigBossPrefab.GetComponent<CharacterData>().Stats.baseStats.defense = Mathf.FloorToInt(bigBossPrefab.GetComponent<CharacterData>().Stats.baseStats.defense * 1.2f);
@@ -294,7 +306,7 @@ public class WaveSpawner : MonoBehaviour
             bigBossPrefab.GetComponent<BossEnemyController>().bulletAmount = 1;
             bigBossPrefab.GetComponent<BossEnemyController>().Speed = 4;
             bigBossPrefab.GetComponent<BossEnemyController>().skillDelay = 5f;
-            bigBossPrefab.GetComponent<BossEnemyController>().dashSpeed = 15f;
+            bigBossPrefab.GetComponent<BossEnemyController>().dashSpeed = 20f;
         }
 
     }

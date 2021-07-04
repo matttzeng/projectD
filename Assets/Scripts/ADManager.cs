@@ -121,7 +121,7 @@ public class ADManager : MonoBehaviour,IUnityAdsListener
     
         if (bannerOn)
         {
-            Advertisement.Banner.SetPosition(BannerPosition.CENTER);
+            Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
 
             Advertisement.Banner.Show();
            
