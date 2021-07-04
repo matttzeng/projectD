@@ -87,6 +87,9 @@ public class Save : MonoBehaviour
         Debug.Log("¨r¿…");
        
         string json =  PlayerPrefs.GetString("SaveData");
+        if (json == "")
+            return;
+
         Debug.Log("¨r¿…1"+json);
         SaveData loaddata =   JsonUtility.FromJson<SaveData>(json);
 

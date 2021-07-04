@@ -55,6 +55,8 @@ namespace ProjectDInternal
         bool m_IsKO = false;
         float m_KOTimer = 0.0f;
 
+        float collisionTime = 0;
+
         float xDirection;
         float zDirection;
 
@@ -257,7 +259,22 @@ namespace ProjectDInternal
                 collision.gameObject.GetComponent<BossEnemyController>().m_CharacterData.Attack(m_CharacterData);
             }
         }
-       
+
+        public void OnCollisionStay(Collision collision)
+        {
+            if (collision.gameObject.GetComponent<BossEnemyController>())
+            {
+                collisionTime += Time.deltaTime;
+
+                if(collisionTime >= 0.3)
+                {
+                    collision.gameObject.GetComponent<BossEnemyController>().m_CharacterData.Attack(m_CharacterData);
+                    collisionTime = 0;
+                }
+            }
+        }
+
+
         public void OnLevelUp()
         {
             m_CharacterData.Stats.stats.statsPoint += 1;

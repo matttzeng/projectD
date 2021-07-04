@@ -81,6 +81,7 @@ namespace ProjectDInternal {
             {
                 m_Animator.SetTrigger(m_HitAnimHash);
                 m_CharacterAudio.Hit(transform.position);
+                detectionRadius = 30;
             };
         
             m_Agent.speed = Speed;
