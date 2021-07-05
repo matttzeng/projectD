@@ -150,11 +150,11 @@ namespace ProjectDInternal
                 }
                 if ((EquipmentItem as Weapon).Modifier.Stats.itemQuality == 1)
                 {
-                    OutlineColor.color = Color.green;
+                    OutlineColor.color = new Color(0, 0.8f, 0);
                 }
                 if ((EquipmentItem as Weapon).Modifier.Stats.itemQuality == 2)
                 {
-                    OutlineColor.color =new Color(0,105,225);
+                    OutlineColor.color =new Color(0, 0.4f, 1.0f);
                 }
                 if ((EquipmentItem as Weapon).Modifier.Stats.itemQuality == 3)
                 {
@@ -162,15 +162,15 @@ namespace ProjectDInternal
                 }
                 if ((EquipmentItem as Weapon).Modifier.Stats.itemQuality == 4)
                 {
-                    OutlineColor.color =new Color(160,0,255);
+                    OutlineColor.color =new Color(0.7f, 0.2f, 0.8f);
                 }
                 if ((EquipmentItem as Weapon).Modifier.Stats.itemQuality == 5)
                 {
-                    OutlineColor.color =new Color(255, 114, 0);
+                    OutlineColor.color = new Color(0.9f, 0.6f, 0);
                 }
                 if ((EquipmentItem as Weapon).Modifier.Stats.itemQuality == 6)
                 {
-                    OutlineColor.color = Color.red;
+                    OutlineColor.color = new Color(0.8f, 0.2f, 0.2f);
                 }
             }
         }

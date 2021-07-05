@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
         if(gameEnded== false)
         {
             gameEnded = true;
+            if (PlayerPrefs.GetString("highscoreTable") == "")
+                HighscoreTable.GetComponent<HighscoreTable>(). DeleteSaves();
             GameOverUI .SetActive(true);
             PlayUI.SetActive(false);
 

@@ -361,6 +361,7 @@ namespace ProjectDInternal
                 VFXManager.PlayVFX3(VFXType.Healing, data.transform.position);
                 WaveSpawner.potionCount = 10;
                 potionButton.SetActive(false);
+                
                 //WaveSpawner.PotionText.text = WaveSpawner.potionCount.ToString();
             }
             

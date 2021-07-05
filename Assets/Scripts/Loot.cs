@@ -121,7 +121,9 @@ namespace ProjectD
                 Item = Item.Clone();
                 //Item.ItemName = Item.name;
                 //掉落隨關卡增加武器階級
-                int v = WaveSpawner.waveNumber / 5 > 6 ? 6 : WaveSpawner.waveNumber / 5;
+
+                //物品掉落等級
+                int v = WaveSpawner.waveNumber / 20 > 6 ? 6 : WaveSpawner.waveNumber / 20;
                 (Item as EquipmentItem).Modifier.Stats.itemQuality = (int)UnityEngine.Random.Range(0f, v);
 
                 var obj = Instantiate(Item.WorldObjectPrefab, transform, false);

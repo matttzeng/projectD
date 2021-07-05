@@ -132,14 +132,18 @@ namespace ProjectD
                 desc += $"Atk : {Modifier.Stats.attack:+0;-#}{unit}\n";
             if (Modifier.Stats.skill != 0)
                 desc += $"Skill : {Modifier.Stats.skill:+0;-#}{unit}\n";
+            if (Modifier.Stats.skillRange != 0)
+                desc += $"SkillRange : {Modifier.Stats.skillRange:+0;-#}{unit}\n";
+            if (Modifier.Stats.skillRange != 0)
+                desc += $"SkillSpeed : {Modifier.Stats.skillSpeed:+0;-#}{unit}\n";
             if (Modifier.Stats.moveSpeed != 0)
+
                 desc += $"MoveSpeed : {Modifier.Stats.moveSpeed:+0;-#}{unit}\n";
             if (Modifier.Stats.attackSpeed != 0)
                 desc += $"AtkSpeed : {Modifier.Stats.attackSpeed:+0;-#}{unit}\n";
             if (Modifier.Stats.attackRange != 0)
                 desc += $"AtkRange : {Modifier.Stats.attackRange:+0;-#}{unit}\n";
-            if (Modifier.Stats.skillRange != 0)
-                desc += $"SkillRange : {Modifier.Stats.skillRange:+0;-#}{unit}\n";
+          
             if (Modifier.Stats.crit != 0)
                 desc += $"Crit : {Modifier.Stats.crit:+0;-#}{unit}\n";
 
