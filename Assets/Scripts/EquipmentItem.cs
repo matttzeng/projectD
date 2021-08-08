@@ -134,7 +134,7 @@ namespace ProjectD
                 desc += $"Skill : {Modifier.Stats.skill:+0;-#}{unit}\n";
             if (Modifier.Stats.skillRange != 0)
                 desc += $"SkillRange : {Modifier.Stats.skillRange:+0;-#}{unit}\n";
-            if (Modifier.Stats.skillRange != 0)
+            if (Modifier.Stats.skillSpeed != 0)
                 desc += $"SkillSpeed : {Modifier.Stats.skillSpeed:+0;-#}{unit}\n";
             if (Modifier.Stats.moveSpeed != 0)
 

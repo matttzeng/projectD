@@ -1556,7 +1556,7 @@ MonoBehaviour:
     baseStats:
       randomvalue: 0
       itemQuality: 0
-      health: 500
+      health: 400
       strength: 0
       defense: 10
       agility: 0
@@ -1577,11 +1577,11 @@ MonoBehaviour:
     initStats:
       randomvalue: 0
       itemQuality: 0
-      health: 500
+      health: 250
       strength: 0
       defense: 10
       agility: 0
-      attack: 10
+      attack: 2
       skill: 0
       moveSpeed: 0
       attackSpeed: 0
